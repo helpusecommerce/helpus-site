@@ -7,5 +7,5 @@ git commit -m "Atualizacao automatica"
 echo Enviando para o GitHub...
 git push origin main
 echo.
-echo ✅ Codigo enviado com sucesso!
+echo - Codigo enviado com sucesso!
 pause
