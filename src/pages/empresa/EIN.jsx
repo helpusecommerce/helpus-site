@@ -1,0 +1,1 @@
+export default function EIN() { return <div className="p-4">Obtenção de EIN</div>; }

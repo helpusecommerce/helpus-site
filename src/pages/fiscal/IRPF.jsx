@@ -1,0 +1,1 @@
+export default function IRPF() { return <div className="p-4">Imposto de Renda Pessoa Física</div>; }
