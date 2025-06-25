@@ -1,1 +1,0 @@
-export default function LLC() { return <div className="p-4">Abertura de LLC</div>; }
