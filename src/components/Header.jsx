@@ -1,30 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-const Header = () => {
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-blue-800">
-          HelpUS
+    <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-md z-50">
+      <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-bold">
+          Help<span className="text-blue-500">US</span>
         </Link>
-        <nav className="space-x-6">
-          <Link to="/" className="text-gray-700 hover:text-blue-800 font-medium">
-            Início
-          </Link>
-          <Link to="/servicos" className="text-gray-700 hover:text-blue-800 font-medium">
-            Serviços
-          </Link>
-          <Link to="/sobre" className="text-gray-700 hover:text-blue-800 font-medium">
-            Sobre
-          </Link>
-          <Link to="/contato" className="text-gray-700 hover:text-blue-800 font-medium">
-            Contato
-          </Link>
+
+        {/* Menu desktop */}
+        <nav className="hidden md:flex gap-6 text-sm">
+          <Link to="/" className="hover:text-blue-400 transition">Início</Link>
+          <Link to="/servicos" className="hover:text-blue-400 transition">Serviços</Link>
+          <Link to="/sobre" className="hover:text-blue-400 transition">Sobre</Link>
+          <Link to="/contato" className="hover:text-blue-400 transition">Contato</Link>
         </nav>
+
+        {/* Botão menu mobile */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-xl"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
+
+      {/* Menu mobile */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-800 px-6 py-4 space-y-3">
+          <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Início</Link>
+          <Link to="/servicos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Serviços</Link>
+          <Link to="/sobre" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Sobre</Link>
+          <Link to="/contato" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Contato</Link>
+        </div>
+      )}
     </header>
   );
-};
-
-export default Header;
+}
