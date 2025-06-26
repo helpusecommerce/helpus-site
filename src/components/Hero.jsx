@@ -1,59 +1,69 @@
-// Hero.jsx (com scroll, digitação e entrada animada)
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowDown } from 'react-icons/fa';
+import { FaPassport, FaBuilding, FaFileInvoiceDollar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const scrollToServicos = () => {
-    const section = document.getElementById('servicos');
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const mensagens = [
-    'Transformamos sua Jornada para os EUA',
-    'Vistos, Empresas e Impostos com confiança',
-    'Apoio completo para viver e empreender nos EUA'
-  ];
-
-  const [texto, setTexto] = useState('');
-  const [indice, setIndice] = useState(0);
-  const [letra, setLetra] = useState(0);
-
-  useEffect(() => {
-    const escrever = setTimeout(() => {
-      if (letra < mensagens[indice].length) {
-        setTexto((prev) => prev + mensagens[indice][letra]);
-        setLetra((prev) => prev + 1);
-      } else {
-        setTimeout(() => {
-          setTexto('');
-          setLetra(0);
-          setIndice((prev) => (prev + 1) % mensagens.length);
-        }, 2000);
-      }
-    }, 80);
-    return () => clearTimeout(escrever);
-  }, [letra, indice]);
-
   return (
-    <section
-      className="min-h-screen bg-cover bg-center text-white flex items-center justify-center px-4 relative"
-      style={{ backgroundImage: 'url(/bg-hero.jpg)' }}
-    >
-      <div className="absolute inset-0 bg-black/50"></div>
-      <div className="relative text-center max-w-2xl z-10" data-aos="fade-in">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight min-h-[4rem]">
-          {texto}<span className="animate-pulse">|</span>
-        </h1>
-        <p className="text-lg text-gray-200 mb-6" data-aos="fade-up">
-          Atendimento completo e confiável, onde você estiver.
-        </p>
-        <button
-          onClick={scrollToServicos}
-          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300"
+    <section className="bg-white pt-8 pb-16 px-4 text-center">
+      <div className="max-w-5xl mx-auto">
+
+        {/* Título com animação */}
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-blue-800 mb-4 leading-tight"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          Conheça nossos serviços <FaArrowDown />
-        </button>
+          Soluções completas para viver,<br /> empreender e declarar nos EUA
+        </motion.h1>
+
+        {/* Subtítulo */}
+        <motion.p
+          className="text-lg text-gray-600 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          Consultoria especializada em vistos, abertura de empresas e documentação fiscal americana – tudo em português.
+        </motion.p>
+
+        {/* Botões com animação em grupo */}
+        <motion.div
+          className="flex flex-col md:flex-row justify-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Link
+            to="/servicos/vistos"
+            className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded transition text-sm md:text-base"
+          >
+            <FaPassport /> Vistos Americanos
+          </Link>
+          <Link
+            to="/servicos/empresa"
+            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded transition text-sm md:text-base"
+          >
+            <FaBuilding /> Abertura de Empresa
+          </Link>
+          <Link
+            to="/servicos/fiscal"
+            className="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded transition text-sm md:text-base"
+          >
+            <FaFileInvoiceDollar /> Impostos e Documentos
+          </Link>
+        </motion.div>
+
+        {/* Imagem final com fade-in */}
+        <motion.img
+          src="/bg-hero.jpg"
+          alt="Profissional HelpUS"
+          className="rounded-lg shadow-md w-full max-h-[440px] object-cover mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        />
       </div>
     </section>
   );

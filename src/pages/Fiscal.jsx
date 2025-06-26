@@ -1,26 +1,31 @@
-// Fiscal.jsx (corrigido com href interpolado)
+// Fiscal.jsx (com links para cada serviço)
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const fiscal = [
   {
     nome: 'Declaração de Imposto (Pessoa Física)',
-    preco: 'R$ 199,00',
-    descricao: 'Preenchimento completo do formulário 1040 com deduções e anexos.'
+    preco: '$39.00',
+    descricao: 'Preenchimento completo do formulário 1040 com deduções e anexos.',
+    rota: '/servicos/fiscal/declaracao'
   },
   {
     nome: 'Schedule C + SE para autônomos',
-    preco: 'R$ 149,00',
-    descricao: 'Relatórios detalhados com lucro líquido, deduções e impostos de autônomo.'
+    preco: '$29.00',
+    descricao: 'Relatórios detalhados com lucro líquido, deduções e impostos de autônomo.',
+    rota: '/servicos/fiscal/schedule-c-se'
   },
   {
     nome: 'Declaração com dependente (Child Tax Credit)',
-    preco: 'R$ 99,00',
-    descricao: 'Inclusão de dependente para benefício de até $2.000 por criança qualificada.'
+    preco: '$19.00',
+    descricao: 'Inclusão de dependente para benefício de até $2.000 por criança qualificada.',
+    rota: '/servicos/fiscal/child-tax-credit'
   },
   {
     nome: 'Relatórios e documentos fiscais diversos',
     preco: 'Sob consulta',
-    descricao: 'Preparamos qualquer outro documento fiscal sob demanda.'
+    descricao: 'Preparamos qualquer outro documento fiscal sob demanda.',
+    rota: '/servicos/fiscal/documentos-diversos'
   }
 ];
 
@@ -39,7 +44,9 @@ export default function Fiscal() {
               data-aos="fade-up"
             >
               <div>
-                <h3 className="text-xl font-semibold text-blue-700 mb-2">{item.nome}</h3>
+                <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                  <Link to={item.rota} className="hover:underline">{item.nome}</Link>
+                </h3>
                 <p className="text-gray-600 text-sm mb-4">{item.descricao}</p>
               </div>
               <div className="mt-4 flex flex-col gap-2">
@@ -67,4 +74,3 @@ export default function Fiscal() {
     </section>
   );
 }
-

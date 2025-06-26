@@ -1,45 +1,101 @@
-const vistos = [
-  {
-    nome: 'Visto de Turista (B1/B2)',
-    preco: 'R$ 149,00',
-    descricao: 'Preenchimento do formulário DS-160, orientações de documentos e agendamento.',
-    rota: '/servicos/vistos/b1b2'
-  },
-  {
-    nome: 'Visto de Estudante (F1/F2)',
-    preco: 'R$ 199,00',
-    descricao: 'Formulários, agendamento, SEVIS, DS-160 e orientações personalizadas.',
-    rota: '/servicos/vistos/f1'
-  },
-  {
-    nome: 'Visto de Trabalho (EB1A, EB2-NIW, H1B)',
-    preco: 'R$ 349,00',
-    descricao: 'Análise de perfil, preenchimento de petições, orientações e estratégia de aplicação.',
-    rota: '/servicos/vistos/eb2niw'
-  },
-  {
-    nome: 'Renovação de Visto',
-    preco: 'R$ 119,00',
-    descricao: 'Atualização de dados, novo DS-160 e agendamento se necessário.',
-    rota: '/servicos/vistos/renovacao'
-  },
-  {
-    nome: 'Visto Familiar (pais, cônjuges, filhos)',
-    preco: 'R$ 139,00',
-    descricao: 'Vistos para membros da família acompanhando titular ou aplicando separadamente.',
-    rota: '/servicos/vistos/familia'
-  },
-  {
-    nome: 'Casos Especiais (waiver, deportação, extensões)',
-    preco: 'Sob consulta',
-    descricao: 'Consultoria especializada para casos fora do padrão.',
-    rota: '/servicos/vistos/casos-especiais'
-  },
-  {
-    nome: 'Documentos Complementares',
-    preco: 'Sob consulta',
-    descricao: 'I-134, cartas de suporte, declarações, formulários auxiliares.',
-    rota: '/servicos/vistos/complementares'
-  }
-];
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Footer from './components/Footer';
 
+// Páginas principais
+import Home from './pages/Home';
+import Servicos from './pages/Servicos';
+import Sobre from './pages/Sobre';
+import Contato from './pages/Contato';
+
+// Categorias
+import Empresa from './pages/Empresa';
+import Fiscal from './pages/Fiscal';
+import Vistos from './pages/Vistos';
+
+// Vistos
+import F1 from './pages/servicos/vistos/F1';
+import F2 from './pages/servicos/vistos/F2';
+import B1B2 from './pages/servicos/vistos/B1B2';
+import EB2NIW from './pages/servicos/vistos/EB2NIW';
+import EB1A from './pages/servicos/vistos/EB1A';
+import Familia from './pages/servicos/vistos/Familia';
+import Renovacao from './pages/servicos/vistos/Renovacao';
+import CasosEspeciais from './pages/servicos/vistos/CasosEspeciais';
+import Complementares from './pages/servicos/vistos/Complementares';
+import OutrosTrabalho from './pages/servicos/vistos/OutrosTrabalho';
+
+// Fiscal
+import IRPF from './pages/servicos/fiscal/IRPF';
+import ScheduleC from './pages/servicos/fiscal/ScheduleC';
+import Dependentes from './pages/servicos/fiscal/Dependentes';
+import Formularios from './pages/servicos/fiscal/Formularios';
+import Envio from './pages/servicos/fiscal/Envio';
+
+// Empresa
+import AberturaLLC from './pages/servicos/empresa/AberturaLLC';
+import EnderecoFiscal from './pages/servicos/empresa/EnderecoFiscal';
+import OperatingAgreement from './pages/servicos/empresa/OperatingAgreement';
+import ITIN from './pages/servicos/empresa/ITIN';
+import W7 from './pages/servicos/empresa/W7';
+
+// Animação
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+  return (
+    <Router>
+      <div className="pt-4 md:pt-8 flex flex-col min-h-screen scroll-smooth">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            {/* Páginas principais */}
+            <Route path="/" element={<Home />} />
+            <Route path="/servicos" element={<Servicos />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/contato" element={<Contato />} />
+
+            {/* Empresa */}
+            <Route path="/servicos/empresa" element={<Empresa />} />
+            <Route path="/servicos/empresa/abertura" element={<AberturaLLC />} />
+            <Route path="/servicos/empresa/endereco-fiscal" element={<EnderecoFiscal />} />
+            <Route path="/servicos/empresa/operating-agreement" element={<OperatingAgreement />} />
+            <Route path="/servicos/empresa/itin" element={<ITIN />} />
+            <Route path="/servicos/empresa/w7" element={<W7 />} />
+
+            {/* Fiscal */}
+            <Route path="/servicos/fiscal" element={<Fiscal />} />
+            <Route path="/servicos/fiscal/declaracao" element={<IRPF />} />
+            <Route path="/servicos/fiscal/schedule-c-se" element={<ScheduleC />} />
+            <Route path="/servicos/fiscal/child-tax-credit" element={<Dependentes />} />
+            <Route path="/servicos/fiscal/documentos-diversos" element={<Formularios />} />
+            <Route path="/servicos/fiscal/envio" element={<Envio />} />
+
+            {/* Vistos */}
+            <Route path="/servicos/vistos" element={<Vistos />} />
+            <Route path="/servicos/vistos/b1b2" element={<B1B2 />} />
+            <Route path="/servicos/vistos/f1" element={<F1 />} />
+            <Route path="/servicos/vistos/f2" element={<F2 />} />
+            <Route path="/servicos/vistos/eb2niw" element={<EB2NIW />} />
+            <Route path="/servicos/vistos/eb1a" element={<EB1A />} />
+            <Route path="/servicos/vistos/familia" element={<Familia />} />
+            <Route path="/servicos/vistos/renovacao" element={<Renovacao />} />
+            <Route path="/servicos/vistos/casos-especiais" element={<CasosEspeciais />} />
+            <Route path="/servicos/vistos/complementares" element={<Complementares />} />
+            <Route path="/servicos/vistos/outros-trabalho" element={<OutrosTrabalho />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

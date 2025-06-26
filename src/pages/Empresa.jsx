@@ -1,26 +1,37 @@
-// Empresa.jsx (com botão WhatsApp e selo de confiança)
+// Empresa.jsx (com preços em dólar)
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const empresa = [
+const servicos = [
   {
     nome: 'Abertura de LLC + EIN',
-    preco: 'R$ 399,00',
-    descricao: 'Registro completo da empresa com nome desejado e obtenção do EIN.'
-  },
-  {
-    nome: 'ITIN (para estrangeiros sem SSN)',
-    preco: 'R$ 299,00',
-    descricao: 'Preenchimento do W-7, carta explicativa e suporte até emissão.'
+    descricao: 'Registro completo da sua empresa nos EUA, incluindo número fiscal.',
+    rota: '/servicos/empresa/abertura',
+    preco: '$79.00'
   },
   {
     nome: 'Endereço Fiscal nos EUA',
-    preco: 'R$ 149,00',
-    descricao: 'Endereço válido para uso em LLCs, com redirecionamento de correspondência.'
+    descricao: 'Serviço de endereço para recebimento de correspondência oficial.',
+    rota: '/servicos/empresa/endereco-fiscal',
+    preco: '$35.00'
   },
   {
-    nome: 'Operating Agreement personalizado',
-    preco: 'R$ 129,00',
-    descricao: 'Contrato de operação com cláusulas adaptadas à sua realidade.'
+    nome: 'Operating Agreement',
+    descricao: 'Contrato de operação para LLC, essencial para abrir conta bancária.',
+    rota: '/servicos/empresa/operating-agreement',
+    preco: '$25.00'
+  },
+  {
+    nome: 'ITIN (para estrangeiros sem SSN)',
+    descricao: 'Solicitação completa de ITIN para sócios ou investidores.',
+    rota: '/servicos/empresa/itin',
+    preco: '$59.00'
+  },
+  {
+    nome: 'Formulário W-7',
+    descricao: 'Preenchimento do W-7 e carta explicativa para ITIN.',
+    rota: '/servicos/empresa/w7',
+    preco: '$29.00'
   }
 ];
 
@@ -28,18 +39,20 @@ export default function Empresa() {
   return (
     <section className="py-20 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-10">
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-10">
           Serviços para Abertura de Empresa
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
-          {empresa.map((item, i) => (
+          {servicos.map((item, i) => (
             <div
               key={i}
               className="border rounded-lg shadow p-6 bg-gray-50 hover:shadow-lg transition flex flex-col justify-between"
               data-aos="fade-up"
             >
               <div>
-                <h3 className="text-xl font-semibold text-blue-700 mb-2">{item.nome}</h3>
+                <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                  <Link to={item.rota} className="hover:underline">{item.nome}</Link>
+                </h3>
                 <p className="text-gray-600 text-sm mb-4">{item.descricao}</p>
               </div>
               <div className="mt-4 flex flex-col gap-2">
@@ -67,4 +80,3 @@ export default function Empresa() {
     </section>
   );
 }
-
