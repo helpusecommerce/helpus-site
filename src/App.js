@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent'; // ← aviso de cookies
+import { FaWhatsapp } from 'react-icons/fa';
 
 // Páginas principais
 import Home from './pages/Home';
@@ -41,7 +42,8 @@ import OperatingAgreement from './pages/servicos/empresa/OperatingAgreement';
 import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
 
-// Animação
+// Extras
+import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade'; // opcional
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -61,6 +63,7 @@ function App() {
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
 
             {/* Empresa */}
             <Route path="/servicos/empresa" element={<Empresa />} />
@@ -92,7 +95,19 @@ function App() {
             <Route path="/servicos/vistos/outros-trabalho" element={<OutrosTrabalho />} />
           </Routes>
         </main>
+
         <Footer />
+        <CookieConsent />
+
+        {/* Botão flutuante do WhatsApp */}
+        <a
+          href="https://wa.me/1555987654321"
+          className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg animate-bounce"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsapp className="text-2xl" />
+        </a>
       </div>
     </Router>
   );
