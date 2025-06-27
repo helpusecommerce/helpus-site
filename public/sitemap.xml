@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Páginas principais -->
+  <url><loc>https://helpusa.com.br/</loc></url>
+  <url><loc>https://helpusa.com.br/sobre</loc></url>
+  <url><loc>https://helpusa.com.br/contato</loc></url>
+  <url><loc>https://helpusa.com.br/servicos</loc></url>
+
+  <!-- Empresa -->
+  <url><loc>https://helpusa.com.br/servicos/empresa</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/empresa/abertura</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/empresa/endereco-fiscal</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/empresa/operating-agreement</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/empresa/itin</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/empresa/w7</loc></url>
+
+  <!-- Fiscal -->
+  <url><loc>https://helpusa.com.br/servicos/fiscal</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/fiscal/declaracao</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/fiscal/schedule-c-se</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/fiscal/child-tax-credit</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/fiscal/documentos-diversos</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/fiscal/envio</loc></url>
+
+  <!-- Vistos -->
+  <url><loc>https://helpusa.com.br/servicos/vistos</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/b1b2</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/f1</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/f2</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/eb2niw</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/eb1a</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/familia</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/renovacao</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/casos-especiais</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/complementares</loc></url>
+  <url><loc>https://helpusa.com.br/servicos/vistos/outros-trabalho</loc></url>
+</urlset>
