@@ -1,15 +1,22 @@
+// App.js
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CookieConsent from './components/CookieConsent'; // ← aviso de cookies
+import CookieConsent from './components/CookieConsent';
 import { FaWhatsapp } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+// Chat popup personalizado
+import ChatIA from './components/ChatIA';
 
 // Páginas principais
 import Home from './pages/Home';
 import Servicos from './pages/Servicos';
 import Sobre from './pages/Sobre';
 import Contato from './pages/Contato';
+import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
 
 // Categorias
 import Empresa from './pages/Empresa';
@@ -42,11 +49,6 @@ import OperatingAgreement from './pages/servicos/empresa/OperatingAgreement';
 import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
 
-// Extras
-import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade'; // opcional
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 function App() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -58,7 +60,6 @@ function App() {
         <Header />
         <main className="flex-grow">
           <Routes>
-            {/* Páginas principais */}
             <Route path="/" element={<Home />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/sobre" element={<Sobre />} />
@@ -98,10 +99,11 @@ function App() {
 
         <Footer />
         <CookieConsent />
+        <ChatIA />
 
         {/* Botão flutuante do WhatsApp */}
         <a
-          href="https://wa.me/1555987654321"
+          href="https://wa.me/5583998721848"
           className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg animate-bounce"
           target="_blank"
           rel="noopener noreferrer"
