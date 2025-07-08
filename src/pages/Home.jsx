@@ -1,8 +1,8 @@
-// Home.jsx
 import React from 'react';
 import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const parceiros = [
   {

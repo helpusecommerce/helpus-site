@@ -17,6 +17,7 @@ export default function Header() {
         <nav className="hidden md:flex gap-6 text-sm">
           <Link to="/" className="hover:text-blue-400 transition">Início</Link>
           <Link to="/servicos" className="hover:text-blue-400 transition">Serviços</Link>
+          <Link to="/criacao-de-sites" className="hover:text-blue-400 transition">Criação de Sites</Link>
           <Link to="/sobre" className="hover:text-blue-400 transition">Sobre</Link>
           <Link to="/contato" className="hover:text-blue-400 transition">Contato</Link>
         </nav>
@@ -35,6 +36,7 @@ export default function Header() {
         <div className="md:hidden bg-gray-800 px-6 py-4 space-y-3">
           <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Início</Link>
           <Link to="/servicos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Serviços</Link>
+          <Link to="/criacao-de-sites" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Criação de Sites</Link>
           <Link to="/sobre" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Sobre</Link>
           <Link to="/contato" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Contato</Link>
         </div>

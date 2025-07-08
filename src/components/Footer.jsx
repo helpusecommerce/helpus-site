@@ -25,6 +25,7 @@ export default function Footer() {
           <nav className="flex gap-6 text-sm">
             <Link to="/" className="hover:text-blue-400 transition">Início</Link>
             <Link to="/servicos" className="hover:text-blue-400 transition">Serviços</Link>
+            <Link to="/criacao-de-sites" className="hover:text-blue-400 transition">Criação de Sites</Link>
             <Link to="/sobre" className="hover:text-blue-400 transition">Sobre</Link>
             <Link to="/contato" className="hover:text-blue-400 transition">Contato</Link>
           </nav>
@@ -69,7 +70,7 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center gap-4">
           <p className="text-lg text-center font-semibold">
-            Receba novidades e dicas sobre vistos, empresas e impostos nos EUA
+            Receba novidades e dicas sobre vistos, empresas, impostos e sites profissionais
           </p>
           <form
             onSubmit={(e) => e.preventDefault()}

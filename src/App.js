@@ -1,4 +1,3 @@
-// App.js
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -49,6 +48,9 @@ import OperatingAgreement from './pages/servicos/empresa/OperatingAgreement';
 import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
 
+// Novo serviço: Criação de Sites
+import CriacaoDeSites from './pages/CriacaoDeSites';
+
 function App() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -94,6 +96,9 @@ function App() {
             <Route path="/servicos/vistos/casos-especiais" element={<CasosEspeciais />} />
             <Route path="/servicos/vistos/complementares" element={<Complementares />} />
             <Route path="/servicos/vistos/outros-trabalho" element={<OutrosTrabalho />} />
+
+            {/* Novo serviço */}
+            <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
           </Routes>
         </main>
 

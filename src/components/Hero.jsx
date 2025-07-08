@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPassport, FaBuilding, FaFileInvoiceDollar, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaPassport,
+  FaBuilding,
+  FaFileInvoiceDollar,
+  FaWhatsapp,
+  FaGlobe
+} from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -40,7 +46,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Consultoria especializada em vistos, abertura de empresas e documentação fiscal americana – tudo em português.
+          Consultoria especializada em vistos, abertura de empresas, documentação fiscal e criação de sites profissionais – tudo em português.
         </motion.p>
 
         <motion.div
@@ -66,6 +72,12 @@ export default function Hero() {
             className="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded text-sm sm:text-base"
           >
             <FaFileInvoiceDollar /> Impostos e Documentos
+          </Link>
+          <Link
+            to="/criacao-de-sites"
+            className="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded text-sm sm:text-base"
+          >
+            <FaGlobe /> Criação de Sites
           </Link>
         </motion.div>
       </div>

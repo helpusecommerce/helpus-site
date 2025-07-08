@@ -1,7 +1,6 @@
-// src/pages/Servicos.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPassport, FaBuilding, FaFileAlt } from 'react-icons/fa';
+import { FaPassport, FaBuilding, FaFileAlt, FaGlobe } from 'react-icons/fa';
 
 export default function Servicos() {
   const servicos = [
@@ -22,6 +21,12 @@ export default function Servicos() {
       descricao: 'ITIN, EIN, declarações e suporte contábil com foco no imigrante.',
       icone: <FaFileAlt className="text-4xl text-blue-500 transition-transform hover:scale-110 duration-300" />,
       link: '/servicos/fiscal'
+    },
+    {
+      titulo: 'Criação de Sites',
+      descricao: 'Sites modernos com painel, loja virtual e integração com WhatsApp.',
+      icone: <FaGlobe className="text-4xl text-blue-500 transition-transform hover:scale-110 duration-300" />,
+      link: '/criacao-de-sites'
     }
   ];
 
@@ -29,7 +34,7 @@ export default function Servicos() {
     <section id="servicos" className="py-20 px-4 bg-gray-100">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-10 text-gray-800" data-aos="fade-down">Nossos Serviços</h2>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {servicos.map((item, index) => (
             <Link
               to={item.link}
