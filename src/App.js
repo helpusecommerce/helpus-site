@@ -8,7 +8,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Chat popup personalizado
+// Chat popup com IA
 import ChatIA from './components/ChatIA';
 
 // Páginas principais

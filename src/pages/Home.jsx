@@ -2,7 +2,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import '../styles/animacoes.css'; // Importa o CSS com animações personalizadas
+import { motion } from 'framer-motion';
 
 const parceiros = [
   {
@@ -51,18 +51,24 @@ const Home = () => {
           </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
             {parceiros.map((parceiro, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
               >
-                {/* Logo com animação */}
-                <img
+                {/* Logo animada */}
+                <motion.img
                   src={parceiro.imagem}
                   alt={parceiro.nome}
-                  className="w-28 h-28 object-contain mb-4 animated-logo"
+                  className="w-28 h-28 object-contain mb-4"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                 />
 
-                {/* Vídeo */}
+                {/* Vídeo ilustrativo */}
                 <video
                   src={parceiro.video}
                   className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
@@ -79,11 +85,11 @@ const Home = () => {
                   href={parceiro.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
                 >
-                  Acessar site <FaExternalLinkAlt className="transition-transform group-hover:rotate-45" />
+                  Acessar site <FaExternalLinkAlt />
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
