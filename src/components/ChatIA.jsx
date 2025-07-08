@@ -1,4 +1,4 @@
-// ChatIA.jsx (componente React do chat popup com IA gratuita Hugging Face)
+// ChatIA.jsx
 import React, { useState } from 'react';
 
 const ChatIA = () => {
@@ -27,21 +27,23 @@ const ChatIA = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            inputs: [
-              {
-                role: 'user',
-                content: input,
-              },
-            ],
+            inputs: input, // ✅ Corrigido: texto direto
           }),
         }
       );
 
       const data = await response.json();
-      const botReply = data?.[0]?.generated_text || 'Desculpe, houve um erro.';
+      const botReply =
+        data?.generated_text ||
+        data?.[0]?.generated_text ||
+        'Desculpe, não consegui entender.';
+
       setMessages((prev) => [...prev, { role: 'bot', content: botReply }]);
     } catch (error) {
-      setMessages((prev) => [...prev, { role: 'bot', content: 'Erro na resposta da IA.' }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: 'bot', content: 'Erro na resposta da IA.' },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -60,13 +62,18 @@ const ChatIA = () => {
       {/* Janela de Chat */}
       {isOpen && (
         <div className="fixed bottom-28 right-6 w-80 h-96 bg-white border border-gray-300 rounded-lg shadow-lg z-50 flex flex-col">
-          <div className="bg-blue-600 text-white p-2 text-center font-bold rounded-t-lg">Atendente Virtual</div>
+          <div className="bg-blue-600 text-white p-2 text-center font-bold rounded-t-lg">
+            Atendente Virtual
+          </div>
+
           <div className="flex-1 overflow-y-auto p-2 space-y-2 text-sm">
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={`p-2 rounded-md max-w-[90%] ${
-                  msg.role === 'user' ? 'bg-blue-100 self-end ml-auto' : 'bg-gray-100 self-start mr-auto'
+                  msg.role === 'user'
+                    ? 'bg-blue-100 self-end ml-auto'
+                    : 'bg-gray-100 self-start mr-auto'
                 }`}
               >
                 {msg.content}
@@ -74,6 +81,7 @@ const ChatIA = () => {
             ))}
             {loading && <div className="text-gray-500 italic">Digitando...</div>}
           </div>
+
           <div className="p-2 border-t flex">
             <input
               type="text"
@@ -97,4 +105,3 @@ const ChatIA = () => {
 };
 
 export default ChatIA;
-
