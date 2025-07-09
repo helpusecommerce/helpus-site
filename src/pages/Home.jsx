@@ -12,6 +12,20 @@ const parceiros = [
     video: '/img/parceiros/video-fundo.mp4',
     link: 'https://tuliobicicletas.helpusa.com.br',
   },
+  {
+    nome: 'CG Details',
+    descricao: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
+    imagem: '/img/parceiros/cgdetails.png',
+    video: '/img/parceiros/videocgdetails.webm',
+    link: '/parceiros/cg-details',
+  },
+  {
+    nome: 'Blue Box',
+    descricao: 'Lava-jato eficiente para carros e motos com qualidade profissional.',
+    imagem: '/img/parceiros/bluebox.png',
+    video: '/img/parceiros/videobluebox.webm',
+    link: '/parceiros/blue-box',
+  },
 ];
 
 const Home = () => {
@@ -81,14 +95,12 @@ const Home = () => {
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
 
-                <a
-                  href={parceiro.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={parceiro.link}
                   className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
                 >
                   Acessar site <FaExternalLinkAlt />
-                </a>
+                </Link>
               </motion.div>
             ))}
           </div>
