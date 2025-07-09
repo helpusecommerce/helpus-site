@@ -1,3 +1,5 @@
+// Home.jsx
+
 import React from 'react';
 import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
@@ -17,7 +19,7 @@ const parceiros = [
     descricao: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
     imagem: '/img/parceiros/cgdetails.png',
     video: '/img/parceiros/videocgdetails.webm',
-    link: '/parceiros/cg-details',
+    link: 'https://cgdetails.helpusa.com.br',
   },
   {
     nome: 'Blue Box',
@@ -95,12 +97,23 @@ const Home = () => {
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
 
-                <Link
-                  to={parceiro.link}
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
-                >
-                  Acessar site <FaExternalLinkAlt />
-                </Link>
+                {parceiro.link.startsWith('http') ? (
+                  <a
+                    href={parceiro.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
+                  >
+                    Acessar site <FaExternalLinkAlt />
+                  </a>
+                ) : (
+                  <Link
+                    to={parceiro.link}
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
+                  >
+                    Acessar site <FaExternalLinkAlt />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
