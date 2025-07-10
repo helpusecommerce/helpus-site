@@ -1,4 +1,4 @@
-// Home.jsx
+// src/pages/Home.jsx
 
 import React from 'react';
 import Hero from '../components/Hero';
@@ -31,8 +31,8 @@ const parceiros = [
   {
     nome: 'Public Arte',
     descricao: 'Comunicação Visual criativa e soluções gráficas personalizadas.',
-    imagem: '/img/parceiros/publicarte.jpg',
-    video: '', // Ou adicione se houver vídeo da Public Arte
+    imagem: '/img/parceiros/logo-publicarte.png',
+    video: '/img/parceiros/video-publicarte.mp4',
     link: 'https://publicarte.helpusa.com.br',
   },
 ];
@@ -91,17 +91,15 @@ const Home = () => {
                   transition={{ type: 'spring', stiffness: 300 }}
                 />
 
-                {/* Vídeo ilustrativo, se existir */}
-                {parceiro.video && (
-                  <video
-                    src={parceiro.video}
-                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                )}
+                {/* Vídeo ilustrativo */}
+                <video
+                  src={parceiro.video}
+                  className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
 
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
