@@ -26,7 +26,7 @@ const parceiros = [
     descricao: 'Lava-jato eficiente para carros e motos com qualidade profissional.',
     imagem: '/img/parceiros/bluebox.png',
     video: '/img/parceiros/videobluebox.webm',
-    link: '/parceiros/blue-box',
+    link: '/parceiros/bluebox',
   },
   {
     nome: 'Public Arte',
