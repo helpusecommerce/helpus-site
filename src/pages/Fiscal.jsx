@@ -26,6 +26,12 @@ const fiscal = [
     preco: 'Sob consulta',
     descricao: 'Preparamos qualquer outro documento fiscal sob demanda.',
     rota: '/servicos/fiscal/documentos-diversos'
+  },
+  {
+    nome: 'Preenchimento do Formulário W-9',
+    preco: '$25.00',
+    descricao: 'Formulário preenchido com dados da LLC e orientações para envio.',
+    rota: '/servicos/fiscal/w9'
   }
 ];
 

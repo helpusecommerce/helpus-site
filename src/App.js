@@ -40,6 +40,7 @@ import ScheduleC from './pages/servicos/fiscal/ScheduleC';
 import Dependentes from './pages/servicos/fiscal/Dependentes';
 import Formularios from './pages/servicos/fiscal/Formularios';
 import Envio from './pages/servicos/fiscal/Envio';
+import W9 from './pages/servicos/fiscal/W9'; // ✅ Novo serviço
 
 // Empresa
 import AberturaLLC from './pages/servicos/empresa/AberturaLLC';
@@ -47,6 +48,7 @@ import EnderecoFiscal from './pages/servicos/empresa/EnderecoFiscal';
 import OperatingAgreement from './pages/servicos/empresa/OperatingAgreement';
 import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
+import BusinessLicense from './pages/servicos/empresa/BusinessLicense'; // ✅ Novo serviço
 
 // Novo serviço: Criação de Sites
 import CriacaoDeSites from './pages/CriacaoDeSites';
@@ -75,6 +77,7 @@ function App() {
             <Route path="/servicos/empresa/operating-agreement" element={<OperatingAgreement />} />
             <Route path="/servicos/empresa/itin" element={<ITIN />} />
             <Route path="/servicos/empresa/w7" element={<W7 />} />
+            <Route path="/servicos/empresa/business-license" element={<BusinessLicense />} /> {/* ✅ nova rota */}
 
             {/* Fiscal */}
             <Route path="/servicos/fiscal" element={<Fiscal />} />
@@ -83,6 +86,7 @@ function App() {
             <Route path="/servicos/fiscal/child-tax-credit" element={<Dependentes />} />
             <Route path="/servicos/fiscal/documentos-diversos" element={<Formularios />} />
             <Route path="/servicos/fiscal/envio" element={<Envio />} />
+            <Route path="/servicos/fiscal/w9" element={<W9 />} /> {/* ✅ nova rota */}
 
             {/* Vistos */}
             <Route path="/servicos/vistos" element={<Vistos />} />
