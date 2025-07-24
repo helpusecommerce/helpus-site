@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaRegBuilding, FaMapMarkerAlt, FaFileContract, FaWpforms, FaIdCard,
-  FaStamp, FaDollarSign, FaArrowRight, FaQuestionCircle
+  FaStamp, FaDollarSign, FaArrowRight
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -73,7 +73,7 @@ const explicacoesEtapas = Object.fromEntries(Object.entries({
   'Formulário de Registro': `Requer o envio dos Articles of Organization para o estado.
 Pré-requisito para: Obtenção do EIN
 Formulário: varia por estado. Exemplo: https://www.sos.alabama.gov/business-entities/llc-forms
-Custo médio: $50 a $150`,  
+Custo médio: $50 a $150`,
 
   'Taxa Estadual': `Pagamento obrigatório ao estado para validar o registro da empresa.
 Pré-requisito para: Abertura da LLC
@@ -134,8 +134,6 @@ Serviço HelpUS: $49.00`
 ]));
 
 export default function Empresa() {
-  const [etapaAtiva, setEtapaAtiva] = useState(null);
-
   return (
     <section className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -148,7 +146,7 @@ export default function Empresa() {
             Fluxograma Detalhado do Processo
           </h3>
           <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-            Cada etapa abaixo está representada visualmente com explicações acessíveis ao clicar no ícone de interrogação.
+            Passe o mouse sobre cada etapa para visualizar mais detalhes do processo.
           </p>
 
           {fluxos.map((linha, i) => (
@@ -157,20 +155,14 @@ export default function Empresa() {
                 <React.Fragment key={j}>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="relative bg-white shadow-xl border border-blue-200 rounded-xl p-3 w-36 h-20 flex flex-col items-center justify-center text-center transition transform hover:shadow-2xl"
+                    className="relative group bg-white shadow-xl border border-blue-200 rounded-xl p-3 w-36 h-20 flex flex-col items-center justify-center text-center transition transform hover:shadow-2xl"
                   >
-                    <FaQuestionCircle
-                      className="absolute top-2 right-2 text-blue-500 cursor-pointer"
-                      onClick={() => setEtapaAtiva(etapaAtiva === etapa.label ? null : etapa.label)}
-                    />
-                    <div className="text-2xl mb-1 text-blue-600">{etapa.icon}</div>
+                    <div className="text-xl mb-1 text-blue-600">{etapa.icon}</div>
                     <span className="text-xs font-semibold text-blue-800">{etapa.label}</span>
 
-                    {etapaAtiva === etapa.label && (
-                      <div className="absolute top-0 left-full ml-2 z-10 bg-white border border-blue-200 rounded shadow-md p-3 w-72 text-left text-gray-700">
-                        {explicacoesEtapas[etapa.label]}
-                      </div>
-                    )}
+                    <div className="absolute z-50 top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-2 bg-white border border-blue-300 rounded shadow-lg p-3 w-72 text-left text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      {explicacoesEtapas[etapa.label]}
+                    </div>
                   </motion.div>
                   {j < linha.length - 1 && <FaArrowRight className="text-gray-400 text-xl self-center" />}
                 </React.Fragment>
