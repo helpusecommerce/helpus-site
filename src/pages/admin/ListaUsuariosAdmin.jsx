@@ -1,7 +1,6 @@
-// src/pages/admin/ListaUsuariosAdmin.jsx
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { apiFetch } from '../../services/api'; // ✅ usa função centralizada
+import { apiFetch } from '../../services/api'; // ✅ uso centralizado da API
 
 const ListaUsuariosAdmin = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -13,7 +12,6 @@ const ListaUsuariosAdmin = () => {
     const carregarUsuarios = async () => {
       try {
         const resposta = await apiFetch('/usuarios');
-
         const dados = await resposta.json();
 
         if (resposta.ok) {

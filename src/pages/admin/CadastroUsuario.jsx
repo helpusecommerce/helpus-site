@@ -1,7 +1,6 @@
-// src/pages/admin/CadastroUsuario.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiFetch } from '../../services/api'; // ✅ importando função centralizada
+import { apiFetch } from '../../services/api'; // ✅ função centralizada
 
 const CadastroUsuario = () => {
   const [email, setEmail] = useState('');
@@ -47,7 +46,7 @@ const CadastroUsuario = () => {
           nome,
           role_id: roleId,
           site_slug: siteSlug,
-          tipo: 'operador'
+          tipo: 'operador' // valor fixo
         }),
       });
 
