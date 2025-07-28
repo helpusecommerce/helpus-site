@@ -1,4 +1,5 @@
-import React from 'react';
+// src/components/Footer.jsx
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaFacebookF,
@@ -7,21 +8,44 @@ import {
   FaYoutube,
   FaTiktok
 } from 'react-icons/fa';
+import nhost from '../nhost';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [mensagem, setMensagem] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { error } = await nhost.graphql.request(`
+        mutation AddEmail {
+          insert_newsletter_one(object: { email: "${email}" }) {
+            id
+          }
+        }
+      `);
+
+      if (error) {
+        setMensagem('Erro ao inscrever. Talvez e-mail já esteja cadastrado.');
+      } else {
+        setMensagem('Inscrição realizada com sucesso!');
+        setEmail('');
+      }
+    } catch (err) {
+      setMensagem('Erro de conexão. Tente novamente.');
+    }
+
+    setTimeout(() => setMensagem(''), 4000);
+  };
+
   return (
     <footer className="bg-gray-900 text-gray-200 py-12 px-6 mt-20">
       <div className="max-w-6xl mx-auto flex flex-col gap-12">
-
-        {/* Marca, Links, Redes */}
+        {/* Cabeçalho, links e redes */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          
-          {/* Marca */}
           <div className="text-2xl font-bold text-white">
             Help<span className="text-blue-500">US</span>
           </div>
-
-          {/* Links rápidos */}
           <nav className="flex gap-6 text-sm">
             <Link to="/" className="hover:text-blue-400 transition">Início</Link>
             <Link to="/servicos" className="hover:text-blue-400 transition">Serviços</Link>
@@ -29,39 +53,17 @@ export default function Footer() {
             <Link to="/sobre" className="hover:text-blue-400 transition">Sobre</Link>
             <Link to="/contato" className="hover:text-blue-400 transition">Contato</Link>
           </nav>
-
-          {/* Redes sociais com fundo circular e sombra */}
           <div className="flex gap-3">
-            <a
-              href="https://youtube.com/@helpususa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-red-600 transition-transform transform hover:scale-110"
-            >
+            <a href="https://youtube.com/@helpususa" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-red-600 transition-transform transform hover:scale-110">
               <FaYoutube className="text-white text-lg" />
             </a>
-            <a
-              href="https://www.tiktok.com/@helpususa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-black transition-transform transform hover:scale-110"
-            >
+            <a href="https://www.tiktok.com/@helpususa" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-black transition-transform transform hover:scale-110">
               <FaTiktok className="text-white text-lg" />
             </a>
-            <a
-              href="https://instagram.com/helpususa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-pink-500 transition-transform transform hover:scale-110"
-            >
+            <a href="https://instagram.com/helpususa" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-pink-500 transition-transform transform hover:scale-110">
               <FaInstagram className="text-white text-lg" />
             </a>
-            <a
-              href="https://linkedin.com/company/helpususa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-blue-400 transition-transform transform hover:scale-110"
-            >
+            <a href="https://linkedin.com/company/helpususa" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-blue-400 transition-transform transform hover:scale-110">
               <FaLinkedinIn className="text-white text-lg" />
             </a>
           </div>
@@ -73,12 +75,14 @@ export default function Footer() {
             Receba novidades e dicas sobre vistos, empresas, impostos e sites profissionais
           </p>
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="w-full max-w-md flex flex-col sm:flex-row gap-4"
           >
             <input
               type="email"
               placeholder="Digite seu e-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="flex-1 px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -89,6 +93,7 @@ export default function Footer() {
               Inscrever
             </button>
           </form>
+          {mensagem && <p className="text-sm text-center text-green-400">{mensagem}</p>}
         </div>
 
         {/* Contato */}
