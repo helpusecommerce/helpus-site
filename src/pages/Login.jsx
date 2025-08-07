@@ -1,3 +1,4 @@
+// arquivo: src/pages/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../services/api';
@@ -17,12 +18,15 @@ const Login = () => {
     try {
       const resposta = await apiFetch('/login', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ email, senha }),
       });
 
       const dados = await resposta.json();
 
-      if (resposta.ok) {
+      if (resposta.ok && dados.token) {
         localStorage.setItem('token', dados.token);
         localStorage.setItem('usuario', JSON.stringify(dados.usuario));
         navigate('/admin');
@@ -38,10 +42,17 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100 px-4">
-      <form onSubmit={handleLogin} className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+      <form
+        onSubmit={handleLogin}
+        className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
+      >
         <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
 
-        {erro && <p className="text-red-600 text-sm mb-4 text-center">{erro}</p>}
+        {erro && (
+          <p className="bg-red-100 text-red-700 text-sm mb-4 p-2 rounded text-center">
+            {erro}
+          </p>
+        )}
 
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Email</label>

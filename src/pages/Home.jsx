@@ -35,6 +35,13 @@ const parceiros = [
     video: '/img/parceiros/video-publicarte.mp4',
     link: 'https://publicarte.helpusa.com.br',
   },
+  {
+    nome: 'Waleska Imóveis',
+    descricao: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
+    imagem: '/img/parceiros/logo-waleska.png',
+    video: '/img/parceiros/video-waleska.mp4',
+    link: 'https://waleska.helpusa.com.br',
+  },
 ];
 
 const Home = () => {

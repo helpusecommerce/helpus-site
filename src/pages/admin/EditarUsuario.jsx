@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { apiFetch } from '../../services/api';
 
-const CadastroUsuario = () => {
+const EditarUsuario = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [nome, setNome] = useState('');
   const [senha, setSenha] = useState('');
@@ -10,76 +13,79 @@ const CadastroUsuario = () => {
   const [siteSlug, setSiteSlug] = useState('');
   const [roles, setRoles] = useState([]);
   const [sites, setSites] = useState([]);
-  const [erros, setErros] = useState([]);
-  const navigate = useNavigate();
+  const [erro, setErro] = useState('');
 
   useEffect(() => {
     const carregarDados = async () => {
       try {
-        const [resRoles, resSites] = await Promise.all([
+        const [resRoles, resSites, resUsuarios] = await Promise.all([
           apiFetch('/roles'),
           apiFetch('/sites'),
+          apiFetch('/usuarios'),
         ]);
 
         const dadosRoles = await resRoles.json();
         const dadosSites = await resSites.json();
+        const dadosUsuarios = await resUsuarios.json();
 
-        if (resRoles.ok) setRoles(dadosRoles);
-        if (resSites.ok) setSites(dadosSites);
+        const usuario = dadosUsuarios.find((u) => String(u.id) === String(id));
+        if (!usuario) return setErro('Usuário não encontrado.');
+
+        setEmail(usuario.email);
+        setNome(usuario.nome);
+        setRoleId(usuario.role_id || '');
+        setSiteSlug(usuario.site_slug || '');
+
+        setRoles(dadosRoles);
+        setSites(dadosSites);
       } catch (err) {
-        console.error('Erro ao carregar roles/sites:', err);
-        setErros(['Erro ao carregar dados.']);
+        console.error(err);
+        setErro('Erro ao carregar dados.');
       }
     };
 
     carregarDados();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErros([]);
+    setErro('');
 
     try {
-      const resposta = await apiFetch('/usuarios', {
-        method: 'POST',
+      const resposta = await apiFetch(`/usuarios/${id}`, {
+        method: 'PUT',
         body: JSON.stringify({
           email,
           nome,
-          senha,
+          senha: senha || undefined, // só envia se preenchido
           role_id: roleId,
-          site_slug: siteSlug
+          site_slug: siteSlug,
         }),
       });
 
       const dados = await resposta.json();
 
       if (resposta.ok) {
-        alert('Usuário cadastrado com sucesso!');
+        alert('Usuário atualizado com sucesso!');
         navigate('/admin');
       } else {
         if (dados.errors && Array.isArray(dados.errors)) {
-          setErros(dados.errors.map((err) => err.msg));
+          setErro(dados.errors.map((e) => e.msg).join(' | '));
         } else {
-          setErros([dados.error || 'Erro ao cadastrar usuário']);
+          setErro(dados.error || 'Erro ao editar usuário.');
         }
       }
     } catch (err) {
-      setErros(['Erro de conexão com o servidor']);
+      setErro('Erro de conexão ao salvar.');
     }
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4 text-center">Cadastro de Usuário Admin</h2>
+        <h2 className="text-xl font-semibold mb-4 text-center">Editar Usuário</h2>
 
-        {erros.length > 0 && (
-          <ul className="bg-red-100 border border-red-400 text-red-700 text-sm p-3 mb-4 rounded">
-            {erros.map((erro, index) => (
-              <li key={index}>• {erro}</li>
-            ))}
-          </ul>
-        )}
+        {erro && <p className="text-red-600 text-sm mb-4 text-center">{erro}</p>}
 
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Nome</label>
@@ -104,13 +110,12 @@ const CadastroUsuario = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Senha</label>
+          <label className="block text-sm font-medium mb-1">Nova senha (opcional)</label>
           <input
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             className="w-full border px-3 py-2 rounded"
-            required
           />
         </div>
 
@@ -146,13 +151,13 @@ const CadastroUsuario = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
         >
-          Cadastrar
+          Salvar alterações
         </button>
       </form>
     </div>
   );
 };
 
-export default CadastroUsuario;
+export default EditarUsuario;

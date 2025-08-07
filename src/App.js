@@ -19,7 +19,8 @@ import Contato from './pages/Contato';
 import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
 import Login from './pages/Login';
 import ListaUsuariosAdmin from './pages/admin/ListaUsuariosAdmin';
-import CadastroUsuario from './pages/admin/CadastroUsuario'; // ✅ nova importação
+import CadastroUsuario from './pages/admin/CadastroUsuario';
+import EditarUsuario from './pages/admin/EditarUsuario'; // ✅ nova importação
 
 // Categorias
 import Empresa from './pages/Empresa';
@@ -75,7 +76,8 @@ function App() {
             <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<ListaUsuariosAdmin />} />
-            <Route path="/admin/cadastro-usuario" element={<CadastroUsuario />} /> {/* ✅ nova rota */}
+            <Route path="/admin/cadastro-usuario" element={<CadastroUsuario />} />
+            <Route path="/admin/editar-usuario/:id" element={<EditarUsuario />} /> {/* ✅ nova rota */}
 
             {/* Empresa */}
             <Route path="/servicos/empresa" element={<Empresa />} />

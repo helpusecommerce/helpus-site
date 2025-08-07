@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { apiFetch } from '../../services/api'; // ✅ uso centralizado da API
+import { apiFetch } from '../../services/api';
 
 const ListaUsuariosAdmin = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -32,6 +32,27 @@ const ListaUsuariosAdmin = () => {
     carregarUsuarios();
   }, [navigate]);
 
+  const excluirUsuario = async (id) => {
+    if (!window.confirm('Tem certeza que deseja excluir este usuário?')) return;
+
+    try {
+      const resposta = await apiFetch(`/usuarios/${id}`, {
+        method: 'DELETE',
+      });
+
+      const dados = await resposta.json();
+
+      if (resposta.ok) {
+        alert(dados.mensagem || 'Usuário excluído.');
+        setUsuarios((prev) => prev.filter((u) => u.id !== id));
+      } else {
+        alert(dados.error || 'Erro ao excluir usuário.');
+      }
+    } catch (err) {
+      alert('Erro de conexão ao excluir.');
+    }
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-4">Área Administrativa - Usuários</h1>
@@ -58,6 +79,7 @@ const ListaUsuariosAdmin = () => {
               <th className="px-4 py-2 text-left border">Email</th>
               <th className="px-4 py-2 text-left border">Tipo</th>
               <th className="px-4 py-2 text-left border">Site</th>
+              <th className="px-4 py-2 text-left border">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -67,6 +89,22 @@ const ListaUsuariosAdmin = () => {
                 <td className="px-4 py-2 border">{user.email}</td>
                 <td className="px-4 py-2 border">{user.role_nome || user.tipo}</td>
                 <td className="px-4 py-2 border">{user.site_nome || user.site_slug}</td>
+                <td className="px-4 py-2 border flex gap-3">
+                  <Link
+                    to={`/admin/editar-usuario/${user.id}`}
+                    className="text-blue-600 hover:underline"
+                    title="Editar"
+                  >
+                    ✏️
+                  </Link>
+                  <button
+                    onClick={() => excluirUsuario(user.id)}
+                    className="text-red-600 hover:underline"
+                    title="Excluir"
+                  >
+                    🗑️
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
