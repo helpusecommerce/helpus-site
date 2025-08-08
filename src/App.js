@@ -8,8 +8,8 @@ import { FaWhatsapp } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Chat popup com IA
-import ChatIA from './components/ChatIA';
+// Chat virtual guiado (com botões)
+import ChatGuiado from './components/ChatGuiado'; // ✅ novo componente
 
 // Páginas principais
 import Home from './pages/Home';
@@ -20,7 +20,7 @@ import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
 import Login from './pages/Login';
 import ListaUsuariosAdmin from './pages/admin/ListaUsuariosAdmin';
 import CadastroUsuario from './pages/admin/CadastroUsuario';
-import EditarUsuario from './pages/admin/EditarUsuario'; // ✅ nova importação
+import EditarUsuario from './pages/admin/EditarUsuario';
 
 // Categorias
 import Empresa from './pages/Empresa';
@@ -55,7 +55,7 @@ import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
 import BusinessLicense from './pages/servicos/empresa/BusinessLicense';
 
-// Novo serviço: Criação de Sites
+// Novo serviço
 import CriacaoDeSites from './pages/CriacaoDeSites';
 
 function App() {
@@ -69,6 +69,7 @@ function App() {
         <Header />
         <main className="flex-grow">
           <Routes>
+            {/* Rotas (sem alterações) */}
             <Route path="/" element={<Home />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/sobre" element={<Sobre />} />
@@ -77,7 +78,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<ListaUsuariosAdmin />} />
             <Route path="/admin/cadastro-usuario" element={<CadastroUsuario />} />
-            <Route path="/admin/editar-usuario/:id" element={<EditarUsuario />} /> {/* ✅ nova rota */}
+            <Route path="/admin/editar-usuario/:id" element={<EditarUsuario />} />
 
             {/* Empresa */}
             <Route path="/servicos/empresa" element={<Empresa />} />
@@ -110,14 +111,14 @@ function App() {
             <Route path="/servicos/vistos/complementares" element={<Complementares />} />
             <Route path="/servicos/vistos/outros-trabalho" element={<OutrosTrabalho />} />
 
-            {/* Novo serviço */}
+            {/* Sites */}
             <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
           </Routes>
         </main>
 
         <Footer />
         <CookieConsent />
-        <ChatIA />
+        <ChatGuiado /> {/* ✅ Chat com fluxo guiado substituindo ChatIA */}
 
         {/* Botão flutuante do WhatsApp */}
         <a

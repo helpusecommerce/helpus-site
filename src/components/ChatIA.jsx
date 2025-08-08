@@ -1,5 +1,4 @@
-// ChatIA.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ChatIA = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +7,19 @@ const ChatIA = () => {
   const [loading, setLoading] = useState(false);
 
   const toggleChat = () => setIsOpen(!isOpen);
+
+  // Mensagem automática ao abrir o chat
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
+      setMessages([
+        {
+          role: 'bot',
+          content:
+            'Olá! Eu sou a Hel, assistente virtual da HelpUS. Posso te ajudar com vistos americanos, abertura de empresa nos EUA ou documentação fiscal. Sobre o que você gostaria de saber?',
+        },
+      ]);
+    }
+  }, [isOpen]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -18,25 +30,16 @@ const ChatIA = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(
-        'https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta',
-        {
-          method: 'POST',
-          headers: {
-            Authorization: 'Bearer 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',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            inputs: input, // ✅ Corrigido: texto direto
-          }),
-        }
-      );
+      const response = await fetch('http://localhost:3001/api/chatgpt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: input }),
+      });
 
       const data = await response.json();
-      const botReply =
-        data?.generated_text ||
-        data?.[0]?.generated_text ||
-        'Desculpe, não consegui entender.';
+      const botReply = data.resposta || 'Desculpe, não consegui entender.';
 
       setMessages((prev) => [...prev, { role: 'bot', content: botReply }]);
     } catch (error) {
@@ -51,19 +54,19 @@ const ChatIA = () => {
 
   return (
     <div>
-      {/* Botão flutuante */}
+      {/* Botão flutuante com imagem personalizada */}
       <button
         onClick={toggleChat}
         className="fixed bottom-24 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg"
       >
-        🤖
+        <img src="/img/hel-icon.png" alt="Hel" className="w-6 h-6" />
       </button>
 
       {/* Janela de Chat */}
       {isOpen && (
         <div className="fixed bottom-28 right-6 w-80 h-96 bg-white border border-gray-300 rounded-lg shadow-lg z-50 flex flex-col">
           <div className="bg-blue-600 text-white p-2 text-center font-bold rounded-t-lg">
-            Atendente Virtual
+            Hel • Assistente Virtual
           </div>
 
           <div className="flex-1 overflow-y-auto p-2 space-y-2 text-sm">
