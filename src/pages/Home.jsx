@@ -1,4 +1,4 @@
-// src/pages/Home.jsx
+// 📄 src/pages/Home.jsx
 
 import React from 'react';
 import Hero from '../components/Hero';
@@ -41,6 +41,14 @@ const parceiros = [
     imagem: '/img/parceiros/logo-waleska.png',
     video: '/img/parceiros/video-waleska.mp4',
     link: 'https://waleska.helpusa.com.br',
+  },
+  // ✅ Novo parceiro: Dra. Kátia
+  {
+    nome: 'Dra. Kátia Xavier',
+    descricao: 'Atendimento médico presencial e por telemedicina.',
+    imagem: '/img/parceiros/katia.png',               // crie este arquivo de logo
+    video: '/img/parceiros/video-katia.mp4',          // opcional: vídeo curto de apresentação
+    link: 'https://katiaxavier.helpusa.com.br',
   },
 ];
 
@@ -94,19 +102,22 @@ const Home = () => {
                   src={parceiro.imagem}
                   alt={parceiro.nome}
                   className="w-28 h-28 object-contain mb-4"
+                  loading="lazy"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 />
 
-                {/* Vídeo ilustrativo */}
-                <video
-                  src={parceiro.video}
-                  className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
+                {/* Vídeo ilustrativo (opcional) */}
+                {parceiro.video && (
+                  <video
+                    src={parceiro.video}
+                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                )}
 
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
