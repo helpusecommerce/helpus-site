@@ -1,9 +1,63 @@
-// CriacaoDeSites.jsx
-import React from 'react';
+// src/pages/CriacaoDeSites.jsx
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaWhatsapp, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
+import AutoCarousel from '../components/AutoCarousel';
 
 export default function CriacaoDeSites() {
+  // slides do carrossel (logos + links)
+  const slides = [
+    {
+      src: '/img/parceiros/tulio.png',
+      alt: 'Túlio Bicicletas',
+      title: 'Túlio Bicicletas',
+      caption: 'Loja com carrinho, variações e WhatsApp',
+      href: 'https://tuliobicicletas.helpusa.com.br',
+    },
+    {
+      src: '/img/parceiros/cgdetails.png',
+      alt: 'CG Details',
+      title: 'CG Details',
+      caption: 'Serviços de limpeza detalhada',
+      href: 'https://cgdetails.helpusa.com.br',
+    },
+    {
+      src: '/img/parceiros/bluebox.png',
+      alt: 'Blue Box',
+      title: 'Blue Box',
+      caption: 'Lava-jato e estética automotiva',
+      href: 'https://bluebox.helpusa.com.br',
+    },
+    {
+      src: '/img/parceiros/logo-publicarte.png',
+      alt: 'Public Arte',
+      title: 'Public Arte',
+      caption: 'Comunicação Visual',
+      href: 'https://publicarte.helpusa.com.br',
+    },
+    {
+      src: '/img/parceiros/logo-waleska.png',
+      alt: 'Waleska Imóveis',
+      title: 'Waleska Imóveis',
+      caption: 'Portal imobiliário',
+      href: 'https://waleska.helpusa.com.br',
+    },
+    {
+      src: '/img/parceiros/katia.png',
+      alt: 'Dra. Kátia Xavier',
+      title: 'Dra. Kátia Xavier',
+      caption: 'Site médico com telemedicina',
+      href: 'https://katiaxavier.helpusa.com.br',
+    },
+    {
+      src: '/img/parceiros/hero-marcio-barber.png',
+      alt: 'Márcio Barber',
+      title: 'Márcio Barber',
+      caption: 'Barbearia',
+      href: 'https://marciotopbarber.helpusa.com.br',
+    },
+  ];
+
   return (
     <div className="bg-white text-gray-800 pt-24 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -15,7 +69,9 @@ export default function CriacaoDeSites() {
 
         {/* Bloco introdutório */}
         <p className="text-lg text-center max-w-3xl mx-auto mb-10">
-          Desenvolvemos sites modernos, rápidos e personalizados para empresas e profissionais. Com layout responsivo, painel administrativo, integração com WhatsApp e hospedagem gratuita, você tem tudo o que precisa para marcar presença na internet.
+          Desenvolvemos sites modernos, rápidos e personalizados para empresas e profissionais.
+          Com layout responsivo, painel administrativo, integração com WhatsApp e hospedagem gratuita,
+          você tem tudo o que precisa para marcar presença na internet.
         </p>
 
         {/* Benefícios */}
@@ -37,7 +93,7 @@ export default function CriacaoDeSites() {
           ))}
         </div>
 
-        {/* Preço e chamada para ação */}
+        {/* Preço e CTA */}
         <div className="text-center bg-gray-100 rounded-xl py-10 px-6 mb-16 shadow-inner">
           <h2 className="text-3xl font-bold text-blue-600 mb-4">
             A partir de <span className="text-4xl">$299</span>
@@ -53,39 +109,13 @@ export default function CriacaoDeSites() {
           </a>
         </div>
 
-        {/* Exemplo real */}
+        {/* EXEMPLOS – Carrossel automático */}
         <div className="bg-white border-t pt-10">
-          <h3 className="text-2xl font-bold text-center mb-6">Exemplo de site criado</h3>
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-            <div className="md:flex">
-              <div className="md:w-1/2">
-                <img
-                  src="/img/parceiros/tulio.png"
-                  alt="Tulio Bicicletas"
-                  className="w-full object-contain p-8"
-                />
-              </div>
-              <div className="md:w-1/2 flex flex-col justify-center p-6">
-                <h4 className="text-xl font-semibold text-blue-700 mb-2">
-                  Túlio Bicicletas
-                </h4>
-                <p className="text-gray-600 mb-4">
-                  Loja virtual completa com painel de cadastro de produtos, filtros por categoria, variações, carrinho de compras e integração com WhatsApp.
-                </p>
-                <a
-                  href="https://tuliobicicletas.helpusa.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full transition"
-                >
-                  Visitar site <FaExternalLinkAlt />
-                </a>
-              </div>
-            </div>
-          </div>
+          <h3 className="text-2xl font-bold text-center mb-6">Exemplos de sites criados</h3>
+          <AutoCarousel slides={slides} interval={3500} aspect="aspect-[21/9]" />
         </div>
 
-        {/* FAQ ou observações futuras (opcional) */}
+        {/* Observações */}
         <p className="text-center text-sm text-gray-500 mt-8">
           Suporte técnico incluso nos primeiros 30 dias após a entrega. Pagamento em até 2x sem juros via cartão ou Pix.
         </p>
