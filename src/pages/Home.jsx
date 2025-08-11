@@ -54,7 +54,7 @@ const parceiros = [
     descricao: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
     imagem: '/img/parceiros/hero-marcio-barber.png',
     video: '/img/parceiros/video-marcio.mp4',
-    link: 'https://marciobarber.helpusa.com.br',
+    link: 'https://marciotopbarber.helpusa.com.br',
   },
 ];
 
