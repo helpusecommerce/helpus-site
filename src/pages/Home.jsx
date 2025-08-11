@@ -1,5 +1,4 @@
 // 📄 src/pages/Home.jsx
-
 import React from 'react';
 import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
@@ -42,13 +41,20 @@ const parceiros = [
     video: '/img/parceiros/video-waleska.mp4',
     link: 'https://waleska.helpusa.com.br',
   },
-  // ✅ Novo parceiro: Dra. Kátia
   {
     nome: 'Dra. Kátia Xavier',
     descricao: 'Atendimento médico presencial e por telemedicina.',
-    imagem: '/img/parceiros/katia.png',               // crie este arquivo de logo
-    video: '/img/parceiros/video-katia.mp4',          // opcional: vídeo curto de apresentação
+    imagem: '/img/parceiros/katia.png',
+    video: '/img/parceiros/video-katia.mp4',
     link: 'https://katiaxavier.helpusa.com.br',
+  },
+  // ✅ Novo parceiro: Márcio Barber
+  {
+    nome: 'Márcio Barber',
+    descricao: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
+    imagem: '/img/parceiros/hero-marcio-barber.png',
+    video: '/img/parceiros/video-marcio.mp4',
+    link: 'https://marciobarber.helpusa.com.br',
   },
 ];
 
@@ -81,7 +87,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Seção de parceiros com animação moderna */}
+      {/* Seção de parceiros */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-14">
@@ -97,7 +103,6 @@ const Home = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                {/* Logo animada */}
                 <motion.img
                   src={parceiro.imagem}
                   alt={parceiro.nome}
@@ -106,8 +111,6 @@ const Home = () => {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 />
-
-                {/* Vídeo ilustrativo (opcional) */}
                 {parceiro.video && (
                   <video
                     src={parceiro.video}
@@ -118,10 +121,8 @@ const Home = () => {
                     playsInline
                   />
                 )}
-
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
-
                 {parceiro.link.startsWith('http') ? (
                   <a
                     href={parceiro.link}
