@@ -1,80 +1,105 @@
 // src/pages/CriacaoDeSites.jsx
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
 import AutoCarousel from '../components/AutoCarousel';
 
 export default function CriacaoDeSites() {
-  // slides do carrossel (logos + links)
   const slides = [
     {
-      src: '/img/parceiros/tulio.png',
+      src: '/img/parceiros/video-wagnerdriver.mp4',
+      poster: '/img/parceiros/wagnerdriver-site.png',
+      logo: '/img/parceiros/logo-wagnerdriver.png',
+      alt: 'Wagner Driver',
+      title: 'Wagner Driver',
+      caption: 'Transporte executivo • Agendamentos via WhatsApp',
+      href: 'https://wagnerdriver.helpusa.com.br',
+      isVideo: true,
+    },
+    {
+      src: '/img/parceiros/video-waleska.mp4',
+      poster: '/img/parceiros/waleska-site.png',
+      logo: '/img/parceiros/logo-waleska.png',
+      alt: 'Waleska Imóveis',
+      title: 'Waleska Santos – Imóveis',
+      caption: 'Compra • Venda • Locação',
+      href: 'https://waleska.helpusa.com.br',
+      isVideo: true,
+    },
+    {
+      src: '/img/parceiros/video-fundo.mp4', // Túlio
+      poster: '/img/parceiros/tulio-site.png',
+      logo: '/img/parceiros/tulio.png',
       alt: 'Túlio Bicicletas',
       title: 'Túlio Bicicletas',
       caption: 'Loja com carrinho, variações e WhatsApp',
       href: 'https://tuliobicicletas.helpusa.com.br',
+      isVideo: true,
     },
     {
-      src: '/img/parceiros/cgdetails.png',
+      src: '/img/parceiros/videocgdetails.webm',
+      poster: '/img/parceiros/details-site.png',
+      logo: '/img/parceiros/cgdetails.png',
       alt: 'CG Details',
       title: 'CG Details',
-      caption: 'Serviços de limpeza detalhada',
+      caption: 'Limpeza detalhada de veículos e imóveis',
       href: 'https://cgdetails.helpusa.com.br',
+      isVideo: true,
     },
     {
-      src: '/img/parceiros/bluebox.png',
+      src: '/img/parceiros/videobluebox.webm',
+      poster: '/img/parceiros/bluebox-site.png',
+      logo: '/img/parceiros/bluebox.png',
       alt: 'Blue Box',
       title: 'Blue Box',
-      caption: 'Lava-jato e estética automotiva',
+      caption: 'Estética automotiva em João Pessoa',
       href: 'https://bluebox.helpusa.com.br',
+      isVideo: true,
     },
     {
-      src: '/img/parceiros/logo-publicarte.png',
+      src: '/img/parceiros/video-publicarte.mp4',
+      poster: '/img/parceiros/publicart-site.png',
+      logo: '/img/parceiros/logo-publicarte.png',
       alt: 'Public Arte',
       title: 'Public Arte',
-      caption: 'Comunicação Visual',
+      caption: 'Comunicação visual e impressos',
       href: 'https://publicarte.helpusa.com.br',
+      isVideo: true,
     },
     {
-      src: '/img/parceiros/logo-waleska.png',
-      alt: 'Waleska Imóveis',
-      title: 'Waleska Imóveis',
-      caption: 'Portal imobiliário',
-      href: 'https://waleska.helpusa.com.br',
-    },
-    {
-      src: '/img/parceiros/katia.png',
+      src: '/img/parceiros/video-katia.mp4',
+      poster: '/img/parceiros/katia-site.png',
+      logo: '/img/parceiros/katia.png',
       alt: 'Dra. Kátia Xavier',
       title: 'Dra. Kátia Xavier',
-      caption: 'Site médico com telemedicina',
+      caption: 'Clínica médica e telemedicina',
       href: 'https://katiaxavier.helpusa.com.br',
+      isVideo: true,
     },
     {
-      src: '/img/parceiros/hero-marcio-barber.png',
+      src: '/img/parceiros/video-marcio.mp4',
+      poster: '/img/parceiros/marcio-site.png',
+      logo: '/img/parceiros/hero-marcio-barber.png',
       alt: 'Márcio Barber',
-      title: 'Márcio Barber',
-      caption: 'Barbearia',
+      title: 'Marcio TopBarber',
+      caption: 'Cortes, barba e pigmentação',
       href: 'https://marciotopbarber.helpusa.com.br',
+      isVideo: true,
     },
   ];
 
   return (
     <div className="bg-white text-gray-800 pt-24 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
-
-        {/* Título principal */}
         <h1 className="text-4xl font-extrabold text-blue-700 text-center mb-10">
           Criação de Sites e Lojas Virtuais
         </h1>
 
-        {/* Bloco introdutório */}
         <p className="text-lg text-center max-w-3xl mx-auto mb-10">
           Desenvolvemos sites modernos, rápidos e personalizados para empresas e profissionais.
           Com layout responsivo, painel administrativo, integração com WhatsApp e hospedagem gratuita,
           você tem tudo o que precisa para marcar presença na internet.
         </p>
 
-        {/* Benefícios */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {[
             'Design profissional e responsivo',
@@ -93,7 +118,6 @@ export default function CriacaoDeSites() {
           ))}
         </div>
 
-        {/* Preço e CTA */}
         <div className="text-center bg-gray-100 rounded-xl py-10 px-6 mb-16 shadow-inner">
           <h2 className="text-3xl font-bold text-blue-600 mb-4">
             A partir de <span className="text-4xl">$299</span>
@@ -109,13 +133,12 @@ export default function CriacaoDeSites() {
           </a>
         </div>
 
-        {/* EXEMPLOS – Carrossel automático */}
+        {/* Carrossel com prints/vídeos */}
         <div className="bg-white border-t pt-10">
           <h3 className="text-2xl font-bold text-center mb-6">Exemplos de sites criados</h3>
-          <AutoCarousel slides={slides} interval={3500} aspect="aspect-[21/9]" />
+          <AutoCarousel slides={slides} interval={3200} aspect="aspect-[21/9]" />
         </div>
 
-        {/* Observações */}
         <p className="text-center text-sm text-gray-500 mt-8">
           Suporte técnico incluso nos primeiros 30 dias após a entrega. Pagamento em até 2x sem juros via cartão ou Pix.
         </p>

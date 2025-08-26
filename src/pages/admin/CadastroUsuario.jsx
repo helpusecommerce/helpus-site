@@ -1,3 +1,4 @@
+// 📄 src/pages/admin/CadastroUsuario.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../services/api';
@@ -11,8 +12,10 @@ const CadastroUsuario = () => {
   const [roles, setRoles] = useState([]);
   const [sites, setSites] = useState([]);
   const [erros, setErros] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // 🔹 Carrega roles e sites ao iniciar
   useEffect(() => {
     const carregarDados = async () => {
       try {
@@ -35,10 +38,17 @@ const CadastroUsuario = () => {
     carregarDados();
   }, []);
 
+  // 🔹 Envio do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErros([]);
 
+    if (senha.length < 6) {
+      setErros(['A senha deve ter pelo menos 6 caracteres.']);
+      return;
+    }
+
+    setLoading(true);
     try {
       const resposta = await apiFetch('/usuarios', {
         method: 'POST',
@@ -47,14 +57,14 @@ const CadastroUsuario = () => {
           nome,
           senha,
           role_id: roleId,
-          site_slug: siteSlug
+          site_slug: siteSlug,
         }),
       });
 
       const dados = await resposta.json();
 
       if (resposta.ok) {
-        alert('Usuário cadastrado com sucesso!');
+        alert('✅ Usuário cadastrado com sucesso!');
         navigate('/admin');
       } else {
         if (dados.errors && Array.isArray(dados.errors)) {
@@ -65,22 +75,31 @@ const CadastroUsuario = () => {
       }
     } catch (err) {
       setErros(['Erro de conexão com o servidor']);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100 px-4">
-      <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4 text-center">Cadastro de Usuário Admin</h2>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
+      >
+        <h2 className="text-xl font-semibold mb-6 text-center">
+          Cadastro de Usuário Admin
+        </h2>
 
+        {/* Lista de erros */}
         {erros.length > 0 && (
-          <ul className="bg-red-100 border border-red-400 text-red-700 text-sm p-3 mb-4 rounded">
+          <ul className="bg-red-100 border border-red-400 text-red-700 text-sm p-3 mb-4 rounded space-y-1">
             {erros.map((erro, index) => (
-              <li key={index}>• {erro}</li>
+              <li key={index}>⚠ {erro}</li>
             ))}
           </ul>
         )}
 
+        {/* Nome */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Nome</label>
           <input
@@ -92,6 +111,7 @@ const CadastroUsuario = () => {
           />
         </div>
 
+        {/* Email */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
@@ -103,6 +123,7 @@ const CadastroUsuario = () => {
           />
         </div>
 
+        {/* Senha */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Senha</label>
           <input
@@ -112,8 +133,12 @@ const CadastroUsuario = () => {
             className="w-full border px-3 py-2 rounded"
             required
           />
+          <p className="text-xs text-gray-500 mt-1">
+            Mínimo de 6 caracteres.
+          </p>
         </div>
 
+        {/* Papel */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Papel (Role)</label>
           <select
@@ -124,11 +149,14 @@ const CadastroUsuario = () => {
           >
             <option value="">Selecione um papel</option>
             {roles.map((r) => (
-              <option key={r.id} value={r.id}>{r.name}</option>
+              <option key={r.id} value={r.id}>
+                {r.name}
+              </option>
             ))}
           </select>
         </div>
 
+        {/* Site */}
         <div className="mb-6">
           <label className="block text-sm font-medium mb-1">Site</label>
           <select
@@ -139,16 +167,24 @@ const CadastroUsuario = () => {
           >
             <option value="">Selecione o site</option>
             {sites.map((s) => (
-              <option key={s.slug} value={s.slug}>{s.nome}</option>
+              <option key={s.slug} value={s.slug}>
+                {s.nome}
+              </option>
             ))}
           </select>
         </div>
 
+        {/* Botão de envio */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          disabled={loading}
+          className={`w-full py-2 rounded text-white font-semibold transition ${
+            loading
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-blue-600 hover:bg-blue-700'
+          }`}
         >
-          Cadastrar
+          {loading ? 'Cadastrando...' : 'Cadastrar'}
         </button>
       </form>
     </div>

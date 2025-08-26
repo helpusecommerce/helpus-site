@@ -4,8 +4,16 @@ import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const parceiros = [
+  {
+    nome: 'Wagner Driver',
+    descricao: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
+    imagem: '/img/parceiros/logo-wagnerdriver.png',
+    video: '/img/parceiros/video-wagnerdriver.mp4',
+    link: 'https://wagnerdriver.helpusa.com.br',
+  },
   {
     nome: 'Túlio Bicicletas',
     descricao: 'Bicicletas, acessórios e manutenção com qualidade.',
@@ -48,7 +56,6 @@ const parceiros = [
     video: '/img/parceiros/video-katia.mp4',
     link: 'https://katiaxavier.helpusa.com.br',
   },
-  // ✅ Novo parceiro: Márcio Barber
   {
     nome: 'Márcio Barber',
     descricao: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
@@ -59,6 +66,8 @@ const parceiros = [
 ];
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div>
       {/* Hero principal */}
@@ -68,20 +77,20 @@ const Home = () => {
       <section className="py-16 bg-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
-            Por que escolher a HelpUS?
+            {t('home.why_title')}
           </h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <h3 className="text-xl font-semibold mb-2">Atendimento Personalizado</h3>
-              <p>Suporte individual durante todo o processo do seu visto.</p>
+              <h3 className="text-xl font-semibold mb-2">{t('home.p1_t')}</h3>
+              <p>{t('home.p1_d')}</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">Experiência Real</h3>
-              <p>Consultores que já passaram por processos semelhantes.</p>
+              <h3 className="text-xl font-semibold mb-2">{t('home.p2_t')}</h3>
+              <p>{t('home.p2_d')}</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">Confiança e Transparência</h3>
-              <p>Explicamos tudo com clareza e sem promessas falsas.</p>
+              <h3 className="text-xl font-semibold mb-2">{t('home.p3_t')}</h3>
+              <p>{t('home.p3_d')}</p>
             </div>
           </div>
         </div>
@@ -91,7 +100,7 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-b from-white to-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-14">
-            Nossos Parceiros
+            {t('home.partners_title')}
           </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
             {parceiros.map((parceiro, index) => (
@@ -130,14 +139,14 @@ const Home = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
                   >
-                    Acessar site <FaExternalLinkAlt />
+                    {t('home.visit_site', { defaultValue: 'Acessar site' })} <FaExternalLinkAlt />
                   </a>
                 ) : (
                   <Link
                     to={parceiro.link}
                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
                   >
-                    Acessar site <FaExternalLinkAlt />
+                    {t('home.visit_site', { defaultValue: 'Acessar site' })} <FaExternalLinkAlt />
                   </Link>
                 )}
               </motion.div>

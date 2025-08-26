@@ -1,3 +1,4 @@
+// 📄 src/components/Hero.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -8,8 +9,11 @@ import {
   FaGlobe
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center text-white text-center px-4 sm:px-6 lg:px-8">
 
@@ -22,7 +26,7 @@ export default function Hero() {
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source src="/Miami.mp4" type="video/mp4" />
-        Seu navegador não suporta vídeos HTML5.
+        {t('hero.no_video')}
       </video>
 
       {/* Camada escura para contraste */}
@@ -37,7 +41,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Soluções completas para viver, <br className="hidden sm:inline" /> empreender e declarar nos EUA
+          {t('hero.title')}
         </motion.h1>
 
         <motion.p
@@ -46,7 +50,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Consultoria especializada em vistos, abertura de empresas, documentação fiscal e criação de sites profissionais – tudo em português.
+          {t('hero.subtitle')}
         </motion.p>
 
         <motion.div
@@ -59,25 +63,25 @@ export default function Hero() {
             to="/servicos/vistos"
             className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded text-sm sm:text-base"
           >
-            <FaPassport /> Vistos Americanos
+            <FaPassport /> {t('hero.cta.visas')}
           </Link>
           <Link
             to="/servicos/empresa"
             className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded text-sm sm:text-base"
           >
-            <FaBuilding /> Abertura de Empresa
+            <FaBuilding /> {t('hero.cta.company')}
           </Link>
           <Link
             to="/servicos/fiscal"
             className="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded text-sm sm:text-base"
           >
-            <FaFileInvoiceDollar /> Impostos e Documentos
+            <FaFileInvoiceDollar /> {t('hero.cta.tax')}
           </Link>
           <Link
             to="/criacao-de-sites"
             className="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded text-sm sm:text-base"
           >
-            <FaGlobe /> Criação de Sites
+            <FaGlobe /> {t('hero.cta.sites')}
           </Link>
         </motion.div>
       </div>

@@ -9,8 +9,10 @@ import {
   FaTiktok
 } from 'react-icons/fa';
 import nhost from '../nhost';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [mensagem, setMensagem] = useState('');
 
@@ -26,13 +28,13 @@ export default function Footer() {
       `);
 
       if (error) {
-        setMensagem('Erro ao inscrever. Talvez e-mail já esteja cadastrado.');
+        setMensagem(t('footer.newsletter.error_exists'));
       } else {
-        setMensagem('Inscrição realizada com sucesso!');
+        setMensagem(t('footer.newsletter.success'));
         setEmail('');
       }
     } catch (err) {
-      setMensagem('Erro de conexão. Tente novamente.');
+      setMensagem(t('footer.newsletter.error_conn'));
     }
 
     setTimeout(() => setMensagem(''), 4000);
@@ -47,11 +49,11 @@ export default function Footer() {
             Help<span className="text-blue-500">US</span>
           </div>
           <nav className="flex gap-6 text-sm">
-            <Link to="/" className="hover:text-blue-400 transition">Início</Link>
-            <Link to="/servicos" className="hover:text-blue-400 transition">Serviços</Link>
-            <Link to="/criacao-de-sites" className="hover:text-blue-400 transition">Criação de Sites</Link>
-            <Link to="/sobre" className="hover:text-blue-400 transition">Sobre</Link>
-            <Link to="/contato" className="hover:text-blue-400 transition">Contato</Link>
+            <Link to="/" className="hover:text-blue-400 transition">{t('menu.home')}</Link>
+            <Link to="/servicos" className="hover:text-blue-400 transition">{t('menu.services')}</Link>
+            <Link to="/criacao-de-sites" className="hover:text-blue-400 transition">{t('menu.site_build')}</Link>
+            <Link to="/sobre" className="hover:text-blue-400 transition">{t('menu.about')}</Link>
+            <Link to="/contato" className="hover:text-blue-400 transition">{t('menu.contact')}</Link>
           </nav>
           <div className="flex gap-3">
             <a href="https://youtube.com/@helpususa" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full shadow-md hover:bg-red-600 transition-transform transform hover:scale-110">
@@ -72,7 +74,7 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center gap-4">
           <p className="text-lg text-center font-semibold">
-            Receba novidades e dicas sobre vistos, empresas, impostos e sites profissionais
+            {t('footer.newsletter.title')}
           </p>
           <form
             onSubmit={handleSubmit}
@@ -80,7 +82,7 @@ export default function Footer() {
           >
             <input
               type="email"
-              placeholder="Digite seu e-mail"
+              placeholder={t('footer.newsletter.placeholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -90,7 +92,7 @@ export default function Footer() {
               type="submit"
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition"
             >
-              Inscrever
+              {t('footer.newsletter.button')}
             </button>
           </form>
           {mensagem && <p className="text-sm text-center text-green-400">{mensagem}</p>}
@@ -98,14 +100,14 @@ export default function Footer() {
 
         {/* Contato */}
         <div className="text-center text-sm text-gray-400">
-          <p>Endereço: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA</p>
-          <p>Email: helpus.ecommerce@gmail.com</p>
+          <p>{t('footer.contact.address')}</p>
+          <p>{t('footer.contact.email')}</p>
         </div>
 
         {/* Rodapé final */}
         <div className="text-center text-xs text-gray-500 mt-4 space-y-1">
-          <p>© {new Date().getFullYear()} HelpUS LLC. Todos os direitos reservados.</p>
-          <p className="text-gray-400">Feito com <span className="text-red-500">♥</span> pela HelpUS</p>
+          <p>© {new Date().getFullYear()} {t('brand')} LLC. {t('footer.rights')}</p>
+          <p className="text-gray-400">{t('footer.made_with')} <span className="text-red-500">♥</span> {t('footer.by_helpus')}</p>
         </div>
       </div>
     </footer>

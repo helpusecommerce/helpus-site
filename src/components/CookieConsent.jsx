@@ -1,7 +1,10 @@
+// src/components/CookieConsent.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function CookieConsent() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -17,19 +20,30 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-4 z-50 shadow-md">
+    <div
+      className="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-4 z-50 shadow-md"
+      role="region"
+      aria-live="polite"
+      aria-label={t('cookie.banner_label', { defaultValue: 'Cookies notice' })}
+    >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
         <p className="flex-1 text-center md:text-left">
-          Utilizamos cookies para melhorar sua experiência no site. Ao continuar navegando, você concorda com nossa&nbsp;
-          <Link to="/politica-de-privacidade" className="underline text-blue-400 hover:text-blue-300">
-            Política de Privacidade
+          {t('cookie.message', {
+            defaultValue:
+              'Utilizamos cookies para melhorar sua experiência no site. Ao continuar navegando, você concorda com nossa',
+          })}{' '}
+          <Link
+            to="/politica-de-privacidade"
+            className="underline text-blue-400 hover:text-blue-300"
+          >
+            {t('cookie.privacy', { defaultValue: 'Política de Privacidade' })}
           </Link>.
         </p>
         <button
           onClick={acceptCookies}
           className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded"
         >
-          Aceitar
+          {t('cookie.accept', { defaultValue: 'Aceitar' })}
         </button>
       </div>
     </div>

@@ -1,3 +1,4 @@
+// 📄 src/pages/admin/EditarUsuario.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiFetch } from '../../services/api';
@@ -11,12 +12,21 @@ const EditarUsuario = () => {
   const [senha, setSenha] = useState('');
   const [roleId, setRoleId] = useState('');
   const [siteSlug, setSiteSlug] = useState('');
+
   const [roles, setRoles] = useState([]);
   const [sites, setSites] = useState([]);
-  const [erro, setErro] = useState('');
+
+  const [erros, setErros] = useState([]);
+  const [loadingPage, setLoadingPage] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
+    let cancel = false;
+
     const carregarDados = async () => {
+      setLoadingPage(true);
+      setErros([]);
+
       try {
         const [resRoles, resSites, resUsuarios] = await Promise.all([
           apiFetch('/roles'),
@@ -24,69 +34,121 @@ const EditarUsuario = () => {
           apiFetch('/usuarios'),
         ]);
 
-        const dadosRoles = await resRoles.json();
-        const dadosSites = await resSites.json();
-        const dadosUsuarios = await resUsuarios.json();
+        const [dadosRoles, dadosSites, dadosUsuarios] = await Promise.all([
+          resRoles.ok ? resRoles.json() : Promise.resolve([]),
+          resSites.ok ? resSites.json() : Promise.resolve([]),
+          resUsuarios.ok ? resUsuarios.json() : Promise.resolve([]),
+        ]);
 
-        const usuario = dadosUsuarios.find((u) => String(u.id) === String(id));
-        if (!usuario) return setErro('Usuário não encontrado.');
+        if (cancel) return;
 
-        setEmail(usuario.email);
-        setNome(usuario.nome);
-        setRoleId(usuario.role_id || '');
-        setSiteSlug(usuario.site_slug || '');
+        setRoles(Array.isArray(dadosRoles) ? dadosRoles : []);
+        setSites(Array.isArray(dadosSites) ? dadosSites : []);
 
-        setRoles(dadosRoles);
-        setSites(dadosSites);
+        const usuario =
+          Array.isArray(dadosUsuarios) &&
+          dadosUsuarios.find((u) => String(u.id) === String(id));
+
+        if (!usuario) {
+          setErros((e) => [...e, 'Usuário não encontrado.']);
+        } else {
+          setEmail(usuario.email || '');
+          setNome(usuario.nome || '');
+          setRoleId(usuario.role_id || '');
+          setSiteSlug(usuario.site_slug || '');
+        }
       } catch (err) {
         console.error(err);
-        setErro('Erro ao carregar dados.');
+        setErros((e) => [...e, 'Erro ao carregar dados.']);
+      } finally {
+        if (!cancel) setLoadingPage(false);
       }
     };
 
     carregarDados();
+    return () => {
+      cancel = true;
+    };
   }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErro('');
+    setErros([]);
 
+    // senha é opcional, mas se preencher, validamos
+    if (senha && senha.length < 6) {
+      setErros(['A nova senha deve ter pelo menos 6 caracteres.']);
+      return;
+    }
+
+    setSaving(true);
     try {
+      const payload = {
+        email,
+        nome,
+        role_id: roleId,
+        site_slug: siteSlug,
+      };
+      if (senha) payload.senha = senha;
+
       const resposta = await apiFetch(`/usuarios/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({
-          email,
-          nome,
-          senha: senha || undefined, // só envia se preenchido
-          role_id: roleId,
-          site_slug: siteSlug,
-        }),
+        body: JSON.stringify(payload),
       });
 
-      const dados = await resposta.json();
+      const dados = await resposta.json().catch(() => ({}));
 
       if (resposta.ok) {
-        alert('Usuário atualizado com sucesso!');
+        alert('✅ Usuário atualizado com sucesso!');
         navigate('/admin');
       } else {
-        if (dados.errors && Array.isArray(dados.errors)) {
-          setErro(dados.errors.map((e) => e.msg).join(' | '));
+        if (dados?.errors && Array.isArray(dados.errors)) {
+          setErros(dados.errors.map((e) => e.msg));
         } else {
-          setErro(dados.error || 'Erro ao editar usuário.');
+          setErros([dados?.error || 'Erro ao editar usuário.']);
         }
       }
     } catch (err) {
-      setErro('Erro de conexão ao salvar.');
+      setErros(['Erro de conexão ao salvar.']);
+    } finally {
+      setSaving(false);
     }
   };
 
+  if (loadingPage) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+          <div className="animate-pulse space-y-4">
+            <div className="h-6 bg-gray-200 rounded w-1/2" />
+            <div className="h-10 bg-gray-200 rounded" />
+            <div className="h-10 bg-gray-200 rounded" />
+            <div className="h-10 bg-gray-200 rounded" />
+            <div className="h-10 bg-gray-200 rounded" />
+            <div className="h-10 bg-gray-200 rounded" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
-      <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4 text-center">Editar Usuário</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
+      >
+        <h2 className="text-xl font-semibold mb-6 text-center">Editar Usuário</h2>
 
-        {erro && <p className="text-red-600 text-sm mb-4 text-center">{erro}</p>}
+        {erros.length > 0 && (
+          <ul className="bg-red-100 border border-red-400 text-red-700 text-sm p-3 mb-4 rounded space-y-1">
+            {erros.map((erro, index) => (
+              <li key={index}>⚠ {erro}</li>
+            ))}
+          </ul>
+        )}
 
+        {/* Nome */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Nome</label>
           <input
@@ -98,6 +160,7 @@ const EditarUsuario = () => {
           />
         </div>
 
+        {/* Email */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
@@ -109,6 +172,7 @@ const EditarUsuario = () => {
           />
         </div>
 
+        {/* Senha (opcional) */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Nova senha (opcional)</label>
           <input
@@ -116,9 +180,14 @@ const EditarUsuario = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             className="w-full border px-3 py-2 rounded"
+            placeholder="Deixe em branco para não alterar"
           />
+          {senha && senha.length < 6 && (
+            <p className="text-xs text-red-600 mt-1">Mínimo de 6 caracteres.</p>
+          )}
         </div>
 
+        {/* Papel */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Papel (Role)</label>
           <select
@@ -129,11 +198,14 @@ const EditarUsuario = () => {
           >
             <option value="">Selecione um papel</option>
             {roles.map((r) => (
-              <option key={r.id} value={r.id}>{r.name}</option>
+              <option key={r.id} value={r.id}>
+                {r.name}
+              </option>
             ))}
           </select>
         </div>
 
+        {/* Site */}
         <div className="mb-6">
           <label className="block text-sm font-medium mb-1">Site</label>
           <select
@@ -144,17 +216,32 @@ const EditarUsuario = () => {
           >
             <option value="">Selecione o site</option>
             {sites.map((s) => (
-              <option key={s.slug} value={s.slug}>{s.nome}</option>
+              <option key={s.slug} value={s.slug}>
+                {s.nome}
+              </option>
             ))}
           </select>
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
-        >
-          Salvar alterações
-        </button>
+        {/* Ações */}
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="w-1/2 bg-gray-200 text-gray-800 py-2 rounded hover:bg-gray-300 transition"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            disabled={saving}
+            className={`w-1/2 py-2 rounded text-white font-semibold transition ${
+              saving ? 'bg-green-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
+            }`}
+          >
+            {saving ? 'Salvando...' : 'Salvar alterações'}
+          </button>
+        </div>
       </form>
     </div>
   );
