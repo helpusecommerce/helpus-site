@@ -1,0 +1,15 @@
+{
+  "brand": "HelpUS",
+  "menu": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "site_build": "Creación de Sitios",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "login": "Acceder"
+  },
+  "visit_site": "Visitar sitio",
+  "learn_more": "Saber más",
+  "request_quote": "Solicitar presupuesto",
+  "whatsapp": "Hablar por WhatsApp"
+}

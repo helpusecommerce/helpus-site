@@ -1,11 +1,20 @@
-// 📄 src/pages/AberturaLLC.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { FaWhatsapp } from 'react-icons/fa';
+// 📄 src/pages/servicos/empresa/AberturaLLC.jsx  (ajuste o caminho se necessário)
+import React from "react";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function AberturaLLC() {
   const { t } = useTranslation();
+
+  const whatsappNumber = "5583998721848";
+  const msg = t(
+    "services.company.AberturaLLC.whatsapp_msg",
+    "Olá! Tenho interesse no serviço: Abertura de Empresa LLC + EIN nos EUA"
+  );
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    msg
+  )}`;
 
   return (
     <section className="py-20 px-6 bg-white">
@@ -16,7 +25,7 @@ export default function AberturaLLC() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t('llc.title', 'Abertura de Empresa (LLC) + Obtenção de EIN')}
+          {t("services.company.AberturaLLC.title")}
         </motion.h1>
 
         <motion.p
@@ -25,10 +34,7 @@ export default function AberturaLLC() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          {t(
-            'llc.intro',
-            'Cuidamos de todo o processo de abertura da sua LLC nos Estados Unidos, com emissão do EIN (Número de Identificação Federal):'
-          )}
+          {t("services.company.AberturaLLC.intro")}
         </motion.p>
 
         <motion.ul
@@ -37,10 +43,10 @@ export default function AberturaLLC() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <li>{t('llc.steps.name', 'Consulta de nome disponível e registro oficial')}</li>
-          <li>{t('llc.steps.forms', 'Preenchimento de formulários de abertura junto ao estado')}</li>
-          <li>{t('llc.steps.ein', 'Geração do EIN diretamente com o IRS')}</li>
-          <li>{t('llc.steps.delivery', 'Entrega dos documentos digitais prontos para uso')}</li>
+          <li>{t("services.company.AberturaLLC.steps.name")}</li>
+          <li>{t("services.company.AberturaLLC.steps.forms")}</li>
+          <li>{t("services.company.AberturaLLC.steps.ein")}</li>
+          <li>{t("services.company.AberturaLLC.steps.delivery")}</li>
         </motion.ul>
 
         <motion.p
@@ -49,7 +55,7 @@ export default function AberturaLLC() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          {t('llc.price', 'Valor: US$ 79,00')}
+          {t("services.company.AberturaLLC.price")}
         </motion.p>
 
         <motion.div
@@ -59,13 +65,13 @@ export default function AberturaLLC() {
           transition={{ delay: 0.8 }}
         >
           <a
-            href="https://wa.me/5583998721848?text=Olá! Tenho interesse no serviço: Abertura de Empresa LLC + EIN nos EUA"
+            href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-6 bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition shadow-md"
           >
             <FaWhatsapp className="text-xl" />
-            {t('llc.cta', 'Contratar agora via WhatsApp')}
+            {t("services.company.AberturaLLC.cta")}
           </a>
         </motion.div>
       </div>

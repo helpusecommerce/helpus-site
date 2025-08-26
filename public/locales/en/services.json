@@ -1,0 +1,21 @@
+{
+  "title": "Services",
+  "cards": {
+    "visas": {
+      "title": "Visa Consulting",
+      "desc": "Tourist, student, work visas and green card."
+    },
+    "company": {
+      "title": "Company Formation",
+      "desc": "LLC in the USA with complete support, even for non-residents."
+    },
+    "tax": {
+      "title": "Tax Documentation",
+      "desc": "ITIN, EIN, returns and accounting focused on immigrants."
+    },
+    "sites": {
+      "title": "Website Creation",
+      "desc": "Modern sites with admin panel, store and WhatsApp integration."
+    }
+  }
+}

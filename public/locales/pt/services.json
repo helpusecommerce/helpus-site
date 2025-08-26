@@ -1,0 +1,21 @@
+{
+  "title": "Serviços",
+  "cards": {
+    "visas": {
+      "title": "Consultoria para Vistos",
+      "desc": "Vistos de turista, estudante, trabalho e green card."
+    },
+    "company": {
+      "title": "Abertura de Empresas",
+      "desc": "LLC nos EUA com suporte completo, mesmo para estrangeiros."
+    },
+    "tax": {
+      "title": "Documentação Fiscal",
+      "desc": "ITIN, EIN, declarações e contabilidade focada no imigrante."
+    },
+    "sites": {
+      "title": "Criação de Sites",
+      "desc": "Sites modernos com painel, loja e integração ao WhatsApp."
+    }
+  }
+}

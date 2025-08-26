@@ -6,59 +6,68 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const parceiros = [
+// Catálogo de parceiros (metadados fixos + fallbacks)
+const partnersCatalog = [
   {
-    nome: 'Wagner Driver',
-    descricao: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
+    id: 'wagner_driver',
+    defaultName: 'Wagner Driver',
+    defaultDesc: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
     imagem: '/img/parceiros/logo-wagnerdriver.png',
     video: '/img/parceiros/video-wagnerdriver.mp4',
     link: 'https://wagnerdriver.helpusa.com.br',
   },
   {
-    nome: 'Túlio Bicicletas',
-    descricao: 'Bicicletas, acessórios e manutenção com qualidade.',
+    id: 'tulio_bicicletas',
+    defaultName: 'Túlio Bicicletas',
+    defaultDesc: 'Bicicletas, acessórios e manutenção com qualidade.',
     imagem: '/img/parceiros/tulio.png',
     video: '/img/parceiros/video-fundo.mp4',
     link: 'https://tuliobicicletas.helpusa.com.br',
   },
   {
-    nome: 'CG Details',
-    descricao: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
+    id: 'cg_details',
+    defaultName: 'CG Details',
+    defaultDesc: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
     imagem: '/img/parceiros/cgdetails.png',
     video: '/img/parceiros/videocgdetails.webm',
     link: 'https://cgdetails.helpusa.com.br',
   },
   {
-    nome: 'Blue Box',
-    descricao: 'Lava-jato eficiente para carros e motos com qualidade profissional.',
+    id: 'bluebox',
+    defaultName: 'Blue Box',
+    defaultDesc: 'Lava-jato de carros e motos com qualidade profissional.',
     imagem: '/img/parceiros/bluebox.png',
     video: '/img/parceiros/videobluebox.webm',
     link: 'https://bluebox.helpusa.com.br',
   },
   {
-    nome: 'Public Arte',
-    descricao: 'Comunicação Visual criativa e soluções gráficas personalizadas.',
+    id: 'publicarte',
+    defaultName: 'Public Arte',
+    defaultDesc: 'Comunicação visual criativa e soluções gráficas personalizadas.',
     imagem: '/img/parceiros/logo-publicarte.png',
     video: '/img/parceiros/video-publicarte.mp4',
     link: 'https://publicarte.helpusa.com.br',
   },
   {
-    nome: 'Waleska Imóveis',
-    descricao: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
+    id: 'waleska',
+    defaultName: 'Waleska Imóveis',
+    defaultDesc: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
     imagem: '/img/parceiros/logo-waleska.png',
     video: '/img/parceiros/video-waleska.mp4',
     link: 'https://waleska.helpusa.com.br',
   },
   {
-    nome: 'Dra. Kátia Xavier',
-    descricao: 'Atendimento médico presencial e por telemedicina.',
+    id: 'katia',
+    defaultName: 'Dra. Kátia Xavier',
+    defaultDesc: 'Atendimento médico presencial e por telemedicina.',
     imagem: '/img/parceiros/katia.png',
     video: '/img/parceiros/video-katia.mp4',
     link: 'https://katiaxavier.helpusa.com.br',
   },
   {
-    nome: 'Márcio Barber',
-    descricao: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
+    id: 'marcio_barber',
+    defaultName: 'Márcio Barber',
+    defaultDesc: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
     imagem: '/img/parceiros/hero-marcio-barber.png',
     video: '/img/parceiros/video-marcio.mp4',
     link: 'https://marciotopbarber.helpusa.com.br',
@@ -67,6 +76,13 @@ const parceiros = [
 
 const Home = () => {
   const { t } = useTranslation();
+
+  // Mapeia catálogo -> dados traduzidos com fallback
+  const partners = partnersCatalog.map((p) => ({
+    ...p,
+    nome: t(`partners.${p.id}.name`, { defaultValue: p.defaultName || p.id }),
+    descricao: t(`partners.${p.id}.desc`, { defaultValue: p.defaultDesc || '' }),
+  }));
 
   return (
     <div>
@@ -103,7 +119,7 @@ const Home = () => {
             {t('home.partners_title')}
           </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-            {parceiros.map((parceiro, index) => (
+            {partners.map((parceiro, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-3xl shadow-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
@@ -132,6 +148,7 @@ const Home = () => {
                 )}
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
+
                 {parceiro.link.startsWith('http') ? (
                   <a
                     href={parceiro.link}
@@ -139,14 +156,14 @@ const Home = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
                   >
-                    {t('home.visit_site', { defaultValue: 'Acessar site' })} <FaExternalLinkAlt />
+                    {t('common.visit_site')} <FaExternalLinkAlt />
                   </a>
                 ) : (
                   <Link
                     to={parceiro.link}
                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
                   >
-                    {t('home.visit_site', { defaultValue: 'Acessar site' })} <FaExternalLinkAlt />
+                    {t('common.visit_site')} <FaExternalLinkAlt />
                   </Link>
                 )}
               </motion.div>

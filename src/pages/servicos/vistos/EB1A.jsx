@@ -1,23 +1,31 @@
-// EB1A.jsx - Visto para Habilidade Extraordinária
+// 📄 src/pages/servicos/vistos/EB1A.jsx
 import React from 'react';
 
 export default function EB1A() {
   return (
     <section className="py-20 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-blue-800 mb-6">Visto EB1-A – Habilidade Extraordinária</h1>
+        <h1 className="text-4xl font-bold text-blue-800 mb-6">
+          Visto EB1-A – Habilidade Extraordinária
+        </h1>
+
         <p className="text-lg text-gray-700 mb-4">
-          O visto EB1-A é voltado para pessoas com habilidades extraordinárias nas áreas de ciência, arte, educação, negócios ou esportes, reconhecidas nacional ou internacionalmente.
+          O visto EB1-A é destinado a pessoas com <strong>habilidades extraordinárias</strong> em
+          ciência, arte, educação, negócios ou esportes, com reconhecimento nacional ou internacional.
         </p>
+
+        <h2 className="text-xl font-semibold mt-8 mb-3 text-gray-800">📋 O que está incluído:</h2>
         <ul className="list-disc list-inside text-gray-600 space-y-2">
           <li>Análise inicial de perfil e elegibilidade</li>
-          <li>Orientações para documentação comprobatória</li>
-          <li>Preenchimento do formulário I-140 e montagem do dossiê</li>
+          <li>Orientações detalhadas para documentação comprobatória</li>
+          <li>Preenchimento do formulário <strong>I-140</strong> e montagem do dossiê</li>
           <li>Traduções e estruturação de provas de notoriedade</li>
         </ul>
-        <p className="text-lg text-green-700 mt-6 font-semibold">
-          Valor: US$ 79.00 – Suporte completo até envio da petição.
-        </p>
+
+        <div className="text-lg text-green-700 mt-6 font-semibold">
+          💵 Valor do serviço HelpUS: <span className="text-2xl text-green-800">US$ 79,00</span> – suporte completo até o envio da petição.
+        </div>
+
         <a
           href="https://wa.me/5583998721848?text=Olá! Tenho interesse no serviço: Visto EB1-A – Habilidade Extraordinária"
           target="_blank"

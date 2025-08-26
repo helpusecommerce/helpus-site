@@ -1,4 +1,4 @@
-// Renovacao.jsx - Página completa com conteúdo
+// 📄 src/pages/servicos/vistos/Renovacao.jsx
 import React from 'react';
 
 export default function Renovacao() {
@@ -6,16 +6,25 @@ export default function Renovacao() {
     <section className="py-20 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-blue-800 mb-6">Renovação de Visto</h1>
+
         <p className="text-lg text-gray-700 mb-4">
-          Se o seu visto está vencido ou próximo de vencer, podemos auxiliá-lo na renovação com agilidade e segurança:
+          Se o seu visto americano está vencido ou próximo do vencimento, a HelpUS oferece suporte completo para
+          renovar com segurança e agilidade, reduzindo erros e atrasos no processo.
         </p>
+
+        <h2 className="text-xl font-semibold mt-8 mb-3 text-gray-800">📋 O que está incluído:</h2>
         <ul className="list-disc list-inside text-gray-600 space-y-2">
-          <li>Atualização de dados e preenchimento do novo DS-160</li>
-          <li>Verificação de elegibilidade para isenção de entrevista</li>
-          <li>Agendamento no CASV ou consulado, se necessário</li>
+          <li>Atualização de dados e preenchimento do novo <strong>DS-160</strong></li>
+          <li>Verificação de elegibilidade para <strong>isenção de entrevista</strong></li>
+          <li>Agendamento no <strong>CASV</strong> ou consulado, se necessário</li>
           <li>Checklist atualizado de documentos exigidos</li>
+          <li>Orientações claras até a devolução do passaporte com o visto renovado</li>
         </ul>
-        <p className="text-lg text-green-700 mt-6 font-semibold">Valor: R$ 119,00</p>
+
+        <div className="text-lg text-green-700 mt-6 font-semibold">
+          💵 Valor do serviço HelpUS: <span className="text-2xl text-green-800">US$ 39.00</span>
+        </div>
+
         <a
           href="https://wa.me/5583998721848?text=Olá! Tenho interesse no serviço: Renovação de Visto"
           target="_blank"
@@ -28,4 +37,3 @@ export default function Renovacao() {
     </section>
   );
 }
-
