@@ -1,0 +1,317 @@
+{
+  "brand": "HelpUS",
+  "menu": {
+    "home": "Início",
+    "services": "Serviços",
+    "site_build": "Criação de Sites",
+    "about": "Sobre",
+    "contact": "Contato",
+    "login": "Login"
+  },
+  "common": {
+    "visit_site": "Acessar site",
+    "learn_more": "Saiba mais",
+    "request_quote": "Solicitar orçamento",
+    "whatsapp": "Falar no WhatsApp"
+  },
+  "hero": {
+    "no_video": "Seu navegador não suporta vídeos HTML5.",
+    "title": "Soluções completas para viver, empreender e declarar nos EUA",
+    "subtitle": "Consultoria especializada em vistos, abertura de empresas, documentação fiscal e criação de sites profissionais – tudo em português.",
+    "cta": {
+      "visas": "Vistos Americanos",
+      "company": "Abertura de Empresa",
+      "tax": "Impostos e Documentos",
+      "sites": "Criação de Sites"
+    }
+  },
+  "home": {
+    "why_title": "Por que escolher a HelpUS?",
+    "p1_t": "Atendimento Personalizado",
+    "p1_d": "Suporte individual durante todo o processo do seu visto.",
+    "p2_t": "Experiência Real",
+    "p2_d": "Consultores que já passaram por processos semelhantes.",
+    "p3_t": "Confiança e Transparência",
+    "p3_d": "Explicamos tudo com clareza e sem promessas falsas.",
+    "partners_title": "Nossos Parceiros",
+    "services_title": "Nossos Serviços",
+    "cards": {
+      "visas": {
+        "title": "Consultoria para Vistos",
+        "desc": "Vistos de turista, estudante, trabalho e green card."
+      },
+      "company": {
+        "title": "Abertura de Empresas",
+        "desc": "LLC nos EUA com suporte completo, mesmo para estrangeiros."
+      },
+      "tax": {
+        "title": "Documentação Fiscal",
+        "desc": "ITIN, EIN, declarações e contabilidade focada no imigrante."
+      },
+      "sites": {
+        "title": "Criação de Sites",
+        "desc": "Sites modernos com painel, loja e integração ao WhatsApp."
+      }
+    }
+  },
+  "partners": {
+    "wagner_driver": {
+      "name": "Wagner Driver",
+      "desc": "Serviço de transporte executivo e agendamentos via WhatsApp"
+    },
+    "tulio_bicicletas": {
+      "name": "Túlio Bicicletas",
+      "desc": "Bicicletas, acessórios e manutenção com qualidade"
+    },
+    "cg_details": {
+      "name": "CG Details",
+      "desc": "Limpeza detalhada de carros, apartamentos e casas"
+    },
+    "bluebox": {
+      "name": "Blue Box",
+      "desc": "Lava-jato de carros e motos"
+    },
+    "publicarte": {
+      "name": "PublicArte",
+      "desc": "Design e comunicação visual"
+    },
+    "waleska": {
+      "name": "Waleska Imóveis",
+      "desc": "Corretagem de imóveis"
+    },
+    "katia": {
+      "name": "Dra. Kátia Xavier",
+      "desc": "Atendimento médico presencial e por telemedicina."
+    },
+    "marcio_barber": {
+      "name": "Márcio Barber",
+      "desc": "Serviços de barbearia com qualidade e atendimento diferenciado."
+    }
+  },
+  "sites": {
+    "h1": "Criação de Sites e Lojas Virtuais",
+    "intro": "Desenvolvemos sites modernos, rápidos e personalizados para empresas e profissionais. Com layout responsivo, painel administrativo, integração com WhatsApp e hospedagem gratuita, você tem tudo o que precisa para marcar presença na internet.",
+    "features": [
+      "Design profissional e responsivo",
+      "Loja virtual com carrinho e WhatsApp",
+      "Painel de controle para gerenciar produtos",
+      "Hospedagem gratuita na Vercel",
+      "Banco de dados gratuito (Supabase)",
+      "Integração com redes sociais",
+      "Controle de usuários por tipo de acesso",
+      "SEO básico incluso"
+    ],
+    "pricing_from": "A partir de",
+    "pricing_value": "$299",
+    "pricing_note": "Site completo entregue em até 10 dias úteis.",
+    "cta_quote": "Solicitar orçamento",
+    "examples_title": "Exemplos de sites criados",
+    "support_note": "Suporte técnico incluso nos primeiros 30 dias após a entrega. Pagamento em até 2x sem juros via cartão ou Pix."
+  },
+  "about": {
+    "title": "Sobre a HelpUS",
+    "intro": "A HelpUS nasceu para facilitar o acesso a serviços essenciais para quem deseja viver, empreender ou investir nos Estados Unidos. Somos especialistas em consultoria para vistos, abertura de empresas e documentação fiscal, com atendimento humanizado e focado em resultados.",
+    "blocks": {
+      "exp_t": "Experiência",
+      "exp_d": "Mais de 10 anos ajudando brasileiros a conquistar seus objetivos nos EUA.",
+      "pers_t": "Atendimento Personalizado",
+      "pers_d": "Cada caso é único. Oferecemos soluções completas conforme o seu perfil.",
+      "commit_t": "Compromisso",
+      "commit_d": "Ética, transparência e dedicação total à sua jornada."
+    }
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Envie sua mensagem e retornaremos rapidamente.",
+    "address": "Endereço: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA",
+    "email_label": "Email",
+    "phone_label": "Telefone"
+  },
+  "services": {
+    "title": "Serviços",
+    "visas": {
+      "title": "Vistos",
+      "list": {
+        "B1B2": {
+          "title": "B1/B2",
+          "desc": "Roteiro e DS-160 para turismo/negócios."
+        },
+        "F1": {
+          "title": "F1",
+          "desc": "Suporte para visto de estudante (I-20 e entrevista)."
+        },
+        "F2": {
+          "title": "F2",
+          "desc": "Dependentes de F1 — formulários e documentos."
+        },
+        "EB1A": {
+          "title": "EB1-A",
+          "desc": "Estratégia e petição para habilidade extraordinária."
+        },
+        "EB2NIW": {
+          "title": "EB2-NIW",
+          "desc": "Waiver por Interesse Nacional — elegibilidade e evidências."
+        },
+        "Renovacao": {
+          "title": "Renovação",
+          "desc": "Fluxo simplificado para vistos elegíveis."
+        },
+        "Familia": {
+          "title": "Família",
+          "desc": "Categorias baseadas em família e checklists."
+        },
+        "CasosEspeciais": {
+          "title": "Casos Especiais",
+          "desc": "Cenários complexos e waivers (orientação inicial)."
+        },
+        "Complementares": {
+          "title": "Complementares",
+          "desc": "EAD, Advance Parole e etapas relacionadas."
+        }
+      }
+    },
+    "company": {
+      "title": "Empresa",
+      "AberturaLLC": {
+        "title": "Abertura de LLC",
+        "desc": "Constituição de LLC nos EUA com Operating Agreement e suporte ao EIN.",
+        "intro": "Cuidamos de todo o processo para abrir sua LLC nos Estados Unidos e obter o EIN (número de identificação fiscal).",
+        "steps": {
+          "name": "Consulta de nome disponível e registro oficial",
+          "forms": "Protocolo dos formulários de abertura no estado",
+          "ein": "Emissão do EIN diretamente com o IRS",
+          "delivery": "Entrega dos documentos digitais prontos para uso"
+        },
+        "price": "Valor: US$ 79,00",
+        "cta": "Contratar agora via WhatsApp",
+        "whatsapp_msg": "Olá! Tenho interesse no serviço: Abertura de Empresa LLC + EIN nos EUA"
+      },
+      "BusinessLicense": {
+        "title": "Business License",
+        "desc": "Orientação para licenças municipais/condado conforme atividade.",
+        "intro": "Suporte completo para obter sua licença comercial em qualquer estado dos EUA, de forma ágil e conforme as regras locais.",
+        "includes_title": "📋 O que está incluído:",
+        "includes": {
+          "0": "Preenchimento do formulário oficial do estado/condado",
+          "1": "Pesquisa do código correto para sua atividade",
+          "2": "PDF final preenchido e pronto para protocolo",
+          "3": "Instruções claras sobre taxas e envio/aplicação",
+          "4": "Suporte por WhatsApp ou e-mail até a emissão"
+        },
+        "price": "$49",
+        "cta": "Falar com a HelpUS",
+        "whatsapp_msg": "Olá! Preciso de ajuda para obter minha Business License nos EUA."
+      },
+      "EnderecoFiscal": {
+        "title": "Endereço Fiscal",
+        "desc": "Opções de endereço para correspondência e conformidade.",
+        "intro": "Endereço fiscal válido para registrar sua empresa, receber correspondências oficiais e abrir conta bancária.",
+        "includes_title": "📋 O que está incluído:",
+        "includes": {
+          "0": "Endereço válido com número, cidade e estado",
+          "1": "Inclusão do nome da empresa na caixa postal",
+          "2": "Encaminhamento digital dos documentos recebidos",
+          "3": "Contrato de cessão emitido em PDF"
+        },
+        "price": "$29",
+        "cta": "Falar com a HelpUS",
+        "whatsapp_msg": "Olá! Tenho interesse no serviço de Endereço Fiscal nos EUA."
+      },
+      "OperatingAgreement": {
+        "title": "Operating Agreement",
+        "desc": "Documento ajustado à estrutura e aos sócios da sua LLC.",
+        "intro": "Elaboramos um Operating Agreement sob medida — essencial para abrir conta bancária, obter licenças e manter a LLC regular.",
+        "includes_title": "📋 O que está incluído:",
+        "includes": {
+          "0": "Contrato jurídico adaptado à sua realidade empresarial",
+          "1": "Cláusulas sobre sócios, divisão de lucros e responsabilidades",
+          "2": "Versão em inglês para uso oficial + tradução explicativa em português",
+          "3": "Envio digital em PDF pronto para uso"
+        },
+        "price": "$25",
+        "cta": "Solicitar via WhatsApp",
+        "whatsapp_msg": "Olá! Tenho interesse no serviço de Operating Agreement Personalizado."
+      },
+      "ITIN": {
+        "title": "ITIN",
+        "desc": "Montagem do pacote W-7 com documentos comprobatórios."
+      },
+      "W7": {
+        "title": "Formulário W-7",
+        "desc": "Solicitação do ITIN com carta de apresentação e formulários."
+      }
+    },
+    "tax": {
+      "title": "Fiscal",
+      "IRPF": {
+        "title": "Declaração Individual",
+        "desc": "Entrega federal e orientação para imigrantes e residentes."
+      },
+      "ScheduleC": {
+        "title": "Schedule C",
+        "desc": "Renda como autônomo, deduções e apoio contábil."
+      },
+      "W9": {
+        "title": "Formulário W-9",
+        "desc": "Preenchimento do formulário de informações do contribuinte."
+      },
+      "Dependentes": {
+        "title": "Dependentes",
+        "desc": "Regras para declarar dependentes e maximizar reembolsos."
+      },
+      "Formularios": {
+        "title": "Formulários",
+        "desc": "Listas e formulários auxiliares do IRS."
+      },
+      "Envio": {
+        "title": "Envio",
+        "desc": "Instruções para envio seguro e acompanhamento."
+      },
+      "ITINPage": {
+        "title": "Solicitação de ITIN",
+        "intro": "O ITIN é essencial para quem precisa declarar impostos nos EUA, mas não possui direito a um SSN.",
+        "includes_title": "📋 O que está incluído:",
+        "includes": {
+          "0": "Preenchimento completo do formulário oficial W-7",
+          "1": "Carta explicativa personalizada para o IRS",
+          "2": "Checklist atualizado de documentos aceitos",
+          "3": "Instruções detalhadas para envio por correio ou validação via ACE"
+        },
+        "price": "$55",
+        "cta": "Falar com a HelpUS",
+        "whatsapp_msg": "Olá! Tenho interesse no serviço de Solicitação de ITIN."
+      },
+      "W7Page": {
+        "title": "Formulário W-7 (Solicitação de ITIN)",
+        "intro": "Documento oficial para solicitar o ITIN junto ao IRS. Cuidamos de todo o processo com precisão e segurança:",
+        "includes_title": "📋 O que está incluído:",
+        "includes": {
+          "0": "Definição correta da categoria de elegibilidade",
+          "1": "Preenchimento completo e consistente dos dados",
+          "2": "Revisão para evitar erros comuns e garantir aceitação",
+          "3": "Carta explicativa e checklist de documentos"
+        },
+        "price": "Incluído no pacote de ITIN",
+        "cta": "Solicitar via WhatsApp",
+        "whatsapp_msg": "Olá, desejo ajuda para preencher o Formulário W-7 (ITIN)."
+      }
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Receba novidades e dicas sobre vistos, empresas, impostos e sites profissionais",
+      "placeholder": "Digite seu e-mail",
+      "button": "Inscrever",
+      "success": "Inscrição realizada com sucesso!",
+      "error_exists": "Erro ao inscrever. Talvez e-mail já esteja cadastrado.",
+      "error_conn": "Erro de conexão. Tente novamente."
+    },
+    "contact": {
+      "address": "Endereço: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA",
+      "email": "Email: helpus.ecommerce@gmail.com"
+    },
+    "rights": "Todos os direitos reservados.",
+    "made_with": "Feito com",
+    "by_helpus": "pela HelpUS"
+  }
+}

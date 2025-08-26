@@ -1,0 +1,317 @@
+{
+  "brand": "HelpUS",
+  "menu": {
+    "home": "Home",
+    "services": "Services",
+    "site_build": "Website Creation",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login"
+  },
+  "common": {
+    "visit_site": "Visit site",
+    "learn_more": "Learn more",
+    "request_quote": "Request a quote",
+    "whatsapp": "Talk on WhatsApp"
+  },
+  "hero": {
+    "no_video": "Your browser does not support HTML5 video.",
+    "title": "Complete solutions to live, start a business and file taxes in the USA",
+    "subtitle": "Specialized consultancy in visas, company formation, tax documentation and professional websites – all in your language.",
+    "cta": {
+      "visas": "American Visas",
+      "company": "Company Formation",
+      "tax": "Taxes & Documents",
+      "sites": "Website Creation"
+    }
+  },
+  "home": {
+    "why_title": "Why choose HelpUS?",
+    "p1_t": "Personalized Service",
+    "p1_d": "1:1 support throughout your visa process.",
+    "p2_t": "Real Experience",
+    "p2_d": "Consultants who have gone through similar processes.",
+    "p3_t": "Trust & Transparency",
+    "p3_d": "We explain everything clearly with no false promises.",
+    "partners_title": "Our Partners",
+    "services_title": "Our Services",
+    "cards": {
+      "visas": {
+        "title": "Visa Consulting",
+        "desc": "Tourist, student, work visas and green card."
+      },
+      "company": {
+        "title": "Company Formation",
+        "desc": "LLC in the USA with complete support, even for non-residents."
+      },
+      "tax": {
+        "title": "Tax Documentation",
+        "desc": "ITIN, EIN, returns and accounting focused on immigrants."
+      },
+      "sites": {
+        "title": "Website Creation",
+        "desc": "Modern sites with admin panel, store and WhatsApp integration."
+      }
+    }
+  },
+  "partners": {
+    "wagner_driver": {
+      "name": "Wagner Driver",
+      "desc": "Executive transport service and scheduling via WhatsApp"
+    },
+    "tulio_bicicletas": {
+      "name": "Túlio Bicicletas",
+      "desc": "Bicycles, accessories and quality maintenance"
+    },
+    "cg_details": {
+      "name": "CG Details",
+      "desc": "Detailed cleaning for cars, apartments and houses"
+    },
+    "bluebox": {
+      "name": "Blue Box",
+      "desc": "Car and motorcycle wash"
+    },
+    "publicarte": {
+      "name": "PublicArte",
+      "desc": "Design and visual communication"
+    },
+    "waleska": {
+      "name": "Waleska Imóveis",
+      "desc": "Real estate brokerage"
+    },
+    "katia": {
+      "name": "Dr. Kátia Xavier",
+      "desc": "In-person and telemedicine medical care."
+    },
+    "marcio_barber": {
+      "name": "Márcio Barber",
+      "desc": "Barbershop services with quality and dedicated service."
+    }
+  },
+  "sites": {
+    "h1": "Website and Online Store Development",
+    "intro": "We build modern, fast, and personalized websites for companies and professionals. With responsive layout, admin panel, WhatsApp integration and free hosting, you have everything to build your online presence.",
+    "features": [
+      "Professional and responsive design",
+      "Online store with cart and WhatsApp",
+      "Control panel to manage products",
+      "Free hosting on Vercel",
+      "Free database (Supabase)",
+      "Social media integration",
+      "User roles & access control",
+      "Basic SEO included"
+    ],
+    "pricing_from": "Starting at",
+    "pricing_value": "$299",
+    "pricing_note": "Complete website delivered within 10 business days.",
+    "cta_quote": "Request a quote",
+    "examples_title": "Examples of websites created",
+    "support_note": "Technical support included for the first 30 days after delivery. Payment in up to 2x interest-free via card or Pix."
+  },
+  "about": {
+    "title": "About HelpUS",
+    "intro": "HelpUS exists to make essential services accessible to those who want to live, start a business or invest in the United States. We specialize in visa consulting, company formation and tax documentation with human and results-driven service.",
+    "blocks": {
+      "exp_t": "Experience",
+      "exp_d": "Over 10 years helping Brazilians achieve their goals in the USA.",
+      "pers_t": "Personalized Care",
+      "pers_d": "Every case is unique. We offer complete solutions based on your profile.",
+      "commit_t": "Commitment",
+      "commit_d": "Ethics, transparency and full dedication to the success of your journey."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch and we’ll respond quickly.",
+    "address": "Address: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - USA",
+    "email_label": "Email",
+    "phone_label": "Phone"
+  },
+  "services": {
+    "title": "Services",
+    "visas": {
+      "title": "Visas",
+      "list": {
+        "B1B2": {
+          "title": "B1/B2",
+          "desc": "Tourist/Business visa guidance and DS-160."
+        },
+        "F1": {
+          "title": "F1",
+          "desc": "Student visa support (I-20, interview and checklist)."
+        },
+        "F2": {
+          "title": "F2",
+          "desc": "Dependents of F1 – forms and documentation."
+        },
+        "EB1A": {
+          "title": "EB1-A",
+          "desc": "Extraordinary ability green card strategy and filing."
+        },
+        "EB2NIW": {
+          "title": "EB2-NIW",
+          "desc": "National Interest Waiver—eligibility, evidence and petition."
+        },
+        "Renovacao": {
+          "title": "Renewal",
+          "desc": "Simplified flow for renewing eligible visas."
+        },
+        "Familia": {
+          "title": "Family",
+          "desc": "Family-based categories and checklists."
+        },
+        "CasosEspeciais": {
+          "title": "Special Cases",
+          "desc": "Complex scenarios and waivers (initial guidance)."
+        },
+        "Complementares": {
+          "title": "Complementary",
+          "desc": "EAD, Advance Parole and related steps."
+        }
+      }
+    },
+    "company": {
+      "title": "Company",
+      "AberturaLLC": {
+        "title": "LLC Formation",
+        "desc": "LLC in the USA with Operating Agreement and EIN guidance.",
+        "intro": "We handle the entire process to open your LLC in the United States and obtain the EIN (Federal Tax ID).",
+        "steps": {
+          "name": "Name availability check and official registration",
+          "forms": "Filing state formation forms",
+          "ein": "EIN issuance directly with the IRS",
+          "delivery": "Delivery of ready-to-use digital documents"
+        },
+        "price": "Price: US$ 79.00",
+        "cta": "Hire now via WhatsApp",
+        "whatsapp_msg": "Hello! I'm interested in the service: LLC Formation + EIN in the USA"
+      },
+      "BusinessLicense": {
+        "title": "Business License",
+        "desc": "City/county licensing orientation according to activity.",
+        "intro": "Complete support to obtain your business license in any US state, quickly and according to local rules.",
+        "includes_title": "📋 What's included:",
+        "includes": {
+          "0": "Filling the official state/county application",
+          "1": "Research of the proper license code for your activity",
+          "2": "Final PDF filled out and ready to file",
+          "3": "Clear instructions on fees and how to submit",
+          "4": "Support via WhatsApp or email until license is issued"
+        },
+        "price": "$49",
+        "cta": "Chat with HelpUS",
+        "whatsapp_msg": "Hello! I need help to obtain my Business License in the USA."
+      },
+      "EnderecoFiscal": {
+        "title": "Fiscal Address",
+        "desc": "Address options for correspondence and compliance.",
+        "intro": "Valid fiscal address to register your company, receive official mail and open a bank account.",
+        "includes_title": "📋 What's included:",
+        "includes": {
+          "0": "Valid address with number, city and state",
+          "1": "Company name added to the mailbox",
+          "2": "Digital forwarding of received documents",
+          "3": "Assignment agreement issued in PDF"
+        },
+        "price": "$29",
+        "cta": "Chat with HelpUS",
+        "whatsapp_msg": "Hello! I'm interested in the Fiscal Address service in the USA."
+      },
+      "OperatingAgreement": {
+        "title": "Operating Agreement",
+        "desc": "Tailored document for your LLC’s structure and members.",
+        "intro": "We prepare a tailored Operating Agreement for your LLC — essential to open a bank account, obtain licenses and keep your company compliant.",
+        "includes_title": "📋 What's included:",
+        "includes": {
+          "0": "Legal contract adapted to your business reality",
+          "1": "Clauses on members, profit sharing and responsibilities",
+          "2": "Official English version + explanatory Portuguese translation",
+          "3": "Digital delivery in PDF ready to use"
+        },
+        "price": "$25",
+        "cta": "Request via WhatsApp",
+        "whatsapp_msg": "Hello! I'm interested in the Custom Operating Agreement service."
+      },
+      "ITIN": {
+        "title": "ITIN",
+        "desc": "Preparation of W-7 package and supporting evidence."
+      },
+      "W7": {
+        "title": "Form W-7",
+        "desc": "Request for ITIN with proper cover letter and forms."
+      }
+    },
+    "tax": {
+      "title": "Tax",
+      "IRPF": {
+        "title": "Individual Tax Return",
+        "desc": "Federal filing and guidance for immigrants and residents."
+      },
+      "ScheduleC": {
+        "title": "Schedule C",
+        "desc": "Self-employed income, deductions and bookkeeping support."
+      },
+      "W9": {
+        "title": "Form W-9",
+        "desc": "Taxpayer information form preparation for clients/vendors."
+      },
+      "Dependentes": {
+        "title": "Dependents",
+        "desc": "Rules to claim dependents and maximize refunds."
+      },
+      "Formularios": {
+        "title": "Forms",
+        "desc": "Checklists and auxiliary IRS forms."
+      },
+      "Envio": {
+        "title": "Submission",
+        "desc": "Secure sending instructions and follow-up."
+      },
+      "ITINPage": {
+        "title": "ITIN Application",
+        "intro": "The ITIN is essential for foreigners who must file taxes in the US but are not eligible for an SSN.",
+        "includes_title": "📋 What's included:",
+        "includes": {
+          "0": "Complete filling of the official W-7 form",
+          "1": "Personalized cover letter for the IRS",
+          "2": "Updated checklist of accepted documents",
+          "3": "Detailed instructions to mail or validate via ACE"
+        },
+        "price": "$55",
+        "cta": "Chat with HelpUS",
+        "whatsapp_msg": "Hello! I'm interested in the ITIN Application service."
+      },
+      "W7Page": {
+        "title": "Form W-7 (ITIN Request)",
+        "intro": "Official document used to request the ITIN from the IRS. We take care of the process with accuracy and security:",
+        "includes_title": "📋 What's included:",
+        "includes": {
+          "0": "Correct eligibility category definition",
+          "1": "Complete and consistent filling of data",
+          "2": "Review to avoid common errors and ensure acceptance",
+          "3": "Cover letter and document checklist"
+        },
+        "price": "Included in the ITIN package",
+        "cta": "Request via WhatsApp",
+        "whatsapp_msg": "Hello! I need help filling Form W-7 (ITIN)."
+      }
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Get news and tips about visas, companies, taxes and professional websites",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "success": "Subscribed successfully!",
+      "error_exists": "Subscription error. Email may already be registered.",
+      "error_conn": "Connection error. Please try again."
+    },
+    "contact": {
+      "address": "Address: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - USA",
+      "email": "Email: helpus.ecommerce@gmail.com"
+    },
+    "rights": "All rights reserved.",
+    "made_with": "Made with",
+    "by_helpus": "by HelpUS"
+  }
+}
