@@ -1,5 +1,5 @@
 // 📄 src/pages/admin/ListaUsuariosAdmin.jsx
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../services/api';
 
@@ -10,15 +10,15 @@ const ListaUsuariosAdmin = () => {
   const [erro, setErro] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const [q, setQ] = useState('');            // busca
-  const [sortKey, setSortKey] = useState('id'); // 'id' | 'email' | 'role' | 'site'
-  const [sortDir, setSortDir] = useState('asc'); // 'asc' | 'desc'
+  const [q, setQ] = useState('');
+  const [sortKey, setSortKey] = useState('id');   // 'id' | 'email' | 'role' | 'site'
+  const [sortDir, setSortDir] = useState('asc');  // 'asc' | 'desc'
   const [page, setPage] = useState(1);
 
   const navigate = useNavigate();
   const usuario = JSON.parse(localStorage.getItem('usuario') || 'null');
 
-  const carregarUsuarios = async () => {
+  const carregarUsuarios = useCallback(async () => {
     setErro('');
     setLoading(true);
     try {
@@ -40,12 +40,11 @@ const ListaUsuariosAdmin = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     carregarUsuarios();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigate]);
+  }, [carregarUsuarios]);
 
   // busca (cliente)
   const filtrados = useMemo(() => {
@@ -121,7 +120,6 @@ const ListaUsuariosAdmin = () => {
 
       if (resposta.ok) {
         alert(dados.mensagem || 'Usuário excluído.');
-        // remove da lista sem recarregar
         setUsuarios((prev) => prev.filter((u) => u.id !== id));
       } else {
         alert(dados.error || 'Erro ao excluir usuário.');
@@ -206,7 +204,6 @@ const ListaUsuariosAdmin = () => {
 
           <tbody>
             {loading ? (
-              // skeleton
               Array.from({ length: 5 }).map((_, i) => (
                 <tr key={i} className="animate-pulse">
                   {Array.from({ length: 5 }).map((__, j) => (
@@ -262,35 +259,30 @@ const ListaUsuariosAdmin = () => {
         </table>
       </div>
 
-      {/* Paginação */}
       {!loading && sorted.length > 0 && (
         <div className="flex items-center justify-between mt-4 text-sm">
           <div>
-            Mostrando{' '}
-            <strong>
-              {start + 1}-{Math.min(start + PAGE_SIZE, sorted.length)}
-            </strong>{' '}
-            de <strong>{sorted.length}</strong>
+            Mostrando <strong>{start + 1}-{Math.min(start + PAGE_SIZE, sorted.length)}</strong> de <strong>{sorted.length}</strong>
           </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
-                className="px-3 py-1 border rounded disabled:opacity-50"
-                disabled={pageClamped === 1}
-              >
-                Anterior
-              </button>
-              <span className="px-2 py-1">
-                Página <strong>{pageClamped}</strong> de <strong>{totalPages}</strong>
-              </span>
-              <button
-                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                className="px-3 py-1 border rounded disabled:opacity-50"
-                disabled={pageClamped === totalPages}
-              >
-                Próxima
-              </button>
-            </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              className="px-3 py-1 border rounded disabled:opacity-50"
+              disabled={pageClamped === 1}
+            >
+              Anterior
+            </button>
+            <span className="px-2 py-1">
+              Página <strong>{pageClamped}</strong> de <strong>{totalPages}</strong>
+            </span>
+            <button
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              className="px-3 py-1 border rounded disabled:opacity-50"
+              disabled={pageClamped === totalPages}
+            >
+              Próxima
+            </button>
+          </div>
         </div>
       )}
     </div>
