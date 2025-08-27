@@ -1,7 +1,8 @@
 // 📄 src/components/Header.jsx
-// Updated: robust i18n switcher (desktop/mobile), a11y, persistence, and ESC-to-close
+// Updated: i18n switcher + account menu (profile / change password / logout / admin),
+// email truncation, a11y, persistence, ESC-to-close, and mobile variants.
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaUserCircle, FaChevronDown } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
@@ -9,10 +10,19 @@ export default function Header() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [usuario, setUsuario] = useState(null);
+
+  // language dropdown
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef(null);
-  const btnRef = useRef(null);
+  const langBtnRef = useRef(null);
+
+  // user dropdown
+  const [userOpen, setUserOpen] = useState(false);
+  const userRef = useRef(null);
+  const userBtnRef = useRef(null);
+
   const location = useLocation();
+  const navigate = useNavigate();
 
   // load user from localStorage
   useEffect(() => {
@@ -22,11 +32,11 @@ export default function Header() {
     } catch {}
   }, []);
 
-  // close language dropdown when clicking outside
+  // close dropdowns when clicking outside
   useEffect(() => {
     const onDoc = (e) => {
-      if (!langRef.current) return;
-      if (!langRef.current.contains(e.target)) setLangOpen(false);
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+      if (userRef.current && !userRef.current.contains(e.target)) setUserOpen(false);
     };
     document.addEventListener('mousedown', onDoc);
     document.addEventListener('touchstart', onDoc);
@@ -41,15 +51,16 @@ export default function Header() {
     const onKey = (e) => {
       if (e.key === 'Escape') {
         setLangOpen(false);
+        setUserOpen(false);
         setIsOpen(false);
-        btnRef.current?.focus();
+        (userOpen ? userBtnRef.current : langBtnRef.current)?.focus();
       }
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, []);
+  }, [userOpen]);
 
-  // keep selected lang between navigations (i18n already writes localStorage via i18n.js)
+  // languages
   const languages = [
     { code: 'en', label: 'English' },
     { code: 'pt', label: 'Português' },
@@ -60,14 +71,36 @@ export default function Header() {
 
   const changeLang = (code) => {
     i18n.changeLanguage(code);
-    try {
-      localStorage.setItem('lang', code);
-    } catch {}
+    try { localStorage.setItem('lang', code); } catch {}
     setLangOpen(false);
   };
 
-  // utility to mark active link
   const isActive = (to) => location.pathname === to;
+
+  // account actions
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem('usuario');
+      localStorage.removeItem('token');
+      localStorage.removeItem('auth');
+      localStorage.removeItem('session');
+    } catch {}
+    setUsuario(null);
+    setUserOpen(false);
+    navigate('/');
+  };
+
+  const profileHref = '/perfil';
+  const passwordHref = '/alterar-senha';
+  const signupHref = '/cadastro';
+
+  // detect admin user
+  const isAdmin =
+    !!usuario &&
+    (usuario.role_id === 1 ||
+      String(usuario.role_nome || usuario.role || usuario.tipo || '')
+        .toLowerCase()
+        .includes('admin'));
 
   return (
     <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-md z-50">
@@ -82,41 +115,26 @@ export default function Header() {
 
         {/* Menu desktop */}
         <nav className="hidden md:flex gap-6 text-sm items-center">
-          <Link
-            to="/"
-            className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}
-          >
+          <Link to="/" className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}>
             {t('menu.home')}
           </Link>
-          <Link
-            to="/servicos"
-            className={`transition hover:text-blue-400 ${isActive('/servicos') ? 'text-blue-400' : ''}`}
-          >
+          <Link to="/servicos" className={`transition hover:text-blue-400 ${isActive('/servicos') ? 'text-blue-400' : ''}`}>
             {t('menu.services')}
           </Link>
-          <Link
-            to="/criacao-de-sites"
-            className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}
-          >
+          <Link to="/criacao-de-sites" className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}>
             {t('menu.site_build')}
           </Link>
-          <Link
-            to="/sobre"
-            className={`transition hover:text-blue-400 ${isActive('/sobre') ? 'text-blue-400' : ''}`}
-          >
+          <Link to="/sobre" className={`transition hover:text-blue-400 ${isActive('/sobre') ? 'text-blue-400' : ''}`}>
             {t('menu.about')}
           </Link>
-          <Link
-            to="/contato"
-            className={`transition hover:text-blue-400 ${isActive('/contato') ? 'text-blue-400' : ''}`}
-          >
+          <Link to="/contato" className={`transition hover:text-blue-400 ${isActive('/contato') ? 'text-blue-400' : ''}`}>
             {t('menu.contact')}
           </Link>
 
           {/* Language selector */}
           <div className="relative" ref={langRef}>
             <button
-              ref={btnRef}
+              ref={langBtnRef}
               onClick={() => setLangOpen((v) => !v)}
               className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-haspopup="listbox"
@@ -137,9 +155,7 @@ export default function Header() {
                     onClick={() => changeLang(l.code)}
                     role="option"
                     aria-selected={l.code === current.code}
-                    className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
-                      l.code === current.code ? 'font-semibold' : ''
-                    }`}
+                    className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${l.code === current.code ? 'font-semibold' : ''}`}
                   >
                     {l.label}
                   </button>
@@ -148,21 +164,82 @@ export default function Header() {
             )}
           </div>
 
-          {/* Auth indicator */}
+          {/* Account */}
           {usuario ? (
-            <span className="flex items-center gap-2 text-green-400 text-sm">
-              <FaUserCircle className="text-lg" />
-              {usuario.email}
-            </span>
+            <div className="relative" ref={userRef}>
+              <button
+                ref={userBtnRef}
+                onClick={() => setUserOpen((v) => !v)}
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-haspopup="menu"
+                aria-expanded={userOpen}
+                aria-label={t('menu.login', { defaultValue: 'Account' })}
+                title={usuario.email}
+              >
+                <FaUserCircle className="text-lg text-green-400" />
+                {/* esconde o e-mail em telas menores; mostra truncado apenas em xl+ */}
+                <span className="hidden xl:block max-w-[160px] truncate text-green-400">{usuario.email}</span>
+                <FaChevronDown className="text-xs opacity-70" />
+              </button>
+
+              {userOpen && (
+                <div
+                  className="absolute right-0 mt-2 w-56 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden"
+                  role="menu"
+                >
+                  {isAdmin && (
+                    <Link
+                      to="/admin"
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => setUserOpen(false)}
+                      role="menuitem"
+                    >
+                      {t('account.admin', { defaultValue: 'Admin' })}
+                    </Link>
+                  )}
+                  <Link
+                    to={profileHref}
+                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                    onClick={() => setUserOpen(false)}
+                    role="menuitem"
+                  >
+                    {t('account.profile', { defaultValue: 'Perfil' })}
+                  </Link>
+                  <Link
+                    to={passwordHref}
+                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                    onClick={() => setUserOpen(false)}
+                    role="menuitem"
+                  >
+                    {t('account.change_password', { defaultValue: 'Alterar senha' })}
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 border-t"
+                    role="menuitem"
+                  >
+                    {t('account.logout', { defaultValue: 'Sair' })}
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
-            <Link
-              to="/login"
-              className="flex items-center gap-2 hover:text-blue-400 transition"
-              title={t('menu.login')}
-            >
-              <FaUserCircle className="text-lg" />
-              {t('menu.login')}
-            </Link>
+            <div className="flex items-center gap-3">
+              <Link
+                to="/login"
+                className="flex items-center gap-2 hover:text-blue-400 transition"
+                title={t('menu.login')}
+              >
+                <FaUserCircle className="text-lg" />
+                {t('menu.login')}
+              </Link>
+              <Link
+                to={signupHref}
+                className="hidden lg:inline-block bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-xs"
+              >
+                {t('account.signup', { defaultValue: 'Criar conta' })}
+              </Link>
+            </div>
           )}
         </nav>
 
@@ -186,11 +263,7 @@ export default function Header() {
           <Link to="/servicos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
             {t('menu.services')}
           </Link>
-          <Link
-            to="/criacao-de-sites"
-            onClick={() => setIsOpen(false)}
-            className="block hover:text-blue-400"
-          >
+          <Link to="/criacao-de-sites" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
             {t('menu.site_build')}
           </Link>
           <Link to="/sobre" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
@@ -207,10 +280,7 @@ export default function Header() {
               {languages.map((l) => (
                 <button
                   key={l.code}
-                  onClick={() => {
-                    changeLang(l.code);
-                    setIsOpen(false);
-                  }}
+                  onClick={() => { changeLang(l.code); setIsOpen(false); }}
                   className={`py-2 rounded-md border text-sm ${
                     l.code === current.code
                       ? 'bg-blue-600 text-white border-blue-600'
@@ -224,13 +294,43 @@ export default function Header() {
             </div>
           </div>
 
-          <Link
-            to="/login"
-            onClick={() => setIsOpen(false)}
-            className="block hover:text-blue-400 flex items-center gap-2"
-          >
-            <FaUserCircle /> {t('menu.login')}
-          </Link>
+          {/* Account (mobile) */}
+          {usuario ? (
+            <div className="pt-3 border-t border-white/10">
+              <div className="flex items-center gap-2 text-green-400 mb-2">
+                <FaUserCircle className="text-lg" />
+                <span className="truncate" title={usuario.email}>{usuario.email}</span>
+              </div>
+              <div className="grid gap-2">
+                {isAdmin && (
+                  <Link to="/admin" onClick={() => setIsOpen(false)} className="block bg-white/10 px-3 py-2 rounded">
+                    {t('account.admin', { defaultValue: 'Admin' })}
+                  </Link>
+                )}
+                <Link to={profileHref} onClick={() => setIsOpen(false)} className="block bg-white/10 px-3 py-2 rounded">
+                  {t('account.profile', { defaultValue: 'Perfil' })}
+                </Link>
+                <Link to={passwordHref} onClick={() => setIsOpen(false)} className="block bg-white/10 px-3 py-2 rounded">
+                  {t('account.change_password', { defaultValue: 'Alterar senha' })}
+                </Link>
+                <button
+                  onClick={() => { setIsOpen(false); handleLogout(); }}
+                  className="block text-left bg-white/10 px-3 py-2 rounded"
+                >
+                  {t('account.logout', { defaultValue: 'Sair' })}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="pt-3 border-t border-white/10 grid gap-2">
+              <Link to="/login" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 flex items-center gap-2">
+                <FaUserCircle /> {t('menu.login')}
+              </Link>
+              <Link to={signupHref} onClick={() => setIsOpen(false)} className="block bg-blue-600 text-white px-3 py-2 rounded text-center">
+                {t('account.signup', { defaultValue: 'Criar conta' })}
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </header>

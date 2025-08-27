@@ -8,6 +8,13 @@
     "contact": "Contact",
     "login": "Login"
   },
+  "account": {
+    "admin": "Admin",
+    "profile": "Profile",
+    "change_password": "Change password",
+    "logout": "Logout",
+    "signup": "Sign up"
+  },
   "common": {
     "visit_site": "Visit site",
     "learn_more": "Learn more",
@@ -131,6 +138,9 @@
     "title": "Services",
     "visas": {
       "title": "Visas",
+      "includes_title": "📋 What's included:",
+      "examples_title": "📋 Examples of cases handled:",
+      "examples_title_docs": "📋 Example documents:",
       "list": {
         "B1B2": {
           "title": "B1/B2",
@@ -167,6 +177,116 @@
         "Complementares": {
           "title": "Complementary",
           "desc": "EAD, Advance Parole and related steps."
+        },
+        "OutrosTrabalho": {
+          "title": "Other Work Visas",
+          "desc": "H1B, L1, O1 and more, based on your profile."
+        }
+      },
+      "pages": {
+        "B1B2": {
+          "intro": "The B1/B2 visa is for temporary trips to the United States for tourism, business, or visiting family and friends.",
+          "items": {
+            "0": "Complete completion of the <strong>DS-160</strong> form",
+            "1": "Document preparation and personalized checklist",
+            "2": "Consular interview scheduling and detailed instructions",
+            "3": "Tips to increase your chances of approval"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 45.00"
+        },
+        "F1": {
+          "intro": "The F1 visa is intended for foreign students who wish to attend an academic institution in the United States.",
+          "items": {
+            "0": "Detailed guidance and checklist of required documents",
+            "1": "Complete completion of the <strong>DS-160</strong> form",
+            "2": "Payment and issuance of the <strong>SEVIS</strong> fee",
+            "3": "Scheduling and instructions for the consular interview"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 59.00"
+        },
+        "F2": {
+          "intro": "The F2 visa is for spouses and unmarried children of F1 visa holders, allowing them to accompany the student in the United States.",
+          "items": {
+            "0": "Preparation and complete filling of the <strong>DS-160</strong> form",
+            "1": "Checklist and documentation proving ties to the F1 holder",
+            "2": "Consular interview scheduling and specific guidance",
+            "3": "End-to-end support for spouses and minors"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 49.00"
+        },
+        "EB1A": {
+          "intro": "The EB1-A visa targets people with extraordinary ability in science, arts, education, business, or athletics, with national or international acclaim.",
+          "items": {
+            "0": "Initial profile and eligibility analysis",
+            "1": "Detailed guidance for supporting documentation",
+            "2": "Completion of <strong>I-140</strong> and assembly of the petition",
+            "3": "Translations and structuring of evidence of notoriety"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 79.00",
+          "price_note": "– full support until the petition is filed."
+        },
+        "EB2NIW": {
+          "intro": "EB2-NIW is for qualified professionals who wish to immigrate to the US based on their professional merit without a direct job offer, by demonstrating substantial benefit to the US national interest.",
+          "items": {
+            "0": "In-depth eligibility analysis based on your résumé",
+            "1": "Completion of <strong>I-140</strong> and drafting of the national interest letter",
+            "2": "Organization of diplomas, experience, and impact documentation",
+            "3": "Guidance to obtain the <strong>Green Card</strong> via adjustment of status or consular processing"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 69.00",
+          "price_note": "– full support until the I-140 is filed."
+        },
+        "Renovacao": {
+          "intro": "If your US visa is expired or close to expiring, HelpUS provides complete support to renew it safely and quickly, reducing errors and delays.",
+          "items": {
+            "0": "Data update and new DS-160",
+            "1": "Eligibility check for interview waiver",
+            "2": "Scheduling at CASV or the consulate, if necessary",
+            "3": "Updated checklist of required documents",
+            "4": "Guidance until you receive your passport back with the visa"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 39.00"
+        },
+        "Familia": {
+          "intro": "We offer complete support for family-based visas — whether to accompany a student, worker or resident in the US, or for temporary family reunion visits.",
+          "items": {
+            "0": "Definition of the appropriate visa type (<strong>F2, B2, IR</strong>, among others)",
+            "1": "Complete checklist of required family documents",
+            "2": "Completion of required forms (such as <strong>DS-160</strong>)",
+            "3": "Consular interview scheduling and detailed guidance",
+            "4": "Ongoing support through the end of the process"
+          },
+          "price_label": "💵 HelpUS service price:",
+          "price": "US$ 55.00",
+          "price_note": "– per family member."
+        },
+        "CasosEspeciais": {
+          "intro": "We handle complex situations that require legal care and specific strategies for each case.",
+          "items": {
+            "0": "Requests for <strong>waiver</strong> (inadmissibility, prior denials, unlawful presence)",
+            "1": "Requests for <strong>extension</strong> or <strong>change of status</strong> while in the US",
+            "2": "Support in <strong>removal</strong>/deportation or <strong>inadmissibility</strong> processes",
+            "3": "Tailored consultations with risk analysis and alternatives"
+          },
+          "price_label": "💵 Service price:",
+          "price": "On request"
+        },
+        "Complementares": {
+          "intro": "We prepare supporting documents that strengthen your visa or immigration case.",
+          "items": {
+            "0": "<strong>I-134 (Affidavit of Support)</strong> form",
+            "1": "Explanatory letters, statements and tailored justifications",
+            "2": "Financial proofs and evidence of family or professional ties"
+          },
+          "price_label": "💵 Service price:",
+          "price": "US$ 25.00",
+          "price_note": "per document (with customization and review)."
         }
       }
     },
@@ -294,6 +414,78 @@
         "price": "Included in the ITIN package",
         "cta": "Request via WhatsApp",
         "whatsapp_msg": "Hello! I need help filling Form W-7 (ITIN)."
+      },
+      "IRPFPage": {
+        "title": "Individual Income Tax Return (Form 1040)",
+        "intro": "We prepare your Form 1040 with all applicable deductions and credits to ensure compliance and the best possible outcome.",
+        "items": {
+          "0": "Complete filing of Form 1040 and required schedules",
+          "1": "Detailed deduction analysis based on your year expenses",
+          "2": "Inclusion of dependents, tax credits and foreign income",
+          "3": "Secure submission and post-filing support"
+        },
+        "price_label": "💵 Service price:",
+        "price": "US$ 39.00"
+      },
+      "ScheduleCPage": {
+        "title": "Schedule C + SE for Self-Employed",
+        "intro": "For freelancers and contractors, we prepare Schedule C and Schedule SE to correctly calculate your taxes and maximize deductions.",
+        "items": {
+          "0": "Detailed report of income and expenses",
+          "1": "Net profit and Self-Employment Tax calculation",
+          "2": "Inclusion in Form 1040 with required attachments",
+          "3": "Support with deductions, depreciation and evidence"
+        },
+        "price_label": "💵 Service price:",
+        "price": "US$ 29.00"
+      },
+      "DependentesPage": {
+        "title": "Return with Dependents (Child Tax Credit)",
+        "intro": "If your children meet legal requirements, you can receive up to <strong>US$ 2,000 per qualifying child</strong> on your tax return.",
+        "items": {
+          "0": "Eligibility verification for the credit",
+          "1": "Correct dependent inclusion on Form 1040",
+          "2": "Refund optimization based on credits",
+          "3": "Full support for documentation if requested"
+        },
+        "price_label": "💵 Service price:",
+        "price": "US$ 19.00"
+      },
+      "FormulariosPage": {
+        "title": "Additional Tax Forms & Schedules",
+        "intro": "We prepare any additional tax forms or schedules needed for your situation.",
+        "items": {
+          "0": "Auxiliary forms (W-2, 1099, 8962, 8862, and more)",
+          "1": "Assembly of specific schedules for credits and deductions",
+          "2": "Corrections and amendments for previously filed forms",
+          "3": "On-demand support for special cases"
+        },
+        "price_label": "💵 Service price:",
+        "price": "On request"
+      },
+      "W9Page": {
+        "title": "Form W-9 Completion",
+        "intro": "We fill out your W-9 with your LLC/EIN data and provide clear sending instructions.",
+        "items": {
+          "0": "Auto-fill with your LLC and EIN details",
+          "1": "Final PDF signed digitally or ready for manual signature",
+          "2": "Clear instructions to send to the requester",
+          "3": "Support for questions and future changes"
+        },
+        "price_label": "💵 Service price:",
+        "price": "US$ 25.00"
+      },
+      "EnvioPage": {
+        "title": "Document Submission & Support",
+        "intro": "After preparing your return or form, we provide complete guidance for correct submission and follow-up until IRS confirmation.",
+        "items": {
+          "0": "Detailed mail-in instructions (IRS, ITIN and others)",
+          "1": "Checklist with required documents",
+          "2": "Custom mailing label and instructions",
+          "3": "Support to track receipt and IRS response"
+        },
+        "price_label": "💵 Price:",
+        "price": "Included in main services"
       }
     }
   },

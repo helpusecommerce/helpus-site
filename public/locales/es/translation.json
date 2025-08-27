@@ -8,6 +8,13 @@
     "contact": "Contacto",
     "login": "Acceder"
   },
+  "account": {
+    "admin": "Administrador",
+    "profile": "Perfil",
+    "change_password": "Cambiar contraseña",
+    "logout": "Cerrar sesión",
+    "signup": "Crear cuenta"
+  },
   "common": {
     "visit_site": "Visitar sitio",
     "learn_more": "Saber más",
@@ -55,38 +62,14 @@
     }
   },
   "partners": {
-    "wagner_driver": {
-      "name": "Wagner Driver",
-      "desc": "Servicio de transporte ejecutivo y citas por WhatsApp"
-    },
-    "tulio_bicicletas": {
-      "name": "Túlio Bicicletas",
-      "desc": "Bicicletas, accesorios y mantenimiento de calidad"
-    },
-    "cg_details": {
-      "name": "CG Details",
-      "desc": "Limpieza detallada de autos, apartamentos y casas"
-    },
-    "bluebox": {
-      "name": "Blue Box",
-      "desc": "Lavado de autos y motos"
-    },
-    "publicarte": {
-      "name": "PublicArte",
-      "desc": "Diseño y comunicación visual"
-    },
-    "waleska": {
-      "name": "Waleska Inmuebles",
-      "desc": "Corretaje inmobiliario"
-    },
-    "katia": {
-      "name": "Dra. Kátia Xavier",
-      "desc": "Atención médica presencial y por telemedicina."
-    },
-    "marcio_barber": {
-      "name": "Márcio Barber",
-      "desc": "Servicios de barbería con calidad y atención diferenciada."
-    }
+    "wagner_driver": { "name": "Wagner Driver", "desc": "Servicio de transporte ejecutivo y citas por WhatsApp" },
+    "tulio_bicicletas": { "name": "Túlio Bicicletas", "desc": "Bicicletas, accesorios y mantenimiento de calidad" },
+    "cg_details": { "name": "CG Details", "desc": "Limpieza detallada de autos, apartamentos y casas" },
+    "bluebox": { "name": "Blue Box", "desc": "Lavado de autos y motos" },
+    "publicarte": { "name": "PublicArte", "desc": "Diseño y comunicación visual" },
+    "waleska": { "name": "Waleska Inmuebles", "desc": "Corretaje inmobiliario" },
+    "katia": { "name": "Dra. Kátia Xavier", "desc": "Atención médica presencial y por telemedicina." },
+    "marcio_barber": { "name": "Márcio Barber", "desc": "Servicios de barbería con calidad y atención diferenciada." }
   },
   "sites": {
     "h1": "Creación de Sitios y Tiendas Online",
@@ -131,42 +114,125 @@
     "title": "Servicios",
     "visas": {
       "title": "Visas",
+      "includes_title": "📋 Qué incluye:",
+      "examples_title": "📋 Ejemplos de casos atendidos:",
+      "examples_title_docs": "📋 Ejemplos de documentos:",
       "list": {
+        "B1B2": { "title": "B1/B2", "desc": "Guía y DS-160 para turismo/negocios." },
+        "F1": { "title": "F1", "desc": "Apoyo para visa de estudiante (I-20 y entrevista)." },
+        "F2": { "title": "F2", "desc": "Dependientes de F1 — formularios y documentos." },
+        "EB1A": { "title": "EB1-A", "desc": "Estrategia y petición por habilidad extraordinaria." },
+        "EB2NIW": { "title": "EB2-NIW", "desc": "Exención por Interés Nacional — elegibilidad y evidencias." },
+        "Renovacao": { "title": "Renovación", "desc": "Flujo simplificado para visas elegibles." },
+        "Familia": { "title": "Familia", "desc": "Categorías basadas en familia y listas." },
+        "CasosEspeciais": { "title": "Casos Especiales", "desc": "Escenarios complejos y waivers (orientación inicial)." },
+        "Complementares": { "title": "Complementarios", "desc": "EAD, Advance Parole y pasos relacionados." },
+        "OutrosTrabalho": { "title": "Otros Vistos de Trabajo", "desc": "H1B, L1, O1 y más, según tu perfil." }
+      },
+      "pages": {
         "B1B2": {
-          "title": "B1/B2",
-          "desc": "Guía y DS-160 para turismo/negocios."
+          "intro": "La visa B1/B2 es para viajes temporales a Estados Unidos por turismo, negocios o visitas a familiares y amigos.",
+          "items": {
+            "0": "Relleno completo del formulario <strong>DS-160</strong>",
+            "1": "Preparación de documentos y checklist personalizado",
+            "2": "Cita consular y instrucciones detalladas",
+            "3": "Consejos para aumentar tus posibilidades de aprobación"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 45.00"
         },
         "F1": {
-          "title": "F1",
-          "desc": "Apoyo para visa de estudiante (I-20 y entrevista)."
+          "intro": "La visa F1 está destinada a estudiantes extranjeros que desean asistir a una institución académica en Estados Unidos.",
+          "items": {
+            "0": "Guía detallada y checklist de documentos requeridos",
+            "1": "Relleno completo del formulario <strong>DS-160</strong>",
+            "2": "Pago y emisión de la tasa <strong>SEVIS</strong>",
+            "3": "Programación e instrucciones para la entrevista consular"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 59.00"
         },
         "F2": {
-          "title": "F2",
-          "desc": "Dependientes de F1 — formularios y documentos."
+          "intro": "La visa F2 es para cónyuges e hijos solteros de titulares de visa F1, permitiéndoles acompañar al estudiante en Estados Unidos.",
+          "items": {
+            "0": "Preparación y relleno del formulario <strong>DS-160</strong>",
+            "1": "Checklist y documentación del vínculo con el titular F1",
+            "2": "Cita consular y orientaciones específicas",
+            "3": "Soporte integral para cónyuges y menores"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 49.00"
         },
         "EB1A": {
-          "title": "EB1-A",
-          "desc": "Estrategia y petición por habilidad extraordinaria."
+          "intro": "La EB1-A está dirigida a personas con habilidad extraordinaria en ciencia, artes, educación, negocios o deportes, con reconocimiento nacional o internacional.",
+          "items": {
+            "0": "Análisis inicial de perfil y elegibilidad",
+            "1": "Orientaciones detalladas para la documentación probatoria",
+            "2": "Relleno de <strong>I-140</strong> y armado del expediente",
+            "3": "Traducciones y estructuración de evidencias de notoriedad"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 79.00",
+          "price_note": "– soporte completo hasta el envío de la petición."
         },
         "EB2NIW": {
-          "title": "EB2-NIW",
-          "desc": "Exención por Interés Nacional — elegibilidad y evidencias."
+          "intro": "EB2-NIW es para profesionales calificados que desean inmigrar a EE. UU. por su mérito profesional, sin oferta laboral directa, demostrando beneficio sustancial al interés nacional.",
+          "items": {
+            "0": "Análisis detallado de elegibilidad según tu currículum",
+            "1": "Relleno de <strong>I-140</strong> y redacción de la carta de interés nacional",
+            "2": "Organización de diplomas, experiencia e impacto",
+            "3": "Guía para obtener la <strong>Green Card</strong> por ajuste de estatus o proceso consular"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 69.00",
+          "price_note": "– soporte completo hasta el envío del I-140."
         },
         "Renovacao": {
-          "title": "Renovación",
-          "desc": "Flujo simplificado para visas elegibles."
+          "intro": "Si tu visa estadounidense está vencida o por vencer, HelpUS brinda soporte completo para renovarla con seguridad y rapidez, reduciendo errores y demoras.",
+          "items": {
+            "0": "Actualización de datos y nuevo DS-160",
+            "1": "Verificación de elegibilidad para exención de entrevista",
+            "2": "Cita en CASV o consulado, si es necesario",
+            "3": "Checklist actualizado de documentos requeridos",
+            "4": "Acompañamiento hasta la devolución del pasaporte con la visa"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 39.00"
         },
         "Familia": {
-          "title": "Familia",
-          "desc": "Categorías basadas en familia y listas."
+          "intro": "Ofrecemos soporte completo para visas familiares — para acompañar a un estudiante, trabajador o residente en EE. UU., o para visitas temporales de reunión familiar.",
+          "items": {
+            "0": "Definición del tipo de visa adecuado (<strong>F2, B2, IR</strong>, entre otros)",
+            "1": "Checklist completo de documentos familiares requeridos",
+            "2": "Relleno de formularios necesarios (como <strong>DS-160</strong>)",
+            "3": "Programación de la entrevista consular y guía detallada",
+            "4": "Soporte continuo hasta la finalización del proceso"
+          },
+          "price_label": "💵 Precio del servicio HelpUS:",
+          "price": "US$ 55.00",
+          "price_note": "– por cada miembro de la familia."
         },
         "CasosEspeciais": {
-          "title": "Casos Especiales",
-          "desc": "Escenarios complexos y waivers (orientación inicial)."
+          "intro": "Actuamos en situaciones complejas que requieren atención legal y estrategias específicas para cada caso.",
+          "items": {
+            "0": "Solicitudes de <strong>perdón (waiver)</strong> por negativas o presencia ilegal",
+            "1": "Solicitud de <strong>extensión</strong> o <strong>cambio de estatus</strong> dentro de EE. UU.",
+            "2": "Acompañamiento en procesos de <strong>remoción</strong>/deportación o <strong>inadmisibilidad</strong>",
+            "3": "Consultas personalizadas con análisis de riesgos y alternativas"
+          },
+          "price_label": "💵 Precio del servicio:",
+          "price": "A consultar"
         },
         "Complementares": {
-          "title": "Complementarios",
-          "desc": "EAD, Advance Parole y pasos relacionados."
+          "intro": "Preparamos documentos auxiliares que fortalecen tu solicitud de visa o caso migratorio.",
+          "items": {
+            "0": "Formulario <strong>I-134 (Affidavit of Support)</strong>",
+            "1": "Cartas explicativas, declaraciones y justificaciones personalizadas",
+            "2": "Pruebas financieras y de vínculo familiar o profesional"
+          },
+          "price_label": "💵 Precio del servicio:",
+          "price": "US$ 25.00",
+          "price_note": "por documento (con personalización y revisión)."
         }
       }
     },
@@ -219,7 +285,7 @@
       },
       "OperatingAgreement": {
         "title": "Operating Agreement",
-        "desc": "Documento ajustado a la estrutura de tu LLC.",
+        "desc": "Documento ajustado a la estructura de tu LLC.",
         "intro": "Preparamos un Operating Agreement a medida — esencial para abrir cuenta bancaria, obtener licencias y mantener la LLC al día.",
         "includes_title": "📋 Qué incluye:",
         "includes": {
@@ -232,41 +298,17 @@
         "cta": "Solicitar por WhatsApp",
         "whatsapp_msg": "¡Hola! Me interesa el servicio de Operating Agreement Personalizado."
       },
-      "ITIN": {
-        "title": "ITIN",
-        "desc": "Montaje del paquete W-7 con respaldos."
-      },
-      "W7": {
-        "title": "Formulario W-7",
-        "desc": "Solicitud de ITIN con carta de presentación y formularios."
-      }
+      "ITIN": { "title": "ITIN", "desc": "Montaje del paquete W-7 con respaldos." },
+      "W7": { "title": "Formulario W-7", "desc": "Solicitud de ITIN con carta de presentación y formularios." }
     },
     "tax": {
       "title": "Fiscal",
-      "IRPF": {
-        "title": "Declaración Individual",
-        "desc": "Declaración federal y orientación para inmigrantes y residentes."
-      },
-      "ScheduleC": {
-        "title": "Schedule C",
-        "desc": "Ingresos como autónomo, deducciones y apoyo contable."
-      },
-      "W9": {
-        "title": "Formulario W-9",
-        "desc": "Preparación del formulario de información del contribuyente."
-      },
-      "Dependentes": {
-        "title": "Dependientes",
-        "desc": "Reglas para declarar dependientes y maximizar reembolsos."
-      },
-      "Formularios": {
-        "title": "Formularios",
-        "desc": "Listas y formularios auxiliares del IRS."
-      },
-      "Envio": {
-        "title": "Envío",
-        "desc": "Instrucciones de envío seguro y seguimiento."
-      },
+      "IRPF": { "title": "Declaración Individual", "desc": "Declaración federal y orientación para inmigrantes y residentes." },
+      "ScheduleC": { "title": "Schedule C", "desc": "Ingresos como autónomo, deducciones y apoyo contable." },
+      "W9": { "title": "Formulario W-9", "desc": "Preparación del formulario de información del contribuyente." },
+      "Dependentes": { "title": "Dependientes", "desc": "Reglas para declarar dependientes y maximizar reembolsos." },
+      "Formularios": { "title": "Formularios", "desc": "Listas y formularios auxiliares del IRS." },
+      "Envio": { "title": "Envío", "desc": "Instrucciones de envío seguro y seguimiento." },
       "ITINPage": {
         "title": "Solicitud de ITIN",
         "intro": "El ITIN es esencial para quienes deben declarar impuestos en EE. UU. y no tienen derecho a un SSN.",
@@ -294,6 +336,78 @@
         "price": "Incluido en el paquete de ITIN",
         "cta": "Solicitar por WhatsApp",
         "whatsapp_msg": "Hola, necesito ayuda para completar el Formulario W-7 (ITIN)."
+      },
+      "IRPFPage": {
+        "title": "Declaración de Impuestos Individual (Formulario 1040)",
+        "intro": "Preparamos tu Formulario 1040 con todas las deducciones y créditos aplicables para garantizar cumplimiento y el mejor resultado posible.",
+        "items": {
+          "0": "Relleno completo del Formulario 1040 y anexos requeridos",
+          "1": "Análisis detallado de deducciones según tus gastos del año",
+          "2": "Inclusión de dependientes, créditos y renta extranjera",
+          "3": "Envío seguro y soporte posterior a la presentación"
+        },
+        "price_label": "💵 Precio del servicio:",
+        "price": "US$ 39.00"
+      },
+      "ScheduleCPage": {
+        "title": "Schedule C + SE para Autónomos",
+        "intro": "Para freelancers y contratistas, preparamos el Schedule C y el Schedule SE para calcular correctamente tus impuestos y maximizar deducciones.",
+        "items": {
+          "0": "Informe detallado de ingresos y gastos",
+          "1": "Cálculo de ganancia neta e impuesto de autónomo (Self-Employment Tax)",
+          "2": "Inclusión en el Formulario 1040 con los anexos requeridos",
+          "3": "Soporte con deducciones, depreciaciones y comprobaciones"
+        },
+        "price_label": "💵 Precio del servicio:",
+        "price": "US$ 29.00"
+      },
+      "DependentesPage": {
+        "title": "Declaración con Dependientes (Child Tax Credit)",
+        "intro": "Si tus hijos cumplen los requisitos legales, puedes recibir hasta <strong>US$ 2.000 por hijo calificado</strong> en tu declaración.",
+        "items": {
+          "0": "Verificación de elegibilidad para el crédito",
+          "1": "Inclusión correcta del dependiente en el Formulario 1040",
+          "2": "Optimización del reembolso con base en los créditos",
+          "3": "Soporte completo para comprobación, si se requiere"
+        },
+        "price_label": "💵 Precio del servicio:",
+        "price": "US$ 19.00"
+      },
+      "FormulariosPage": {
+        "title": "Formularios y Anexos Fiscales Adicionales",
+        "intro": "Preparamos cualquier otro formulario o anexo fiscal que necesites.",
+        "items": {
+          "0": "Formularios auxiliares (W-2, 1099, 8962, 8862, y más)",
+          "1": "Montaje de anexos específicos para créditos y deducciones",
+          "2": "Correcciones y enmiendas de formularios ya presentados",
+          "3": "Soporte bajo demanda para casos especiales"
+        },
+        "price_label": "💵 Precio del servicio:",
+        "price": "A consultar"
+      },
+      "W9Page": {
+        "title": "Relleno del Formulario W-9",
+        "intro": "Completamos tu W-9 con los datos de tu LLC/EIN y te damos instrucciones claras de envío.",
+        "items": {
+          "0": "Autorrelleno con los datos de tu LLC y EIN",
+          "1": "PDF final firmado digitalmente o listo para firma manual",
+          "2": "Instrucciones claras para enviar al solicitante",
+          "3": "Soporte para dudas y futuras modificaciones"
+        },
+        "price_label": "💵 Precio del servicio:",
+        "price": "US$ 25.00"
+      },
+      "EnvioPage": {
+        "title": "Envío de Documentos y Soporte",
+        "intro": "Tras preparar tu declaración o formulario, brindamos una guía completa para el envío correcto y seguimiento hasta la confirmación del IRS.",
+        "items": {
+          "0": "Instrucciones detalladas para envío por correo (IRS, ITIN y otros)",
+          "1": "Checklist con los documentos necesarios",
+          "2": "Etiqueta de envío personalizada e instrucciones",
+          "3": "Soporte para rastrear recepción y respuesta del IRS"
+        },
+        "price_label": "💵 Precio:",
+        "price": "Incluido en los servicios principales"
       }
     }
   },
