@@ -1,16 +1,14 @@
 {
   "name": "helpus-auth-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "API de autenticação, controle de acesso e gerenciamento de usuários da plataforma HelpUS",
   "private": true,
   "main": "server.js",
   "type": "module",
 
   "engines": {
-    "node": ">=20 <23",
-    "npm": ">=10"
+    "node": "20.x"
   },
-  "packageManager": "npm@10.8.1",
 
   "scripts": {
     "start": "node server.js",
