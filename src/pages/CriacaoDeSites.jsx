@@ -8,6 +8,7 @@ export default function CriacaoDeSites() {
   const { t } = useTranslation();
 
   // textos de parceiros vindo do i18n (name/desc)
+  // ⚠️ Removido o slide de 'tulio_bicicletas'
   const slides = [
     {
       src: '/img/parceiros/video-wagnerdriver.mp4',
@@ -27,16 +28,6 @@ export default function CriacaoDeSites() {
       title: t('partners.waleska.name'),
       caption: t('partners.waleska.desc'),
       href: 'https://waleska.helpusa.com.br',
-      isVideo: true,
-    },
-    {
-      src: '/img/parceiros/video-fundo.mp4',
-      poster: '/img/parceiros/tulio-site.png',
-      logo: '/img/parceiros/tulio.png',
-      alt: t('partners.tulio_bicicletas.name'),
-      title: t('partners.tulio_bicicletas.name'),
-      caption: t('partners.tulio_bicicletas.desc'),
-      href: 'https://tuliobicicletas.helpusa.com.br',
       isVideo: true,
     },
     {
@@ -116,7 +107,8 @@ export default function CriacaoDeSites() {
 
         <div className="text-center bg-gray-100 rounded-xl py-10 px-6 mb-16 shadow-inner">
           <h2 className="text-3xl font-bold text-blue-600 mb-4">
-            {t('sites.pricing_from')} <span className="text-4xl">{t('sites.pricing_value')}</span>
+            {t('sites.pricing_from')}{' '}
+            <span className="text-4xl">{t('sites.pricing_value')}</span>
           </h2>
           <p className="text-gray-600 mb-6">{t('sites.pricing_note')}</p>
           <a

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 // Catálogo de parceiros (metadados fixos + fallbacks)
+// ⚠️ Removido: 'tulio_bicicletas'
 const partnersCatalog = [
   {
     id: 'wagner_driver',
@@ -15,14 +16,6 @@ const partnersCatalog = [
     imagem: '/img/parceiros/logo-wagnerdriver.png',
     video: '/img/parceiros/video-wagnerdriver.mp4',
     link: 'https://wagnerdriver.helpusa.com.br',
-  },
-  {
-    id: 'tulio_bicicletas',
-    defaultName: 'Túlio Bicicletas',
-    defaultDesc: 'Bicicletas, acessórios e manutenção com qualidade.',
-    imagem: '/img/parceiros/tulio.png',
-    video: '/img/parceiros/video-fundo.mp4',
-    link: 'https://tuliobicicletas.helpusa.com.br',
   },
   {
     id: 'cg_details',
