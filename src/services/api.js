@@ -2,7 +2,7 @@ const isLocalhost = window.location.hostname === 'localhost';
 
 const API_URL = isLocalhost
   ? 'http://localhost:3001'
-  : 'https://helpus-site-production.up.railway.app';
+  : 'https://helpus-auth-api-production.up.railway.app'; // 👈 mude aqui
 
 const API_PREFIX = '/api';
 
