@@ -41,15 +41,17 @@ const router = express.Router();
  *       401:
  *         description: Usuário não encontrado ou senha inválida
  */
-router.post(
-  '/login',
-  [
-    body('email').isEmail().withMessage('Email inválido'),
-    body('senha').isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 caracteres'),
-    validarCampos
-  ],
-  login
-);
+const loginValidators = [
+  body('email').isEmail().withMessage('Email inválido'),
+  body('senha').isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 caracteres'),
+  validarCampos
+];
+
+// endpoint “oficial”
+router.post('/login', loginValidators, login);
+
+// alias compatível com versões antigas: /api/users/login
+router.post('/users/login', loginValidators, login);
 
 /**
  * @swagger
@@ -72,21 +74,14 @@ router.post(
  *               - role_id
  *               - site_slug
  *             properties:
- *               nome:
- *                 type: string
- *               email:
- *                 type: string
- *               senha:
- *                 type: string
- *               role_id:
- *                 type: integer
- *               site_slug:
- *                 type: string
+ *               nome: { type: string }
+ *               email: { type: string }
+ *               senha: { type: string }
+ *               role_id: { type: integer }
+ *               site_slug: { type: string }
  *     responses:
- *       201:
- *         description: Usuário cadastrado com sucesso
- *       400:
- *         description: Erro de validação
+ *       201: { description: Usuário cadastrado com sucesso }
+ *       400: { description: Erro de validação }
  */
 router.post(
   '/usuarios',
@@ -109,37 +104,15 @@ router.post(
  *   put:
  *     summary: Edita um usuário existente (apenas admin)
  *     tags: [Usuários]
- *     security:
- *       - bearerAuth: []
+ *     security: [ { bearerAuth: [] } ]
  *     parameters:
- *       - name: id
- *         in: path
+ *       - in: path
+ *         name: id
  *         required: true
- *         description: ID do usuário a ser editado
- *         schema:
- *           type: integer
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               nome:
- *                 type: string
- *               email:
- *                 type: string
- *               senha:
- *                 type: string
- *               role_id:
- *                 type: integer
- *               site_slug:
- *                 type: string
+ *         schema: { type: integer }
  *     responses:
- *       200:
- *         description: Usuário atualizado com sucesso
- *       404:
- *         description: Usuário não encontrado
+ *       200: { description: Usuário atualizado com sucesso }
+ *       404: { description: Usuário não encontrado }
  */
 router.put(
   '/usuarios/:id',
@@ -159,22 +132,17 @@ router.put(
  * @swagger
  * /api/usuarios/{id}:
  *   delete:
- *     summary: Exclui um usuário pelo ID (apenas admin)
+ *     summary: Exclui um usuário (apenas admin)
  *     tags: [Usuários]
- *     security:
- *       - bearerAuth: []
+ *     security: [ { bearerAuth: [] } ]
  *     parameters:
- *       - name: id
- *         in: path
+ *       - in: path
+ *         name: id
  *         required: true
- *         description: ID do usuário a ser excluído
- *         schema:
- *           type: integer
+ *         schema: { type: integer }
  *     responses:
- *       200:
- *         description: Usuário excluído com sucesso
- *       404:
- *         description: Usuário não encontrado
+ *       200: { description: Usuário excluído com sucesso }
+ *       404: { description: Usuário não encontrado }
  */
 router.delete('/usuarios/:id', verificarToken, verificarAdmin, deletarUsuario);
 
@@ -182,13 +150,11 @@ router.delete('/usuarios/:id', verificarToken, verificarAdmin, deletarUsuario);
  * @swagger
  * /api/usuarios:
  *   get:
- *     summary: Lista todos os usuários (apenas admin)
+ *     summary: Lista usuários (apenas admin)
  *     tags: [Usuários]
- *     security:
- *       - bearerAuth: []
+ *     security: [ { bearerAuth: [] } ]
  *     responses:
- *       200:
- *         description: Lista de usuários
+ *       200: { description: Lista de usuários }
  */
 router.get('/usuarios', verificarToken, verificarAdmin, listarUsuarios);
 
@@ -196,13 +162,9 @@ router.get('/usuarios', verificarToken, verificarAdmin, listarUsuarios);
  * @swagger
  * /api/roles:
  *   get:
- *     summary: Lista os papéis (roles) disponíveis
+ *     summary: Lista papéis (roles)
  *     tags: [Usuários]
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: Lista de roles
+ *     security: [ { bearerAuth: [] } ]
  */
 router.get('/roles', verificarToken, listarRoles);
 
@@ -210,13 +172,9 @@ router.get('/roles', verificarToken, listarRoles);
  * @swagger
  * /api/sites:
  *   get:
- *     summary: Lista os sites cadastrados
+ *     summary: Lista sites cadastrados
  *     tags: [Usuários]
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: Lista de sites
+ *     security: [ { bearerAuth: [] } ]
  */
 router.get('/sites', verificarToken, listarSites);
 
