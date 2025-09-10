@@ -1,8 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://helpus-auth-api-production.up.railway.app/api/$1"
-    }
+    { "source": "/api/(.*)", "destination": "https://helpus-site-production-334b.up.railway.app/api/$1" }
   ]
 }
