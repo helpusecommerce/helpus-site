@@ -16,7 +16,8 @@ const Login = () => {
     setErro('');
 
     try {
-      const resposta = await apiFetch('/login', {
+      // 🔁 EndPoint ajustado: /users/login
+      const resposta = await apiFetch('/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
