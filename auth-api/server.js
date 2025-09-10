@@ -10,6 +10,9 @@ import chatRoutes from './routes/chatRoutes.js';
 import chatLeadRoutes from './routes/chatLead.js';
 import { setupSwagger } from './swagger.js';
 
+// ✅ importa o controller de login para expor endpoints diretos
+import { login as loginController } from './controllers/userController.js';
+
 dotenv.config();
 
 const app = express();
@@ -44,6 +47,25 @@ app.use((req, res, next) => {
 app.set('trust proxy', 1);
 app.use(express.json());
 
+/* ================== Endpoints explícitos (garantem que exista) ================== */
+// login direto (curto) e alias compatível
+app.post('/api/login', loginController);
+app.post('/api/users/login', loginController);
+
+// rotas de diagnóstico
+app.get('/api/__health', (req, res) => {
+  res.json({ ok: true, service: 'auth-api', ts: new Date().toISOString() });
+});
+app.all('/api/__echo', (req, res) => {
+  res.json({
+    ok: true,
+    method: req.method,
+    path: req.originalUrl,
+    origin: req.headers.origin || null,
+  });
+});
+/* ============================================================================= */
+
 // ✅ Prefixo único /api (e mantemos compat /api/users/*)
 app.use('/api', userRoutes);
 app.use('/api/users', userRoutes);
@@ -57,10 +79,12 @@ setupSwagger?.(app);
   if(!process.env[k]) console.warn(`⚠️ Atenção: variável ${k} não está definida no .env`);
 });
 
-app.use((err, req, res, _next) => {
-  console.error(err);
-  res.status(err.status || 500).json({ error: 'internal_error' });
+// 404 JSON para caminhos /api/* (antes do handler de erro)
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ error: 'not_found', path: req.originalUrl });
+  }
+  next();
 });
 
-const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`Auth API listening on :${port}`));
+app.use((err, req, r
