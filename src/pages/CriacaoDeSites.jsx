@@ -3,12 +3,11 @@ import React from 'react';
 import { FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import AutoCarousel from '../components/AutoCarousel';
+import { partners } from '../config/partners';
 
 export default function CriacaoDeSites() {
   const { t } = useTranslation();
 
-  // textos de parceiros vindo do i18n (name/desc)
-  // ⚠️ Removido o slide de 'tulio_bicicletas'
   const slides = [
     {
       src: '/img/parceiros/video-wagnerdriver.mp4',
@@ -17,7 +16,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.wagner_driver.name'),
       title: t('partners.wagner_driver.name'),
       caption: t('partners.wagner_driver.desc'),
-      href: 'https://wagnerdriver.helpusa.com.br',
+      href: partners.wagnerdriver,
       isVideo: true,
     },
     {
@@ -27,7 +26,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.waleska.name'),
       title: t('partners.waleska.name'),
       caption: t('partners.waleska.desc'),
-      href: 'https://waleska.helpusa.com.br',
+      href: partners.waleska,
       isVideo: true,
     },
     {
@@ -37,7 +36,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.cg_details.name'),
       title: t('partners.cg_details.name'),
       caption: t('partners.cg_details.desc'),
-      href: 'https://cgdetails.helpusa.com.br',
+      href: partners.cgdetails,
       isVideo: true,
     },
     {
@@ -47,7 +46,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.bluebox.name'),
       title: t('partners.bluebox.name'),
       caption: t('partners.bluebox.desc'),
-      href: 'https://bluebox.helpusa.com.br',
+      href: partners.bluebox,
       isVideo: true,
     },
     {
@@ -57,7 +56,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.publicarte.name'),
       title: t('partners.publicarte.name'),
       caption: t('partners.publicarte.desc'),
-      href: 'https://publicarte.helpusa.com.br',
+      href: partners.publicarte,
       isVideo: true,
     },
     {
@@ -67,7 +66,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.katia.name'),
       title: t('partners.katia.name'),
       caption: t('partners.katia.desc'),
-      href: 'https://katiaxavier.helpusa.com.br',
+      href: partners.katiaxavier,
       isVideo: true,
     },
     {
@@ -77,7 +76,7 @@ export default function CriacaoDeSites() {
       alt: t('partners.marcio_barber.name'),
       title: t('partners.marcio_barber.name'),
       caption: t('partners.marcio_barber.desc'),
-      href: 'https://marciotopbarber.helpusa.com.br',
+      href: partners.marciotopbarber,
       isVideo: true,
     },
   ];
@@ -121,7 +120,6 @@ export default function CriacaoDeSites() {
           </a>
         </div>
 
-        {/* Carrossel com prints/vídeos */}
         <div className="bg-white border-t pt-10">
           <h3 className="text-2xl font-bold text-center mb-6">
             {t('sites.examples_title')}
