@@ -6,7 +6,8 @@
     "site_build": "Criação de Sites",
     "about": "Sobre",
     "contact": "Contato",
-    "login": "Login"
+    "login": "Login",
+    "forgot": "Esqueci a senha"
   },
   "account": {
     "admin": "Administrador",
@@ -19,7 +20,14 @@
     "visit_site": "Acessar site",
     "learn_more": "Saiba mais",
     "request_quote": "Solicitar orçamento",
-    "whatsapp": "Falar no WhatsApp"
+    "whatsapp": "Falar no WhatsApp",
+
+    "language": "Idioma",
+    "connection_error": "Erro de conexão com o servidor.",
+    "connection_error_delete": "Erro de conexão ao excluir.",
+    "try_again": "Tentar novamente",
+    "prev": "Anterior",
+    "next": "Próxima"
   },
   "hero": {
     "no_video": "Seu navegador não suporta vídeos HTML5.",
@@ -427,5 +435,31 @@
     "rights": "Todos os direitos reservados.",
     "made_with": "Feito com",
     "by_helpus": "pela HelpUS"
+  },
+  "users": {
+    "title": "Área Administrativa - Usuários",
+    "welcome": "Bem-vindo, ",
+    "error_fetch": "Erro ao buscar usuários.",
+    "search_placeholder": "Buscar por e-mail, tipo ou site…",
+    "search_aria": "Buscar usuários",
+    "new": "+ Novo Usuário",
+    "cannot_delete_self": "Você não pode excluir seu próprio usuário.",
+    "confirm_delete": "Tem certeza que deseja excluir este usuário?",
+    "deleted": "Usuário excluído.",
+    "error_delete": "Erro ao excluir usuário.",
+    "col_id": "ID",
+    "col_email": "Email",
+    "col_role": "Tipo",
+    "col_site": "Site",
+    "col_actions": "Ações",
+    "click_to_sort": "Clique para ordenar",
+    "empty_search": "Nenhum usuário encontrado para a busca.",
+    "empty_list": "Nenhum usuário cadastrado.",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "edit_user": "Editar usuário {{email}}",
+    "delete_user": "Excluir usuário {{email}}",
+    "showing": "Mostrando {{from}}-{{to}} de {{total}}",
+    "page_of": "Página {{page}} de {{pages}}"
   }
 }

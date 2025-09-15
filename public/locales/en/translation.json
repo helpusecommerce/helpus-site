@@ -6,7 +6,8 @@
     "site_build": "Website Creation",
     "about": "About",
     "contact": "Contact",
-    "login": "Login"
+    "login": "Login",
+    "forgot": "Forgot password"
   },
   "account": {
     "admin": "Admin",
@@ -19,7 +20,14 @@
     "visit_site": "Visit site",
     "learn_more": "Learn more",
     "request_quote": "Request a quote",
-    "whatsapp": "Talk on WhatsApp"
+    "whatsapp": "Talk on WhatsApp",
+
+    "language": "Language",
+    "connection_error": "Server connection error.",
+    "connection_error_delete": "Connection error while deleting.",
+    "try_again": "Try again",
+    "prev": "Previous",
+    "next": "Next"
   },
   "hero": {
     "no_video": "Your browser does not support HTML5 video.",
@@ -505,5 +513,32 @@
     "rights": "All rights reserved.",
     "made_with": "Made with",
     "by_helpus": "by HelpUS"
+  },
+
+  "users": {
+    "title": "Admin Area – Users",
+    "welcome": "Welcome, ",
+    "error_fetch": "Error fetching users.",
+    "search_placeholder": "Search by email, role or site…",
+    "search_aria": "Search users",
+    "new": "+ New User",
+    "cannot_delete_self": "You cannot delete your own user.",
+    "confirm_delete": "Are you sure you want to delete this user?",
+    "deleted": "User deleted.",
+    "error_delete": "Error deleting user.",
+    "col_id": "ID",
+    "col_email": "Email",
+    "col_role": "Role",
+    "col_site": "Site",
+    "col_actions": "Actions",
+    "click_to_sort": "Click to sort",
+    "empty_search": "No users found for the search.",
+    "empty_list": "No users registered.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "edit_user": "Edit user {{email}}",
+    "delete_user": "Delete user {{email}}",
+    "showing": "Showing {{from}}-{{to}} of {{total}}",
+    "page_of": "Page {{page}} of {{pages}}"
   }
 }

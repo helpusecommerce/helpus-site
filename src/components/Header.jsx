@@ -1,6 +1,7 @@
 // 📄 src/components/Header.jsx
-// Updated: i18n switcher + account menu (profile / change password / logout / admin),
-// email truncation, a11y, persistence, ESC-to-close, and mobile variants.
+// Updated: i18n switcher + user icon-only dropdown (sem "Sign up" no topo)
+// Mostra nome + email no dropdown quando logado; sincroniza login/logout.
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaUserCircle, FaChevronDown } from 'react-icons/fa';
@@ -30,6 +31,27 @@ export default function Header() {
       const userStorage = localStorage.getItem('usuario');
       if (userStorage) setUsuario(JSON.parse(userStorage));
     } catch {}
+  }, []);
+
+  // re-sync user when route changes
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('usuario');
+      setUsuario(raw ? JSON.parse(raw) : null);
+    } catch { setUsuario(null); }
+  }, [location.pathname]);
+
+  // listen storage events (other tabs)
+  useEffect(() => {
+    const onStorage = (e) => {
+      if (e.key === 'usuario') {
+        try {
+          setUsuario(e.newValue ? JSON.parse(e.newValue) : null);
+        } catch { setUsuario(null); }
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
   }, []);
 
   // close dropdowns when clicking outside
@@ -92,7 +114,6 @@ export default function Header() {
 
   const profileHref = '/perfil';
   const passwordHref = '/alterar-senha';
-  const signupHref = '/cadastro';
 
   // detect admin user
   const isAdmin =
@@ -164,83 +185,93 @@ export default function Header() {
             )}
           </div>
 
-          {/* Account */}
-          {usuario ? (
-            <div className="relative" ref={userRef}>
-              <button
-                ref={userBtnRef}
-                onClick={() => setUserOpen((v) => !v)}
-                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                aria-haspopup="menu"
-                aria-expanded={userOpen}
-                aria-label={t('menu.login', { defaultValue: 'Account' })}
-                title={usuario.email}
-              >
-                <FaUserCircle className="text-lg text-green-400" />
-                {/* esconde o e-mail em telas menores; mostra truncado apenas em xl+ */}
-                <span className="hidden xl:block max-w-[160px] truncate text-green-400">{usuario.email}</span>
-                <FaChevronDown className="text-xs opacity-70" />
-              </button>
+          {/* Account - Ícone sempre; dropdown muda conforme login */}
+          <div className="relative" ref={userRef}>
+            <button
+              ref={userBtnRef}
+              onClick={() => setUserOpen((v) => !v)}
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-haspopup="menu"
+              aria-expanded={userOpen}
+              aria-label={t('menu.login', { defaultValue: 'Account' })}
+              title={usuario?.email || ''}
+            >
+              <FaUserCircle className={`text-lg ${usuario ? 'text-green-400' : ''}`} />
+              <FaChevronDown className="text-xs opacity-70" />
+            </button>
 
-              {userOpen && (
-                <div
-                  className="absolute right-0 mt-2 w-56 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden"
-                  role="menu"
-                >
-                  {isAdmin && (
+            {userOpen && (
+              <div
+                className="absolute right-0 mt-2 w-56 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden"
+                role="menu"
+              >
+                {usuario ? (
+                  <>
+                    {/* Cabeçalho com nome + e-mail */}
+                    <div className="px-4 py-2 text-xs text-gray-500 border-b">
+                      <div className="font-semibold text-gray-800 truncate">
+                        {usuario.nome || usuario.name || usuario.fullname || usuario.email}
+                      </div>
+                      <div className="truncate">{usuario.email}</div>
+                    </div>
+
+                    {isAdmin && (
+                      <Link
+                        to="/admin"
+                        className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                        onClick={() => setUserOpen(false)}
+                        role="menuitem"
+                      >
+                        {t('account.admin', { defaultValue: 'Admin' })}
+                      </Link>
+                    )}
                     <Link
-                      to="/admin"
+                      to={profileHref}
                       className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                       onClick={() => setUserOpen(false)}
                       role="menuitem"
                     >
-                      {t('account.admin', { defaultValue: 'Admin' })}
+                      {t('account.profile', { defaultValue: 'Perfil' })}
                     </Link>
-                  )}
-                  <Link
-                    to={profileHref}
-                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
-                    onClick={() => setUserOpen(false)}
-                    role="menuitem"
-                  >
-                    {t('account.profile', { defaultValue: 'Perfil' })}
-                  </Link>
-                  <Link
-                    to={passwordHref}
-                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
-                    onClick={() => setUserOpen(false)}
-                    role="menuitem"
-                  >
-                    {t('account.change_password', { defaultValue: 'Alterar senha' })}
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 border-t"
-                    role="menuitem"
-                  >
-                    {t('account.logout', { defaultValue: 'Sair' })}
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className="flex items-center gap-3">
-              <Link
-                to="/login"
-                className="flex items-center gap-2 hover:text-blue-400 transition"
-                title={t('menu.login')}
-              >
-                <FaUserCircle className="text-lg" />
-                {t('menu.login')}
-              </Link>
-              <Link
-                to={signupHref}
-                className="hidden lg:inline-block bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-xs"
-              >
-                {t('account.signup', { defaultValue: 'Criar conta' })}
-              </Link>
-            </div>
-          )}
+                    <Link
+                      to={passwordHref}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => setUserOpen(false)}
+                      role="menuitem"
+                    >
+                      {t('account.change_password', { defaultValue: 'Alterar senha' })}
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 border-t"
+                      role="menuitem"
+                    >
+                      {t('account.logout', { defaultValue: 'Sair' })}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => setUserOpen(false)}
+                      role="menuitem"
+                    >
+                      {t('menu.login')}
+                    </Link>
+                    <Link
+                      to="/esqueci-senha"
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                      onClick={() => setUserOpen(false)}
+                      role="menuitem"
+                    >
+                      {t('menu.forgot')}
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Mobile toggle */}
@@ -299,7 +330,9 @@ export default function Header() {
             <div className="pt-3 border-t border-white/10">
               <div className="flex items-center gap-2 text-green-400 mb-2">
                 <FaUserCircle className="text-lg" />
-                <span className="truncate" title={usuario.email}>{usuario.email}</span>
+                <span className="truncate" title={usuario.email}>
+                  {usuario.nome || usuario.name || usuario.fullname || usuario.email}
+                </span>
               </div>
               <div className="grid gap-2">
                 {isAdmin && (
@@ -325,9 +358,6 @@ export default function Header() {
             <div className="pt-3 border-t border-white/10 grid gap-2">
               <Link to="/login" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 flex items-center gap-2">
                 <FaUserCircle /> {t('menu.login')}
-              </Link>
-              <Link to={signupHref} onClick={() => setIsOpen(false)} className="block bg-blue-600 text-white px-3 py-2 rounded text-center">
-                {t('account.signup', { defaultValue: 'Criar conta' })}
               </Link>
             </div>
           )}
