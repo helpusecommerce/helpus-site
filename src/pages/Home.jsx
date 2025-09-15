@@ -5,6 +5,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { partners as partnerLinks } from '../config/partners'; // 👈 centralizado
 
 // Catálogo de parceiros (metadados fixos + fallbacks)
 // ⚠️ Removido: 'tulio_bicicletas'
@@ -15,7 +16,7 @@ const partnersCatalog = [
     defaultDesc: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
     imagem: '/img/parceiros/logo-wagnerdriver.png',
     video: '/img/parceiros/video-wagnerdriver.mp4',
-    link: 'https://wagnerdriver.helpusa.com.br',
+    link: partnerLinks.wagnerdriver, // https://wagnerdriver.helpusbr.com
   },
   {
     id: 'cg_details',
@@ -23,7 +24,7 @@ const partnersCatalog = [
     defaultDesc: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
     imagem: '/img/parceiros/cgdetails.png',
     video: '/img/parceiros/videocgdetails.webm',
-    link: 'https://cgdetails.helpusa.com.br',
+    link: partnerLinks.cgdetails, // https://cgdetails.helpusbr.com
   },
   {
     id: 'bluebox',
@@ -31,7 +32,7 @@ const partnersCatalog = [
     defaultDesc: 'Lava-jato de carros e motos com qualidade profissional.',
     imagem: '/img/parceiros/bluebox.png',
     video: '/img/parceiros/videobluebox.webm',
-    link: 'https://bluebox.helpusa.com.br',
+    link: partnerLinks.bluebox, // https://bluebox.helpusbr.com
   },
   {
     id: 'publicarte',
@@ -39,7 +40,7 @@ const partnersCatalog = [
     defaultDesc: 'Comunicação visual criativa e soluções gráficas personalizadas.',
     imagem: '/img/parceiros/logo-publicarte.png',
     video: '/img/parceiros/video-publicarte.mp4',
-    link: 'https://publicarte.helpusa.com.br',
+    link: partnerLinks.publicarte, // https://publicarte.helpusbr.com
   },
   {
     id: 'waleska',
@@ -47,7 +48,7 @@ const partnersCatalog = [
     defaultDesc: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
     imagem: '/img/parceiros/logo-waleska.png',
     video: '/img/parceiros/video-waleska.mp4',
-    link: 'https://waleska.helpusa.com.br',
+    link: partnerLinks.waleska, // https://waleska.helpusbr.com
   },
   {
     id: 'katia',
@@ -55,7 +56,7 @@ const partnersCatalog = [
     defaultDesc: 'Atendimento médico presencial e por telemedicina.',
     imagem: '/img/parceiros/katia.png',
     video: '/img/parceiros/video-katia.mp4',
-    link: 'https://katiaxavier.helpusa.com.br',
+    link: partnerLinks.katiaxavier, // https://katiaxavier.helpusbr.com
   },
   {
     id: 'marcio_barber',
@@ -63,7 +64,7 @@ const partnersCatalog = [
     defaultDesc: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
     imagem: '/img/parceiros/hero-marcio-barber.png',
     video: '/img/parceiros/video-marcio.mp4',
-    link: 'https://marciotopbarber.helpusa.com.br',
+    link: partnerLinks.marciotopbarber, // https://marciotopbarber.helpusbr.com
   },
 ];
 
@@ -142,23 +143,15 @@ const Home = () => {
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
 
-                {parceiro.link.startsWith('http') ? (
-                  <a
-                    href={parceiro.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
-                  >
-                    {t('common.visit_site')} <FaExternalLinkAlt />
-                  </a>
-                ) : (
-                  <Link
-                    to={parceiro.link}
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
-                  >
-                    {t('common.visit_site')} <FaExternalLinkAlt />
-                  </Link>
-                )}
+                {/* Link externo */}
+                <a
+                  href={parceiro.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
+                >
+                  {t('common.visit_site')} <FaExternalLinkAlt />
+                </a>
               </motion.div>
             ))}
           </div>
