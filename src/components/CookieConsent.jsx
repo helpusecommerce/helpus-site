@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export default function CookieConsent() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -19,8 +19,17 @@ export default function CookieConsent() {
 
   if (!visible) return null;
 
+  // ajuste de rota por idioma (altere se suas rotas forem outras)
+  const privacyPathByLang = {
+    pt: '/politica-de-privacidade',
+    en: '/privacy',
+    es: '/es/politica-de-privacidad',
+  };
+  const privacyPath = privacyPathByLang[i18n.language] || '/privacy';
+
   return (
     <div
+      key={i18n.language} // força re-render quando o idioma mudar
       className="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-4 z-50 shadow-md"
       role="region"
       aria-live="polite"
@@ -30,20 +39,20 @@ export default function CookieConsent() {
         <p className="flex-1 text-center md:text-left">
           {t('cookie.message', {
             defaultValue:
-              'Utilizamos cookies para melhorar sua experiência no site. Ao continuar navegando, você concorda com nossa',
+              'We use cookies to improve your experience. By continuing, you agree to our',
           })}{' '}
           <Link
-            to="/politica-de-privacidade"
+            to={privacyPath}
             className="underline text-blue-400 hover:text-blue-300"
           >
-            {t('cookie.privacy', { defaultValue: 'Política de Privacidade' })}
+            {t('cookie.privacy', { defaultValue: 'Privacy Policy' })}
           </Link>.
         </p>
         <button
           onClick={acceptCookies}
           className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded"
         >
-          {t('cookie.accept', { defaultValue: 'Aceitar' })}
+          {t('cookie.accept', { defaultValue: 'Accept' })}
         </button>
       </div>
     </div>

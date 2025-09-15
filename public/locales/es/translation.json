@@ -435,6 +435,12 @@
     "made_with": "Hecho con",
     "by_helpus": "por HelpUS"
   },
+  "cookie": {
+    "banner_label": "Aviso de cookies",
+    "message": "Usamos cookies para mejorar tu experiencia de navegación. Al continuar, aceptas nuestra",
+    "privacy": "Política de Privacidad",
+    "accept": "Aceptar"
+  },
   "users": {
     "title": "Área Administrativa – Usuarios",
     "welcome": "Bienvenido, ",

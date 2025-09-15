@@ -21,7 +21,6 @@
     "learn_more": "Saiba mais",
     "request_quote": "Solicitar orçamento",
     "whatsapp": "Falar no WhatsApp",
-
     "language": "Idioma",
     "connection_error": "Erro de conexão com o servidor.",
     "connection_error_delete": "Erro de conexão ao excluir.",
@@ -435,6 +434,12 @@
     "rights": "Todos os direitos reservados.",
     "made_with": "Feito com",
     "by_helpus": "pela HelpUS"
+  },
+  "cookie": {
+    "banner_label": "Aviso de cookies",
+    "message": "Utilizamos cookies para melhorar sua experiência de navegação. Ao continuar, você concorda com nossa",
+    "privacy": "Política de Privacidade",
+    "accept": "Aceitar"
   },
   "users": {
     "title": "Área Administrativa - Usuários",

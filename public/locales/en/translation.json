@@ -21,7 +21,6 @@
     "learn_more": "Learn more",
     "request_quote": "Request a quote",
     "whatsapp": "Talk on WhatsApp",
-
     "language": "Language",
     "connection_error": "Server connection error.",
     "connection_error_delete": "Connection error while deleting.",
@@ -513,6 +512,13 @@
     "rights": "All rights reserved.",
     "made_with": "Made with",
     "by_helpus": "by HelpUS"
+  },
+
+  "cookie": {
+    "banner_label": "Cookies notice",
+    "message": "We use cookies to improve your browsing experience. By continuing, you agree to our",
+    "privacy": "Privacy Policy",
+    "accept": "Accept"
   },
 
   "users": {
