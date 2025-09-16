@@ -10,13 +10,25 @@ import { partners as partnerLinks } from '../config/partners'; // 👈 centraliz
 // Catálogo de parceiros (metadados fixos + fallbacks)
 // ⚠️ Removido: 'tulio_bicicletas'
 const partnersCatalog = [
+  // 👇 NOVO: Escola Estação Musical
+  {
+    id: 'escola_estacao_musical',
+    defaultName: 'Escola Estação Musical',
+    defaultDesc:
+      'Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora.',
+    imagem: '/img/parceiros/escola-estacao-musical.png',
+    // Se não tiver vídeo agora, pode remover a linha abaixo:
+    video: '/img/parceiros/video-escola-estacao-musical.mp4',
+    link: partnerLinks.escolaestacaomusical, // ex.: https://escolaestacaomusical.vercel.app
+  },
+
   {
     id: 'wagner_driver',
     defaultName: 'Wagner Driver',
     defaultDesc: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
     imagem: '/img/parceiros/logo-wagnerdriver.png',
     video: '/img/parceiros/video-wagnerdriver.mp4',
-    link: partnerLinks.wagnerdriver, // https://wagnerdriver.helpusbr.com
+    link: partnerLinks.wagnerdriver,
   },
   {
     id: 'cg_details',
@@ -24,7 +36,7 @@ const partnersCatalog = [
     defaultDesc: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
     imagem: '/img/parceiros/cgdetails.png',
     video: '/img/parceiros/videocgdetails.webm',
-    link: partnerLinks.cgdetails, // https://cgdetails.helpusbr.com
+    link: partnerLinks.cgdetails,
   },
   {
     id: 'bluebox',
@@ -32,7 +44,7 @@ const partnersCatalog = [
     defaultDesc: 'Lava-jato de carros e motos com qualidade profissional.',
     imagem: '/img/parceiros/bluebox.png',
     video: '/img/parceiros/videobluebox.webm',
-    link: partnerLinks.bluebox, // https://bluebox.helpusbr.com
+    link: partnerLinks.bluebox,
   },
   {
     id: 'publicarte',
@@ -40,7 +52,7 @@ const partnersCatalog = [
     defaultDesc: 'Comunicação visual criativa e soluções gráficas personalizadas.',
     imagem: '/img/parceiros/logo-publicarte.png',
     video: '/img/parceiros/video-publicarte.mp4',
-    link: partnerLinks.publicarte, // https://publicarte.helpusbr.com
+    link: partnerLinks.publicarte,
   },
   {
     id: 'waleska',
@@ -48,7 +60,7 @@ const partnersCatalog = [
     defaultDesc: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
     imagem: '/img/parceiros/logo-waleska.png',
     video: '/img/parceiros/video-waleska.mp4',
-    link: partnerLinks.waleska, // https://waleska.helpusbr.com
+    link: partnerLinks.waleska,
   },
   {
     id: 'katia',
@@ -56,7 +68,7 @@ const partnersCatalog = [
     defaultDesc: 'Atendimento médico presencial e por telemedicina.',
     imagem: '/img/parceiros/katia.png',
     video: '/img/parceiros/video-katia.mp4',
-    link: partnerLinks.katiaxavier, // https://katiaxavier.helpusbr.com
+    link: partnerLinks.katiaxavier,
   },
   {
     id: 'marcio_barber',
@@ -64,7 +76,7 @@ const partnersCatalog = [
     defaultDesc: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
     imagem: '/img/parceiros/hero-marcio-barber.png',
     video: '/img/parceiros/video-marcio.mp4',
-    link: partnerLinks.marciotopbarber, // https://marciotopbarber.helpusbr.com
+    link: partnerLinks.marciotopbarber,
   },
 ];
 

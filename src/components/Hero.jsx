@@ -6,7 +6,8 @@ import {
   FaBuilding,
   FaFileInvoiceDollar,
   FaWhatsapp,
-  FaGlobe
+  FaGlobe,
+  FaHandshake, // 👈 novo
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -82,6 +83,14 @@ export default function Hero() {
             className="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded text-sm sm:text-base"
           >
             <FaGlobe /> {t('hero.cta.sites')}
+          </Link>
+
+          {/* 👇 novo: botão direto para a página de Parceiros */}
+          <Link
+            to="/parceiros"
+            className="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded text-sm sm:text-base"
+          >
+            <FaHandshake /> Parceiros
           </Link>
         </motion.div>
       </div>
