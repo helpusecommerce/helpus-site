@@ -22,6 +22,7 @@
     "request_quote": "Solicitar orçamento",
     "whatsapp": "Falar no WhatsApp",
     "language": "Idioma",
+    "partners": "Parceiros",
     "connection_error": "Erro de conexão com o servidor.",
     "connection_error_delete": "Erro de conexão ao excluir.",
     "try_again": "Tentar novamente",
@@ -69,14 +70,42 @@
     }
   },
   "partners": {
-    "wagner_driver": { "name": "Wagner Driver", "desc": "Serviço de transporte executivo e agendamentos via WhatsApp" },
-    "tulio_bicicletas": { "name": "Túlio Bicicletas", "desc": "Bicicletas, acessórios e manutenção com qualidade" },
-    "cg_details": { "name": "CG Details", "desc": "Limpeza detalhada de carros, apartamentos e casas" },
-    "bluebox": { "name": "Blue Box", "desc": "Lava-jato de carros e motos" },
-    "publicarte": { "name": "PublicArte", "desc": "Design e comunicação visual" },
-    "waleska": { "name": "Waleska Imóveis", "desc": "Corretagem de imóveis" },
-    "katia": { "name": "Dra. Kátia Xavier", "desc": "Atendimento médico presencial e por telemedicina." },
-    "marcio_barber": { "name": "Márcio Barber", "desc": "Serviços de barbearia com qualidade e atendimento diferenciado." }
+    "escola_estacao_musical": {
+      "name": "Escola Estação Musical",
+      "desc": "Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora."
+    },
+    "wagner_driver": {
+      "name": "Wagner Driver",
+      "desc": "Serviço de transporte executivo e agendamentos via WhatsApp"
+    },
+    "tulio_bicicletas": {
+      "name": "Túlio Bicicletas",
+      "desc": "Bicicletas, acessórios e manutenção com qualidade"
+    },
+    "cg_details": {
+      "name": "CG Details",
+      "desc": "Limpeza detalhada de carros, apartamentos e casas"
+    },
+    "bluebox": {
+      "name": "Blue Box",
+      "desc": "Lava-jato de carros e motos"
+    },
+    "publicarte": {
+      "name": "PublicArte",
+      "desc": "Design e comunicação visual"
+    },
+    "waleska": {
+      "name": "Waleska Imóveis",
+      "desc": "Corretagem de imóveis"
+    },
+    "katia": {
+      "name": "Dra. Kátia Xavier",
+      "desc": "Atendimento médico presencial e por telemedicina."
+    },
+    "marcio_barber": {
+      "name": "Márcio Barber",
+      "desc": "Serviços de barbearia com qualidade e atendimento diferenciado."
+    }
   },
   "sites": {
     "h1": "Criação de Sites e Lojas Virtuais",
