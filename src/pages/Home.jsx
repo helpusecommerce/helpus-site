@@ -10,16 +10,15 @@ import { partners as partnerLinks } from '../config/partners'; // 👈 centraliz
 // Catálogo de parceiros (metadados fixos + fallbacks)
 // ⚠️ Removido: 'tulio_bicicletas'
 const partnersCatalog = [
-  // 👇 NOVO: Escola Estação Musical
+  // Escola Estação Musical (ATUALIZADO: nomes dos arquivos)
   {
     id: 'escola_estacao_musical',
     defaultName: 'Escola Estação Musical',
     defaultDesc:
       'Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora.',
-    imagem: '/img/parceiros/escola-estacao-musical.png',
-    // Se não tiver vídeo agora, pode remover a linha abaixo:
-    video: '/img/parceiros/video-escola-estacao-musical.mp4',
-    link: partnerLinks.escolaestacaomusical, // ex.: https://escolaestacaomusical.vercel.app
+    imagem: '/img/parceiros/logo-escola.jpg',            // 👈 atualizado
+    video: '/img/parceiros/video-escola.mp4',            // 👈 atualizado (opcional)
+    link: partnerLinks.escolaestacaomusical,             // ex.: https://escolaestacaomusical.vercel.app
   },
 
   {
