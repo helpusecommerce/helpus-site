@@ -8,19 +8,16 @@ import { useTranslation } from 'react-i18next';
 import { partners as partnerLinks } from '../config/partners'; // 👈 centralizado
 
 // Catálogo de parceiros (metadados fixos + fallbacks)
-// ⚠️ Removido: 'tulio_bicicletas'
 const partnersCatalog = [
-  // Escola Estação Musical (ATUALIZADO: nomes dos arquivos)
   {
     id: 'escola_estacao_musical',
     defaultName: 'Escola Estação Musical',
     defaultDesc:
       'Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora.',
-    imagem: '/img/parceiros/logo-escola.jpg',            // 👈 atualizado
-    video: '/img/parceiros/video-escola.mp4',            // 👈 atualizado (opcional)
-    link: partnerLinks.escolaestacaomusical,             // ex.: https://escolaestacaomusical.vercel.app
+    imagem: '/img/parceiros/logo-escola.jpg',
+    video: '/img/parceiros/video-escola.mp4',
+    link: partnerLinks.escolaestacaomusical,
   },
-
   {
     id: 'wagner_driver',
     defaultName: 'Wagner Driver',
@@ -76,6 +73,14 @@ const partnersCatalog = [
     imagem: '/img/parceiros/hero-marcio-barber.png',
     video: '/img/parceiros/video-marcio.mp4',
     link: partnerLinks.marciotopbarber,
+  },
+  {
+    id: 'tatica',
+    defaultName: 'Tática Assessoria Contábil',
+    defaultDesc: 'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
+    imagem: '/img/parceiros/logo-tatica.png',
+    video: '/img/parceiros/video-tatica.mp4', // opcional, remova se não tiver
+    link: partnerLinks.tatica,
   },
 ];
 
