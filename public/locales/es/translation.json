@@ -105,6 +105,10 @@
     "marcio_barber": {
       "name": "Márcio Barber",
       "desc": "Servicios de barbería con calidad y atención diferenciada."
+    },
+    "tatica": {
+      "name": "Tática Assessoria Contábil",
+      "desc": "Contabilidad, apertura de empresa, nómina, impuestos y consultoría fiscal."
     }
   },
   "sites": {
@@ -457,7 +461,7 @@
       "error_conn": "Error de conexión. Inténtalo de nuevo."
     },
     "contact": {
-      "address": "Dirección: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EE. UU.",
+      "address": "Dirección: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EE. U.",
       "email": "Email: helpus.ecommerce@gmail.com"
     },
     "rights": "Todos los derechos reservados.",
