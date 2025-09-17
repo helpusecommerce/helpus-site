@@ -1,4 +1,3 @@
-// 📄 src/pages/Home.jsx
 import React from 'react';
 import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
@@ -74,12 +73,14 @@ const partnersCatalog = [
     video: '/img/parceiros/video-marcio.mp4',
     link: partnerLinks.marciotopbarber,
   },
+  // 🆕 Tática com caminhos padronizados + alternativas
   {
     id: 'tatica',
     defaultName: 'Tática Assessoria Contábil',
     defaultDesc: 'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
-    imagem: '/assets/logo.png',        // ✅ caminho real no public
-    video: '/video/video01.mp4',       // ✅ caminho real no public
+    imagem: '/img/parceiros/tatica-logo.png',   // 👉 coloque este arquivo no public do HelpUS
+    // primeira opção no mesmo padrão dos demais; segunda opção é a que você já tinha
+    video: '/img/parceiros/tatica-video.mp4',   // 👉 ou mantenha /video/video01.mp4 (ver <source> abaixo)
     link: partnerLinks.tatica,
   },
 ];
@@ -93,6 +94,28 @@ const Home = () => {
     nome: t(`partners.${p.id}.name`, { defaultValue: p.defaultName || p.id }),
     descricao: t(`partners.${p.id}.desc`, { defaultValue: p.defaultDesc || '' }),
   }));
+
+  // fallback de imagem: tenta /assets/logo.png e depois um ícone padrão
+  const handleImgError = (e, parceiroId) => {
+    const img = e.currentTarget;
+    const attempt = Number(img.dataset.attempt || 0);
+
+    // Só aplicamos fallback inteligente para o parceiro "tatica"
+    if (parceiroId === 'tatica') {
+      const fallbacks = ['/assets/logo.png', '/img/parceiros/helpus-icon.png'];
+      if (attempt < fallbacks.length) {
+        img.dataset.attempt = String(attempt + 1);
+        img.src = fallbacks[attempt];
+        return;
+      }
+    }
+
+    // fallback genérico (não repete loop infinito)
+    if (attempt === 0) {
+      img.dataset.attempt = '1';
+      img.src = '/img/parceiros/helpus-icon.png';
+    }
+  };
 
   return (
     <div>
@@ -143,25 +166,32 @@ const Home = () => {
                   alt={parceiro.nome}
                   className="w-28 h-28 object-contain mb-4"
                   loading="lazy"
+                  onError={(e) => handleImgError(e, parceiro.id)}
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 />
+
                 {parceiro.video && (
                   <video
-                    src={parceiro.video}
-                    poster={parceiro.imagem}   // 👈 miniatura enquanto carrega
                     className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
                     autoPlay
                     muted
                     loop
                     playsInline
                     preload="metadata"
-                  />
+                    poster={parceiro.imagem}
+                  >
+                    {/* 1ª tentativa: padrão dos parceiros */}
+                    <source src={parceiro.video} type="video/mp4" />
+                    {/* 2ª tentativa: seu caminho antigo */}
+                    <source src="/video/video01.mp4" type="video/mp4" />
+                    {t('hero.no_video')}
+                  </video>
                 )}
+
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
                 <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
 
-                {/* Link externo */}
                 <a
                   href={parceiro.link}
                   target="_blank"
