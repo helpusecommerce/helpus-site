@@ -79,6 +79,18 @@ export default function CriacaoDeSites() {
       href: partners.marciotopbarber,
       isVideo: true,
     },
+
+    // === NOVO: Tática Assessoria Contábil ===
+    {
+      src: '/img/parceiros/tatica-video.mp4',       // coloque aqui o seu video01.mp4 renomeado
+      poster: '/img/parceiros/tatica-site.png',     // thumbnail/frame do vídeo
+      logo: '/img/parceiros/tatica-logo.png',       // use a logo enviada
+      alt: t('partners.tatica.name'),
+      title: t('partners.tatica.name'),
+      caption: t('partners.tatica.desc'),
+      href: partners.tatica,                        // definido em src/config/partners.js
+      isVideo: true,
+    },
   ];
 
   const features = t('sites.features', { returnObjects: true });

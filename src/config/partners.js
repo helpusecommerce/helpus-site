@@ -12,6 +12,7 @@ export const partners = {
   katiaxavier:         `https://katiaxavier.${BASE}`,
   marciotopbarber:     `https://marciotopbarber.${BASE}`,
   escolaestacaomusical:`https://escolaestacaomusical.${BASE}`,
+  tatica:              `https://tatica.${BASE}`, // Tática Assessoria Contábil
 };
 
 

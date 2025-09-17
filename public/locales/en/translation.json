@@ -105,6 +105,10 @@
     "marcio_barber": {
       "name": "Márcio Barber",
       "desc": "Barbershop services with quality and dedicated service."
+    },
+    "tatica": {
+      "name": "Tática Accounting Advisory",
+      "desc": "Accounting, company formation, payroll, taxes and fiscal consulting."
     }
   },
   "sites": {
@@ -545,9 +549,4 @@
     "empty_list": "No users registered.",
     "edit": "Edit",
     "delete": "Delete",
-    "edit_user": "Edit user {{email}}",
-    "delete_user": "Delete user {{email}}",
-    "showing": "Showing {{from}}-{{to}} of {{total}}",
-    "page_of": "Page {{page}} of {{pages}}"
-  }
-}
+    "edit_u_
