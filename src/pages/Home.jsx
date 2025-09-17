@@ -78,8 +78,8 @@ const partnersCatalog = [
     id: 'tatica',
     defaultName: 'Tática Assessoria Contábil',
     defaultDesc: 'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
-    imagem: '/img/parceiros/logo-tatica.png',
-    video: '/img/parceiros/video-tatica.mp4', // opcional, remova se não tiver
+    imagem: '/assets/logo.png',        // ✅ caminho real no public
+    video: '/video/video01.mp4',       // ✅ caminho real no public
     link: partnerLinks.tatica,
   },
 ];
@@ -149,11 +149,13 @@ const Home = () => {
                 {parceiro.video && (
                   <video
                     src={parceiro.video}
+                    poster={parceiro.imagem}   // 👈 miniatura enquanto carrega
                     className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
                     autoPlay
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                   />
                 )}
                 <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
