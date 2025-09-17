@@ -105,10 +105,6 @@
     "marcio_barber": {
       "name": "Márcio Barber",
       "desc": "Serviços de barbearia com qualidade e atendimento diferenciado."
-    },
-    "tatica": {
-      "name": "Tática Assessoria Contábil",
-      "desc": "Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal."
     }
   },
   "sites": {
