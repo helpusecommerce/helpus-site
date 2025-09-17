@@ -105,6 +105,10 @@
     "marcio_barber": {
       "name": "Márcio Barber",
       "desc": "Barbershop services with quality and dedicated service."
+    },
+    "tatica": {
+      "name": "Tática Assessoria Contábil",
+      "desc": "Accounting, company formation, payroll, taxes and fiscal consulting."
     }
   },
   "sites": {
