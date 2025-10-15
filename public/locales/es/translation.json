@@ -90,6 +90,10 @@
       "name": "Blue Box",
       "desc": "Lavado de autos y motos"
     },
+    "plural": {
+      "name": "Plural Locações",
+      "desc": "Alquiler de mesas, sillas, carpas, iluminación y más para fiestas y eventos."
+    },
     "publicarte": {
       "name": "PublicArte",
       "desc": "Diseño y comunicación visual"
@@ -461,7 +465,7 @@
       "error_conn": "Error de conexión. Inténtalo de nuevo."
     },
     "contact": {
-      "address": "Dirección: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EE. U.",
+      "address": "Dirección: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EE. UU.",
       "email": "Email: helpus.ecommerce@gmail.com"
     },
     "rights": "Todos los derechos reservados.",

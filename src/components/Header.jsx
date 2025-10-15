@@ -1,6 +1,5 @@
 // 📄 src/components/Header.jsx
-// Updated: i18n switcher + user icon-only dropdown (sem "Sign up" no topo)
-// Mostra nome + email no dropdown quando logado; sincroniza login/logout.
+// Updated: i18n persist + links Ebooks/Documentos + active startsWith + a11y polish
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -25,6 +24,17 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // apply persisted language (if any)
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('lang');
+      if (saved && saved !== (i18n.resolvedLanguage || i18n.language)) {
+        i18n.changeLanguage(saved);
+      }
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // load user from localStorage
   useEffect(() => {
     try {
@@ -38,7 +48,9 @@ export default function Header() {
     try {
       const raw = localStorage.getItem('usuario');
       setUsuario(raw ? JSON.parse(raw) : null);
-    } catch { setUsuario(null); }
+    } catch {
+      setUsuario(null);
+    }
   }, [location.pathname]);
 
   // listen storage events (other tabs)
@@ -47,11 +59,17 @@ export default function Header() {
       if (e.key === 'usuario') {
         try {
           setUsuario(e.newValue ? JSON.parse(e.newValue) : null);
-        } catch { setUsuario(null); }
+        } catch {
+          setUsuario(null);
+        }
+      }
+      if (e.key === 'lang' && e.newValue) {
+        i18n.changeLanguage(e.newValue);
       }
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // close dropdowns when clicking outside
@@ -86,18 +104,24 @@ export default function Header() {
   const languages = [
     { code: 'en', label: 'English' },
     { code: 'pt', label: 'Português' },
-    { code: 'es', label: 'Español' },
+    { code: 'es', label: 'Español' }
   ];
   const currentCode = i18n.resolvedLanguage || i18n.language || 'en';
   const current = languages.find((l) => l.code === currentCode) || languages[0];
 
   const changeLang = (code) => {
     i18n.changeLanguage(code);
-    try { localStorage.setItem('lang', code); } catch {}
+    try {
+      localStorage.setItem('lang', code);
+    } catch {}
     setLangOpen(false);
   };
 
-  const isActive = (to) => location.pathname === to;
+  // treat route as active if starts with (covers subpages)
+  const isActive = (base) => {
+    const p = location.pathname;
+    return p === base || p.startsWith(base + '/');
+  };
 
   // account actions
   const handleLogout = () => {
@@ -130,25 +154,60 @@ export default function Header() {
         <Link
           to="/"
           className="text-2xl font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
+          aria-label="HelpUS - Home"
         >
           Help<span className="text-blue-500">US</span>
         </Link>
 
         {/* Menu desktop */}
         <nav className="hidden md:flex gap-6 text-sm items-center">
-          <Link to="/" className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}>
+          <Link
+            to="/"
+            className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}
+          >
             {t('menu.home')}
           </Link>
-          <Link to="/servicos" className={`transition hover:text-blue-400 ${isActive('/servicos') ? 'text-blue-400' : ''}`}>
+
+          <Link
+            to="/servicos"
+            className={`transition hover:text-blue-400 ${isActive('/servicos') ? 'text-blue-400' : ''}`}
+          >
             {t('menu.services')}
           </Link>
-          <Link to="/criacao-de-sites" className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}>
+
+          {/* NOVOS: Documentos & Tradução + Ebooks */}
+          <Link
+            to="/servicos/documentos"
+            className={`transition hover:text-blue-400 ${isActive('/servicos/documentos') ? 'text-blue-400' : ''}`}
+          >
+            {t('menu.documents', { defaultValue: 'Documentos' })}
+          </Link>
+
+          <Link
+            to="/ebooks"
+            className={`transition hover:text-blue-400 ${isActive('/ebooks') ? 'text-blue-400' : ''}`}
+          >
+            {t('menu.ebooks', { defaultValue: 'Ebooks' })}
+          </Link>
+
+          <Link
+            to="/criacao-de-sites"
+            className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}
+          >
             {t('menu.site_build')}
           </Link>
-          <Link to="/sobre" className={`transition hover:text-blue-400 ${isActive('/sobre') ? 'text-blue-400' : ''}`}>
+
+          <Link
+            to="/sobre"
+            className={`transition hover:text-blue-400 ${isActive('/sobre') ? 'text-blue-400' : ''}`}
+          >
             {t('menu.about')}
           </Link>
-          <Link to="/contato" className={`transition hover:text-blue-400 ${isActive('/contato') ? 'text-blue-400' : ''}`}>
+
+          <Link
+            to="/contato"
+            className={`transition hover:text-blue-400 ${isActive('/contato') ? 'text-blue-400' : ''}`}
+          >
             {t('menu.contact')}
           </Link>
 
@@ -160,7 +219,8 @@ export default function Header() {
               className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-haspopup="listbox"
               aria-expanded={langOpen}
-              aria-label="Language selector"
+              aria-label={t('menu.language', { defaultValue: 'Language' })}
+              title={t('menu.language', { defaultValue: 'Language' })}
             >
               <span className="uppercase text-xs tracking-wide">{current.code}</span>
               <FaChevronDown className="text-xs" />
@@ -176,7 +236,9 @@ export default function Header() {
                     onClick={() => changeLang(l.code)}
                     role="option"
                     aria-selected={l.code === current.code}
-                    className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${l.code === current.code ? 'font-semibold' : ''}`}
+                    className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
+                      l.code === current.code ? 'font-semibold' : ''
+                    }`}
                   >
                     {l.label}
                   </button>
@@ -278,7 +340,7 @@ export default function Header() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-xl focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
-          aria-label="Toggle menu"
+          aria-label={t('menu.open_menu', { defaultValue: 'Toggle menu' })}
           aria-expanded={isOpen}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
@@ -294,6 +356,15 @@ export default function Header() {
           <Link to="/servicos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
             {t('menu.services')}
           </Link>
+
+          {/* NOVOS no mobile */}
+          <Link to="/servicos/documentos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
+            {t('menu.documents', { defaultValue: 'Documentos' })}
+          </Link>
+          <Link to="/ebooks" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
+            {t('menu.ebooks', { defaultValue: 'Ebooks' })}
+          </Link>
+
           <Link to="/criacao-de-sites" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
             {t('menu.site_build')}
           </Link>
@@ -306,12 +377,17 @@ export default function Header() {
 
           {/* Language selector (mobile) */}
           <div className="pt-3 border-t border-white/10">
-            <div className="text-xs uppercase opacity-80 mb-2">Language</div>
+            <div className="text-xs uppercase opacity-80 mb-2">
+              {t('menu.language', { defaultValue: 'Language' })}
+            </div>
             <div className="grid grid-cols-3 gap-2">
               {languages.map((l) => (
                 <button
                   key={l.code}
-                  onClick={() => { changeLang(l.code); setIsOpen(false); }}
+                  onClick={() => {
+                    changeLang(l.code);
+                    setIsOpen(false);
+                  }}
                   className={`py-2 rounded-md border text-sm ${
                     l.code === current.code
                       ? 'bg-blue-600 text-white border-blue-600'
@@ -347,7 +423,10 @@ export default function Header() {
                   {t('account.change_password', { defaultValue: 'Alterar senha' })}
                 </Link>
                 <button
-                  onClick={() => { setIsOpen(false); handleLogout(); }}
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleLogout();
+                  }}
                   className="block text-left bg-white/10 px-3 py-2 rounded"
                 >
                   {t('account.logout', { defaultValue: 'Sair' })}

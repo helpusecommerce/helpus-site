@@ -1,6 +1,6 @@
 // arquivo: src/App.js
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
@@ -9,7 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 // Chat virtual guiado (com botões)
-import ChatGuiado from './components/ChatGuiado'; // ✅ novo componente
+import ChatGuiado from './components/ChatGuiado';
 
 // Páginas principais
 import Home from './pages/Home';
@@ -26,6 +26,10 @@ import EditarUsuario from './pages/admin/EditarUsuario';
 import Empresa from './pages/Empresa';
 import Fiscal from './pages/Fiscal';
 import Vistos from './pages/Vistos';
+
+// 🆕 Novas páginas
+import Ebooks from './pages/Ebooks';
+import Documentos from './pages/servicos/documentos/Documentos';
 
 // Vistos
 import F1 from './pages/servicos/vistos/F1';
@@ -55,22 +59,46 @@ import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
 import BusinessLicense from './pages/servicos/empresa/BusinessLicense';
 
-// Novo serviço
+// Serviço
 import CriacaoDeSites from './pages/CriacaoDeSites';
 
-function App() {
+function AppInit() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+  return null;
+}
 
+// Rola automaticamente para a seção de parceiros quando a rota for /parceiros
+function ScrollToPartnersOnRoute() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (pathname === '/parceiros') {
+      // espera o React pintar a Home
+      setTimeout(() => {
+        document.getElementById('partners')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 0);
+    }
+  }, [pathname]);
+  return null;
+}
+
+function App() {
   return (
     <Router>
+      <AppInit />
       <div className="pt-4 md:pt-8 flex flex-col min-h-screen scroll-smooth">
         <Header />
+        <ScrollToPartnersOnRoute />
+
         <main className="flex-grow">
           <Routes>
-            {/* Rotas (sem alterações) */}
+            {/* Rotas principais */}
             <Route path="/" element={<Home />} />
+            <Route path="/parceiros" element={<Home />} /> {/* NEW: rota âncora para a seção */}
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
@@ -111,18 +139,23 @@ function App() {
             <Route path="/servicos/vistos/complementares" element={<Complementares />} />
             <Route path="/servicos/vistos/outros-trabalho" element={<OutrosTrabalho />} />
 
-            {/* Sites */}
+            {/* Criação de Sites */}
             <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
+
+            {/* 🆕 Ebooks & Documentos */}
+            <Route path="/ebooks" element={<Ebooks />} />
+            <Route path="/servicos/documentos" element={<Documentos />} />
           </Routes>
         </main>
 
         <Footer />
         <CookieConsent />
-        <ChatGuiado /> {/* ✅ Chat com fluxo guiado substituindo ChatIA */}
+        <ChatGuiado />
 
         {/* Botão flutuante do WhatsApp */}
         <a
           href="https://wa.me/5583998721848"
+          aria-label="Fale conosco no WhatsApp"
           className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg animate-bounce"
           target="_blank"
           rel="noopener noreferrer"
