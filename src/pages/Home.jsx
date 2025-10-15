@@ -51,8 +51,8 @@ const partnersCatalog = [
     defaultName: 'Plural Locações',
     defaultDesc:
       'Aluguel de mesas, cadeiras, tendas, iluminação e muito mais para festas e eventos.',
-    imagem: '/logo-plural.jpg',
-    video: '/video02.mp4',
+    imagem: '/img/parceiros/logo-plural.jpg',
+    video: '/img/parceiros/video02.mp4',
     link: partnerLinks?.plural || '#',
   },
   {
