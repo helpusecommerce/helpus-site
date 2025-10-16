@@ -10,6 +10,15 @@ import { partners as partnerLinks } from '../config/partners';
 const isLocal =
   typeof window !== 'undefined' && /localhost|127\.0\.0\.1/.test(window.location.host);
 
+/*
+  🔧 Normaliza o formato dos links de parceiros:
+  Aceita tanto objeto ({ plural: '...' }) quanto array ([{ id:'plural', url:'...' }])
+*/
+const links =
+  Array.isArray(partnerLinks)
+    ? Object.fromEntries(partnerLinks.map((p) => [p.id, p.url]))
+    : (partnerLinks || {});
+
 /* Catálogo de parceiros (metadados fixos + fallbacks) */
 const partnersCatalog = [
   {
@@ -19,7 +28,7 @@ const partnersCatalog = [
       'Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora.',
     imagem: '/img/parceiros/logo-escola.jpg',
     video: '/img/parceiros/video-escola.mp4',
-    link: partnerLinks?.escolaestacaomusical || '#',
+    link: links.escolaestacaomusical || '#',
   },
   {
     id: 'wagner_driver',
@@ -27,7 +36,7 @@ const partnersCatalog = [
     defaultDesc: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
     imagem: '/img/parceiros/logo-wagnerdriver.png',
     video: '/img/parceiros/video-wagnerdriver.mp4',
-    link: partnerLinks?.wagnerdriver || '#',
+    link: links.wagnerdriver || '#',
   },
   {
     id: 'cg_details',
@@ -35,7 +44,7 @@ const partnersCatalog = [
     defaultDesc: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
     imagem: '/img/parceiros/cgdetails.png',
     video: '/img/parceiros/videocgdetails.webm',
-    link: partnerLinks?.cgdetails || '#',
+    link: links.cgdetails || '#',
   },
   {
     id: 'bluebox',
@@ -43,9 +52,9 @@ const partnersCatalog = [
     defaultDesc: 'Lava-jato de carros e motos com qualidade profissional.',
     imagem: '/img/parceiros/bluebox.png',
     video: '/img/parceiros/videobluebox.webm',
-    link: partnerLinks?.bluebox || '#',
+    link: links.bluebox || '#',
   },
-  // ✅ Plural Locações — arquivos na raiz de /public
+  // ✅ Plural Locações
   {
     id: 'plural',
     defaultName: 'Plural Locações',
@@ -53,7 +62,7 @@ const partnersCatalog = [
       'Aluguel de mesas, cadeiras, tendas, iluminação e muito mais para festas e eventos.',
     imagem: '/img/parceiros/logo-plural.jpg',
     video: '/img/parceiros/video02.mp4',
-    link: partnerLinks?.plural || '#',
+    link: links.plural || '#',
   },
   {
     id: 'publicarte',
@@ -61,7 +70,7 @@ const partnersCatalog = [
     defaultDesc: 'Comunicação visual criativa e soluções gráficas personalizadas.',
     imagem: '/img/parceiros/logo-publicarte.png',
     video: '/img/parceiros/video-publicarte.mp4',
-    link: partnerLinks?.publicarte || '#',
+    link: links.publicarte || '#',
   },
   {
     id: 'waleska',
@@ -69,7 +78,7 @@ const partnersCatalog = [
     defaultDesc: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
     imagem: '/img/parceiros/logo-waleska.png',
     video: '/img/parceiros/video-waleska.mp4',
-    link: partnerLinks?.waleska || '#',
+    link: links.waleska || '#',
   },
   {
     id: 'katia',
@@ -77,7 +86,7 @@ const partnersCatalog = [
     defaultDesc: 'Atendimento médico presencial e por telemedicina.',
     imagem: '/img/parceiros/katia.png',
     video: '/img/parceiros/video-katia.mp4',
-    link: partnerLinks?.katiaxavier || '#',
+    link: links.katiaxavier || '#',
   },
   {
     id: 'marcio_barber',
@@ -85,7 +94,7 @@ const partnersCatalog = [
     defaultDesc: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
     imagem: '/img/parceiros/hero-marcio-barber.png',
     video: '/img/parceiros/video-marcio.mp4',
-    link: partnerLinks?.marciotopbarber || '#',
+    link: links.marciotopbarber || '#',
   },
   {
     id: 'tatica',
@@ -93,7 +102,7 @@ const partnersCatalog = [
     defaultDesc: 'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
     imagem: '/img/parceiros/tatica-logo.png',
     video: '/img/parceiros/tatica-video.mp4',
-    link: partnerLinks?.tatica || '#',
+    link: links.tatica || '#',
   },
 ];
 
@@ -101,22 +110,24 @@ function PartnerCard({ parceiro, isLocal }) {
   const { t } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
 
-  const handleImgError = useCallback((e) => {
-    const img = e.currentTarget;
-    const attempt = Number(img.dataset.attempt || 0);
-    const commonFallbacks = ['/img/parceiros/helpus-icon.png', '/assets/logo.png'];
+  const handleImgError = useCallback(
+    (e) => {
+      const img = e.currentTarget;
+      const attempt = Number(img.dataset.attempt || 0);
+      const commonFallbacks = ['/img/parceiros/helpus-icon.png', '/assets/logo.png'];
 
-    /* Fallback específico para Tática + genéricos em cascata */
-    const fallbacks =
-      parceiro.id === 'tatica'
-        ? ['/assets/logo.png', '/img/parceiros/helpus-icon.png']
-        : commonFallbacks;
+      const fallbacks =
+        parceiro.id === 'tatica'
+          ? ['/assets/logo.png', '/img/parceiros/helpus-icon.png']
+          : commonFallbacks;
 
-    if (attempt < fallbacks.length) {
-      img.dataset.attempt = String(attempt + 1);
-      img.src = fallbacks[attempt];
-    }
-  }, [parceiro.id]);
+      if (attempt < fallbacks.length) {
+        img.dataset.attempt = String(attempt + 1);
+        img.src = fallbacks[attempt];
+      }
+    },
+    [parceiro.id]
+  );
 
   const variants = {
     hidden: { opacity: 0, scale: shouldReduceMotion ? 1 : 0.96, y: shouldReduceMotion ? 0 : 12 },
@@ -151,7 +162,6 @@ function PartnerCard({ parceiro, isLocal }) {
       {parceiro.video && (
         <video
           className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
-          /* Respeita prefers-reduced-motion (sem autoplay) */
           autoPlay={!shouldReduceMotion}
           muted
           loop
@@ -194,7 +204,6 @@ function PartnerCard({ parceiro, isLocal }) {
 const Home = () => {
   const { t } = useTranslation();
 
-  /* Mapeia catálogo -> dados traduzidos com fallback */
   const partners = partnersCatalog.map((p) => ({
     ...p,
     nome: t(`partners.${p.id}.name`, { defaultValue: p.defaultName || p.id }),
@@ -203,15 +212,12 @@ const Home = () => {
 
   // Debug em dev: confirma que a "plural" está chegando
   if (import.meta?.env?.MODE === 'development') {
-    // eslint-disable-next-line no-console
-    console.table(partners.map(p => ({ id: p.id, img: p.imagem, video: p.video })));
-    // eslint-disable-next-line no-console
-    console.log('tem plural?', partners.some(p => p.id === 'plural'));
+    console.table(partners.map((p) => ({ id: p.id, img: p.imagem, video: p.video, link: p.link })));
+    console.log('tem plural?', partners.some((p) => p.id === 'plural'));
   }
 
   return (
     <div>
-      {/* Hero principal */}
       <Hero />
 
       {/* Seção de diferenciais */}
