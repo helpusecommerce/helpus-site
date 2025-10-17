@@ -1,3 +1,4 @@
+// 📄 src/pages/Home.jsx
 import React from 'react';
 import Hero from '../components/Hero';
 import { FaExternalLinkAlt } from 'react-icons/fa';
@@ -41,6 +42,19 @@ const partnersCatalog = [
     video: '/img/parceiros/videobluebox.webm',
     link: partnerLinks.bluebox,
   },
+
+  // 🆕 Plural Locações
+  {
+    id: 'plural_locacoes',
+    defaultName: 'Plural Locações',
+    defaultDesc:
+      'Aluguel para festas e eventos — mesas, cadeiras, tendas, iluminação e mais.',
+    imagem: '/img/parceiros/logo-plural.jpg', // coloque este arquivo no public
+    // Remova a linha de vídeo se ainda não houver um arquivo
+    video: '/img/parceiros/plural-video.mp4',
+    link: partnerLinks.plurallocacoes,
+  },
+
   {
     id: 'publicarte',
     defaultName: 'Public Arte',
@@ -73,14 +87,14 @@ const partnersCatalog = [
     video: '/img/parceiros/video-marcio.mp4',
     link: partnerLinks.marciotopbarber,
   },
-  // 🆕 Tática com caminhos padronizados + alternativas
+  // Tática com caminhos padronizados + alternativas
   {
     id: 'tatica',
     defaultName: 'Tática Assessoria Contábil',
-    defaultDesc: 'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
+    defaultDesc:
+      'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
     imagem: '/img/parceiros/tatica-logo.png',   // 👉 coloque este arquivo no public do HelpUS
-    // primeira opção no mesmo padrão dos demais; segunda opção é a que você já tinha
-    video: '/img/parceiros/tatica-video.mp4',   // 👉 ou mantenha /video/video01.mp4 (ver <source> abaixo)
+    video: '/img/parceiros/tatica-video.mp4',   // 👉 ou mantenha /video/video01.mp4 (fallback)
     link: partnerLinks.tatica,
   },
 ];

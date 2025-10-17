@@ -90,6 +90,10 @@
       "name": "Blue Box",
       "desc": "Lava-jato de carros e motos"
     },
+    "plural": {
+      "name": "Plural Locações",
+      "desc": "Aluguel de mesas, cadeiras, tendas, iluminação e muito mais para festas e eventos."
+    },
     "publicarte": {
       "name": "PublicArte",
       "desc": "Design e comunicação visual"
