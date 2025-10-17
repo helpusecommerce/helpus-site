@@ -1,24 +1,18 @@
-// 📄 src/config/partners.js
+// src/config/partners.js
 const BASE = 'helpusbr.com';
 
-/**
- * 🧩 Lista oficial de parceiros HelpUS
- * Cada item contém:
- * - id: identificador único (sem espaços ou acentos)
- * - name: nome exibido
- * - url: subdomínio completo
- */
-export const partners = [
-  { id: 'wagnerdriver', name: 'Wagner Driver', url: `https://wagnerdriver.${BASE}` },
-  { id: 'cgdetails', name: 'CG Details', url: `https://cgdetails.${BASE}` },
-  { id: 'bluebox', name: 'Blue Box', url: `https://bluebox.${BASE}` },
-  { id: 'publicarte', name: 'Public Arte', url: `https://publicarte.${BASE}` },
-  { id: 'memoriaviva', name: 'Memória Viva', url: `https://memoriaviva.${BASE}` },
-  { id: 'tuliobicicletas', name: 'Tulio Bicicletas', url: `https://tuliobicicletas.${BASE}` },
-  { id: 'waleska', name: 'Waleska Imóveis', url: `https://waleska.${BASE}` },
-  { id: 'katiaxavier', name: 'Kátia Xavier', url: `https://katiaxavier.${BASE}` },
-  { id: 'marciotopbarber', name: 'Márcio Top Barber', url: `https://marciotopbarber.${BASE}` },
-  { id: 'escolaestacaomusical', name: 'Escola Estação Musical', url: `https://escolaestacaomusical.${BASE}` },
-  { id: 'tatica', name: 'Tática Assessoria', url: `https://tatica.${BASE}` },
-  { id: 'plural', name: 'Plural Locações', url: `https://plurallocacoes.${BASE}` }, // ✅ confirmado
-];
+export const partners = {
+  wagnerdriver:        `https://wagnerdriver.${BASE}`,
+  cgdetails:           `https://cgdetails.${BASE}`,
+  bluebox:             `https://bluebox.${BASE}`,
+  publicarte:          `https://publicarte.${BASE}`,
+  memoriaviva:         `https://memoriaviva.${BASE}`,
+  tuliobicicletas:     `https://tuliobicicletas.${BASE}`,
+  waleska:             `https://waleska.${BASE}`,
+  katiaxavier:         `https://katiaxavier.${BASE}`,
+  marciotopbarber:     `https://marciotopbarber.${BASE}`,
+  escolaestacaomusical:`https://escolaestacaomusical.${BASE}`,
+  tatica:              `https://tatica.${BASE}`, // Tática Assessoria Contábil
+  plurallocacoes:      `https://plurallocacoes.${BASE}`,
+};
+
