@@ -13,6 +13,6 @@ export const partners = {
   marciotopbarber:     `https://marciotopbarber.${BASE}`,
   escolaestacaomusical:`https://escolaestacaomusical.${BASE}`,
   tatica:              `https://tatica.${BASE}`, // Tática Assessoria Contábil
+  plurallocacoes:      `https://plurallocacoes.${BASE}`,
 };
-
 

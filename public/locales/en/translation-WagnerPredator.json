@@ -90,6 +90,10 @@
       "name": "Blue Box",
       "desc": "Car and motorcycle wash"
     },
+    "plural": {
+      "name": "Plural Locações",
+      "desc": "Event rentals: tables, chairs, tents, lighting and more for parties and corporate events."
+    },
     "publicarte": {
       "name": "PublicArte",
       "desc": "Design and visual communication"
