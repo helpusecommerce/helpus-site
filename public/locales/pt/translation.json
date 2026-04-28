@@ -1,9 +1,9 @@
 {
   "brand": "HelpUS",
   "menu": {
-    "home": "Início",
-    "services": "Serviços",
-    "site_build": "Criação de Sites",
+    "home": "InÃ­cio",
+    "services": "ServiÃ§os",
+    "site_build": "CriaÃ§Ã£o de Sites",
     "about": "Sobre",
     "contact": "Contato",
     "login": "Login",
@@ -19,37 +19,37 @@
   "common": {
     "visit_site": "Acessar site",
     "learn_more": "Saiba mais",
-    "request_quote": "Solicitar orçamento",
+    "request_quote": "Solicitar orÃ§amento",
     "whatsapp": "Falar no WhatsApp",
     "language": "Idioma",
     "partners": "Parceiros",
-    "connection_error": "Erro de conexão com o servidor.",
-    "connection_error_delete": "Erro de conexão ao excluir.",
+    "connection_error": "Erro de conexÃ£o com o servidor.",
+    "connection_error_delete": "Erro de conexÃ£o ao excluir.",
     "try_again": "Tentar novamente",
     "prev": "Anterior",
-    "next": "Próxima"
+    "next": "PrÃ³xima"
   },
   "hero": {
-    "no_video": "Seu navegador não suporta vídeos HTML5.",
-    "title": "Soluções completas para viver, empreender e declarar nos EUA",
-    "subtitle": "Consultoria especializada em vistos, abertura de empresas, documentação fiscal e criação de sites profissionais – tudo em português.",
+    "no_video": "Seu navegador nÃ£o suporta vÃ­deos HTML5.",
+    "title": "SoluÃ§Ãµes completas para viver, empreender e declarar nos EUA",
+    "subtitle": "Consultoria especializada em vistos, abertura de empresas, documentaÃ§Ã£o fiscal e criaÃ§Ã£o de sites profissionais â€“ tudo em portuguÃªs.",
     "cta": {
       "visas": "Vistos Americanos",
       "company": "Abertura de Empresa",
       "tax": "Impostos e Documentos",
-      "sites": "Criação de Sites"
+      "sites": "CriaÃ§Ã£o de Sites"
     }
   },
   "home": {
     "why_title": "Por que escolher a HelpUS?",
     "p1_t": "Atendimento Personalizado",
     "p1_d": "Suporte individual durante todo o processo do seu visto.",
-    "p2_t": "Experiência Real",
-    "p2_d": "Consultores que já passaram por processos semelhantes.",
-    "p3_t": "Confiança e Transparência",
+    "p2_t": "ExperiÃªncia Real",
+    "p2_d": "Consultores que jÃ¡ passaram por processos semelhantes.",
+    "p3_t": "ConfianÃ§a e TransparÃªncia",
     "p3_d": "Explicamos tudo com clareza e sem promessas falsas.",
-    "partners_title": "Nossos Parceiros",
-    "services_title": "Nossos Serviços",
+    "partners_title": "Nossos Parceiros em Destaque",
+    "services_title": "Nossos ServiÃ§os",
     "cards": {
       "visas": {
         "title": "Consultoria para Vistos",
@@ -60,27 +60,27 @@
         "desc": "LLC nos EUA com suporte completo, mesmo para estrangeiros."
       },
       "tax": {
-        "title": "Documentação Fiscal",
-        "desc": "ITIN, EIN, declarações e contabilidade focada no imigrante."
+        "title": "DocumentaÃ§Ã£o Fiscal",
+        "desc": "ITIN, EIN, declaraÃ§Ãµes e contabilidade focada no imigrante."
       },
       "sites": {
-        "title": "Criação de Sites",
-        "desc": "Sites modernos com painel, loja e integração ao WhatsApp."
+        "title": "CriaÃ§Ã£o de Sites",
+        "desc": "Sites modernos com painel, loja e integraÃ§Ã£o ao WhatsApp."
       }
     }
   },
   "partners": {
     "escola_estacao_musical": {
-      "name": "Escola Estação Musical",
-      "desc": "Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora."
+      "name": "Escola EstaÃ§Ã£o Musical",
+      "desc": "Aulas de mÃºsica em JoÃ£o Pessoa â€” violÃ£o, teclado, canto e mais, com metodologia prÃ¡tica e motivadora."
     },
     "wagner_driver": {
       "name": "Wagner Driver",
-      "desc": "Serviço de transporte executivo e agendamentos via WhatsApp"
+      "desc": "ServiÃ§o de transporte executivo e agendamentos via WhatsApp"
     },
     "tulio_bicicletas": {
-      "name": "Túlio Bicicletas",
-      "desc": "Bicicletas, acessórios e manutenção com qualidade"
+      "name": "TÃºlio Bicicletas",
+      "desc": "Bicicletas, acessÃ³rios e manutenÃ§Ã£o com qualidade"
     },
     "cg_details": {
       "name": "CG Details",
@@ -92,187 +92,187 @@
     },
     "publicarte": {
       "name": "PublicArte",
-      "desc": "Design e comunicação visual"
+      "desc": "Design e comunicaÃ§Ã£o visual"
     },
     "waleska": {
-      "name": "Waleska Imóveis",
-      "desc": "Corretagem de imóveis"
+      "name": "Waleska ImÃ³veis",
+      "desc": "Corretagem de imÃ³veis"
     },
     "katia": {
-      "name": "Dra. Kátia Xavier",
-      "desc": "Atendimento médico presencial e por telemedicina."
+      "name": "Dra. KÃ¡tia Xavier",
+      "desc": "Atendimento mÃ©dico presencial e por telemedicina."
     },
     "marcio_barber": {
-      "name": "Márcio Barber",
-      "desc": "Serviços de barbearia com qualidade e atendimento diferenciado."
+      "name": "MÃ¡rcio Barber",
+      "desc": "ServiÃ§os de barbearia com qualidade e atendimento diferenciado."
     },
     "tatica": {
-      "name": "Tática Assessoria Contábil",
+      "name": "TÃ¡tica Assessoria ContÃ¡bil",
       "desc": "Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal."
     }
   },
   "sites": {
-    "h1": "Criação de Sites e Lojas Virtuais",
-    "intro": "Desenvolvemos sites modernos, rápidos e personalizados para empresas e profissionais. Com layout responsivo, painel administrativo, integração com WhatsApp e hospedagem gratuita, você tem tudo o que precisa para marcar presença na internet.",
+    "h1": "CriaÃ§Ã£o de Sites e Lojas Virtuais",
+    "intro": "Desenvolvemos sites modernos, rÃ¡pidos e personalizados para empresas e profissionais. Com layout responsivo, painel administrativo, integraÃ§Ã£o com WhatsApp e hospedagem gratuita, vocÃª tem tudo o que precisa para marcar presenÃ§a na internet.",
     "features": [
       "Design profissional e responsivo",
       "Loja virtual com carrinho e WhatsApp",
       "Painel de controle para gerenciar produtos",
       "Hospedagem gratuita na Vercel",
       "Banco de dados gratuito (Supabase)",
-      "Integração com redes sociais",
-      "Controle de usuários por tipo de acesso",
-      "SEO básico incluso"
+      "IntegraÃ§Ã£o com redes sociais",
+      "Controle de usuÃ¡rios por tipo de acesso",
+      "SEO bÃ¡sico incluso"
     ],
     "pricing_from": "A partir de",
     "pricing_value": "$299",
-    "pricing_note": "Site completo entregue em até 10 dias úteis.",
-    "cta_quote": "Solicitar orçamento",
+    "pricing_note": "Site completo entregue em atÃ© 10 dias Ãºteis.",
+    "cta_quote": "Solicitar orÃ§amento",
     "examples_title": "Exemplos de sites criados",
-    "support_note": "Suporte técnico incluso nos primeiros 30 dias após a entrega. Pagamento em até 2x sem juros via cartão ou Pix."
+    "support_note": "Suporte tÃ©cnico incluso nos primeiros 30 dias apÃ³s a entrega. Pagamento em atÃ© 2x sem juros via cartÃ£o ou Pix."
   },
   "about": {
     "title": "Sobre a HelpUS",
-    "intro": "A HelpUS nasceu para facilitar o acesso a serviços essenciais para quem deseja viver, empreender ou investir nos Estados Unidos. Somos especialistas em consultoria para vistos, abertura de empresas e documentação fiscal, com atendimento humanizado e focado em resultados.",
+    "intro": "A HelpUS nasceu para facilitar o acesso a serviÃ§os essenciais para quem deseja viver, empreender ou investir nos Estados Unidos. Somos especialistas em consultoria para vistos, abertura de empresas e documentaÃ§Ã£o fiscal, com atendimento humanizado e focado em resultados.",
     "blocks": {
-      "exp_t": "Experiência",
+      "exp_t": "ExperiÃªncia",
       "exp_d": "Mais de 10 anos ajudando brasileiros a conquistar seus objetivos nos EUA.",
       "pers_t": "Atendimento Personalizado",
-      "pers_d": "Cada caso é único. Oferecemos soluções completas conforme o seu perfil.",
+      "pers_d": "Cada caso Ã© Ãºnico. Oferecemos soluÃ§Ãµes completas conforme o seu perfil.",
       "commit_t": "Compromisso",
-      "commit_d": "Ética, transparência e dedicação total à sua jornada."
+      "commit_d": "Ã‰tica, transparÃªncia e dedicaÃ§Ã£o total Ã  sua jornada."
     }
   },
   "contact": {
     "title": "Contato",
     "subtitle": "Envie sua mensagem e retornaremos rapidamente.",
-    "address": "Endereço: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA",
+    "address": "EndereÃ§o: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA",
     "email_label": "Email",
     "phone_label": "Telefone"
   },
   "services": {
-    "title": "Serviços",
+    "title": "ServiÃ§os",
     "visas": {
       "title": "Vistos",
-      "includes_title": "📋 O que está incluído:",
-      "examples_title": "📋 Exemplos de casos atendidos:",
-      "examples_title_docs": "📋 Exemplos de documentos:",
+      "includes_title": "ðŸ“‹ O que estÃ¡ incluÃ­do:",
+      "examples_title": "ðŸ“‹ Exemplos de casos atendidos:",
+      "examples_title_docs": "ðŸ“‹ Exemplos de documentos:",
       "list": {
-        "B1B2": { "title": "B1/B2", "desc": "Roteiro e DS-160 para turismo/negócios." },
+        "B1B2": { "title": "B1/B2", "desc": "Roteiro e DS-160 para turismo/negÃ³cios." },
         "F1": { "title": "F1", "desc": "Suporte para visto de estudante (I-20 e entrevista)." },
-        "F2": { "title": "F2", "desc": "Dependentes de F1 — formulários e documentos." },
-        "EB1A": { "title": "EB1-A", "desc": "Estratégia e petição para habilidade extraordinária." },
-        "EB2NIW": { "title": "EB2-NIW", "desc": "Waiver por Interesse Nacional — elegibilidade e evidências." },
-        "Renovacao": { "title": "Renovação", "desc": "Fluxo simplificado para vistos elegíveis." },
-        "Familia": { "title": "Família", "desc": "Categorias baseadas em família e checklists." },
-        "CasosEspeciais": { "title": "Casos Especiais", "desc": "Cenários complexos e waivers (orientação inicial)." },
+        "F2": { "title": "F2", "desc": "Dependentes de F1 â€” formulÃ¡rios e documentos." },
+        "EB1A": { "title": "EB1-A", "desc": "EstratÃ©gia e petiÃ§Ã£o para habilidade extraordinÃ¡ria." },
+        "EB2NIW": { "title": "EB2-NIW", "desc": "Waiver por Interesse Nacional â€” elegibilidade e evidÃªncias." },
+        "Renovacao": { "title": "RenovaÃ§Ã£o", "desc": "Fluxo simplificado para vistos elegÃ­veis." },
+        "Familia": { "title": "FamÃ­lia", "desc": "Categorias baseadas em famÃ­lia e checklists." },
+        "CasosEspeciais": { "title": "Casos Especiais", "desc": "CenÃ¡rios complexos e waivers (orientaÃ§Ã£o inicial)." },
         "Complementares": { "title": "Complementares", "desc": "EAD, Advance Parole e etapas relacionadas." },
         "OutrosTrabalho": { "title": "Outros Vistos de Trabalho", "desc": "H1B, L1, O1 e outros, conforme seu perfil." }
       },
       "pages": {
         "B1B2": {
-          "intro": "O visto B1/B2 é destinado a viagens temporárias aos Estados Unidos a turismo, negócios ou visitas a familiares e amigos.",
+          "intro": "O visto B1/B2 Ã© destinado a viagens temporÃ¡rias aos Estados Unidos a turismo, negÃ³cios ou visitas a familiares e amigos.",
           "items": {
-            "0": "Preenchimento completo do formulário <strong>DS-160</strong>",
-            "1": "Preparação de documentos e checklist personalizado",
-            "2": "Agendamento da entrevista consular e instruções detalhadas",
-            "3": "Orientações para aumentar suas chances de aprovação"
+            "0": "Preenchimento completo do formulÃ¡rio <strong>DS-160</strong>",
+            "1": "PreparaÃ§Ã£o de documentos e checklist personalizado",
+            "2": "Agendamento da entrevista consular e instruÃ§Ãµes detalhadas",
+            "3": "OrientaÃ§Ãµes para aumentar suas chances de aprovaÃ§Ã£o"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 45,00"
         },
         "F1": {
-          "intro": "O visto F1 é destinado a estudantes estrangeiros que desejam frequentar uma instituição acadêmica nos Estados Unidos.",
+          "intro": "O visto F1 Ã© destinado a estudantes estrangeiros que desejam frequentar uma instituiÃ§Ã£o acadÃªmica nos Estados Unidos.",
           "items": {
-            "0": "Orientação detalhada e checklist de documentos exigidos",
-            "1": "Preenchimento completo do formulário <strong>DS-160</strong>",
-            "2": "Pagamento e emissão da taxa <strong>SEVIS</strong>",
-            "3": "Agendamento e instruções para entrevista no consulado"
+            "0": "OrientaÃ§Ã£o detalhada e checklist de documentos exigidos",
+            "1": "Preenchimento completo do formulÃ¡rio <strong>DS-160</strong>",
+            "2": "Pagamento e emissÃ£o da taxa <strong>SEVIS</strong>",
+            "3": "Agendamento e instruÃ§Ãµes para entrevista no consulado"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 59,00"
         },
         "F2": {
-          "intro": "O visto F2 é destinado a cônjuges e filhos não casados de titulares do visto F1, permitindo que acompanhem o estudante durante a permanência nos EUA.",
+          "intro": "O visto F2 Ã© destinado a cÃ´njuges e filhos nÃ£o casados de titulares do visto F1, permitindo que acompanhem o estudante durante a permanÃªncia nos EUA.",
           "items": {
-            "0": "Preparação e preenchimento completo do formulário <strong>DS-160</strong>",
-            "1": "Checklist e documentação de vínculo com o titular do F1",
-            "2": "Agendamento da entrevista no consulado e orientações específicas",
-            "3": "Suporte para dependentes menores e cônjuges durante todo o processo"
+            "0": "PreparaÃ§Ã£o e preenchimento completo do formulÃ¡rio <strong>DS-160</strong>",
+            "1": "Checklist e documentaÃ§Ã£o de vÃ­nculo com o titular do F1",
+            "2": "Agendamento da entrevista no consulado e orientaÃ§Ãµes especÃ­ficas",
+            "3": "Suporte para dependentes menores e cÃ´njuges durante todo o processo"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 49,00"
         },
         "EB1A": {
-          "intro": "O visto EB1-A é destinado a pessoas com habilidades extraordinárias em ciência, arte, educação, negócios ou esportes, com reconhecimento nacional ou internacional.",
+          "intro": "O visto EB1-A Ã© destinado a pessoas com habilidades extraordinÃ¡rias em ciÃªncia, arte, educaÃ§Ã£o, negÃ³cios ou esportes, com reconhecimento nacional ou internacional.",
           "items": {
-            "0": "Análise inicial de perfil e elegibilidade",
-            "1": "Orientações detalhadas para documentação comprobatória",
-            "2": "Preenchimento do formulário <strong>I-140</strong> e montagem do dossiê",
-            "3": "Traduções e estruturação de provas de notoriedade"
+            "0": "AnÃ¡lise inicial de perfil e elegibilidade",
+            "1": "OrientaÃ§Ãµes detalhadas para documentaÃ§Ã£o comprobatÃ³ria",
+            "2": "Preenchimento do formulÃ¡rio <strong>I-140</strong> e montagem do dossiÃª",
+            "3": "TraduÃ§Ãµes e estruturaÃ§Ã£o de provas de notoriedade"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 79,00",
-          "price_note": "– suporte completo até o envio da petição."
+          "price_note": "â€“ suporte completo atÃ© o envio da petiÃ§Ã£o."
         },
         "EB2NIW": {
-          "intro": "O visto EB2-NIW é para profissionais qualificados que desejam imigrar para os EUA com base em mérito profissional, sem necessidade de oferta de trabalho direta, desde que comprovem benefício substancial ao interesse nacional.",
+          "intro": "O visto EB2-NIW Ã© para profissionais qualificados que desejam imigrar para os EUA com base em mÃ©rito profissional, sem necessidade de oferta de trabalho direta, desde que comprovem benefÃ­cio substancial ao interesse nacional.",
           "items": {
-            "0": "Análise detalhada de elegibilidade com base no seu currículo",
-            "1": "Preenchimento do formulário <strong>I-140</strong> e elaboração da carta de interesse nacional",
-            "2": "Organização da documentação de diplomas, experiência e impacto",
-            "3": "Orientações para obtenção do <strong>Green Card</strong> via ajuste de status ou processo consular"
+            "0": "AnÃ¡lise detalhada de elegibilidade com base no seu currÃ­culo",
+            "1": "Preenchimento do formulÃ¡rio <strong>I-140</strong> e elaboraÃ§Ã£o da carta de interesse nacional",
+            "2": "OrganizaÃ§Ã£o da documentaÃ§Ã£o de diplomas, experiÃªncia e impacto",
+            "3": "OrientaÃ§Ãµes para obtenÃ§Ã£o do <strong>Green Card</strong> via ajuste de status ou processo consular"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 69,00",
-          "price_note": "– suporte completo até o envio do I-140."
+          "price_note": "â€“ suporte completo atÃ© o envio do I-140."
         },
         "Renovacao": {
-          "intro": "Se o seu visto americano está vencido ou próximo do vencimento, a HelpUS oferece suporte completo para renovar com segurança e agilidade, reduzindo erros e atrasos.",
+          "intro": "Se o seu visto americano estÃ¡ vencido ou prÃ³ximo do vencimento, a HelpUS oferece suporte completo para renovar com seguranÃ§a e agilidade, reduzindo erros e atrasos.",
           "items": {
-            "0": "Atualização de dados e novo DS-160",
-            "1": "Verificação de elegibilidade para isenção de entrevista",
-            "2": "Agendamento no CASV ou consulado, se necessário",
+            "0": "AtualizaÃ§Ã£o de dados e novo DS-160",
+            "1": "VerificaÃ§Ã£o de elegibilidade para isenÃ§Ã£o de entrevista",
+            "2": "Agendamento no CASV ou consulado, se necessÃ¡rio",
             "3": "Checklist atualizado de documentos exigidos",
-            "4": "Acompanhamento até a devolução do passaporte com o visto"
+            "4": "Acompanhamento atÃ© a devoluÃ§Ã£o do passaporte com o visto"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 39,00"
         },
         "Familia": {
-          "intro": "Oferecemos suporte completo para vistos familiares, seja para acompanhar um estudante, trabalhador ou residente nos EUA, ou para visitas temporárias de reunião familiar.",
+          "intro": "Oferecemos suporte completo para vistos familiares, seja para acompanhar um estudante, trabalhador ou residente nos EUA, ou para visitas temporÃ¡rias de reuniÃ£o familiar.",
           "items": {
-            "0": "Definição do tipo de visto adequado (<strong>F2, B2, IR</strong>, entre outros)",
+            "0": "DefiniÃ§Ã£o do tipo de visto adequado (<strong>F2, B2, IR</strong>, entre outros)",
             "1": "Checklist completo de documentos familiares exigidos",
-            "2": "Preenchimento dos formulários necessários (como <strong>DS-160</strong>)",
-            "3": "Agendamento da entrevista consular e orientações detalhadas",
-            "4": "Suporte contínuo até a finalização do processo"
+            "2": "Preenchimento dos formulÃ¡rios necessÃ¡rios (como <strong>DS-160</strong>)",
+            "3": "Agendamento da entrevista consular e orientaÃ§Ãµes detalhadas",
+            "4": "Suporte contÃ­nuo atÃ© a finalizaÃ§Ã£o do processo"
           },
-          "price_label": "💵 Valor do serviço HelpUS:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o HelpUS:",
           "price": "US$ 55,00",
-          "price_note": "– para cada membro da família."
+          "price_note": "â€“ para cada membro da famÃ­lia."
         },
         "CasosEspeciais": {
-          "intro": "Atuamos em situações mais complexas que exigem cuidado jurídico e estratégias específicas para cada caso.",
+          "intro": "Atuamos em situaÃ§Ãµes mais complexas que exigem cuidado jurÃ­dico e estratÃ©gias especÃ­ficas para cada caso.",
           "items": {
-            "0": "Pedidos de <strong>perdão (waiver)</strong> por vistos negados ou presença ilegal",
-            "1": "Solicitação de <strong>extensão</strong> ou <strong>mudança de status</strong> já nos EUA",
-            "2": "Acompanhamento em processos de <strong>remoção</strong>/deportação ou <strong>inadmissibilidade</strong>",
-            "3": "Consultas personalizadas com análise de riscos e alternativas"
+            "0": "Pedidos de <strong>perdÃ£o (waiver)</strong> por vistos negados ou presenÃ§a ilegal",
+            "1": "SolicitaÃ§Ã£o de <strong>extensÃ£o</strong> ou <strong>mudanÃ§a de status</strong> jÃ¡ nos EUA",
+            "2": "Acompanhamento em processos de <strong>remoÃ§Ã£o</strong>/deportaÃ§Ã£o ou <strong>inadmissibilidade</strong>",
+            "3": "Consultas personalizadas com anÃ¡lise de riscos e alternativas"
           },
-          "price_label": "💵 Valor do serviço:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o:",
           "price": "Sob consulta"
         },
         "Complementares": {
-          "intro": "Emitimos e preparamos documentos auxiliares que fortalecem sua solicitação de visto ou processo migratório.",
+          "intro": "Emitimos e preparamos documentos auxiliares que fortalecem sua solicitaÃ§Ã£o de visto ou processo migratÃ³rio.",
           "items": {
-            "0": "Formulário <strong>I-134 (Affidavit of Support)</strong>",
-            "1": "Cartas explicativas, declarações e justificativas personalizadas",
-            "2": "Comprovações financeiras e de vínculo familiar ou profissional"
+            "0": "FormulÃ¡rio <strong>I-134 (Affidavit of Support)</strong>",
+            "1": "Cartas explicativas, declaraÃ§Ãµes e justificativas personalizadas",
+            "2": "ComprovaÃ§Ãµes financeiras e de vÃ­nculo familiar ou profissional"
           },
-          "price_label": "💵 Valor do serviço:",
+          "price_label": "ðŸ’µ Valor do serviÃ§o:",
           "price": "US$ 25,00",
-          "price_note": "por documento (com personalização e revisão)."
+          "price_note": "por documento (com personalizaÃ§Ã£o e revisÃ£o)."
         }
       }
     },
@@ -280,174 +280,174 @@
       "title": "Empresa",
       "AberturaLLC": {
         "title": "Abertura de LLC",
-        "desc": "Constituição de LLC nos EUA com Operating Agreement e suporte ao EIN.",
-        "intro": "Cuidamos de todo o processo para abrir sua LLC nos Estados Unidos e obter o EIN (número de identificação fiscal).",
+        "desc": "ConstituiÃ§Ã£o de LLC nos EUA com Operating Agreement e suporte ao EIN.",
+        "intro": "Cuidamos de todo o processo para abrir sua LLC nos Estados Unidos e obter o EIN (nÃºmero de identificaÃ§Ã£o fiscal).",
         "steps": {
-          "name": "Consulta de nome disponível e registro oficial",
-          "forms": "Protocolo dos formulários de abertura no estado",
-          "ein": "Emissão do EIN diretamente com o IRS",
+          "name": "Consulta de nome disponÃ­vel e registro oficial",
+          "forms": "Protocolo dos formulÃ¡rios de abertura no estado",
+          "ein": "EmissÃ£o do EIN diretamente com o IRS",
           "delivery": "Entrega dos documentos digitais prontos para uso"
         },
         "price": "Valor: US$ 79,00",
         "cta": "Contratar agora via WhatsApp",
-        "whatsapp_msg": "Olá! Tenho interesse no serviço: Abertura de Empresa LLC + EIN nos EUA"
+        "whatsapp_msg": "OlÃ¡! Tenho interesse no serviÃ§o: Abertura de Empresa LLC + EIN nos EUA"
       },
       "BusinessLicense": {
         "title": "Business License",
-        "desc": "Orientação para licenças municipais/condado conforme atividade.",
-        "intro": "Suporte completo para obter sua licença comercial em qualquer estado dos EUA, de forma ágil e conforme as regras locais.",
-        "includes_title": "📋 O que está incluído:",
+        "desc": "OrientaÃ§Ã£o para licenÃ§as municipais/condado conforme atividade.",
+        "intro": "Suporte completo para obter sua licenÃ§a comercial em qualquer estado dos EUA, de forma Ã¡gil e conforme as regras locais.",
+        "includes_title": "ðŸ“‹ O que estÃ¡ incluÃ­do:",
         "includes": {
-          "0": "Preenchimento do formulário oficial do estado/condado",
-          "1": "Pesquisa do código correto para sua atividade",
+          "0": "Preenchimento do formulÃ¡rio oficial do estado/condado",
+          "1": "Pesquisa do cÃ³digo correto para sua atividade",
           "2": "PDF final preenchido e pronto para protocolo",
-          "3": "Instruções claras sobre taxas e envio/aplicação",
-          "4": "Suporte por WhatsApp ou e-mail até a emissão"
+          "3": "InstruÃ§Ãµes claras sobre taxas e envio/aplicaÃ§Ã£o",
+          "4": "Suporte por WhatsApp ou e-mail atÃ© a emissÃ£o"
         },
         "price": "$49",
         "cta": "Falar com a HelpUS",
-        "whatsapp_msg": "Olá! Preciso de ajuda para obter minha Business License nos EUA."
+        "whatsapp_msg": "OlÃ¡! Preciso de ajuda para obter minha Business License nos EUA."
       },
       "EnderecoFiscal": {
-        "title": "Endereço Fiscal",
-        "desc": "Opções de endereço para correspondência e conformidade.",
-        "intro": "Endereço fiscal válido para registrar sua empresa, receber correspondências oficiais e abrir conta bancária.",
-        "includes_title": "📋 O que está incluído:",
+        "title": "EndereÃ§o Fiscal",
+        "desc": "OpÃ§Ãµes de endereÃ§o para correspondÃªncia e conformidade.",
+        "intro": "EndereÃ§o fiscal vÃ¡lido para registrar sua empresa, receber correspondÃªncias oficiais e abrir conta bancÃ¡ria.",
+        "includes_title": "ðŸ“‹ O que estÃ¡ incluÃ­do:",
         "includes": {
-          "0": "Endereço válido com número, cidade e estado",
-          "1": "Inclusão do nome da empresa na caixa postal",
+          "0": "EndereÃ§o vÃ¡lido com nÃºmero, cidade e estado",
+          "1": "InclusÃ£o do nome da empresa na caixa postal",
           "2": "Encaminhamento digital dos documentos recebidos",
-          "3": "Contrato de cessão emitido em PDF"
+          "3": "Contrato de cessÃ£o emitido em PDF"
         },
         "price": "$29",
         "cta": "Falar com a HelpUS",
-        "whatsapp_msg": "Olá! Tenho interesse no serviço de Endereço Fiscal nos EUA."
+        "whatsapp_msg": "OlÃ¡! Tenho interesse no serviÃ§o de EndereÃ§o Fiscal nos EUA."
       },
       "OperatingAgreement": {
         "title": "Operating Agreement",
-        "desc": "Documento ajustado à estrutura e aos sócios da sua LLC.",
-        "intro": "Elaboramos um Operating Agreement sob medida — essencial para abrir conta bancária, obter licenças e manter a LLC regular.",
-        "includes_title": "📋 O que está incluído:",
+        "desc": "Documento ajustado Ã  estrutura e aos sÃ³cios da sua LLC.",
+        "intro": "Elaboramos um Operating Agreement sob medida â€” essencial para abrir conta bancÃ¡ria, obter licenÃ§as e manter a LLC regular.",
+        "includes_title": "ðŸ“‹ O que estÃ¡ incluÃ­do:",
         "includes": {
-          "0": "Contrato jurídico adaptado à sua realidade empresarial",
-          "1": "Cláusulas sobre sócios, divisão de lucros e responsabilidades",
-          "2": "Versão em inglês para uso oficial + tradução explicativa em português",
+          "0": "Contrato jurÃ­dico adaptado Ã  sua realidade empresarial",
+          "1": "ClÃ¡usulas sobre sÃ³cios, divisÃ£o de lucros e responsabilidades",
+          "2": "VersÃ£o em inglÃªs para uso oficial + traduÃ§Ã£o explicativa em portuguÃªs",
           "3": "Envio digital em PDF pronto para uso"
         },
         "price": "$25",
         "cta": "Solicitar via WhatsApp",
-        "whatsapp_msg": "Olá! Tenho interesse no serviço de Operating Agreement Personalizado."
+        "whatsapp_msg": "OlÃ¡! Tenho interesse no serviÃ§o de Operating Agreement Personalizado."
       },
-      "ITIN": { "title": "ITIN", "desc": "Montagem do pacote W-7 com documentos comprobatórios." },
-      "W7": { "title": "Formulário W-7", "desc": "Solicitação do ITIN com carta de apresentação e formulários." }
+      "ITIN": { "title": "ITIN", "desc": "Montagem do pacote W-7 com documentos comprobatÃ³rios." },
+      "W7": { "title": "FormulÃ¡rio W-7", "desc": "SolicitaÃ§Ã£o do ITIN com carta de apresentaÃ§Ã£o e formulÃ¡rios." }
     },
     "tax": {
       "title": "Fiscal",
-      "IRPF": { "title": "Declaração Individual", "desc": "Entrega federal e orientação para imigrantes e residentes." },
-      "ScheduleC": { "title": "Schedule C", "desc": "Renda como autônomo, deduções e apoio contábil." },
-      "W9": { "title": "Formulário W-9", "desc": "Preenchimento do formulário de informações do contribuinte." },
+      "IRPF": { "title": "DeclaraÃ§Ã£o Individual", "desc": "Entrega federal e orientaÃ§Ã£o para imigrantes e residentes." },
+      "ScheduleC": { "title": "Schedule C", "desc": "Renda como autÃ´nomo, deduÃ§Ãµes e apoio contÃ¡bil." },
+      "W9": { "title": "FormulÃ¡rio W-9", "desc": "Preenchimento do formulÃ¡rio de informaÃ§Ãµes do contribuinte." },
       "Dependentes": { "title": "Dependentes", "desc": "Regras para declarar dependentes e maximizar reembolsos." },
-      "Formularios": { "title": "Formulários", "desc": "Listas e formulários auxiliares do IRS." },
-      "Envio": { "title": "Envio", "desc": "Instruções para envio seguro e acompanhamento." },
+      "Formularios": { "title": "FormulÃ¡rios", "desc": "Listas e formulÃ¡rios auxiliares do IRS." },
+      "Envio": { "title": "Envio", "desc": "InstruÃ§Ãµes para envio seguro e acompanhamento." },
       "ITINPage": {
-        "title": "Solicitação de ITIN",
-        "intro": "O ITIN é essencial para quem precisa declarar impostos nos EUA, mas não possui direito a um SSN.",
-        "includes_title": "📋 O que está incluído:",
+        "title": "SolicitaÃ§Ã£o de ITIN",
+        "intro": "O ITIN Ã© essencial para quem precisa declarar impostos nos EUA, mas nÃ£o possui direito a um SSN.",
+        "includes_title": "ðŸ“‹ O que estÃ¡ incluÃ­do:",
         "includes": {
-          "0": "Preenchimento completo do formulário oficial W-7",
+          "0": "Preenchimento completo do formulÃ¡rio oficial W-7",
           "1": "Carta explicativa personalizada para o IRS",
           "2": "Checklist atualizado de documentos aceitos",
-          "3": "Instruções detalhadas para envio por correio ou validação via ACE"
+          "3": "InstruÃ§Ãµes detalhadas para envio por correio ou validaÃ§Ã£o via ACE"
         },
         "price": "$55",
         "cta": "Falar com a HelpUS",
-        "whatsapp_msg": "Olá! Tenho interesse no serviço de Solicitação de ITIN."
+        "whatsapp_msg": "OlÃ¡! Tenho interesse no serviÃ§o de SolicitaÃ§Ã£o de ITIN."
       },
       "W7Page": {
-        "title": "Formulário W-7 (Solicitação de ITIN)",
-        "intro": "Documento oficial para solicitar o ITIN junto ao IRS. Cuidamos de todo o processo com precisão e segurança:",
-        "includes_title": "📋 O que está incluído:",
+        "title": "FormulÃ¡rio W-7 (SolicitaÃ§Ã£o de ITIN)",
+        "intro": "Documento oficial para solicitar o ITIN junto ao IRS. Cuidamos de todo o processo com precisÃ£o e seguranÃ§a:",
+        "includes_title": "ðŸ“‹ O que estÃ¡ incluÃ­do:",
         "includes": {
-          "0": "Definição correta da categoria de elegibilidade",
+          "0": "DefiniÃ§Ã£o correta da categoria de elegibilidade",
           "1": "Preenchimento completo e consistente dos dados",
-          "2": "Revisão para evitar erros comuns e garantir aceitação",
+          "2": "RevisÃ£o para evitar erros comuns e garantir aceitaÃ§Ã£o",
           "3": "Carta explicativa e checklist de documentos"
         },
-        "price": "Incluído no pacote de ITIN",
+        "price": "IncluÃ­do no pacote de ITIN",
         "cta": "Solicitar via WhatsApp",
-        "whatsapp_msg": "Olá, desejo ajuda para preencher o Formulário W-7 (ITIN)."
+        "whatsapp_msg": "OlÃ¡, desejo ajuda para preencher o FormulÃ¡rio W-7 (ITIN)."
       },
       "IRPFPage": {
-        "title": "Declaração de Imposto de Renda (Formulário 1040)",
-        "intro": "Preparamos seu Formulário 1040 com todas as deduções e créditos aplicáveis para garantir conformidade e o melhor resultado possível.",
+        "title": "DeclaraÃ§Ã£o de Imposto de Renda (FormulÃ¡rio 1040)",
+        "intro": "Preparamos seu FormulÃ¡rio 1040 com todas as deduÃ§Ãµes e crÃ©ditos aplicÃ¡veis para garantir conformidade e o melhor resultado possÃ­vel.",
         "items": {
-          "0": "Preenchimento completo do Formulário 1040 e anexos obrigatórios",
-          "1": "Análise detalhada de deduções com base nas despesas do ano",
-          "2": "Inclusão de dependentes, créditos fiscais e renda estrangeira",
-          "3": "Entrega segura e suporte contínuo após o envio"
+          "0": "Preenchimento completo do FormulÃ¡rio 1040 e anexos obrigatÃ³rios",
+          "1": "AnÃ¡lise detalhada de deduÃ§Ãµes com base nas despesas do ano",
+          "2": "InclusÃ£o de dependentes, crÃ©ditos fiscais e renda estrangeira",
+          "3": "Entrega segura e suporte contÃ­nuo apÃ³s o envio"
         },
-        "price_label": "💵 Valor do serviço:",
+        "price_label": "ðŸ’µ Valor do serviÃ§o:",
         "price": "US$ 39,00"
       },
       "ScheduleCPage": {
-        "title": "Schedule C + SE para Autônomos",
-        "intro": "Para freelancers e prestadores de serviço, preparamos o Schedule C e o Schedule SE para calcular corretamente seus impostos e maximizar deduções.",
+        "title": "Schedule C + SE para AutÃ´nomos",
+        "intro": "Para freelancers e prestadores de serviÃ§o, preparamos o Schedule C e o Schedule SE para calcular corretamente seus impostos e maximizar deduÃ§Ãµes.",
         "items": {
-          "0": "Relatório detalhado de receitas e despesas",
-          "1": "Cálculo do lucro líquido e imposto de autônomo (Self-Employment Tax)",
-          "2": "Inclusão no Formulário 1040 com os anexos obrigatórios",
-          "3": "Suporte com deduções, depreciações e comprovações"
+          "0": "RelatÃ³rio detalhado de receitas e despesas",
+          "1": "CÃ¡lculo do lucro lÃ­quido e imposto de autÃ´nomo (Self-Employment Tax)",
+          "2": "InclusÃ£o no FormulÃ¡rio 1040 com os anexos obrigatÃ³rios",
+          "3": "Suporte com deduÃ§Ãµes, depreciaÃ§Ãµes e comprovaÃ§Ãµes"
         },
-        "price_label": "💵 Valor do serviço:",
+        "price_label": "ðŸ’µ Valor do serviÃ§o:",
         "price": "US$ 29,00"
       },
       "DependentesPage": {
-        "title": "Declaração com Dependentes (Child Tax Credit)",
-        "intro": "Se seus filhos atendem aos requisitos legais, você pode receber até <strong>US$ 2.000 por dependente qualificado</strong> na sua declaração.",
+        "title": "DeclaraÃ§Ã£o com Dependentes (Child Tax Credit)",
+        "intro": "Se seus filhos atendem aos requisitos legais, vocÃª pode receber atÃ© <strong>US$ 2.000 por dependente qualificado</strong> na sua declaraÃ§Ã£o.",
         "items": {
-          "0": "Verificação de elegibilidade para o crédito",
-          "1": "Inclusão correta do dependente no Formulário 1040",
-          "2": "Otimização do reembolso com base nos créditos fiscais",
-          "3": "Suporte completo para comprovação, se exigido"
+          "0": "VerificaÃ§Ã£o de elegibilidade para o crÃ©dito",
+          "1": "InclusÃ£o correta do dependente no FormulÃ¡rio 1040",
+          "2": "OtimizaÃ§Ã£o do reembolso com base nos crÃ©ditos fiscais",
+          "3": "Suporte completo para comprovaÃ§Ã£o, se exigido"
         },
-        "price_label": "💵 Valor do serviço:",
+        "price_label": "ðŸ’µ Valor do serviÃ§o:",
         "price": "US$ 19,00"
       },
       "FormulariosPage": {
-        "title": "Formulários e Anexos Fiscais Adicionais",
-        "intro": "Preparamos qualquer outro formulário ou anexo fiscal que você precisar.",
+        "title": "FormulÃ¡rios e Anexos Fiscais Adicionais",
+        "intro": "Preparamos qualquer outro formulÃ¡rio ou anexo fiscal que vocÃª precisar.",
         "items": {
-          "0": "Formulários auxiliares (W-2, 1099, 8962, 8862, entre outros)",
-          "1": "Montagem de anexos específicos para créditos e deduções",
-          "2": "Correções e retificações de formulários já enviados",
+          "0": "FormulÃ¡rios auxiliares (W-2, 1099, 8962, 8862, entre outros)",
+          "1": "Montagem de anexos especÃ­ficos para crÃ©ditos e deduÃ§Ãµes",
+          "2": "CorreÃ§Ãµes e retificaÃ§Ãµes de formulÃ¡rios jÃ¡ enviados",
           "3": "Suporte sob demanda para casos especiais"
         },
-        "price_label": "💵 Valor do serviço:",
+        "price_label": "ðŸ’µ Valor do serviÃ§o:",
         "price": "Sob consulta"
       },
       "W9Page": {
-        "title": "Preenchimento do Formulário W-9",
-        "intro": "Completamos seu W-9 com os dados da sua LLC/EIN e fornecemos instruções claras de envio.",
+        "title": "Preenchimento do FormulÃ¡rio W-9",
+        "intro": "Completamos seu W-9 com os dados da sua LLC/EIN e fornecemos instruÃ§Ãµes claras de envio.",
         "items": {
-          "0": "Preenchimento automático com dados da sua LLC e EIN",
+          "0": "Preenchimento automÃ¡tico com dados da sua LLC e EIN",
           "1": "PDF final assinado digitalmente ou pronto para assinatura manual",
-          "2": "Instruções claras para envio ao solicitante",
-          "3": "Suporte para dúvidas e futuras modificações"
+          "2": "InstruÃ§Ãµes claras para envio ao solicitante",
+          "3": "Suporte para dÃºvidas e futuras modificaÃ§Ãµes"
         },
-        "price_label": "💵 Valor do serviço:",
+        "price_label": "ðŸ’µ Valor do serviÃ§o:",
         "price": "US$ 25,00"
       },
       "EnvioPage": {
         "title": "Envio de Documentos e Suporte",
-        "intro": "Após preparar sua declaração ou formulário, orientamos o envio correto e fazemos o acompanhamento até a confirmação do IRS.",
+        "intro": "ApÃ³s preparar sua declaraÃ§Ã£o ou formulÃ¡rio, orientamos o envio correto e fazemos o acompanhamento atÃ© a confirmaÃ§Ã£o do IRS.",
         "items": {
-          "0": "Instruções detalhadas para envio por correio (IRS, ITIN e outros)",
-          "1": "Checklist com os documentos necessários",
-          "2": "Etiqueta de envio personalizada e instruções",
+          "0": "InstruÃ§Ãµes detalhadas para envio por correio (IRS, ITIN e outros)",
+          "1": "Checklist com os documentos necessÃ¡rios",
+          "2": "Etiqueta de envio personalizada e instruÃ§Ãµes",
           "3": "Suporte para acompanhar o recebimento e resposta do IRS"
         },
-        "price_label": "💵 Valor:",
-        "price": "Incluso nos serviços principais"
+        "price_label": "ðŸ’µ Valor:",
+        "price": "Incluso nos serviÃ§os principais"
       }
     }
   },
@@ -456,12 +456,12 @@
       "title": "Receba novidades e dicas sobre vistos, empresas, impostos e sites profissionais",
       "placeholder": "Digite seu e-mail",
       "button": "Inscrever",
-      "success": "Inscrição realizada com sucesso!",
-      "error_exists": "Erro ao inscrever. Talvez e-mail já esteja cadastrado.",
-      "error_conn": "Erro de conexão. Tente novamente."
+      "success": "InscriÃ§Ã£o realizada com sucesso!",
+      "error_exists": "Erro ao inscrever. Talvez e-mail jÃ¡ esteja cadastrado.",
+      "error_conn": "Erro de conexÃ£o. Tente novamente."
     },
     "contact": {
-      "address": "Endereço: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA",
+      "address": "EndereÃ§o: 241 E 16th Ave, STE B4, Gulf Shores, AL 36542 - EUA",
       "email": "Email: helpus.ecommerce@gmail.com"
     },
     "rights": "Todos os direitos reservados.",
@@ -470,34 +470,34 @@
   },
   "cookie": {
     "banner_label": "Aviso de cookies",
-    "message": "Utilizamos cookies para melhorar sua experiência de navegação. Ao continuar, você concorda com nossa",
-    "privacy": "Política de Privacidade",
+    "message": "Utilizamos cookies para melhorar sua experiÃªncia de navegaÃ§Ã£o. Ao continuar, vocÃª concorda com nossa",
+    "privacy": "PolÃ­tica de Privacidade",
     "accept": "Aceitar"
   },
   "users": {
-    "title": "Área Administrativa - Usuários",
+    "title": "Ãrea Administrativa - UsuÃ¡rios",
     "welcome": "Bem-vindo, ",
-    "error_fetch": "Erro ao buscar usuários.",
-    "search_placeholder": "Buscar por e-mail, tipo ou site…",
-    "search_aria": "Buscar usuários",
-    "new": "+ Novo Usuário",
-    "cannot_delete_self": "Você não pode excluir seu próprio usuário.",
-    "confirm_delete": "Tem certeza que deseja excluir este usuário?",
-    "deleted": "Usuário excluído.",
-    "error_delete": "Erro ao excluir usuário.",
+    "error_fetch": "Erro ao buscar usuÃ¡rios.",
+    "search_placeholder": "Buscar por e-mail, tipo ou siteâ€¦",
+    "search_aria": "Buscar usuÃ¡rios",
+    "new": "+ Novo UsuÃ¡rio",
+    "cannot_delete_self": "VocÃª nÃ£o pode excluir seu prÃ³prio usuÃ¡rio.",
+    "confirm_delete": "Tem certeza que deseja excluir este usuÃ¡rio?",
+    "deleted": "UsuÃ¡rio excluÃ­do.",
+    "error_delete": "Erro ao excluir usuÃ¡rio.",
     "col_id": "ID",
     "col_email": "Email",
     "col_role": "Tipo",
     "col_site": "Site",
-    "col_actions": "Ações",
+    "col_actions": "AÃ§Ãµes",
     "click_to_sort": "Clique para ordenar",
-    "empty_search": "Nenhum usuário encontrado para a busca.",
-    "empty_list": "Nenhum usuário cadastrado.",
+    "empty_search": "Nenhum usuÃ¡rio encontrado para a busca.",
+    "empty_list": "Nenhum usuÃ¡rio cadastrado.",
     "edit": "Editar",
     "delete": "Excluir",
-    "edit_user": "Editar usuário {{email}}",
-    "delete_user": "Excluir usuário {{email}}",
+    "edit_user": "Editar usuÃ¡rio {{email}}",
+    "delete_user": "Excluir usuÃ¡rio {{email}}",
     "showing": "Mostrando {{from}}-{{to}} de {{total}}",
-    "page_of": "Página {{page}} de {{pages}}"
+    "page_of": "PÃ¡gina {{page}} de {{pages}}"
   }
 }
