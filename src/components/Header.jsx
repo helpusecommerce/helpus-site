@@ -1,4 +1,4 @@
-// 📄 src/components/Header.jsx
+// ðŸ“„ src/components/Header.jsx
 // Updated: i18n persist + links Ebooks/Documentos + active startsWith + a11y polish
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -103,8 +103,8 @@ export default function Header() {
   // languages
   const languages = [
     { code: 'en', label: 'English' },
-    { code: 'pt', label: 'Português' },
-    { code: 'es', label: 'Español' }
+    { code: 'pt', label: 'PortuguÃªs' },
+    { code: 'es', label: 'EspaÃ±ol' }
   ];
   const currentCode = i18n.resolvedLanguage || i18n.language || 'en';
   const current = languages.find((l) => l.code === currentCode) || languages[0];
@@ -175,7 +175,7 @@ export default function Header() {
             {t('menu.services')}
           </Link>
 
-          {/* NOVOS: Documentos & Tradução + Ebooks */}
+          {/* NOVOS: Documentos & TraduÃ§Ã£o + Ebooks */}
           <Link
             to="/servicos/documentos"
             className={`transition hover:text-blue-400 ${isActive('/servicos/documentos') ? 'text-blue-400' : ''}`}
@@ -190,12 +190,6 @@ export default function Header() {
             {t('menu.ebooks', { defaultValue: 'Ebooks' })}
           </Link>
 
-          <Link
-            to="/criacao-de-sites"
-            className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.site_build')}
-          </Link>
 
           <Link
             to="/sobre"
@@ -247,7 +241,7 @@ export default function Header() {
             )}
           </div>
 
-          {/* Account - Ícone sempre; dropdown muda conforme login */}
+          {/* Account - Ãcone sempre; dropdown muda conforme login */}
           <div className="relative" ref={userRef}>
             <button
               ref={userBtnRef}
@@ -269,7 +263,7 @@ export default function Header() {
               >
                 {usuario ? (
                   <>
-                    {/* Cabeçalho com nome + e-mail */}
+                    {/* CabeÃ§alho com nome + e-mail */}
                     <div className="px-4 py-2 text-xs text-gray-500 border-b">
                       <div className="font-semibold text-gray-800 truncate">
                         {usuario.nome || usuario.name || usuario.fullname || usuario.email}
@@ -365,9 +359,6 @@ export default function Header() {
             {t('menu.ebooks', { defaultValue: 'Ebooks' })}
           </Link>
 
-          <Link to="/criacao-de-sites" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.site_build')}
-          </Link>
           <Link to="/sobre" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
             {t('menu.about')}
           </Link>
