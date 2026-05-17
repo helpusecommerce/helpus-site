@@ -1,0 +1,1 @@
+﻿Write-Output FIX_SCRIPT_READY

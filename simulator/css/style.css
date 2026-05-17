@@ -1,0 +1,13 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; }
+header { background: #0066CC; color: white; padding: 2em; text-align: center; }
+main { max-width: 800px; margin: 2em auto; padding: 1em; background: white; border-radius: 8px; }
+.page { display: none; }
+.page.active { display: block; }
+label { display: block; margin: 1em 0 0.5em; font-weight: bold; }
+input, select { width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px; }
+button { background: #0066CC; color: white; padding: 0.8em 1.5em; border: none; border-radius: 4px; cursor: pointer; margin-top: 1em; }
+button:hover { background: #0052A8; }
+.error { color: red; font-size: 0.8em; margin-top: -0.5em; }
+ .progress-bar { background: #e0e0e0; border-radius: 5px; margin-bottom: 2em; }
+.progress { background: #0066CC; height: 10px; border-radius: 5px; width: 0%; }
