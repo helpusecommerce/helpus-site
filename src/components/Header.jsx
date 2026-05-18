@@ -160,50 +160,15 @@ export default function Header() {
         </Link>
 
         {/* Menu desktop */}
-        <nav className="hidden md:flex gap-6 text-sm items-center">
-          <Link
-            to="/"
-            className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.home')}
-          </Link>
-
-          <Link
-            to="/servicos"
-            className={`transition hover:text-blue-400 ${isActive('/servicos') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.services')}
-          </Link>
-
-          {/* NOVOS: Documentos & TraduÃ§Ã£o + Ebooks */}
-          <Link
-            to="/servicos/documentos"
-            className={`transition hover:text-blue-400 ${isActive('/servicos/documentos') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.documents', { defaultValue: 'Documentos' })}
-          </Link>
-
-          <Link
-            to="/ebooks"
-            className={`transition hover:text-blue-400 ${isActive('/ebooks') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.ebooks', { defaultValue: 'Ebooks' })}
-          </Link>
-
-
-          <Link
-            to="/sobre"
-            className={`transition hover:text-blue-400 ${isActive('/sobre') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.about')}
-          </Link>
-
-          <Link
-            to="/contato"
-            className={`transition hover:text-blue-400 ${isActive('/contato') ? 'text-blue-400' : ''}`}
-          >
-            {t('menu.contact')}
-          </Link>
+        <nav className="hidden md:flex gap-4 text-xs lg:text-sm items-center">
+          <Link to="/" className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}>Inicio</Link>
+          <Link to="/servicos/vistos" className={`rounded-full bg-blue-600 px-4 py-2 font-bold text-white transition hover:bg-blue-500 ${isActive('/servicos/vistos') ? 'ring-2 ring-blue-300' : ''}`}>Simular visto</Link>
+          <Link to="/criacao-de-sites" className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}>Sites</Link>
+          <Link to="/servicos/empresa" className={`transition hover:text-blue-400 ${isActive('/servicos/empresa') ? 'text-blue-400' : ''}`}>Empresas</Link>
+          <Link to="/servicos/fiscal" className={`transition hover:text-blue-400 ${isActive('/servicos/fiscal') ? 'text-blue-400' : ''}`}>Contabilidade</Link>
+          <a href="/#nexosai" className="transition hover:text-blue-400">NexosAI</a>
+          <a href="/#portfolio" className="transition hover:text-blue-400">Portfolio</a>
+          <Link to="/contato" className={`transition hover:text-blue-400 ${isActive('/contato') ? 'text-blue-400' : ''}`}>Contato</Link>
 
           {/* Language selector */}
           <div className="relative" ref={langRef}>
@@ -344,27 +309,16 @@ export default function Header() {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-800 px-6 py-4 space-y-3">
-          <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.home')}
-          </Link>
-          <Link to="/servicos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.services')}
-          </Link>
-
-          {/* NOVOS no mobile */}
-          <Link to="/servicos/documentos" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.documents', { defaultValue: 'Documentos' })}
-          </Link>
-          <Link to="/ebooks" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.ebooks', { defaultValue: 'Ebooks' })}
-          </Link>
-
-          <Link to="/sobre" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.about')}
-          </Link>
-          <Link to="/contato" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">
-            {t('menu.contact')}
-          </Link>
+          <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Inicio</Link>
+          <Link to="/servicos/vistos" onClick={() => setIsOpen(false)} className="block rounded-xl bg-blue-600 px-4 py-3 font-bold text-white hover:bg-blue-500">Simular visto americano</Link>
+          <Link to="/criacao-de-sites" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Sites profissionais</Link>
+          <Link to="/servicos/empresa" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Empresas, LLC e ITIN</Link>
+          <Link to="/servicos/fiscal" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Contabilidade e fiscal</Link>
+          <a href="/#nexosai" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">NexosAI</a>
+          <a href="/#portfolio" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Portfolio</a>
+          <Link to="/ebooks" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Ebooks</Link>
+          <Link to="/sobre" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Sobre</Link>
+          <Link to="/contato" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Contato</Link>
 
           {/* Language selector (mobile) */}
           <div className="pt-3 border-t border-white/10">

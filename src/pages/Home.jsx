@@ -55,6 +55,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-b border-cyan-100 bg-cyan-50">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="flex items-start gap-4"><div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-700 text-xl text-white"><FaPassport /></div>
+            <div><p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">Mais procurado</p><h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-950">Simulador de visto americano e pre-analise inicial</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700">Comece pelo caminho mais direto: organize seu perfil, entenda pontos de atencao e receba orientacao para os proximos passos. A simulacao e orientativa e nao garante aprovacao consular.</p></div>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row"><Link to="/servicos/vistos" className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 font-bold text-white hover:bg-blue-800">Simular visto <FaArrowRight /></Link><Link to="/servicos/empresa" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-200 bg-white px-6 py-3 font-bold text-blue-800 hover:bg-blue-50">Consultoria para empresas</Link></div>
+        </div>
+      </section>
+      <section className="bg-white py-16">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Empresas e consultoria</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Tecnologia, abertura de empresa e organizacao fiscal no mesmo ecossistema.</h2><p className="mt-5 text-lg leading-8 text-slate-600">Alem de sites, sistemas e automacao, a HelpUS mantem frentes de apoio para empresas: abertura de LLC, ITIN/W-7, endereco fiscal, licencas, documentos, organizacao fiscal e suporte para operacoes que precisam trabalhar com mais estrutura.</p></div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              ['Abertura de empresa', 'LLC, documentos iniciais e orientacao operacional.', '/servicos/empresa'],
+              ['ITIN e W-7', 'Apoio na organizacao de informacoes e documentacao.', '/servicos/empresa/itin'],
+              ['Contabilidade e fiscal', 'Servicos fiscais, formularios e rotinas para negocios.', '/servicos/fiscal'],
+              ['Documentos', 'Traducao, organizacao e suporte documental.', '/servicos/documentos'],
+            ].map(([title, desc, link]) => (
+              <Link key={title} to={link} className="rounded-3xl bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"><FaBuilding className="mb-4 text-2xl text-blue-700" /><h3 className="font-extrabold text-slate-950">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p></Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Solucoes digitais</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Tecnologia para tirar sua operacao do improviso.</h2><p className="mt-4 text-lg leading-8 text-slate-600">A HelpUS combina desenvolvimento, estrategia digital e automacao para criar solucoes uteis, elegantes e orientadas a resultado.</p></div>
