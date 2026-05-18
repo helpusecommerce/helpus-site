@@ -29,3 +29,7 @@ Thumbs.db
 *.log
 *.tmp
 *.cache
+
+# Local backup and packaged artifacts
+backups/
+helpussite.zip
