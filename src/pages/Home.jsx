@@ -1,227 +1,95 @@
-// ðŸ“„ src/pages/Home.jsx
 import React from 'react';
-import Hero from '../components/Hero';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaArrowRight, FaBrain, FaBuilding, FaCheckCircle, FaExternalLinkAlt, FaGlobe, FaLaptopCode, FaLayerGroup, FaPassport, FaRobot, FaWhatsapp } from 'react-icons/fa';
+import { partners } from '../config/partners';
 
-import { useTranslation } from 'react-i18next';
-import { partners as partnerLinks } from '../config/partners'; // ðŸ‘ˆ centralizado
-
-// CatÃ¡logo de parceiros (metadados fixos + fallbacks)
-const partnersCatalog = [
-  {
-    id: 'escola_estacao_musical',
-    defaultName: 'Escola EstaÃ§Ã£o Musical',
-    defaultDesc:
-      'Aulas de mÃºsica em JoÃ£o Pessoa â€” violÃ£o, teclado, canto e mais, com metodologia prÃ¡tica e motivadora.',
-    imagem: '/img/parceiros/logo-escola.jpg',
-    video: '/img/parceiros/video-escola.mp4',
-    link: partnerLinks.escolaestacaomusical,
-  },
-  {
-    id: 'wagner_driver',
-    defaultName: 'Wagner Driver',
-    defaultDesc: 'ServiÃ§o de transporte executivo e agendamentos via WhatsApp.',
-    imagem: '/img/parceiros/logo-wagnerdriver.png',
-    video: '/img/parceiros/video-wagnerdriver.mp4',
-    link: partnerLinks.wagnerdriver,
-  },
-  {
-    id: 'cg_details',
-    defaultName: 'CG Details',
-    defaultDesc: 'Limpeza detalhada de carros, apartamentos e casas com excelÃªncia.',
-    imagem: '/img/parceiros/cgdetails.png',
-    video: '/img/parceiros/videocgdetails.webm',
-    link: partnerLinks.cgdetails,
-  },
-  {
-    id: 'bluebox',
-    defaultName: 'Blue Box',
-    defaultDesc: 'Lava-jato de carros e motos com qualidade profissional.',
-    imagem: '/img/parceiros/bluebox.png',
-    video: '/img/parceiros/videobluebox.webm',
-    link: partnerLinks.bluebox,
-  },
-
-  // ðŸ†• Plural LocaÃ§Ãµes
-  {
-    id: 'plural_locacoes',
-    defaultName: 'Plural LocaÃ§Ãµes',
-    defaultDesc:
-      'Aluguel para festas e eventos â€” mesas, cadeiras, tendas, iluminaÃ§Ã£o e mais.',
-    imagem: '/img/parceiros/logo-plural.jpg', // coloque este arquivo no public
-    // Remova a linha de vÃ­deo se ainda nÃ£o houver um arquivo
-    video: '/img/parceiros/plural-video.mp4',
-    link: partnerLinks.plurallocacoes,
-  },
-
-  {
-    id: 'publicarte',
-    defaultName: 'Public Arte',
-    defaultDesc: 'ComunicaÃ§Ã£o visual criativa e soluÃ§Ãµes grÃ¡ficas personalizadas.',
-    imagem: '/img/parceiros/logo-publicarte.png',
-    video: '/img/parceiros/video-publicarte.mp4',
-    link: partnerLinks.publicarte,
-  },
-  {
-    id: 'waleska',
-    defaultName: 'Waleska ImÃ³veis',
-    defaultDesc: 'ImobiliÃ¡ria com imÃ³veis selecionados e atendimento personalizado.',
-    imagem: '/img/parceiros/logo-waleska.png',
-    video: '/img/parceiros/video-waleska.mp4',
-    link: partnerLinks.waleska,
-  },
-  {
-    id: 'katia',
-    defaultName: 'Dra. KÃ¡tia Xavier',
-    defaultDesc: 'Atendimento mÃ©dico presencial e por telemedicina.',
-    imagem: '/img/parceiros/katia.png',
-    video: '/img/parceiros/video-katia.mp4',
-    link: partnerLinks.katiaxavier,
-  },
-  {
-    id: 'marcio_barber',
-    defaultName: 'MÃ¡rcio Barber',
-    defaultDesc: 'ServiÃ§os de barbearia com qualidade e atendimento diferenciado.',
-    imagem: '/img/parceiros/hero-marcio-barber.png',
-    video: '/img/parceiros/video-marcio.mp4',
-    link: partnerLinks.marciotopbarber,
-  },
-  // TÃ¡tica com caminhos padronizados + alternativas
-  {
-    id: 'tatica',
-    defaultName: 'TÃ¡tica Assessoria ContÃ¡bil',
-    defaultDesc:
-      'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
-    imagem: '/img/parceiros/tatica-logo.png',   // ðŸ‘‰ coloque este arquivo no public do HelpUS
-    video: '/img/parceiros/tatica-video.mp4',   // ðŸ‘‰ ou mantenha /video/video01.mp4 (fallback)
-    link: partnerLinks.tatica,
-  },
+const cards = [
+  ['Sites profissionais', 'Landing pages, sites institucionais e paginas de captacao criadas para autoridade, clareza e conversao.', FaGlobe, '/criacao-de-sites'],
+  ['Sistemas sob medida', 'Dashboards, cadastros, areas administrativas e ferramentas digitais para a rotina real da operacao.', FaLaptopCode, '/contato'],
+  ['Automacao com IA', 'Agentes, rotinas inteligentes, analise de documentos e execucao assistida para reduzir trabalho manual.', FaRobot, '#nexosai'],
+  ['Solucoes para vistos', 'Triagem, checklists e organizacao de informacoes para quem deseja aplicar para visto americano.', FaPassport, '/servicos/vistos'],
 ];
 
-const Home = () => {
-  const { t } = useTranslation();
+const portfolio = [
+  ['Wagner Driver', 'Transporte executivo', partners.wagnerdriver],
+  ['Dra. Katia Xavier', 'Saude e telemedicina', partners.katiaxavier],
+  ['Tatica Assessoria Contabil', 'Contabilidade e fiscal', partners.tatica],
+  ['Public Arte', 'Comunicacao visual', partners.publicarte],
+  ['Marcio Barber', 'Negocio local', partners.marciotopbarber],
+  ['Blue Box', 'Servico automotivo', partners.bluebox],
+];
 
-  // Mapeia catÃ¡logo -> dados traduzidos com fallback
-  const partners = partnersCatalog.map((p) => ({
-    ...p,
-    nome: t(`partners.${p.id}.name`, { defaultValue: p.defaultName || p.id }),
-    descricao: t(`partners.${p.id}.desc`, { defaultValue: p.defaultDesc || '' }),
-  }));
+const steps = ['Diagnostico', 'Prototipo', 'Desenvolvimento', 'Publicacao', 'Evolucao'];
+const segments = ['Saude', 'Transporte', 'Educacao', 'Contabilidade', 'Imigracao', 'Servicos locais', 'Profissionais liberais', 'Pequenos negocios'];
 
-  // fallback de imagem: tenta /assets/logo.png e depois um Ã­cone padrÃ£o
-  const handleImgError = (e, parceiroId) => {
-    const img = e.currentTarget;
-    const attempt = Number(img.dataset.attempt || 0);
-
-    // SÃ³ aplicamos fallback inteligente para o parceiro "tatica"
-    if (parceiroId === 'tatica') {
-      const fallbacks = ['/assets/logo.png', '/img/parceiros/helpus-icon.png'];
-      if (attempt < fallbacks.length) {
-        img.dataset.attempt = String(attempt + 1);
-        img.src = fallbacks[attempt];
-        return;
-      }
-    }
-
-    // fallback genÃ©rico (nÃ£o repete loop infinito)
-    if (attempt === 0) {
-      img.dataset.attempt = '1';
-      img.src = '/img/parceiros/helpus-icon.png';
-    }
-  };
-
+export default function Home() {
   return (
-    <div>
-      {/* Hero principal */}
-      <Hero />
-
-      {/* SeÃ§Ã£o de diferenciais */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
-            {t('home.why_title')}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">{t('home.p1_t')}</h3>
-              <p>{t('home.p1_d')}</p>
+    <main className="bg-white text-slate-900">
+      <section className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-950 to-cyan-950" />
+        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 py-28 lg:grid-cols-2 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-white/10 px-4 py-2 text-sm font-bold text-cyan-100"><FaRobot /> HelpUS Technology Solutions</span>
+            <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">Software, automacao e inteligencia artificial para negocios que querem crescer com eficiencia.</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">Criamos sites profissionais, sistemas sob medida, automacoes com IA e solucoes digitais para empresas, profissionais e operacoes que precisam sair do improviso.</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-7 py-3 font-bold text-slate-950 hover:bg-cyan-300">Quero desenvolver uma solucao <FaArrowRight /></Link>
+              <a href="#nexosai" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-3 font-bold text-white hover:bg-white/20">Conhecer o NexosAI</a>
+              <Link to="/servicos/vistos" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-300/30 px-7 py-3 font-bold text-blue-100 hover:bg-blue-500/20"><FaPassport /> Simular meu visto</Link>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">{t('home.p2_t')}</h3>
-              <p>{t('home.p2_d')}</p>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur">
+            <div className="rounded-[1.5rem] bg-slate-900/95 p-6 ring-1 ring-white/10">
+              <p className="text-sm font-bold text-cyan-300">NexosAI Control Layer</p>
+              <p className="mt-1 text-xs text-slate-400">Automacao, documentos, tarefas e agentes</p>
+              <div className="mt-6 space-y-4">
+                {['Sites e sistemas', 'Agentes de IA', 'Documentos e fluxos', 'Conversao e WhatsApp'].map((item) => (
+                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/[0.06] p-4"><FaCheckCircle className="text-cyan-300" /><span className="font-semibold">{item}</span></div>
+                ))}
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">{t('home.p3_t')}</h3>
-              <p>{t('home.p3_d')}</p>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* SeÃ§Ã£o de parceiros */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-14">
-            {t('home.partners_title')}
-          </h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-            {partners.map((parceiro, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <motion.img
-                  src={parceiro.imagem}
-                  alt={parceiro.nome}
-                  className="w-28 h-28 object-contain mb-4"
-                  loading="lazy"
-                  onError={(e) => handleImgError(e, parceiro.id)}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                />
-
-                {parceiro.video && (
-                  <video
-                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster={parceiro.imagem}
-                  >
-                    {/* 1Âª tentativa: padrÃ£o dos parceiros */}
-                    <source src={parceiro.video} type="video/mp4" />
-                    {/* 2Âª tentativa: seu caminho antigo */}
-                    <source src="/video/video01.mp4" type="video/mp4" />
-                    {t('hero.no_video')}
-                  </video>
-                )}
-
-                <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
-                <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
-
-                <a
-                  href={parceiro.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
-                >
-                  {t('common.visit_site')} <FaExternalLinkAlt />
-                </a>
-              </motion.div>
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Solucoes digitais</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Tecnologia para tirar sua operacao do improviso.</h2><p className="mt-4 text-lg leading-8 text-slate-600">A HelpUS combina desenvolvimento, estrategia digital e automacao para criar solucoes uteis, elegantes e orientadas a resultado.</p></div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {cards.map(([title, desc, Icon, link]) => (
+              <article key={title} className="rounded-3xl bg-white p-7 shadow-lg ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-2xl">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-700"><Icon /></div>
+                <h3 className="text-xl font-extrabold text-slate-950">{title}</h3><p className="mt-3 min-h-[112px] text-sm leading-7 text-slate-600">{desc}</p>
+                {String(link).startsWith('#') ? <a href={link} className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">Conhecer <FaArrowRight /></a> : <Link to={link} className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">Conhecer <FaArrowRight /></Link>}
+              </article>
             ))}
           </div>
         </div>
       </section>
-    </div>
+
+      <section id="nexosai" className="bg-slate-950 py-24 text-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:px-8">
+          <div><p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">NexosAI</p><h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Inteligencia artificial conectada ao trabalho real.</h2><p className="mt-5 text-lg leading-8 text-slate-300">O NexosAI e a solucao da HelpUS para conectar IA a tarefas, documentos, sistemas, bancos de dados, navegadores e fluxos operacionais.</p><Link to="/contato" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-7 py-3 font-bold text-slate-950">Solicitar diagnostico <FaArrowRight /></Link></div>
+          <div className="grid gap-4 sm:grid-cols-2">{['Agentes de IA', 'Documentos e relatorios', 'Integracoes', 'Historico e evidencias'].map((item) => <div key={item} className="rounded-3xl border border-white/10 bg-white/[0.06] p-6"><FaBrain className="mb-4 text-2xl text-cyan-300" /><h3 className="font-extrabold">{item}</h3><p className="mt-2 text-sm leading-6 text-slate-300">Controle, contexto e rastreabilidade para operacoes complexas.</p></div>)}</div>
+        </div>
+      </section>
+
+      <section id="portfolio" className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Portfolio</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Sites e projetos que desenvolvemos.</h2><p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Projetos digitais para profissionais, pequenos negocios e empresas que precisam de presenca online com clareza e confianca.</p>
+          <div className="mt-12 grid gap-7 md:grid-cols-2 xl:grid-cols-3">{portfolio.map(([name, segment, link]) => <article key={name} className="rounded-3xl bg-slate-50 p-6 shadow-lg ring-1 ring-slate-200"><div className="mb-5 flex h-36 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-slate-950 text-center text-white"><div><FaBuilding className="mx-auto mb-3 text-3xl text-cyan-300" /><p className="text-xl font-extrabold">{name}</p><p className="mt-1 text-sm text-blue-100">{segment}</p></div></div><p className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 inline-block">Site profissional</p><p className="mt-3 text-sm leading-7 text-slate-600">Presenca digital para comunicar valor, gerar confianca e facilitar contato comercial.</p><a href={link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">Ver projeto <FaExternalLinkAlt /></a></article>)}</div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 py-24 text-white"><div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">HelpUS Visa Solutions</p><h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Vai aplicar para visto americano? Comece com uma pre-analise inteligente.</h2><p className="mt-5 text-lg leading-8 text-blue-100">A simulacao e orientativa e nao garante aprovacao consular.</p><Link to="/servicos/vistos" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 font-bold text-blue-950">Fazer simulacao de visto <FaArrowRight /></Link></div><div className="rounded-[2rem] border border-white/15 bg-white/10 p-7">{['Triagem inicial do perfil','Checklist de documentos','Orientacao sobre categoria de visto','Organizacao para atendimento consultivo'].map((item)=><div key={item} className="mb-4 flex items-center gap-3 rounded-2xl bg-white/10 p-4 last:mb-0"><FaCheckCircle className="text-cyan-300" /><span className="font-semibold">{item}</span></div>)}</div></div></section>
+
+      <section className="bg-slate-50 py-24"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Metodo</p><h2 className="mt-3 text-3xl font-extrabold text-slate-950 sm:text-4xl">Da ideia a solucao funcionando.</h2></div><div className="mt-14 grid gap-5 lg:grid-cols-5">{steps.map((step, i)=><div key={step} className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-200"><span className="text-sm font-extrabold text-blue-600">0{i+1}</span><h3 className="mt-3 text-lg font-extrabold text-slate-950">{step}</h3><p className="mt-3 text-sm leading-7 text-slate-600">Etapa estruturada para reduzir risco, validar valor e entregar com clareza.</p></div>)}</div></div></section>
+
+      <section className="bg-white py-20"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl md:p-12"><div className="grid gap-10 lg:grid-cols-2 lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Segmentos</p><h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Tecnologia para negocios reais.</h2></div><div className="flex flex-wrap gap-3">{segments.map((segment)=><span key={segment} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold">{segment}</span>)}</div></div></div></div></section>
+
+      <section className="bg-slate-50 py-24"><div className="mx-auto max-w-4xl px-6 text-center lg:px-8"><FaLayerGroup className="mx-auto mb-5 text-4xl text-blue-700" /><h2 className="text-3xl font-extrabold text-slate-950 sm:text-4xl">Tem uma ideia, processo manual ou negocio que precisa de tecnologia?</h2><p className="mt-5 text-lg leading-8 text-slate-600">A HelpUS pode transformar isso em site, sistema, automacao ou solucao com IA.</p><div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-7 py-3 font-bold text-white">Agendar conversa <FaArrowRight /></Link><a href="https://wa.me/5583998721848" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-7 py-3 font-bold text-white"><FaWhatsapp /> Chamar no WhatsApp</a></div></div></section>
+    </main>
   );
-};
-
-export default Home;
-
+}
