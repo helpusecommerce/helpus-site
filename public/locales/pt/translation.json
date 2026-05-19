@@ -64,9 +64,9 @@
     "services_title": "Nossos Serviços",
     "cards": {
       "visas": {
-        "title": "SoluÃ§Ãµes para vistos",
+        "title": "Soluções para vistos",
         "desc": "Vistos de turista, estudante, trabalho e green card.",
-        "text": "Triagem, checklists e organizaÃ§Ã£o de informaÃ§Ãµes para quem deseja aplicar para visto americano."
+        "text": "Triagem, checklists e organização de informações para quem deseja aplicar para visto americano."
       },
       "company": {
         "title": "Abertura de Empresas",
@@ -79,74 +79,74 @@
       "sites": {
         "title": "Sites profissionais",
         "desc": "Sites modernos com painel, loja e integração ao WhatsApp.",
-        "text": "Landing pages, sites institucionais e pÃ¡ginas de captaÃ§Ã£o criadas para autoridade, clareza e conversÃ£o."
+        "text": "Landing pages, sites institucionais e páginas de captação criadas para autoridade, clareza e conversão."
       },
       "systems": {
         "title": "Sistemas sob medida",
-        "text": "Dashboards, cadastros, Ã¡reas administrativas e ferramentas digitais para a rotina real da operaÃ§Ã£o."
+        "text": "Dashboards, cadastros, áreas administrativas e ferramentas digitais para a rotina real da operação."
       },
       "ai": {
-        "title": "AutomaÃ§Ã£o com IA",
-        "text": "Agentes, rotinas inteligentes, anÃ¡lise de documentos e execuÃ§Ã£o assistida para reduzir trabalho manual."
+        "title": "Automação com IA",
+        "text": "Agentes, rotinas inteligentes, análise de documentos e execução assistida para reduzir trabalho manual."
       }
     },
     "tech": {
       "badge": "HelpUS Technology Solutions",
-      "title": "Software, automaÃ§Ã£o e inteligÃªncia artificial para negÃ³cios que querem crescer com eficiÃªncia.",
-      "subtitle": "Criamos sites profissionais, sistemas sob medida, automaÃ§Ãµes com IA a soluÃ§Ãµes digitais para empresas, profissionais e operaÃ§Ãµes que precisam sair do improviso.",
-      "primary": "Quero desenvolver uma soluÃ§Ã£o",
+      "title": "Software, automação e inteligência artificial para negócios que querem crescer com eficiência.",
+      "subtitle": "Criamos sites profissionais, sistemas sob medida, automações com IA a soluções digitais para empresas, profissionais e operações que precisam sair do improviso.",
+      "primary": "Quero desenvolver uma solução",
       "secondary": "Conhecer o NexosAI",
       "visa": "Simular meu visto",
       "panelTitle": "NexosAI Control Layer",
-      "panelText": "AutomaÃ§Ã£o, documentos, tarefas e agentes",
+      "panelText": "Automação, documentos, tarefas e agentes",
       "panelSites": "Sites e sistemas",
       "panelAgents": "Agentes de IA",
       "panelDocs": "Documentos e fluxos",
-      "panelWhatsApp": "ConversÃ£o e WhatsApp"
+      "panelWhatsApp": "Conversão e WhatsApp"
     },
     "portfolioSegments": {
       "wagnerdriver": "Transporte executivo",
-      "katiaxavier": "SaÃºde e telemedicina",
+      "katiaxavier": "Saúde e telemedicina",
       "tatica": "Contabilidade e fiscal",
-      "publicarte": "ComunicaÃ§Ã£o visual",
-      "marciotopbarber": "NegÃ³cio local",
-      "bluebox": "ServiÃ§o automotivo"
+      "publicarte": "Comunicação visual",
+      "marciotopbarber": "Negócio local",
+      "bluebox": "Serviço automotivo"
     },
     "steps": {
-      "diagnostico": "DiagnÃ³stico",
-      "prototipo": "ProtÃ³tipo",
+      "diagnostico": "Diagnóstico",
+      "prototipo": "Protótipo",
       "desenvolvimento": "Desenvolvimento",
-      "publicacao": "PublicaÃ§Ã£o",
-      "evolucao": "EvoluÃ§Ã£o"
+      "publicacao": "Publicação",
+      "evolucao": "Evolução"
     },
     "segments": {
-      "saude": "SaÃºde",
+      "saude": "Saúde",
       "transporte": "Transporte",
-      "educacao": "EducaÃ§Ã£o",
+      "educacao": "Educação",
       "contabilidade": "Contabilidade",
-      "imigracao": "ImigraÃ§Ã£o",
-      "servicos": "ServiÃ§os locais",
+      "imigracao": "Imigração",
+      "servicos": "Serviços locais",
       "profissionais": "Profissionais liberais",
-      "pequenos": "Pequenos negÃ³cios"
+      "pequenos": "Pequenos negócios"
     },
     "common": {
       "know": "Conhecer"
     },
     "nexosaiBlock": {
       "eyebrow": "NexosAI",
-      "title": "InteligÃªncia artificial conectada ao trabalho real.",
-      "text": "O NexosAI Ã© a soluÃ§Ã£o da HelpUS para conectar IA a tarefas, documentos, sistemas, bancos de dados, navegadores e fluxos operacionais.",
-      "cta": "Solicitar diagnÃ³stico",
+      "title": "Inteligência artificial conectada ao trabalho real.",
+      "text": "O NexosAI é a solução da HelpUS para conectar IA a tarefas, documentos, sistemas, bancos de dados, navegadores e fluxos operacionais.",
+      "cta": "Solicitar diagnóstico",
       "agents": "Agentes de IA",
-      "documents": "Documentos e relatÃ³rios",
-      "integrations": "IntegraÃ§Ãµes",
-      "history": "HistÃ³rico e evidÃ©ncias",
-      "cardText": "Controle, contexto e rastreabilidade para operaÃ§Ãµes complexas."
+      "documents": "Documentos e relatórios",
+      "integrations": "Integrações",
+      "history": "Histórico e evidéncias",
+      "cardText": "Controle, contexto e rastreabilidade para operações complexas."
     },
     "portfolioBlock": {
       "eyebrow": "Portfolio",
       "title": "Sites e projetos que desenvolvemos.",
-      "text": "Projetos digitais para profissionais, pequenos negÃ³cios e empresas que precisam de presenÃ§a online com clareza e confianÃ§a.",
+      "text": "Projetos digitais para profissionais, pequenos negócios e empresas que precisam de presença online com clareza e confiança.",
       "visit": "Visitar projeto"
     }
   },

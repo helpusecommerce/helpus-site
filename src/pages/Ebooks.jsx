@@ -11,7 +11,7 @@ export default function Ebooks() {
     pt: {
       title: "Ebooks HelpUS",
       intro:
-        "Guias prÃ¡ticos para empreender e imigrar com seguranÃ§a. Compre, baixe e aplique passo a passo.",
+        "Guias práticos para empreender e imigrar com segurança. Compre, baixe e aplique passo a passo.",
       buy: "Comprar agora",
       learnMore: "Ver detalhes",
     },
@@ -25,13 +25,13 @@ export default function Ebooks() {
     es: {
       title: "Ebooks HelpUS",
       intro:
-        "GuÃ­as prÃ¡cticas para emprender e inmigrar con seguridad. Compra, descarga y aplica paso a paso.",
+        "Guías prácticas para emprender e inmigrar con seguridad. Compra, descarga y aplica paso a paso.",
       buy: "Comprar ahora",
       learnMore: "Ver detalles",
     },
   }[lng];
 
-  // ðŸ‘‰ Adicione/edite os produtos conforme lanÃ§ar novos tÃ­tulos
+  // 👉 Adicione/edite os produtos conforme lançar novos títulos
   const ebooks = [
     {
       id: "ebook-alabama-llc-ein",
@@ -41,21 +41,21 @@ export default function Ebooks() {
         }),
       desc: t("ebooks.alabama.desc", {
         defaultValue:
-          "Passo a passo completo, checklists, fluxos e links oficiais para vocÃª abrir sua LLC e emitir o EIN.",
+          "Passo a passo completo, checklists, fluxos e links oficiais para você abrir sua LLC e emitir o EIN.",
       }),
       price: "US$ 29.00",
       cover: "/img/ebooks/alabama-llc-ein-capa.png", // coloque a imagem no /public/img/ebooks/
-      // ðŸ”— Coloque aqui a URL do produto na Nuvemshop/Stripe/PayPal:
+      // 🔗 Coloque aqui a URL do produto na Nuvemshop/Stripe/PayPal:
       buyUrl: "https://sualoja.nuvemshop.com.br/products/ebook-alabama-llc-ein",
-      // opcional: link para landing / post com prÃ©via
-      detailsUrl: "/servicos/empresa", // ou uma rota especÃ­fica do ebook, se quiser
-      badges: ["PDF", "AtualizÃ¡vel", "Download imediato"],
+      // opcional: link para landing / post com prévia
+      detailsUrl: "/servicos/empresa", // ou uma rota específica do ebook, se quiser
+      badges: ["PDF", "Atualizável", "Download imediato"],
     },
-    // PrÃ³ximos â€” placeholders:
+    // Próximos — placeholders:
     {
       id: "ebook-itin",
       title: t("ebooks.itin.title", {
-        defaultValue: "ITIN na prÃ¡tica: W-7, cartas e envio",
+        defaultValue: "ITIN na prática: W-7, cartas e envio",
       }),
       desc: t("ebooks.itin.desc", {
         defaultValue:
@@ -141,12 +141,10 @@ export default function Ebooks() {
         </div>
 
         <p className="text-center text-xs text-gray-500 mt-8">
-          * Alguns tÃ­tulos aparecem como â€œem breveâ€. Ative quando o checkout estiver
-          disponÃ­vel.
+          * Alguns títulos aparecem como “em breve”. Ative quando o checkout estiver
+          disponível.
         </p>
       </div>
     </section>
   );
 }
-
-

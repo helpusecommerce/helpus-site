@@ -7,7 +7,8 @@
     "build": "react-scripts build",
     "start:cra": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "check:mojibake": "node scripts/i18n/check-mojibake.cjs"
   },
   "dependencies": {
     "@nhost/nhost-js": "^3.3.0",
