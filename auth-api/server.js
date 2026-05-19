@@ -7,6 +7,7 @@ import pool from './config/db.js';
 import userRoutes from './routes/userRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import chatLeadRoutes from './routes/chatLead.js';
+import i18nRoutes from './routes/i18nRoutes.js';
 import { setupSwagger } from './swagger.js';
 import { login as loginController } from './controllers/userController.js';
 
@@ -65,6 +66,7 @@ app.all('/api/__echo', (req, res) => {
 /* ========================================================== */
 
 /* ===================== Routers ===================== */
+app.use('/api/i18n', i18nRoutes);
 app.use('/api', userRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/chat', chatRoutes);
