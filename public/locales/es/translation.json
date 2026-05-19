@@ -7,7 +7,19 @@
     "about": "Acerca de",
     "contact": "Contacto",
     "login": "Acceder",
-    "forgot": "Olvidé mi contraseña"
+    "forgot": "Olvidé mi contraseña",
+    "visa_simulator": "Simular visa",
+    "visa_simulator_full": "Simulador de visa americana",
+    "sites": "Sitios web",
+    "sites_professional": "Sitios profesionales",
+    "company": "Empresas",
+    "company_full": "Empresas, LLC e ITIN",
+    "tax": "Contabilidad",
+    "tax_full": "Contabilidad e impuestos",
+    "nexosai": "NexosAI",
+    "portfolio": "Portafolio",
+    "language": "Idioma",
+    "open_menu": "Abrir men?"
   },
   "account": {
     "admin": "Administrador",
@@ -52,8 +64,9 @@
     "services_title": "Nuestros Servicios",
     "cards": {
       "visas": {
-        "title": "Consultoría de Visas",
-        "desc": "Visas de turismo, estudio, trabajo y green card."
+        "title": "Soluciones para visas",
+        "desc": "Visas de turismo, estudio, trabajo y green card.",
+        "text": "EvaluaciÃ³n inicial, checklists y organizaciÃ³n de informaciÃ³n para quienes desean solicitar una visa estadounidense."
       },
       "company": {
         "title": "Apertura de Empresas",
@@ -64,9 +77,77 @@
         "desc": "ITIN, EIN, declaraciones y contabilidad para inmigrantes."
       },
       "sites": {
-        "title": "Creación de Sitios",
-        "desc": "Sitios modernos con panel, tienda e integración con WhatsApp."
+        "title": "Sitios web profesionales",
+        "desc": "Sitios modernos con panel, tienda e integración con WhatsApp.",
+        "text": "Landing pages, sitios institucionales y pÃ¡ginas de captaciÃ³n creadas para autoridad, claridad y conversiÃ³n."
+      },
+      "systems": {
+        "title": "Sistemas a medida",
+        "text": "Dashboards, registros, Ã¡reas administrativas y herramientas digitales para la rutina real de la operaciÃ³n."
+      },
+      "ai": {
+        "title": "AutomatizaciÃ³n con IA",
+        "text": "Agentes, rutinas inteligentes, anÃ¡lisis de documentos y ejecuciÃ³n asistida para reducir trabajo manual."
       }
+    },
+    "tech": {
+      "badge": "HelpUS Technology Solutions",
+      "title": "Software, automatizaciÃ³n e inteligencia artificial para negocios que quieren crecer con eficiencia.",
+      "subtitle": "Creamos sitios web profesionales, sistemas a medida, automatizaciones con IA y soluciones digitales para empresas, profesionales y operaciones que necesitan salir de la improvisaciÃ³n.",
+      "primary": "Quiero desarrollar una soluciÃ³n",
+      "secondary": "Conocer NexosAI",
+      "visa": "Simular mi visa",
+      "panelTitle": "NexosAI Control Layer",
+      "panelText": "AutomatizaciÃ³n, documentos, tareas y agentes",
+      "panelSites": "Sitios y sistemas",
+      "panelAgents": "Agentes de IA",
+      "panelDocs": "Documentos y flujos",
+      "panelWhatsApp": "ConversiÃ³n y WhatsApp"
+    },
+    "portfolioSegments": {
+      "wagnerdriver": "Transporte ejecutivo",
+      "katiaxavier": "Salud y telemedicina",
+      "tatica": "Contabilidad e impuestos",
+      "publicarte": "ComunicaciÃ³n visual",
+      "marciotopbarber": "Negocio local",
+      "bluebox": "Servicio automotriz"
+    },
+    "steps": {
+      "diagnostico": "DiagnÃ³stico",
+      "prototipo": "Prototipo",
+      "desenvolvimento": "Desarrollo",
+      "publicacao": "PublicaciÃ³n",
+      "evolucao": "EvoluciÃ³n"
+    },
+    "segments": {
+      "saude": "Salud",
+      "transporte": "Transporte",
+      "educacao": "EducaciÃ³n",
+      "contabilidade": "Contabilidad",
+      "imigracao": "InmigraciÃ³n",
+      "servicos": "Servicios locales",
+      "profissionais": "Profesionales independientes",
+      "pequenos": "PequeÃ±os negocios"
+    },
+    "common": {
+      "know": "Conocer"
+    },
+    "nexosaiBlock": {
+      "eyebrow": "NexosAI",
+      "title": "Inteligencia artificial conectada al trabajo real.",
+      "text": "NexosAI es la soluciÃ³n de HelpUS para conectar IA a tareas, documentos, sistemas, bases de datos, navegadores y flujos operativos.",
+      "cta": "Solicitar diagnÃ³stico",
+      "agents": "Agentes de IA",
+      "documents": "Documentos e informes",
+      "integrations": "Integraciones",
+      "history": "Historial y evidencias",
+      "cardText": "Control, contexto y trazabilidad para operaciones complejas."
+    },
+    "portfolioBlock": {
+      "eyebrow": "Portfolio",
+      "title": "Sitios y proyectos que desarrollamos.",
+      "text": "Proyectos digitales para profesionales, pequeÃ±os negocios y empresas que necesitan presencia online con claridad y confianza.",
+      "visit": "Visitar proyecto"
     }
   },
   "partners": {
@@ -158,16 +239,46 @@
       "examples_title": "📋 Ejemplos de casos atendidos:",
       "examples_title_docs": "📋 Ejemplos de documentos:",
       "list": {
-        "B1B2": { "title": "B1/B2", "desc": "Guía y DS-160 para turismo/negocios." },
-        "F1": { "title": "F1", "desc": "Apoyo para visa de estudiante (I-20 y entrevista)." },
-        "F2": { "title": "F2", "desc": "Dependientes de F1 — formularios y documentos." },
-        "EB1A": { "title": "EB1-A", "desc": "Estrategia y petición por habilidad extraordinaria." },
-        "EB2NIW": { "title": "EB2-NIW", "desc": "Exención por Interés Nacional — elegibilidad y evidencias." },
-        "Renovacao": { "title": "Renovación", "desc": "Flujo simplificado para visas elegibles." },
-        "Familia": { "title": "Familia", "desc": "Categorías basadas en familia y listas." },
-        "CasosEspeciais": { "title": "Casos Especiales", "desc": "Escenarios complejos y waivers (orientación inicial)." },
-        "Complementares": { "title": "Complementarios", "desc": "EAD, Advance Parole y pasos relacionados." },
-        "OutrosTrabalho": { "title": "Otros Vistos de Trabajo", "desc": "H1B, L1, O1 y más, según tu perfil." }
+        "B1B2": {
+          "title": "B1/B2",
+          "desc": "Guía y DS-160 para turismo/negocios."
+        },
+        "F1": {
+          "title": "F1",
+          "desc": "Apoyo para visa de estudiante (I-20 y entrevista)."
+        },
+        "F2": {
+          "title": "F2",
+          "desc": "Dependientes de F1 — formularios y documentos."
+        },
+        "EB1A": {
+          "title": "EB1-A",
+          "desc": "Estrategia y petición por habilidad extraordinaria."
+        },
+        "EB2NIW": {
+          "title": "EB2-NIW",
+          "desc": "Exención por Interés Nacional — elegibilidad y evidencias."
+        },
+        "Renovacao": {
+          "title": "Renovación",
+          "desc": "Flujo simplificado para visas elegibles."
+        },
+        "Familia": {
+          "title": "Familia",
+          "desc": "Categorías basadas en familia y listas."
+        },
+        "CasosEspeciais": {
+          "title": "Casos Especiales",
+          "desc": "Escenarios complejos y waivers (orientación inicial)."
+        },
+        "Complementares": {
+          "title": "Complementarios",
+          "desc": "EAD, Advance Parole y pasos relacionados."
+        },
+        "OutrosTrabalho": {
+          "title": "Otros Vistos de Trabajo",
+          "desc": "H1B, L1, O1 y más, según tu perfil."
+        }
       },
       "pages": {
         "B1B2": {
@@ -338,17 +449,41 @@
         "cta": "Solicitar por WhatsApp",
         "whatsapp_msg": "¡Hola! Me interesa el servicio de Operating Agreement Personalizado."
       },
-      "ITIN": { "title": "ITIN", "desc": "Montaje del paquete W-7 con respaldos." },
-      "W7": { "title": "Formulario W-7", "desc": "Solicitud de ITIN con carta de presentación y formularios." }
+      "ITIN": {
+        "title": "ITIN",
+        "desc": "Montaje del paquete W-7 con respaldos."
+      },
+      "W7": {
+        "title": "Formulario W-7",
+        "desc": "Solicitud de ITIN con carta de presentación y formularios."
+      }
     },
     "tax": {
       "title": "Fiscal",
-      "IRPF": { "title": "Declaración Individual", "desc": "Declaración federal y orientación para inmigrantes y residentes." },
-      "ScheduleC": { "title": "Schedule C", "desc": "Ingresos como autónomo, deducciones y apoyo contable." },
-      "W9": { "title": "Formulario W-9", "desc": "Preparación del formulario de información del contribuyente." },
-      "Dependentes": { "title": "Dependientes", "desc": "Reglas para declarar dependientes y maximizar reembolsos." },
-      "Formularios": { "title": "Formularios", "desc": "Listas y formularios auxiliares del IRS." },
-      "Envio": { "title": "Envío", "desc": "Instrucciones de envío seguro y seguimiento." },
+      "IRPF": {
+        "title": "Declaración Individual",
+        "desc": "Declaración federal y orientación para inmigrantes y residentes."
+      },
+      "ScheduleC": {
+        "title": "Schedule C",
+        "desc": "Ingresos como autónomo, deducciones y apoyo contable."
+      },
+      "W9": {
+        "title": "Formulario W-9",
+        "desc": "Preparación del formulario de información del contribuyente."
+      },
+      "Dependentes": {
+        "title": "Dependientes",
+        "desc": "Reglas para declarar dependientes y maximizar reembolsos."
+      },
+      "Formularios": {
+        "title": "Formularios",
+        "desc": "Listas y formularios auxiliares del IRS."
+      },
+      "Envio": {
+        "title": "Envío",
+        "desc": "Instrucciones de envío seguro y seguimiento."
+      },
       "ITINPage": {
         "title": "Solicitud de ITIN",
         "intro": "El ITIN es esencial para quienes deben declarar impuestos en EE. UU. y no tienen derecho a un SSN.",

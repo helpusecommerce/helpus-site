@@ -7,7 +7,19 @@
     "about": "About",
     "contact": "Contact",
     "login": "Login",
-    "forgot": "Forgot password"
+    "forgot": "Forgot password",
+    "visa_simulator": "Visa simulator",
+    "visa_simulator_full": "American visa simulator",
+    "sites": "Websites",
+    "sites_professional": "Professional websites",
+    "company": "Companies",
+    "company_full": "Companies, LLC and ITIN",
+    "tax": "Accounting",
+    "tax_full": "Accounting and tax",
+    "nexosai": "NexosAI",
+    "portfolio": "Portfolio",
+    "language": "Language",
+    "open_menu": "Open menu"
   },
   "account": {
     "admin": "Admin",
@@ -52,8 +64,9 @@
     "services_title": "Our Services",
     "cards": {
       "visas": {
-        "title": "Visa Consulting",
-        "desc": "Tourist, student, work visas and green card."
+        "title": "Visa solutions",
+        "desc": "Tourist, student, work visas and green card.",
+        "text": "Screening, checklists and information organization for people applying for a U.S. visa."
       },
       "company": {
         "title": "Company Formation",
@@ -64,9 +77,77 @@
         "desc": "ITIN, EIN, returns and accounting focused on immigrants."
       },
       "sites": {
-        "title": "Website Creation",
-        "desc": "Modern sites with admin panel, store and WhatsApp integration."
+        "title": "Professional websites",
+        "desc": "Modern sites with admin panel, store and WhatsApp integration.",
+        "text": "Landing pages, institutional websites and lead-capture pages created for authority, clarity and conversion."
+      },
+      "systems": {
+        "title": "Custom systems",
+        "text": "Dashboards, registrations, admin areas and digital tools for real operational routines."
+      },
+      "ai": {
+        "title": "AI automation",
+        "text": "Agents, intelligent routines, document analysis and assisted execution to reduce manual work."
       }
+    },
+    "tech": {
+      "badge": "HelpUS Technology Solutions",
+      "title": "Software, automation and artificial intelligence for businesses that want to grow efficiently.",
+      "subtitle": "We create professional websites, custom systems, AI automations and digital solutions for companies, professionals and operations that need to move beyond improvisation.",
+      "primary": "I want to develop a solution",
+      "secondary": "Explore NexosAI",
+      "visa": "Simulate my visa",
+      "panelTitle": "NexosAI Control Layer",
+      "panelText": "Automation, documents, tasks and agents",
+      "panelSites": "Websites and systems",
+      "panelAgents": "AI agents",
+      "panelDocs": "Documents and workflows",
+      "panelWhatsApp": "Conversion and WhatsApp"
+    },
+    "portfolioSegments": {
+      "wagnerdriver": "Executive transportation",
+      "katiaxavier": "Health and telemedicine",
+      "tatica": "Accounting and tax",
+      "publicarte": "Visual communication",
+      "marciotopbarber": "Local business",
+      "bluebox": "Automotive service"
+    },
+    "steps": {
+      "diagnostico": "Diagnosis",
+      "prototipo": "Prototype",
+      "desenvolvimento": "Development",
+      "publicacao": "Publication",
+      "evolucao": "Evolution"
+    },
+    "segments": {
+      "saude": "Health",
+      "transporte": "Transportation",
+      "educacao": "Education",
+      "contabilidade": "Accounting",
+      "imigracao": "Immigration",
+      "servicos": "Local services",
+      "profissionais": "Independent professionals",
+      "pequenos": "Small businesses"
+    },
+    "common": {
+      "know": "Learn more"
+    },
+    "nexosaiBlock": {
+      "eyebrow": "NexosAI",
+      "title": "Artificial intelligence connected to real work.",
+      "text": "NexosAI is HelpUS's solution to connect AI to tasks, documents, systems, databases, browsers and operational workflows.",
+      "cta": "Request a diagnosis",
+      "agents": "AI agents",
+      "documents": "Documents and reports",
+      "integrations": "Integrations",
+      "history": "History and evidence",
+      "cardText": "Control, context and traceability for complex operations."
+    },
+    "portfolioBlock": {
+      "eyebrow": "Portfolio",
+      "title": "Websites and projects we have developed.",
+      "text": "Digital projects for professionals, small businesses and companies that need an online presence with clarity and trust.",
+      "visit": "Visit project"
     }
   },
   "partners": {

@@ -7,7 +7,19 @@
     "about": "Sobre",
     "contact": "Contato",
     "login": "Login",
-    "forgot": "Esqueci a senha"
+    "forgot": "Esqueci a senha",
+    "visa_simulator": "Simular visto",
+    "visa_simulator_full": "Simulador de visto americano",
+    "sites": "Sites",
+    "sites_professional": "Sites profissionais",
+    "company": "Empresas",
+    "company_full": "Empresas, LLC e ITIN",
+    "tax": "Contabilidade",
+    "tax_full": "Contabilidade e fiscal",
+    "nexosai": "NexosAI",
+    "portfolio": "Portfólio",
+    "language": "Idioma",
+    "open_menu": "Abrir menu"
   },
   "account": {
     "admin": "Administrador",
@@ -52,8 +64,9 @@
     "services_title": "Nossos Serviços",
     "cards": {
       "visas": {
-        "title": "Consultoria para Vistos",
-        "desc": "Vistos de turista, estudante, trabalho e green card."
+        "title": "SoluÃ§Ãµes para vistos",
+        "desc": "Vistos de turista, estudante, trabalho e green card.",
+        "text": "Triagem, checklists e organizaÃ§Ã£o de informaÃ§Ãµes para quem deseja aplicar para visto americano."
       },
       "company": {
         "title": "Abertura de Empresas",
@@ -64,9 +77,77 @@
         "desc": "ITIN, EIN, declarações e contabilidade focada no imigrante."
       },
       "sites": {
-        "title": "Criação de Sites",
-        "desc": "Sites modernos com painel, loja e integração ao WhatsApp."
+        "title": "Sites profissionais",
+        "desc": "Sites modernos com painel, loja e integração ao WhatsApp.",
+        "text": "Landing pages, sites institucionais e pÃ¡ginas de captaÃ§Ã£o criadas para autoridade, clareza e conversÃ£o."
+      },
+      "systems": {
+        "title": "Sistemas sob medida",
+        "text": "Dashboards, cadastros, Ã¡reas administrativas e ferramentas digitais para a rotina real da operaÃ§Ã£o."
+      },
+      "ai": {
+        "title": "AutomaÃ§Ã£o com IA",
+        "text": "Agentes, rotinas inteligentes, anÃ¡lise de documentos e execuÃ§Ã£o assistida para reduzir trabalho manual."
       }
+    },
+    "tech": {
+      "badge": "HelpUS Technology Solutions",
+      "title": "Software, automaÃ§Ã£o e inteligÃªncia artificial para negÃ³cios que querem crescer com eficiÃªncia.",
+      "subtitle": "Criamos sites profissionais, sistemas sob medida, automaÃ§Ãµes com IA a soluÃ§Ãµes digitais para empresas, profissionais e operaÃ§Ãµes que precisam sair do improviso.",
+      "primary": "Quero desenvolver uma soluÃ§Ã£o",
+      "secondary": "Conhecer o NexosAI",
+      "visa": "Simular meu visto",
+      "panelTitle": "NexosAI Control Layer",
+      "panelText": "AutomaÃ§Ã£o, documentos, tarefas e agentes",
+      "panelSites": "Sites e sistemas",
+      "panelAgents": "Agentes de IA",
+      "panelDocs": "Documentos e fluxos",
+      "panelWhatsApp": "ConversÃ£o e WhatsApp"
+    },
+    "portfolioSegments": {
+      "wagnerdriver": "Transporte executivo",
+      "katiaxavier": "SaÃºde e telemedicina",
+      "tatica": "Contabilidade e fiscal",
+      "publicarte": "ComunicaÃ§Ã£o visual",
+      "marciotopbarber": "NegÃ³cio local",
+      "bluebox": "ServiÃ§o automotivo"
+    },
+    "steps": {
+      "diagnostico": "DiagnÃ³stico",
+      "prototipo": "ProtÃ³tipo",
+      "desenvolvimento": "Desenvolvimento",
+      "publicacao": "PublicaÃ§Ã£o",
+      "evolucao": "EvoluÃ§Ã£o"
+    },
+    "segments": {
+      "saude": "SaÃºde",
+      "transporte": "Transporte",
+      "educacao": "EducaÃ§Ã£o",
+      "contabilidade": "Contabilidade",
+      "imigracao": "ImigraÃ§Ã£o",
+      "servicos": "ServiÃ§os locais",
+      "profissionais": "Profissionais liberais",
+      "pequenos": "Pequenos negÃ³cios"
+    },
+    "common": {
+      "know": "Conhecer"
+    },
+    "nexosaiBlock": {
+      "eyebrow": "NexosAI",
+      "title": "InteligÃªncia artificial conectada ao trabalho real.",
+      "text": "O NexosAI Ã© a soluÃ§Ã£o da HelpUS para conectar IA a tarefas, documentos, sistemas, bancos de dados, navegadores e fluxos operacionais.",
+      "cta": "Solicitar diagnÃ³stico",
+      "agents": "Agentes de IA",
+      "documents": "Documentos e relatÃ³rios",
+      "integrations": "IntegraÃ§Ãµes",
+      "history": "HistÃ³rico e evidÃ©ncias",
+      "cardText": "Controle, contexto e rastreabilidade para operaÃ§Ãµes complexas."
+    },
+    "portfolioBlock": {
+      "eyebrow": "Portfolio",
+      "title": "Sites e projetos que desenvolvemos.",
+      "text": "Projetos digitais para profissionais, pequenos negÃ³cios e empresas que precisam de presenÃ§a online com clareza e confianÃ§a.",
+      "visit": "Visitar projeto"
     }
   },
   "partners": {
