@@ -1,12 +1,13 @@
 // arquivo: src/App.js
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
 import { FaWhatsapp } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { getVisaUrl, isVisaSite } from './config/siteMode';
 
 // Chat virtual guiado (com botões)
 import ChatGuiado from './components/ChatGuiado';
@@ -86,6 +87,26 @@ function ScrollToPartnersOnRoute() {
   return null;
 }
 
+
+function MainHome() {
+  return isVisaSite() ? <Navigate to="/servicos/vistos" replace /> : <Home />;
+}
+
+function VisaOnlyRoute({ children }) {
+  const location = useLocation();
+
+  if (isVisaSite()) {
+    return children;
+  }
+
+  if (typeof window !== 'undefined') {
+    const targetPath = `${location.pathname}${location.search || ''}${location.hash || ''}`;
+    window.location.replace(getVisaUrl(targetPath));
+  }
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
@@ -97,7 +118,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             {/* Rotas principais */}
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MainHome />} />
             <Route path="/parceiros" element={<Home />} /> {/* NEW: rota âncora para a seção */}
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/sobre" element={<Sobre />} />
@@ -127,17 +148,30 @@ function App() {
             <Route path="/servicos/fiscal/w9" element={<W9 />} />
 
             {/* Vistos */}
-            <Route path="/servicos/vistos" element={<Vistos />} />
-            <Route path="/servicos/vistos/b1b2" element={<B1B2 />} />
-            <Route path="/servicos/vistos/f1" element={<F1 />} />
-            <Route path="/servicos/vistos/f2" element={<F2 />} />
-            <Route path="/servicos/vistos/eb2niw" element={<EB2NIW />} />
-            <Route path="/servicos/vistos/eb1a" element={<EB1A />} />
-            <Route path="/servicos/vistos/familia" element={<Familia />} />
-            <Route path="/servicos/vistos/renovacao" element={<Renovacao />} />
-            <Route path="/servicos/vistos/casos-especiais" element={<CasosEspeciais />} />
-            <Route path="/servicos/vistos/complementares" element={<Complementares />} />
-            <Route path="/servicos/vistos/outros-trabalho" element={<OutrosTrabalho />} />
+            <Route path="/servicos/vistos" element={<VisaOnlyRoute><Vistos /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/b1b2" element={<VisaOnlyRoute><B1B2 /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/f1" element={<VisaOnlyRoute><F1 /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/f2" element={<VisaOnlyRoute><F2 /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/eb2niw" element={<VisaOnlyRoute><EB2NIW /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/eb1a" element={<VisaOnlyRoute><EB1A /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/familia" element={<VisaOnlyRoute><Familia /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/renovacao" element={<VisaOnlyRoute><Renovacao /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/casos-especiais" element={<VisaOnlyRoute><CasosEspeciais /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/complementares" element={<VisaOnlyRoute><Complementares /></VisaOnlyRoute>} />
+            <Route path="/servicos/vistos/outros-trabalho" element={<VisaOnlyRoute><OutrosTrabalho /></VisaOnlyRoute>} />
+
+
+            <Route path="/vistos" element={<Navigate to="/servicos/vistos" replace />} />
+            <Route path="/vistos/b1b2" element={<Navigate to="/servicos/vistos/b1b2" replace />} />
+            <Route path="/vistos/f1" element={<Navigate to="/servicos/vistos/f1" replace />} />
+            <Route path="/vistos/f2" element={<Navigate to="/servicos/vistos/f2" replace />} />
+            <Route path="/vistos/eb2niw" element={<Navigate to="/servicos/vistos/eb2niw" replace />} />
+            <Route path="/vistos/eb1a" element={<Navigate to="/servicos/vistos/eb1a" replace />} />
+            <Route path="/vistos/familia" element={<Navigate to="/servicos/vistos/familia" replace />} />
+            <Route path="/vistos/renovacao" element={<Navigate to="/servicos/vistos/renovacao" replace />} />
+            <Route path="/vistos/casos-especiais" element={<Navigate to="/servicos/vistos/casos-especiais" replace />} />
+            <Route path="/vistos/complementares" element={<Navigate to="/servicos/vistos/complementares" replace />} />
+            <Route path="/vistos/outros-trabalho" element={<Navigate to="/servicos/vistos/outros-trabalho" replace />} />
 
             {/* Criação de Sites */}
             <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />

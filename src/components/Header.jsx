@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaUserCircle, FaChevronDown } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { isVisaSite } from '../config/siteMode';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -147,6 +148,8 @@ export default function Header() {
         .toLowerCase()
         .includes('admin'));
 
+  const visaMode = isVisaSite();
+
   return (
     <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-md z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
@@ -162,7 +165,14 @@ export default function Header() {
         {/* Menu desktop */}
         <nav className="hidden md:flex gap-4 text-xs lg:text-sm items-center">
           <Link to="/" className={`transition hover:text-blue-400 ${isActive('/') ? 'text-blue-400' : ''}`}>Inicio</Link>
-          <Link to="/servicos/vistos" className={`rounded-full bg-blue-600 px-4 py-2 font-bold text-white transition hover:bg-blue-500 ${isActive('/servicos/vistos') ? 'ring-2 ring-blue-300' : ''}`}>{t('menu.visa_simulator')}</Link>
+          {visaMode && (
+            <Link
+              to="/servicos/vistos"
+              className={`rounded-full bg-blue-600 px-4 py-2 font-bold text-white transition hover:bg-blue-500 ${isActive('/servicos/vistos') ? 'ring-2 ring-blue-300' : ''}`}
+            >
+              {t('menu.visa_simulator')}
+            </Link>
+          )}
           <Link to="/criacao-de-sites" className={`transition hover:text-blue-400 ${isActive('/criacao-de-sites') ? 'text-blue-400' : ''}`}>{t('menu.sites')}</Link>
           <Link to="/servicos/empresa" className={`transition hover:text-blue-400 ${isActive('/servicos/empresa') ? 'text-blue-400' : ''}`}>{t('menu.company')}</Link>
           <Link to="/servicos/fiscal" className={`transition hover:text-blue-400 ${isActive('/servicos/fiscal') ? 'text-blue-400' : ''}`}>{t('menu.tax')}</Link>
@@ -310,7 +320,15 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden bg-gray-800 px-6 py-4 space-y-3">
           <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">Inicio</Link>
-          <Link to="/servicos/vistos" onClick={() => setIsOpen(false)} className="block rounded-xl bg-blue-600 px-4 py-3 font-bold text-white hover:bg-blue-500">{t('menu.visa_simulator_full')}</Link>
+          {visaMode && (
+            <Link
+              to="/servicos/vistos"
+              onClick={() => setIsOpen(false)}
+              className="block rounded-xl bg-blue-600 px-4 py-3 font-bold text-white hover:bg-blue-500"
+            >
+              {t('menu.visa_simulator_full')}
+            </Link>
+          )}
           <Link to="/criacao-de-sites" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">{t('menu.sites_professional')}</Link>
           <Link to="/servicos/empresa" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">{t('menu.company_full')}</Link>
           <Link to="/servicos/fiscal" onClick={() => setIsOpen(false)} className="block hover:text-blue-400">{t('menu.tax_full')}</Link>

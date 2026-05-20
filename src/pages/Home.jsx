@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaBrain, FaBuilding, FaCheckCircle, FaExternalLinkAlt, FaGlobe, FaLaptopCode, FaLayerGroup, FaPassport, FaRobot, FaWhatsapp } from 'react-icons/fa';
+import { FaArrowRight, FaBrain, FaBuilding, FaCheckCircle, FaExternalLinkAlt, FaGlobe, FaLaptopCode, FaLayerGroup, FaRobot, FaWhatsapp } from 'react-icons/fa';
 import { partners } from '../config/partners';
 import { useTranslation } from 'react-i18next';
 
@@ -9,7 +9,6 @@ const cards = [
   ['home.cards.sites.title', 'home.cards.sites.text', FaGlobe, '/criacao-de-sites'],
   ['home.cards.systems.title', 'home.cards.systems.text', FaLaptopCode, '/contato'],
   ['home.cards.ai.title', 'home.cards.ai.text', FaRobot, '#nexosai'],
-  ['home.cards.visas.title', 'home.cards.visas.text', FaPassport, '/servicos/vistos'],
 ];
 
 const portfolio = [
@@ -22,7 +21,7 @@ const portfolio = [
 ];
 
 const steps = ['home.steps.diagnostico', 'home.steps.prototipo', 'home.steps.desenvolvimento', 'home.steps.publicacao', 'home.steps.evolucao'];
-const segments = ['home.segments.saude', 'home.segments.transporte', 'home.segments.educacao', 'home.segments.contabilidade', 'home.segments.imigracao', 'home.segments.servicos', 'home.segments.profissionais', 'home.segments.pequenos'];
+const segments = ['home.segments.saude', 'home.segments.transporte', 'home.segments.educacao', 'home.segments.contabilidade', 'home.segments.servicos', 'home.segments.profissionais', 'home.segments.pequenos'];
 
 export default function Home() {
   const { t } = useTranslation();
@@ -41,7 +40,6 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-7 py-3 font-bold text-slate-950 hover:bg-cyan-300">{t('home.tech.primary')} <FaArrowRight /></Link>
               <a href="#nexosai" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-3 font-bold text-white hover:bg-white/20">{t('home.tech.secondary')}</a>
-              <Link to="/servicos/vistos" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-300/30 px-7 py-3 font-bold text-blue-100 hover:bg-blue-500/20"><FaPassport /> {t('home.tech.visa')}</Link>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur">
@@ -60,12 +58,21 @@ export default function Home() {
 
       <section className="border-b border-cyan-100 bg-cyan-50">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="flex items-start gap-4"><div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-700 text-xl text-white"><FaPassport /></div>
-            <div><p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">Mais procurado</p><h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-950">Simulador de visto americano e pre-analise inicial</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700">Comece pelo caminho mais direto: organize seu perfil, entenda pontos de atencao e receba orientacao para os proximos passos. A simulacao e orientativa e nao garante aprovacao consular.</p></div>
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-700 text-xl text-white"><FaLaptopCode /></div>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">Desenvolvimento sob medida</p>
+              <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-950">Sites, sistemas e automações para negócios que querem operar melhor.</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700">Criamos presença digital, ferramentas internas, integrações e soluções com IA para transformar processos manuais em operação estruturada.</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row"><Link to="/servicos/vistos" className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 font-bold text-white hover:bg-blue-800">Simular visto <FaArrowRight /></Link><Link to="/servicos/empresa" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-200 bg-white px-6 py-3 font-bold text-blue-800 hover:bg-blue-50">Consultoria para empresas</Link></div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 font-bold text-white hover:bg-blue-800">Conversar sobre um projeto <FaArrowRight /></Link>
+            <a href="#portfolio" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-200 bg-white px-6 py-3 font-bold text-blue-800 hover:bg-blue-50">Ver projetos</a>
+          </div>
         </div>
       </section>
+
       <section className="bg-white py-16">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Empresas e consultoria</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Tecnologia, abertura de empresa e organizacao fiscal no mesmo ecossistema.</h2><p className="mt-5 text-lg leading-8 text-slate-600">Alem de sites, sistemas e automacao, a HelpUS mantem frentes de apoio para empresas: abertura de LLC, ITIN/W-7, endereco fiscal, licencas, documentos, organizacao fiscal e suporte para operacoes que precisam trabalhar com mais estrutura.</p></div>
@@ -109,8 +116,6 @@ export default function Home() {
           <div className="mt-12 grid gap-7 md:grid-cols-2 xl:grid-cols-3">{portfolio.map(([name, segment, link]) => <article key={name} className="rounded-3xl bg-slate-50 p-6 shadow-lg ring-1 ring-slate-200"><div className="mb-5 flex h-36 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-slate-950 text-center text-white"><div><FaBuilding className="mx-auto mb-3 text-3xl text-cyan-300" /><p className="text-xl font-extrabold">{name}</p><p className="mt-1 text-sm text-blue-100">{t(segment)}</p></div></div><p className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 inline-block">Site profissional</p><p className="mt-3 text-sm leading-7 text-slate-600">Presenca digital para comunicar valor, gerar confianca e facilitar contato comercial.</p><a href={link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">Ver projeto <FaExternalLinkAlt /></a></article>)}</div>
         </div>
       </section>
-
-      <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 py-24 text-white"><div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">HelpUS Visa Solutions</p><h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Vai aplicar para visto americano? Comece com uma pre-analise inteligente.</h2><p className="mt-5 text-lg leading-8 text-blue-100">A simulacao e orientativa e nao garante aprovacao consular.</p><Link to="/servicos/vistos" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 font-bold text-blue-950">Fazer simulacao de visto <FaArrowRight /></Link></div><div className="rounded-[2rem] border border-white/15 bg-white/10 p-7">{['Triagem inicial do perfil','Checklist de documentos','Orientacao sobre categoria de visto','Organizacao para atendimento consultivo'].map((item)=><div key={item} className="mb-4 flex items-center gap-3 rounded-2xl bg-white/10 p-4 last:mb-0"><FaCheckCircle className="text-cyan-300" /><span className="font-semibold">{item}</span></div>)}</div></div></section>
 
       <section className="bg-slate-50 py-24"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Metodo</p><h2 className="mt-3 text-3xl font-extrabold text-slate-950 sm:text-4xl">Da ideia a solucao funcionando.</h2></div><div className="mt-14 grid gap-5 lg:grid-cols-5">{steps.map((step, i)=><div key={step} className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-200"><span className="text-sm font-extrabold text-blue-600">0{i+1}</span><h3 className="mt-3 text-lg font-extrabold text-slate-950">{t(step)}</h3><p className="mt-3 text-sm leading-7 text-slate-600">Etapa estruturada para reduzir risco, validar valor e entregar com clareza.</p></div>)}</div></div></section>
 

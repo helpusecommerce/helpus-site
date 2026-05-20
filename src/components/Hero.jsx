@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FaPassport,
   FaBuilding,
   FaFileInvoiceDollar,
   FaWhatsapp,
@@ -97,12 +96,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Link
-            to="/servicos/vistos"
-            className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded text-sm sm:text-base"
-          >
-            <FaPassport /> {t('hero.cta.visas')}
-          </Link>
           <Link
             to="/servicos/empresa"
             className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded text-sm sm:text-base"

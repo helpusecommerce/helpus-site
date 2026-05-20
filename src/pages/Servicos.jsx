@@ -3,16 +3,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaPassport, FaBuilding, FaFileAlt, FaGlobe, FaBook, FaFileSignature } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { getVisaUrl, isVisaSite } from '../config/siteMode';
 
 export default function Servicos() {
   const { t } = useTranslation();
+  const visaMode = isVisaSite();
 
   const cards = [
     {
       title: t('home.cards.visas.title'),
       desc: t('home.cards.visas.desc'),
       icon: <FaPassport className="text-4xl text-blue-500 transition-transform hover:scale-110 duration-300" />,
-      href: '/servicos/vistos',
+      href: visaMode ? '/servicos/vistos' : getVisaUrl('/servicos/vistos'),
+      external: !visaMode,
     },
     {
       title: t('home.cards.company.title'),
@@ -56,20 +59,41 @@ export default function Servicos() {
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {cards.map((c, i) => (
-            <Link
-              to={c.href}
-              key={c.href}
-              data-aos="fade-up"
-              data-aos-delay={i * 150}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300"
-              aria-label={c.title}
-            >
-              <div className="mb-4">{c.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{c.title}</h3>
-              <p className="text-gray-600 text-sm">{c.desc}</p>
-            </Link>
-          ))}
+          {cards.map((c, i) => {
+            const content = (
+              <>
+                <div className="mb-4">{c.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{c.title}</h3>
+                <p className="text-gray-600 text-sm">{c.desc}</p>
+              </>
+            );
+
+            return c.external ? (
+              <a
+                href={c.href}
+                key={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-aos="fade-up"
+                data-aos-delay={i * 150}
+                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300"
+                aria-label={c.title}
+              >
+                {content}
+              </a>
+            ) : (
+              <Link
+                to={c.href}
+                key={c.href}
+                data-aos="fade-up"
+                data-aos-delay={i * 150}
+                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300"
+                aria-label={c.title}
+              >
+                {content}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
