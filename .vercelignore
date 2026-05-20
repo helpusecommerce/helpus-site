@@ -1,0 +1,10 @@
+node_modules
+build
+.git
+backups
+.zip
+.log
+coverage
+.env
+.env.*
+auth-api/node_modules
