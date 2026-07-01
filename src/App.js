@@ -30,16 +30,6 @@ import Fiscal from './pages/Fiscal';
 import Ebooks from './pages/Ebooks';
 import Documentos from './pages/servicos/documentos/Documentos';
 
-import F1 from './pages/servicos/vistos/F1';
-import F2 from './pages/servicos/vistos/F2';
-import B1B2 from './pages/servicos/vistos/B1B2';
-import EB2NIW from './pages/servicos/vistos/EB2NIW';
-import EB1A from './pages/servicos/vistos/EB1A';
-import Familia from './pages/servicos/vistos/Familia';
-import Renovacao from './pages/servicos/vistos/Renovacao';
-import CasosEspeciais from './pages/servicos/vistos/CasosEspeciais';
-import Complementares from './pages/servicos/vistos/Complementares';
-import OutrosTrabalho from './pages/servicos/vistos/OutrosTrabalho';
 
 // Fiscal
 import IRPF from './pages/servicos/fiscal/IRPF';
