@@ -1,18 +1,17 @@
 // arquivo: src/App.js
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
 import { FaWhatsapp } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { getVisaUrl, isVisaSite } from './config/siteMode';
 
-// Chat virtual guiado (com botões)
+// Chat virtual guiado (com botÃµes)
 import ChatGuiado from './components/ChatGuiado';
 
-// Páginas principais
+// PÃ¡ginas principais
 import Home from './pages/Home';
 import Servicos from './pages/Servicos';
 import Sobre from './pages/Sobre';
@@ -26,13 +25,11 @@ import EditarUsuario from './pages/admin/EditarUsuario';
 // Categorias
 import Empresa from './pages/Empresa';
 import Fiscal from './pages/Fiscal';
-import Vistos from './pages/Vistos';
 
-// 🆕 Novas páginas
+// ðŸ†• Novas pÃ¡ginas
 import Ebooks from './pages/Ebooks';
 import Documentos from './pages/servicos/documentos/Documentos';
 
-// Vistos
 import F1 from './pages/servicos/vistos/F1';
 import F2 from './pages/servicos/vistos/F2';
 import B1B2 from './pages/servicos/vistos/B1B2';
@@ -60,7 +57,7 @@ import ITIN from './pages/servicos/empresa/ITIN';
 import W7 from './pages/servicos/empresa/W7';
 import BusinessLicense from './pages/servicos/empresa/BusinessLicense';
 
-// Serviço
+// ServiÃ§o
 import CriacaoDeSites from './pages/CriacaoDeSites';
 
 function AppInit() {
@@ -70,7 +67,7 @@ function AppInit() {
   return null;
 }
 
-// Rola automaticamente para a seção de parceiros quando a rota for /parceiros
+// Rola automaticamente para a seÃ§Ã£o de parceiros quando a rota for /parceiros
 function ScrollToPartnersOnRoute() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -88,24 +85,7 @@ function ScrollToPartnersOnRoute() {
 }
 
 
-function MainHome() {
-  return isVisaSite() ? <Navigate to="/servicos/vistos" replace /> : <Home />;
-}
 
-function VisaOnlyRoute({ children }) {
-  const location = useLocation();
-
-  if (isVisaSite()) {
-    return children;
-  }
-
-  if (typeof window !== 'undefined') {
-    const targetPath = `${location.pathname}${location.search || ''}${location.hash || ''}`;
-    window.location.replace(getVisaUrl(targetPath));
-  }
-
-  return null;
-}
 
 function App() {
   return (
@@ -118,8 +98,8 @@ function App() {
         <main className="flex-grow">
           <Routes>
             {/* Rotas principais */}
-            <Route path="/" element={<MainHome />} />
-            <Route path="/parceiros" element={<Home />} /> {/* NEW: rota âncora para a seção */}
+            <Route path="/" element={<Home />} />
+            <Route path="/parceiros" element={<Home />} /> {/* NEW: rota Ã¢ncora para a seÃ§Ã£o */}
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
@@ -148,35 +128,13 @@ function App() {
             <Route path="/servicos/fiscal/w9" element={<W9 />} />
 
             {/* Vistos */}
-            <Route path="/servicos/vistos" element={<VisaOnlyRoute><Vistos /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/b1b2" element={<VisaOnlyRoute><B1B2 /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/f1" element={<VisaOnlyRoute><F1 /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/f2" element={<VisaOnlyRoute><F2 /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/eb2niw" element={<VisaOnlyRoute><EB2NIW /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/eb1a" element={<VisaOnlyRoute><EB1A /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/familia" element={<VisaOnlyRoute><Familia /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/renovacao" element={<VisaOnlyRoute><Renovacao /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/casos-especiais" element={<VisaOnlyRoute><CasosEspeciais /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/complementares" element={<VisaOnlyRoute><Complementares /></VisaOnlyRoute>} />
-            <Route path="/servicos/vistos/outros-trabalho" element={<VisaOnlyRoute><OutrosTrabalho /></VisaOnlyRoute>} />
 
 
-            <Route path="/vistos" element={<Navigate to="/servicos/vistos" replace />} />
-            <Route path="/vistos/b1b2" element={<Navigate to="/servicos/vistos/b1b2" replace />} />
-            <Route path="/vistos/f1" element={<Navigate to="/servicos/vistos/f1" replace />} />
-            <Route path="/vistos/f2" element={<Navigate to="/servicos/vistos/f2" replace />} />
-            <Route path="/vistos/eb2niw" element={<Navigate to="/servicos/vistos/eb2niw" replace />} />
-            <Route path="/vistos/eb1a" element={<Navigate to="/servicos/vistos/eb1a" replace />} />
-            <Route path="/vistos/familia" element={<Navigate to="/servicos/vistos/familia" replace />} />
-            <Route path="/vistos/renovacao" element={<Navigate to="/servicos/vistos/renovacao" replace />} />
-            <Route path="/vistos/casos-especiais" element={<Navigate to="/servicos/vistos/casos-especiais" replace />} />
-            <Route path="/vistos/complementares" element={<Navigate to="/servicos/vistos/complementares" replace />} />
-            <Route path="/vistos/outros-trabalho" element={<Navigate to="/servicos/vistos/outros-trabalho" replace />} />
 
-            {/* Criação de Sites */}
+            {/* CriaÃ§Ã£o de Sites */}
             <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
 
-            {/* 🆕 Ebooks & Documentos */}
+            {/* ðŸ†• Ebooks & Documentos */}
             <Route path="/ebooks" element={<Ebooks />} />
             <Route path="/servicos/documentos" element={<Documentos />} />
           </Routes>
@@ -186,7 +144,7 @@ function App() {
         <CookieConsent />
         <ChatGuiado />
 
-        {/* Botão flutuante do WhatsApp */}
+        {/* BotÃ£o flutuante do WhatsApp */}
         <a
           href="https://wa.me/5583998721848"
           aria-label="Fale conosco no WhatsApp"
