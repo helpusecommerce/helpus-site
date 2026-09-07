@@ -89,6 +89,28 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api', userRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/chat-lead', chatLeadRoutes);
+/* =================================================== */
+
+if (typeof setupSwagger === 'function') {
+  setupSwagger(app);
+}
+
+['EMAIL_FROM', 'EMAIL_PASS', 'EMAIL_TO', 'JWT_SECRET'].forEach((k) => {
+  if (!process.env[k]) console.warn(`WARN: env ${k} not defined`);
+});
+
+/* 404 JSON para /api/* (antes do handler de erro) */
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ error: 'not_found', path: req.originalUrl });
+  }
+  next();
+});
+
 /* Handler de erro */
 app.use((err, req, res, _next) => {
   console.error(err);
@@ -96,6 +118,10 @@ app.use((err, req, res, _next) => {
 });
 
 const port = process.env.PORT || 3001;
-app.listen(port, () => {
-  console.log(`Auth API listening on :${port}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Auth API listening on :${port}`);
+  });
+}
+
+export default app;
