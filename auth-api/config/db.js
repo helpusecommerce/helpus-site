@@ -57,12 +57,13 @@ const baseConfig = usingUrl
 const pool = new Pool({
   ...baseConfig,
   ssl,
-  max: Number(process.env.PGPOOL_MAX || 10),
-  idleTimeoutMillis: Number(process.env.PG_IDLE || 30_000),
-  connectionTimeoutMillis: Number(process.env.PG_CONNECT_TIMEOUT || 10_000),
+  max: Number(process.env.PGPOOL_MAX || 5),
+  idleTimeoutMillis: Number(process.env.PG_IDLE || 5_000),
+  connectionTimeoutMillis: Number(process.env.PG_CONNECT_TIMEOUT || 2_000),
   keepAlive: true,
   keepAliveInitialDelayMillis: 0,
 });
+
 
 console.log(`🗄️ PG host=${hostname || '(desconhecido)'} | SSL=${ssl ? 'on' : 'off'}`);
 
