@@ -1,95 +1,66 @@
 # Estrutura Completa do Projeto HelpUS
 
+```
 helpus-site/
 │
 ├── .vercel/                         # Configurações de deploy na Vercel
 │   ├── project.json
-│   ├── README.txt
 │   └── sitemap.xml
 │
-├── .vscode/                         # Configurações do VS Code
-│   ├── settings.json
-│   └── tasks.json
+├── api/                             # Entrypoint da Vercel Serverless Function
+│   └── index.js                     # Exporta auth-api/server.js para rotas /api/*
 │
-├── auth-api/                        # Backend Node.js + Express (Railway)
-│   │
+├── auth-api/                        # Backend Node.js + Express
 │   ├── config/
-│   │   └── db.js                    # Conexão com PostgreSQL (Railway)
-│   │
+│   │   └── db.js                    # Conexão PostgreSQL (Pool Serverless otimizado)
 │   ├── controllers/
-│   │   ├── userController.js        # CRUD de usuários
-│   │   ├── digitalProductController.js   # NOVO: controle de PDFs e e-books
-│   │   └── ...
-│   │
+│   │   ├── userController.js        # CRUD de usuários e autenticação
+│   │   └── digitalProductController.js # Controle de e-books e PDFs
 │   ├── middleware/
-│   │   ├── auth.js                  # Middleware JWT
-│   │   ├── checkAdmin.js            # Verifica permissões
-│   │   └── validate.js              # Validação de entrada
-│   │
+│   │   ├── auth.js                  # Middleware de validação JWT
+│   │   └── validate.js              # Validação de entradas
 │   ├── routes/
-│   │   ├── users.js                 # Rotas de usuário
-│   │   ├── digitalProducts.js       # NOVO: rotas para PDFs e e-books
-│   │   └── index.js                 # Registro das rotas no Express
-│   │
-│   ├── swagger.js                   # Documentação da API (Swagger UI)
-│   ├── server.js                    # Servidor principal Express
-│   ├── package.json
-│   ├── Procfile                     # Execução Heroku/Railway
-│   └── .env.example
+│   │   ├── users.js                 # Rotas de usuários
+│   │   └── digitalProducts.js       # Rotas de produtos digitais
+│   ├── server.js                    # Aplicação Express principal
+│   └── package.json
 │
-├── build/                           # Resultado do build de produção do React
+├── docs/                            # Documentação técnica do projeto
+│   ├── HELPUS_SITE_ARQUITETURA_E_MIGRACAO_VERCEL_2026.md # Nova arquitetura Serverless Vercel
+│   ├── HELPUS_SITE_AUDITORIA_TECNICA_INICIAL_20260517.md
+│   ├── HELPUS_SITE_PLANEJAMENTO_TRANSFORMACAO_TECH_20260517.md
+│   └── I18N_DB_MIGRATION_PLAN.md    # Plano de migração do i18n para banco
 │
-├── node_modules/                    # Dependências do frontend
-│
-├── public/                          # Arquivos estáticos
-│   ├── images/
-│   │   ├── logo-helpus.png
-│   │   ├── favicon.ico
-│   │   └── capa-ebooks/             # NOVO: capas dos PDFs
-│   │       └── abertura-empresa.jpg
-│   ├── index.html
-│   └── manifest.json
+├── public/                          # Arquivos estáticos e locales i18n
+│   ├── locales/                     # Dicionários de tradução (pt, en, es)
+│   └── index.html
 │
 ├── src/                             # Frontend React + Tailwind
-│   │
-│   ├── assets/                      # Ícones, logos e imagens do site
-│   │
-│   ├── components/                  # Componentes reutilizáveis
-│   │   ├── Header.jsx               # Cabeçalho com menu
-│   │   ├── Footer.jsx               # Rodapé com newsletter
-│   │   ├── EbookCard.jsx            # NOVO: card para exibir PDFs
-│   │   ├── EbookCheckoutButton.jsx  # NOVO: botão de compra (Gumroad)
-│   │   └── ...
-│   │
-│   ├── pages/                       # Páginas principais do site
-│   │   ├── Home.jsx
-│   │   ├── Sobre.jsx
-│   │   ├── Contato.jsx
-│   │   ├── Servicos.jsx
-│   │   ├── Ebooks/                  # NOVO: seção de venda de PDFs
-│   │   │   ├── ListaEbooks.jsx      # Lista todos os e-books
-│   │   │   ├── EbookDetalhe.jsx     # Página individual com botão de compra
-│   │   │   └── index.js
-│   │   └── ...
-│   │
-│   ├── context/                     # Contextos globais (auth, theme, etc.)
-│   ├── hooks/                       # Hooks customizados
-│   ├── i18n/                        # Traduções multilíngue
-│   ├── App.jsx                      # Componente raiz React
-│   ├── main.jsx                     # Ponto de entrada da aplicação
-│   └── index.css                    # Estilos globais
+│   ├── components/                  # Componentes (Header, Footer, Hero, etc.)
+│   ├── pages/                       # Páginas (Home, Servicos, Vistos, Empresa, etc.)
+│   ├── i18n/                        # Configuração multilíngue i18next
+│   ├── App.jsx                      # Rotas React Router
+│   └── index.css                    # Tailwind & Estilos globais
 │
-├── schema_unificado_helpus.sql      # Estrutura completa do banco de dados
-├── server.js                        # Servidor simples para frontend local
-├── tailwind.config.js               # Configurações Tailwind
-├── package.json                     # Dependências React
-├── package-lock.json
-├── vercel.json                      # Configurações de build/deploy
-├── .env.local                       # Variáveis de ambiente locais
-├── .gitignore
-└── README.md
+├── .vercelignore                    # Otimização de build/storage na Vercel
+├── vercel.json                      # Rewrites de /api/* para a Serverless Function
+├── package.json                     # Dependências do projeto React & Express
+└── README.md                        # Documentação rápida de desenvolvimento e deploy
+```
 
-## Estrutura adicional do banco (para PDFs)
+---
+
+## 🗄️ Estrutura do Banco de Dados (PostgreSQL)
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role VARCHAR(50) DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT NOW()
+);
 
 CREATE TABLE digital_products (
     id SERIAL PRIMARY KEY,
@@ -101,3 +72,4 @@ CREATE TABLE digital_products (
     cover_image_url TEXT,
     created_at TIMESTAMP DEFAULT NOW()
 );
+```
