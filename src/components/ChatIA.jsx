@@ -3,9 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const API_BASE =
-  process.env.REACT_APP_API_BASE_URL?.replace(/\/+$/, '') || ''; // CRA
-// Ex.: REACT_APP_API_BASE_URL=http://localhost:3001
-// Envia em: `${API_BASE}/api/chatgpt`
+  process.env.REACT_APP_API_BASE_URL?.replace(/\/+$/, '') || 'https://ai.helpusbr.com';
 
 const ChatIA = () => {
   const { t } = useTranslation();
@@ -71,10 +69,10 @@ const ChatIA = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE}/api/chatgpt`, {
+      const res = await fetch(`${API_BASE}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage.content }),
+        body: JSON.stringify({ mensagem: userMessage.content, pesquisar_web: false }),
       });
 
       if (!res.ok) {
