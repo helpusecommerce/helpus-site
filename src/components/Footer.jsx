@@ -64,8 +64,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col gap-12">
         {/* Cabeçalho, links e redes */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-2xl font-bold text-white">
-            Help<span className="text-blue-500">US</span>
+          <div className="flex items-center gap-2 text-2xl font-bold text-white">
+            <img src="/img/helpus-logo.png" alt="HelpUS Logo" className="h-9 w-9 rounded-full object-cover shadow-sm" />
+            <span>Help<span className="text-blue-500">US</span></span>
           </div>
 
           {/* LINKS DO RODAPÉ */}
@@ -179,8 +180,9 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {t('brand')} LLC. {t('footer.rights')}
           </p>
-          <p className="text-gray-400">
-            {t('footer.made_with')} <span className="text-red-500">♥</span> {t('footer.by_helpus')}
+          <p className="text-gray-400 flex items-center justify-center gap-1.5 pt-1">
+            <img src="/img/helpus-logo.png" alt="HelpUS Logo" className="h-5 w-5 rounded-full inline-block object-cover" />
+            <span>{t('footer.made_with')} <span className="text-red-500">♥</span> {t('footer.by_helpus')}</span>
           </p>
         </div>
       </div>

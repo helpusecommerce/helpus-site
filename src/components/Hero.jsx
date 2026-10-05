@@ -34,7 +34,7 @@ export default function Hero() {
   const cur = i18n.language?.slice(0, 2);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center text-white text-center px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-[50vh] md:min-h-[60vh] max-h-[650px] w-full overflow-hidden flex items-center justify-center text-white text-center px-4 sm:px-6 lg:px-8 pt-24 pb-12">
 
       {/* Vídeo de fundo */}
       <video
@@ -51,26 +51,8 @@ export default function Hero() {
       {/* Camada escura para contraste */}
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 z-10" />
 
-      {/* ===== Seletor de Idiomas (canto superior direito) ===== */}
-      <div className="absolute top-4 right-4 z-30 flex gap-2">
-        {['pt', 'en', 'es'].map((lng) => (
-          <button
-            key={lng}
-            onClick={() => setLang(lng)}
-            className={`px-3 py-1.5 rounded-full text-sm font-semibold transition border ${
-              cur === lng
-                ? 'bg-blue-600 border-blue-600 text-white shadow'
-                : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
-            }`}
-            aria-pressed={cur === lng}
-          >
-            {lng.toUpperCase()}
-          </button>
-        ))}
-      </div>
-
       {/* Conteúdo */}
-      <div className="relative z-20 w-full max-w-4xl mx-auto py-10 sm:py-20 px-4">
+      <div className="relative z-20 w-full max-w-4xl mx-auto py-6 sm:py-12 px-4">
 
         <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4"
