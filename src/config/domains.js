@@ -10,4 +10,5 @@ export const partnerDomains = {
   waleska:      `https://waleska.${BASE_DOMAIN}`,
   katiaxavier:  `https://katiaxavier.${BASE_DOMAIN}`,
   marciotopbarber: `https://marciotopbarber.${BASE_DOMAIN}`,
+  studionaldohair: `https://studionaldohair.${BASE_DOMAIN}`,
 };

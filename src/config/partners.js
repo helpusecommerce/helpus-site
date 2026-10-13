@@ -11,6 +11,7 @@ export const partners = {
   waleska:             `https://waleska.${BASE}`,
   katiaxavier:         `https://katiaxavier.${BASE}`,
   marciotopbarber:     `https://marciotopbarber.${BASE}`,
+  studionaldohair:     `https://studionaldohair.${BASE}`,
   escolaestacaomusical:`https://escolaestacaomusical.${BASE}`,
   tatica:              `https://tatica.${BASE}`, // Tática Assessoria Contábil
 };

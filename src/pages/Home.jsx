@@ -17,6 +17,7 @@ const portfolio = [
   ['Tatica Assessoria Contabil', 'home.portfolioSegments.tatica', partners.tatica],
   ['Public Arte', 'home.portfolioSegments.publicarte', partners.publicarte],
   ['Marcio Barber', 'home.portfolioSegments.marciotopbarber', partners.marciotopbarber],
+  ['Studio Naldo Hair', 'home.portfolioSegments.studionaldohair', partners.studionaldohair],
   ['Blue Box', 'home.portfolioSegments.bluebox', partners.bluebox],
 ];
 

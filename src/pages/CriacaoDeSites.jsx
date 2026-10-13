@@ -79,6 +79,16 @@ export default function CriacaoDeSites() {
       href: partners.marciotopbarber,
       isVideo: true,
     },
+    {
+      src: '/img/parceiros/naldo-site.png',
+      poster: '/img/parceiros/naldo-site.png',
+      logo: '/img/parceiros/naldo-logo.png',
+      alt: t('partners.studio_naldo_hair.name'),
+      title: t('partners.studio_naldo_hair.name'),
+      caption: t('partners.studio_naldo_hair.desc'),
+      href: partners.studionaldohair,
+      isVideo: false,
+    },
 
     // === NOVO: Tática Assessoria Contábil ===
     {

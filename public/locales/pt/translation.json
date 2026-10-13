@@ -110,7 +110,8 @@
       "tatica": "Contabilidade e fiscal",
       "publicarte": "Comunicação visual",
       "marciotopbarber": "Negócio local",
-      "bluebox": "Serviço automotivo"
+      "bluebox": "Serviço automotivo",
+      "studionaldohair": "Beleza e estética"
     },
     "steps": {
       "diagnostico": "Diagnóstico",
@@ -190,6 +191,10 @@
     "tatica": {
       "name": "Tática Assessoria Contábil",
       "desc": "Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal."
+    },
+    "studio_naldo_hair": {
+      "name": "Studio Naldo Hair",
+      "desc": "Salão de beleza e estética em João Pessoa: mechas, loiros, cortes, visagismo e penteados."
     }
   },
   "sites": {
