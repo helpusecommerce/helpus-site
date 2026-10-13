@@ -124,30 +124,6 @@ export default function Header() {
     return p === base || p.startsWith(base + '/');
   };
 
-  // account actions
-  const handleLogout = () => {
-    try {
-      localStorage.removeItem('usuario');
-      localStorage.removeItem('token');
-      localStorage.removeItem('auth');
-      localStorage.removeItem('session');
-    } catch {}
-    setUsuario(null);
-    setUserOpen(false);
-    navigate('/');
-  };
-
-  const profileHref = '/perfil';
-  const passwordHref = '/alterar-senha';
-
-  // detect admin user
-  const isAdmin =
-    !!usuario &&
-    (usuario.role_id === 1 ||
-      String(usuario.role_nome || usuario.role || usuario.tipo || '')
-        .toLowerCase()
-        .includes('admin'));
-
   const visaMode = isVisaSite();
 
   return (
