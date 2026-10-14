@@ -3,23 +3,13 @@
   "menu": {
     "home": "Inicio",
     "services": "Servicios",
+    "documents": "Documentos",
+    "ebooks": "Ebooks",
     "site_build": "Creación de Sitios",
     "about": "Acerca de",
     "contact": "Contacto",
     "login": "Acceder",
-    "forgot": "Olvidé mi contraseña",
-    "visa_simulator": "Simular visa",
-    "visa_simulator_full": "Simulador de visa americana",
-    "sites": "Sitios web",
-    "sites_professional": "Sitios profesionales",
-    "company": "Empresas",
-    "company_full": "Empresas, LLC e ITIN",
-    "tax": "Contabilidad",
-    "tax_full": "Contabilidad e impuestos",
-    "nexosai": "NexosAI",
-    "portfolio": "Portafolio",
-    "language": "Idioma",
-    "open_menu": "Abrir men?"
+    "forgot": "Olvidé mi contraseña"
   },
   "account": {
     "admin": "Administrador",
@@ -43,30 +33,30 @@
   },
   "hero": {
     "no_video": "Tu navegador no soporta videos HTML5.",
-    "title": "Soluciones completas para vivir, emprender y declarar en EE. UU.",
-    "subtitle": "Consultoría especializada en visados, creación de empresas, documentación fiscal y sitios web profesionales – todo en tu idioma.",
+    "title": "Desarrollo Web & Presencia Digital de Alto Rendimiento",
+    "subtitle": "Desarrollamos ecosistemas web modernos, landing pages de alta conversión, e-commerce y portafolios institucionales para transformar su empresa.",
     "cta": {
       "visas": "Visados Americanos",
       "company": "Apertura de Empresa",
       "tax": "Impuestos y Documentos",
-      "sites": "Creación de Sitios"
+      "sites": "Creación de Sitios",
+      "portfolio": "Ver Portafolio"
     }
   },
   "home": {
-    "why_title": "¿Por qué elegir HelpUS?",
-    "p1_t": "Atención Personalizada",
-    "p1_d": "Soporte 1:1 durante todo el proceso de su visa.",
-    "p2_t": "Experiencia Real",
-    "p2_d": "Consultores que han pasado por procesos similares.",
-    "p3_t": "Confianza y Transparencia",
-    "p3_d": "Explicamos todo con claridad y sin falsas promesas.",
-    "partners_title": "Nuestros Socios",
+    "why_title": "¿Por qué desarrollar su sitio web con HelpUS Web Studio?",
+    "p1_t": "Diseño Moderno y Adaptativo",
+    "p1_d": "Diseños elegantes adaptados a dispositivos móviles, tablets y ordenadores.",
+    "p2_t": "Alto Rendimiento y SEO",
+    "p2_d": "Carga ultra rápida y optimización para posicionar su marca en los buscadores.",
+    "p3_t": "Entrega Rápida y Soporte",
+    "p3_d": "Proyectos entregados con agilidad, integración con WhatsApp y soporte continuo.",
+    "partners_title": "Portafolio y Casos de Éxito",
     "services_title": "Nuestros Servicios",
     "cards": {
       "visas": {
-        "title": "Soluciones para visas",
-        "desc": "Visas de turismo, estudio, trabajo y green card.",
-        "text": "Evaluación inicial, checklists y organización de información para quienes desean solicitar una visa estadounidense."
+        "title": "Consultoría de Visas",
+        "desc": "Visas de turismo, estudio, trabajo y green card."
       },
       "company": {
         "title": "Apertura de Empresas",
@@ -77,81 +67,20 @@
         "desc": "ITIN, EIN, declaraciones y contabilidad para inmigrantes."
       },
       "sites": {
-        "title": "Sitios web profesionales",
-        "desc": "Sitios modernos con panel, tienda e integración con WhatsApp.",
-        "text": "Landing pages, sitios institucionales y páginas de captación creadas para autoridad, claridad y conversión."
-      },
-      "systems": {
-        "title": "Sistemas a medida",
-        "text": "Dashboards, registros, áreas administrativas y herramientas digitales para la rutina real de la operación."
-      },
-      "ai": {
-        "title": "Automatización con IA",
-        "text": "Agentes, rutinas inteligentes, análisis de documentos y ejecución asistida para reducir trabajo manual."
+        "title": "Creación de Sitios",
+        "desc": "Sitios modernos con panel, tienda e integración con WhatsApp."
       }
-    },
-    "tech": {
-      "badge": "HelpUS Technology Solutions",
-      "title": "Software, automatización e inteligencia artificial para negocios que quieren crecer con eficiencia.",
-      "subtitle": "Creamos sitios web profesionales, sistemas a medida, automatizaciones con IA y soluciones digitales para empresas, profesionales y operaciones que necesitan salir de la improvisación.",
-      "primary": "Quiero desarrollar una solución",
-      "secondary": "Conocer NexosAI",
-      "visa": "Simular mi visa",
-      "panelTitle": "NexosAI Control Layer",
-      "panelText": "Automatización, documentos, tareas y agentes",
-      "panelSites": "Sitios y sistemas",
-      "panelAgents": "Agentes de IA",
-      "panelDocs": "Documentos y flujos",
-      "panelWhatsApp": "Conversión y WhatsApp"
-    },
-    "portfolioSegments": {
-      "wagnerdriver": "Transporte ejecutivo",
-      "katiaxavier": "Salud y telemedicina",
-      "tatica": "Contabilidad e impuestos",
-      "publicarte": "Comunicación visual",
-      "marciotopbarber": "Negocio local",
-      "bluebox": "Servicio automotriz",
-      "studionaldohair": "Belleza y peluquería"
-    },
-    "steps": {
-      "diagnostico": "Diagnóstico",
-      "prototipo": "Prototipo",
-      "desenvolvimento": "Desarrollo",
-      "publicacao": "Publicación",
-      "evolucao": "Evolución"
-    },
-    "segments": {
-      "saude": "Salud",
-      "transporte": "Transporte",
-      "educacao": "Educación",
-      "contabilidade": "Contabilidad",
-      "imigracao": "Inmigración",
-      "servicos": "Servicios locales",
-      "profissionais": "Profesionales independientes",
-      "pequenos": "Pequeños negocios"
-    },
-    "common": {
-      "know": "Conocer"
-    },
-    "nexosaiBlock": {
-      "eyebrow": "NexosAI",
-      "title": "Inteligencia artificial conectada al trabajo real.",
-      "text": "NexosAI es la solución de HelpUS para conectar IA a tareas, documentos, sistemas, bases de datos, navegadores y flujos operativos.",
-      "cta": "Solicitar diagnóstico",
-      "agents": "Agentes de IA",
-      "documents": "Documentos e informes",
-      "integrations": "Integraciones",
-      "history": "Historial y evidencias",
-      "cardText": "Control, contexto y trazabilidad para operaciones complejas."
-    },
-    "portfolioBlock": {
-      "eyebrow": "Portfolio",
-      "title": "Sitios y proyectos que desarrollamos.",
-      "text": "Proyectos digitales para profesionales, pequeños negocios y empresas que necesitan presencia online con claridad y confianza.",
-      "visit": "Visitar proyecto"
     }
   },
   "partners": {
+    "helpus_advert": {
+      "name": "HelpUS Advert • Publicidad y Marketing con IA",
+      "desc": "Plataforma proprietaria de operaciones de publicidad para marcas: campañas multicanal, creación con IA y flujo de aprobaciones sin intermediarios."
+    },
+    "helpus_cvss": {
+      "name": "HelpUS CVSS • Ciberseguridad & IA Watcher",
+      "desc": "Plataforma científica para el cálculo de FIRST CVSS v4.0 con IA Watcher contextual, mitigación inversa (\"What-If\") y escáner de red."
+    },
     "escola_estacao_musical": {
       "name": "Escuela Estação Musical",
       "desc": "Clases de música en João Pessoa — guitarra, teclado, canto y más — con metodología práctica y motivadora."
@@ -195,6 +124,14 @@
     "studio_naldo_hair": {
       "name": "Studio Naldo Hair",
       "desc": "Salón de belleza y estética en João Pessoa: mechas, rubios, cortes, visagismo y peinados."
+    },
+    "barraca_sertaneja": {
+      "name": "Barraca Sertaneja",
+      "desc": "Quesos artesanales, queso de mantequilla, carne de sol y tradición del sertón en João Pessoa."
+    },
+    "rodrigues_tur": {
+      "name": "Rodrigues Tur",
+      "desc": "Excursiones en grupo aéreas y terrestres, turismo religioso y paquetes con salidas desde Paraíba."
     }
   },
   "sites": {
@@ -218,15 +155,15 @@
     "support_note": "Soporte técnico incluido durante los primeros 30 días tras la entrega. Pago hasta en 2x sin interés con tarjeta o Pix."
   },
   "about": {
-    "title": "Acerca de HelpUS",
-    "intro": "HelpUS facilita el acceso a servicios esenciales para quienes desean vivir, emprender o invertir en Estados Unidos. Expertos en visados, apertura de empresas y documentación fiscal, con atención humana y enfocada en resultados.",
+    "title": "Acerca de HelpUS Web Studio",
+    "intro": "HelpUS es un estudio de tecnología especializado en ingeniería de software, desarrollo de aplicaciones web de alto rendimiento, e-commerce, sistemas corporativos y ecosistemas digitales que transforman las empresas.",
     "blocks": {
-      "exp_t": "Experiencia",
-      "exp_d": "Más de 10 años ayudando a brasileños a lograr sus objetivos en EE. UU.",
-      "pers_t": "Atención Personalizada",
-      "pers_d": "Cada caso es único. Soluciones completas según tu perfil.",
-      "commit_t": "Compromiso",
-      "commit_d": "Ética, transparencia y dedicación total a tu camino."
+      "exp_t": "Ingeniería y Rendimiento",
+      "exp_d": "Desarrollo con arquitectura moderna, carga ultra rápida y alta escalabilidad para su empresa.",
+      "pers_t": "Soluciones a Medida",
+      "pers_d": "Diseñamos sistemas web, e-commerce y landing pages adaptadas exactamente a la realidad de su empresa.",
+      "commit_t": "Innovación y Compromiso",
+      "commit_d": "Tecnología de vanguardia, diseño adaptativo elegante y soporte continuo para impulsar sus resultados."
     }
   },
   "contact": {
@@ -593,7 +530,7 @@
   },
   "footer": {
     "newsletter": {
-      "title": "Recibe novedades y consejos sobre visados, empresas, impuestos y sitios web profesionales",
+      "title": "Recibe novedades y consejos sobre desarrollo de aplicaciones, sitios modernos y soluciones digitales",
       "placeholder": "Ingresa tu correo",
       "button": "Suscribirse",
       "success": "¡Suscripción realizada con éxito!",

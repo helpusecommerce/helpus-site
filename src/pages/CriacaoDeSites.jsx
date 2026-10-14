@@ -60,16 +60,6 @@ export default function CriacaoDeSites() {
       isVideo: true,
     },
     {
-      src: '/img/parceiros/video-katia.mp4',
-      poster: '/img/parceiros/katia-site.png',
-      logo: '/img/parceiros/katia.png',
-      alt: t('partners.katia.name'),
-      title: t('partners.katia.name'),
-      caption: t('partners.katia.desc'),
-      href: partners.katiaxavier,
-      isVideo: true,
-    },
-    {
       src: '/img/parceiros/video-marcio.mp4',
       poster: '/img/parceiros/marcio-site.png',
       logo: '/img/parceiros/hero-marcio-barber.png',
@@ -83,22 +73,75 @@ export default function CriacaoDeSites() {
       src: '/img/parceiros/naldo-site.png',
       poster: '/img/parceiros/naldo-site.png',
       logo: '/img/parceiros/naldo-logo.png',
-      alt: t('partners.studio_naldo_hair.name'),
-      title: t('partners.studio_naldo_hair.name'),
-      caption: t('partners.studio_naldo_hair.desc'),
+      alt: t('partners.studio_naldo_hair.name', { defaultValue: 'Studio Naldo Hair' }),
+      title: t('partners.studio_naldo_hair.name', { defaultValue: 'Studio Naldo Hair' }),
+      caption: t('partners.studio_naldo_hair.desc', { defaultValue: 'Salão de beleza e estética em João Pessoa: mechas, loiros, cortes, visagismo e penteados.' }),
       href: partners.studionaldohair,
+      isVideo: false,
+    },
+    {
+      src: '/img/parceiros/barraca-sertaneja-site.jpg',
+      poster: '/img/parceiros/barraca-sertaneja-site.jpg',
+      logo: '/img/parceiros/barraca-sertaneja-logo.png',
+      alt: t('partners.barraca_sertaneja.name', { defaultValue: 'Barraca Sertaneja' }),
+      title: t('partners.barraca_sertaneja.name', { defaultValue: 'Barraca Sertaneja' }),
+      caption: t('partners.barraca_sertaneja.desc', { defaultValue: 'Queijos artesanais, queijo de manteiga, carne de sol e tradição do sertão em João Pessoa.' }),
+      href: partners.barracasertaneja,
+      isVideo: false,
+    },
+    {
+      src: '/img/parceiros/rodrigues-tur-site.jpg',
+      poster: '/img/parceiros/rodrigues-tur-site.jpg',
+      logo: '/img/parceiros/rodrigues-tur-logo.png',
+      alt: t('partners.rodrigues_tur.name', { defaultValue: 'Rodrigues Tur' }),
+      title: t('partners.rodrigues_tur.name', { defaultValue: 'Rodrigues Tur' }),
+      caption: t('partners.rodrigues_tur.desc', { defaultValue: 'Excursões em grupo aéreas e rodoviárias, turismo religioso e pacotes com saídas da Paraíba.' }),
+      href: partners.rodriguestur,
       isVideo: false,
     },
 
     // === NOVO: Tática Assessoria Contábil ===
     {
-      src: '/img/parceiros/tatica-video.mp4',       // coloque aqui o seu video01.mp4 renomeado
-      poster: '/img/parceiros/tatica-site.png',     // thumbnail/frame do vídeo
-      logo: '/img/parceiros/tatica-logo.png',       // use a logo enviada
-      alt: t('partners.tatica.name'),
-      title: t('partners.tatica.name'),
-      caption: t('partners.tatica.desc'),
-      href: partners.tatica,                        // definido em src/config/partners.js
+      src: '/img/parceiros/tatica-video.mp4',
+      poster: '/img/parceiros/tatica-site.png',
+      logo: '/img/parceiros/tatica-logo.png',
+      alt: t('partners.tatica.name', { defaultValue: 'Tática Assessoria Contábil' }),
+      title: t('partners.tatica.name', { defaultValue: 'Tática Assessoria Contábil' }),
+      caption: t('partners.tatica.desc', { defaultValue: 'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.' }),
+      href: partners.tatica,
+      isVideo: true,
+    },
+    // === NOVO: Ariticum Chalés ===
+    {
+      src: '/img/parceiros/ariticum-video.mp4',
+      poster: '/img/parceiros/ariticum-logo.png',
+      logo: '/img/parceiros/ariticum-logo.png',
+      alt: 'Ariticum Chalés',
+      title: 'Ariticum Chalés',
+      caption: 'Portal de reservas e experiência digital para pousada em meio à natureza.',
+      href: partners.ariticumchales,
+      isVideo: true,
+    },
+    // === NOVO: Túlio Bicicletas ===
+    {
+      src: '/img/parceiros/video-fundo.mp4',
+      poster: '/img/parceiros/tulio-site.png',
+      logo: '/img/parceiros/tulio.png',
+      alt: 'Túlio Bicicletas',
+      title: 'Túlio Bicicletas',
+      caption: 'Loja e oficina especializada em bicicletas e acessórios ciclísticos.',
+      href: partners.tuliobicicletas,
+      isVideo: true,
+    },
+    // === NOVO: HelpUS CVSS ===
+    {
+      src: '/img/parceiros/video-cvss.mp4',
+      poster: '/img/parceiros/cvss-logo.png',
+      logo: '/img/parceiros/cvss-logo.png',
+      alt: 'HelpUS CVSS • Cibersegurança & IA Watcher',
+      title: 'HelpUS CVSS • Cibersegurança & IA Watcher',
+      caption: 'Plataforma científica para cálculo do FIRST CVSS v4.0 com IA Watcher contextual e mitigação reversa.',
+      href: partners.cvss,
       isVideo: true,
     },
   ];
@@ -127,16 +170,17 @@ export default function CriacaoDeSites() {
         </div>
 
         <div className="text-center bg-gray-100 rounded-xl py-10 px-6 mb-16 shadow-inner">
-          <h2 className="text-3xl font-bold text-blue-600 mb-4">
-            {t('sites.pricing_from')}{' '}
-            <span className="text-4xl">{t('sites.pricing_value')}</span>
+          <h2 className="text-3xl font-bold text-blue-700 mb-3">
+            {t('sites.quote_title', { defaultValue: 'Solicite um Orçamento Personalizado' })}
           </h2>
-          <p className="text-gray-600 mb-6">{t('sites.pricing_note')}</p>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            {t('sites.quote_note', { defaultValue: 'Desenvolvemos projetos sob medida para o seu negócio. Fale diretamente com nossa equipe para alinhar os requisitos e receber uma proposta personalizada.' })}
+          </p>
           <a
             href="https://wa.me/5583998721848"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition"
+            className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-3.5 rounded-full text-lg font-semibold transition shadow-lg"
           >
             {t('sites.cta_quote')} <FaWhatsapp />
           </a>

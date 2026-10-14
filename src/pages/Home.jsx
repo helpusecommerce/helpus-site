@@ -1,128 +1,471 @@
+// 📄 src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Hero from '../components/Hero';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaBrain, FaBuilding, FaCheckCircle, FaExternalLinkAlt, FaGlobe, FaLaptopCode, FaLayerGroup, FaRobot, FaWhatsapp } from 'react-icons/fa';
-import { partners } from '../config/partners';
 import { useTranslation } from 'react-i18next';
+import { partners as partnerLinks } from '../config/partners'; // 👈 centralizado
 
-const cards = [
-  ['home.cards.sites.title', 'home.cards.sites.text', FaGlobe, '/criacao-de-sites'],
-  ['home.cards.systems.title', 'home.cards.systems.text', FaLaptopCode, '/contato'],
-  ['home.cards.ai.title', 'home.cards.ai.text', FaRobot, '#nexosai'],
+// Catálogo de parceiros (metadados fixos + fallbacks)
+const partnersCatalog = [
+  {
+    id: 'helpus_visa',
+    defaultName: 'HelpUS Vistos & Imigração EUA',
+    defaultDesc: 'Portal de assessoria completa e consultoria em vistos americanos e imigração para os EUA.',
+    imagem: '/img/helpus-logo.png',
+    video: '/img/parceiros/visa-video.mp4',
+    link: partnerLinks.visa,
+  },
+  {
+    id: 'helpus_cvss',
+    defaultName: 'HelpUS CVSS • Cibersegurança & IA Watcher',
+    defaultDesc: 'Plataforma científica para cálculo do FIRST CVSS v4.0 com IA Watcher contextual, simulador de impacto e mitigação reversa ("What-If").',
+    imagem: '/img/parceiros/cvss-logo.png',
+    video: '/img/parceiros/video-cvss.mp4',
+    link: partnerLinks.cvss,
+  },
+  {
+    id: 'helpus_advert',
+    defaultName: 'HelpUS Advert • Publicidade & Marketing com IA',
+    defaultDesc: 'Plataforma proprietária de operações de publicidade para marcas e empresas: campanhas multicanal, criação com IA e esteira de aprovações sem intermediários.',
+    imagem: '/img/helpus-logo.png',
+    video: '/img/parceiros/video-ecommerce.mp4',
+    link: partnerLinks.advert,
+  },
+  {
+    id: 'escola_estacao_musical',
+    defaultName: 'Escola Estação Musical',
+    defaultDesc:
+      'Aulas de música em João Pessoa — violão, teclado, canto e mais, com metodologia prática e motivadora.',
+    imagem: '/img/parceiros/logo-escola.jpg',
+    video: '/img/parceiros/video-escola.mp4',
+    link: partnerLinks.escolaestacaomusical,
+  },
+  {
+    id: 'wagner_driver',
+    defaultName: 'Wagner Driver',
+    defaultDesc: 'Serviço de transporte executivo e agendamentos via WhatsApp.',
+    imagem: '/img/parceiros/logo-wagnerdriver.png',
+    video: '/img/parceiros/video-wagnerdriver.mp4',
+    link: partnerLinks.wagnerdriver,
+  },
+  {
+    id: 'cg_details',
+    defaultName: 'CG Details',
+    defaultDesc: 'Limpeza detalhada de carros, apartamentos e casas com excelência.',
+    imagem: '/img/parceiros/cgdetails.png',
+    video: '/img/parceiros/videocgdetails.webm',
+    link: partnerLinks.cgdetails,
+  },
+  {
+    id: 'bluebox',
+    defaultName: 'Blue Box',
+    defaultDesc: 'Lava-jato de carros e motos com qualidade profissional.',
+    imagem: '/img/parceiros/bluebox.png',
+    video: '/img/parceiros/videobluebox.webm',
+    link: partnerLinks.bluebox,
+  },
+
+  // 🆕 Plural Locações
+  {
+    id: 'plural_locacoes',
+    defaultName: 'Plural Locações',
+    defaultDesc:
+      'Aluguel para festas e eventos — mesas, cadeiras, tendas, iluminação e mais.',
+    imagem: '/img/parceiros/logo-plural.jpg', // coloque este arquivo no public
+    // Remova a linha de vídeo se ainda não houver um arquivo
+    video: '/img/parceiros/plural-video.mp4',
+    link: partnerLinks.plurallocacoes,
+  },
+
+  {
+    id: 'publicarte',
+    defaultName: 'Public Arte',
+    defaultDesc: 'Comunicação visual criativa e soluções gráficas personalizadas.',
+    imagem: '/img/parceiros/logo-publicarte.png',
+    video: '/img/parceiros/video-publicarte.mp4',
+    link: partnerLinks.publicarte,
+  },
+  {
+    id: 'waleska',
+    defaultName: 'Waleska Imóveis',
+    defaultDesc: 'Imobiliária com imóveis selecionados e atendimento personalizado.',
+    imagem: '/img/parceiros/logo-waleska.png',
+    video: '/img/parceiros/video-waleska.mp4',
+    link: partnerLinks.waleska,
+  },
+  {
+    id: 'marcio_barber',
+    defaultName: 'Márcio Barber',
+    defaultDesc: 'Serviços de barbearia com qualidade e atendimento diferenciado.',
+    imagem: '/img/parceiros/hero-marcio-barber.png',
+    video: '/img/parceiros/video-marcio.mp4',
+    link: partnerLinks.marciotopbarber,
+  },
+  {
+    id: 'studio_naldo_hair',
+    defaultName: 'Studio Naldo Hair',
+    defaultDesc: 'Salão de beleza e estética em João Pessoa: mechas, loiros, cortes, visagismo e penteados.',
+    imagem: '/img/parceiros/naldo-logo.png',
+    poster: '/img/parceiros/naldo-site.png',
+    link: partnerLinks.studionaldohair,
+  },
+  {
+    id: 'barraca_sertaneja',
+    defaultName: 'Barraca Sertaneja',
+    defaultDesc: 'Queijos artesanais, queijo de manteiga, carne de sol e tradição do sertão em João Pessoa.',
+    imagem: '/img/parceiros/barraca-sertaneja-logo.png',
+    poster: '/img/parceiros/barraca-sertaneja-site.jpg',
+    link: partnerLinks.barracasertaneja,
+  },
+  {
+    id: 'rodrigues_tur',
+    defaultName: 'Rodrigues Tur',
+    defaultDesc: 'Excursões em grupo aéreas e rodoviárias, turismo religioso e pacotes com saídas da Paraíba.',
+    imagem: '/img/parceiros/rodrigues-tur-logo.png',
+    poster: '/img/parceiros/rodrigues-tur-site.jpg',
+    link: partnerLinks.rodriguestur,
+  },
+  // Tática com caminhos padronizados + alternativas
+  {
+    id: 'tatica',
+    defaultName: 'Tática Assessoria Contábil',
+    defaultDesc:
+      'Contabilidade, abertura de empresa, folha, impostos e consultoria fiscal.',
+    imagem: '/img/parceiros/tatica-logo.png',
+    video: '/img/parceiros/tatica-video.mp4',
+    link: partnerLinks.tatica,
+  },
+  {
+    id: 'ariticum_chales',
+    defaultName: 'Ariticum Chalés',
+    defaultDesc:
+      'Portal de reservas e experiência digital para pousada em meio à natureza.',
+    imagem: '/img/parceiros/ariticum-logo.png',
+    video: '/img/parceiros/ariticum-video.mp4',
+    link: partnerLinks.ariticumchales,
+  },
+  {
+    id: 'tulio_bicicletas',
+    defaultName: 'Túlio Bicicletas',
+    defaultDesc:
+      'Loja e oficina especializada em bicicletas e acessórios ciclísticos.',
+    imagem: '/img/parceiros/tulio.png',
+    video: '/img/parceiros/video-fundo.mp4',
+    link: partnerLinks.tuliobicicletas,
+  },
+  {
+    id: 'magia_do_verde',
+    defaultName: 'Magia do Verde',
+    defaultDesc:
+      'E-commerce e soluções para jardinagem, plantas e produtos naturais.',
+    imagem: '/img/parceiros/magia-verde-logo.png',
+    poster: '/img/parceiros/magia-verde-site.png',
+    video: null,
+    link: partnerLinks.magiadoverde,
+  },
+  {
+    id: 'capinar_pb',
+    defaultName: 'Capinar PB',
+    defaultDesc:
+      'Serviços de limpeza, manutenção e capinação urbana e rural.',
+    imagem: '/img/parceiros/capinar-pb-logo.png',
+    poster: '/img/parceiros/capinar-pb-site.png',
+    video: null,
+    link: partnerLinks.capinarpb,
+  },
 ];
 
-const portfolio = [
-  ['Wagner Driver', 'home.portfolioSegments.wagnerdriver', partners.wagnerdriver],
-  ['Dra. Katia Xavier', 'home.portfolioSegments.katiaxavier', partners.katiaxavier],
-  ['Tatica Assessoria Contabil', 'home.portfolioSegments.tatica', partners.tatica],
-  ['Public Arte', 'home.portfolioSegments.publicarte', partners.publicarte],
-  ['Marcio Barber', 'home.portfolioSegments.marciotopbarber', partners.marciotopbarber],
-  ['Studio Naldo Hair', 'home.portfolioSegments.studionaldohair', partners.studionaldohair],
-  ['Blue Box', 'home.portfolioSegments.bluebox', partners.bluebox],
+const solutionCategories = [
+  {
+    id: 'fiscal_tech',
+    title: 'Soluções Contábeis, Portais & Automação Fiscal',
+    category: 'Fiscal Tech & Web Design',
+    description: 'Engenharia de software para o setor contábil: desenvolvimento de portais institucionais para escritórios de contabilidade e robôs de busca/captura automatizada em lote de NFS-e/CT-e com certificado A1.',
+    imagem: '/img/parceiros/tatica-logo.png',
+    video: '/img/parceiros/video-accounting.mp4',
+    partnerName: 'Soluções para o Setor Contábil',
+    link: '/solucoes/automacao-fiscal',
+  },
+  {
+    id: 'ai_agents',
+    title: 'Inteligência Artificial & Chatbots Neural',
+    category: 'AI Agents & LLM',
+    description: 'Atendimento neural inteligente 24/7 via Meta Cloud API / Baileys, suporte RAG contextual e suíte proprietária AI Engine Hub (TTS Neural, Perplexity Engine, Gamma Engine).',
+    imagem: '/img/parceiros/helpus-icon.png',
+    video: '/img/parceiros/video-ia.mp4',
+    partnerName: 'HelpUS WhatsApp IA & AI Hub',
+    link: '/solucoes/inteligencia-artificial',
+  },
+  {
+    id: 'ecommerce_suite',
+    title: 'E-commerce & Amazon SP-API Suite',
+    category: 'Marketplace Automation',
+    description: 'Suíte de automação para vendedores Amazon FBA com validação em lote de códigos ISIN/UPC, precificação dinâmica e submissão segura de feeds de produtos.',
+    imagem: '/img/parceiros/logo-publicarte.png',
+    video: '/img/parceiros/video-amazon.mp4',
+    partnerName: 'HelpUS FBA Suite & E-commerce',
+    link: '/solucoes/ecommerce-amazon',
+  },
+  {
+    id: 'saas_realestate',
+    title: 'SaaS Corporativo & Gestão Imobiliária',
+    category: 'Enterprise SaaS & ERP',
+    description: 'Plataformas imobiliárias de alta performance com captação de clientes, portais para corretores, busca com filtros e banco de dados relacional.',
+    imagem: '/img/parceiros/logo-waleska.png',
+    video: '/img/parceiros/video-saas.mp4',
+    partnerName: 'HelpUS RealEstate & ERPs',
+    link: '/solucoes/saas-imobiliaria',
+  },
+  {
+    id: 'booking_engine',
+    title: 'Engine de Reservas & Agendamento Online',
+    category: 'Booking & Service Apps',
+    description: 'Portais responsivos para agendamento de estadias em pousadas, transportes executivos e serviços com calendário dinâmico e suporte WhatsApp.',
+    imagem: '/img/parceiros/ariticum-logo.png',
+    video: '/img/parceiros/video-agendamento.mp4',
+    partnerName: 'Ariticum Booking Engine',
+    link: '/solucoes/reservas-agendamentos',
+  },
+  {
+    id: 'health_tech',
+    title: 'Plataformas Médicas & Diagnóstico com IA',
+    category: 'Health Tech & Medical',
+    description: 'Ecossistemas para simulação de exames médicos acadêmicos (USMLE), laudos cardiológicos auxiliados por IA (CardioIA) e gestão de saúde.',
+    imagem: '/img/parceiros/helpus-icon.png',
+    video: '/img/parceiros/video-medico.mp4',
+    partnerName: 'CardioIA & USMLE Prep',
+    link: '/solucoes/plataformas-medicas',
+  },
+  {
+    id: 'cybersecurity_cvss',
+    title: 'Cibersegurança & Gestão de Vulnerabilidades (CVSS v4.0)',
+    category: 'Cybersecurity & AI Risk Watcher',
+    description: 'Plataforma científica de governança e priorização contextual com cálculo oficial FIRST CVSS v4.0, IA Watcher explicável baseada em evidências reais de rede, calculadora reversa "What-If" e auditoria de conformidade (PCI-DSS, LGPD, ISO 27001).',
+    imagem: '/img/parceiros/cvss-logo.png',
+    video: '/img/parceiros/video-cvss.mp4',
+    partnerName: 'HelpUS CVSS • AI Watcher',
+    link: '/solucoes/ciberseguranca-cvss',
+  },
+  {
+    id: 'adtech_advert',
+    title: 'Publicidade, Mídia & Marketing com IA (HelpUS Advert)',
+    category: 'AdTech & Operações de Mídia',
+    description: 'Plataforma proprietária de operações de publicidade para marcas e empresas: planejamento estratégico, criação de conteúdo e criativos com IA, calendário editorial contínuo e esteira de aprovações sem intermediários.',
+    imagem: '/img/helpus-logo.png',
+    video: '/img/parceiros/video-ecommerce.mp4',
+    partnerName: 'Conhecer HelpUS Advert',
+    link: '/solucoes/publicidade-advert',
+  },
 ];
 
-const steps = ['home.steps.diagnostico', 'home.steps.prototipo', 'home.steps.desenvolvimento', 'home.steps.publicacao', 'home.steps.evolucao'];
-const segments = ['home.segments.saude', 'home.segments.transporte', 'home.segments.educacao', 'home.segments.contabilidade', 'home.segments.servicos', 'home.segments.profissionais', 'home.segments.pequenos'];
-
-export default function Home() {
+const Home = () => {
   const { t } = useTranslation();
 
+  // Mapeia catálogo -> dados traduzidos com fallback
+  const partners = partnersCatalog.map((p) => ({
+    ...p,
+    nome: t(`partners.${p.id}.name`, { defaultValue: p.defaultName || p.id }),
+    descricao: t(`partners.${p.id}.desc`, { defaultValue: p.defaultDesc || '' }),
+  }));
+
+  // fallback de imagem: tenta /assets/logo.png e depois um ícone padrão
+  const handleImgError = (e, parceiroId) => {
+    const img = e.currentTarget;
+    const attempt = Number(img.dataset.attempt || 0);
+
+    // Só aplicamos fallback inteligente para o parceiro "tatica"
+    if (parceiroId === 'tatica') {
+      const fallbacks = ['/assets/logo.png', '/img/parceiros/helpus-icon.png'];
+      if (attempt < fallbacks.length) {
+        img.dataset.attempt = String(attempt + 1);
+        img.src = fallbacks[attempt];
+        return;
+      }
+    }
+
+    // fallback genérico (não repete loop infinito)
+    if (attempt === 0) {
+      img.dataset.attempt = '1';
+      img.src = '/img/parceiros/helpus-icon.png';
+    }
+  };
+
   return (
-    <main className="bg-white text-slate-900">
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-950 to-cyan-950" />
-        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 py-28 lg:grid-cols-2 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-white/10 px-4 py-2 text-sm font-bold text-cyan-100"><FaRobot /> {t('home.tech.badge')}</span>
-            <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">{t('home.tech.title')}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">{t('home.tech.subtitle')}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-7 py-3 font-bold text-slate-950 hover:bg-cyan-300">{t('home.tech.primary')} <FaArrowRight /></Link>
-              <a href="#nexosai" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-3 font-bold text-white hover:bg-white/20">{t('home.tech.secondary')}</a>
-            </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur">
-            <div className="rounded-[1.5rem] bg-slate-900/95 p-6 ring-1 ring-white/10">
-              <p className="text-sm font-bold text-cyan-300">{t('home.tech.panelTitle')}</p>
-              <p className="mt-1 text-xs text-slate-400">{t('home.tech.panelText')}</p>
-              <div className="mt-6 space-y-4">
-                {['home.tech.panelSites', 'home.tech.panelAgents', 'home.tech.panelDocs', 'home.tech.panelWhatsApp'].map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/[0.06] p-4"><FaCheckCircle className="text-cyan-300" /><span className="font-semibold">{t(item)}</span></div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+    <div>
+      {/* Hero principal */}
+      <Hero />
+
+      {/* Seção de Capacidades & Soluções de Software */}
+      <section id="solucoes" className="py-20 bg-gray-900 text-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-white mb-4">
+              O Que Desenvolvemos
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Engenharia de software moderna, sistemas de automação fiscal, inteligência artificial e plataformas sob medida aplicadas à sua operação.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {solutionCategories.map((sol, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-800 rounded-3xl shadow-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border border-gray-700"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-2">
+                  {sol.category}
+                </div>
+                
+                <h3 className="text-xl font-bold mb-3 text-white">{sol.title}</h3>
+
+                {sol.video ? (
+                  <video
+                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={sol.video} type="video/mp4" />
+                    {t('hero.no_video')}
+                  </video>
+                ) : sol.poster ? (
+                  <img
+                    src={sol.poster}
+                    alt={sol.title}
+                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
+                  />
+                ) : null}
+
+                <p className="text-gray-300 mb-6 text-sm leading-relaxed flex-grow">
+                  {sol.description}
+                </p>
+
+                <div className="w-full pt-4 border-t border-gray-700 flex flex-col gap-2">
+                  <span className="text-xs text-gray-400">Ver detalhes da solução:</span>
+                  {sol.link?.startsWith('http') ? (
+                    <a
+                      href={sol.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
+                      {sol.partnerName} &rarr;
+                    </a>
+                  ) : (
+                    <Link
+                      to={sol.link}
+                      className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
+                      {sol.partnerName} &rarr;
+                    </Link>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="border-b border-cyan-100 bg-cyan-50">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-700 text-xl text-white"><FaLaptopCode /></div>
+      {/* Seção de diferenciais */}
+      <section className="py-16 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
+            {t('home.why_title')}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">Desenvolvimento sob medida</p>
-              <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-950">Sites, sistemas e automações para negócios que querem operar melhor.</h2>
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700">Criamos presença digital, ferramentas internas, integrações e soluções com IA para transformar processos manuais em operação estruturada.</p>
+              <h3 className="text-xl font-semibold mb-2">{t('home.p1_t')}</h3>
+              <p>{t('home.p1_d')}</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{t('home.p2_t')}</h3>
+              <p>{t('home.p2_d')}</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{t('home.p3_t')}</h3>
+              <p>{t('home.p3_d')}</p>
             </div>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-6 py-3 font-bold text-white hover:bg-blue-800">Conversar sobre um projeto <FaArrowRight /></Link>
-            <a href="#portfolio" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-200 bg-white px-6 py-3 font-bold text-blue-800 hover:bg-blue-50">Ver projetos</a>
-          </div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Empresas e consultoria</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Tecnologia, abertura de empresa e organizacao fiscal no mesmo ecossistema.</h2><p className="mt-5 text-lg leading-8 text-slate-600">Alem de sites, sistemas e automacao, a HelpUS mantem frentes de apoio para empresas: abertura de LLC, ITIN/W-7, endereco fiscal, licencas, documentos, organizacao fiscal e suporte para operacoes que precisam trabalhar com mais estrutura.</p></div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              ['Abertura de empresa', 'LLC, documentos iniciais e orientacao operacional.', '/servicos/empresa'],
-              ['ITIN e W-7', 'Apoio na organizacao de informacoes e documentacao.', '/servicos/empresa/itin'],
-              ['Contabilidade e fiscal', 'Servicos fiscais, formularios e rotinas para negocios.', '/servicos/fiscal'],
-              ['Documentos', 'Traducao, organizacao e suporte documental.', '/servicos/documentos'],
-            ].map(([title, desc, link]) => (
-              <Link key={title} to={link} className="rounded-3xl bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"><FaBuilding className="mb-4 text-2xl text-blue-700" /><h3 className="font-extrabold text-slate-950">{t(title)}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p></Link>
+      {/* Seção de parceiros */}
+      <section id="partners" className="py-20 bg-gradient-to-b from-white to-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-14">
+            {t('home.partners_title')}
+          </h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {partners.map((parceiro, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <motion.img
+                  src={parceiro.imagem}
+                  alt={parceiro.nome}
+                  className="w-28 h-28 object-contain mb-4"
+                  loading="lazy"
+                  onError={(e) => handleImgError(e, parceiro.id)}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                />
+
+                {parceiro.video ? (
+                  <video
+                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster={parceiro.poster || parceiro.imagem}
+                  >
+                    {/* 1ª tentativa: padrão dos parceiros */}
+                    <source src={parceiro.video} type="video/mp4" />
+                    {/* 2ª tentativa: seu caminho antigo */}
+                    <source src="/video/video01.mp4" type="video/mp4" />
+                    {t('hero.no_video')}
+                  </video>
+                ) : parceiro.poster ? (
+                  <img
+                    src={parceiro.poster}
+                    alt={parceiro.nome}
+                    className="rounded-xl mb-4 w-full max-h-52 object-cover shadow-md"
+                  />
+                ) : null}
+
+                <h3 className="text-xl font-bold mb-2 text-blue-800">{parceiro.nome}</h3>
+                <p className="text-gray-600 mb-4 text-sm">{parceiro.descricao}</p>
+
+                <a
+                  href={parceiro.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all duration-300"
+                >
+                  {t('common.visit_site')} <FaExternalLinkAlt />
+                </a>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Solucoes digitais</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">Tecnologia para tirar sua operacao do improviso.</h2><p className="mt-4 text-lg leading-8 text-slate-600">A HelpUS combina desenvolvimento, estrategia digital e automacao para criar solucoes uteis, elegantes e orientadas a resultado.</p></div>
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {cards.map(([title, desc, Icon, link]) => (
-              <article key={title} className="rounded-3xl bg-white p-7 shadow-lg ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-2xl">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-700"><Icon /></div>
-                <h3 className="text-xl font-extrabold text-slate-950">{title}</h3><p className="mt-3 min-h-[112px] text-sm leading-7 text-slate-600">{desc}</p>
-                {String(link).startsWith('#') ? <a href={link} className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">{t('home.common.know')} <FaArrowRight /></a> : <Link to={link} className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">Conhecer <FaArrowRight /></Link>}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="nexosai" className="bg-slate-950 py-24 text-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:px-8">
-          <div><p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">{t('home.nexosaiBlock.eyebrow')}</p><h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{t('home.nexosaiBlock.title')}</h2><p className="mt-5 text-lg leading-8 text-slate-300">{t('home.nexosaiBlock.text')}</p><Link to="/contato" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-7 py-3 font-bold text-slate-950">{t('home.nexosaiBlock.cta')} <FaArrowRight /></Link></div>
-          <div className="grid gap-4 sm:grid-cols-2">{['home.nexosaiBlock.agents', 'home.nexosaiBlock.documents', 'home.nexosaiBlock.integrations', 'home.nexosaiBlock.history'].map((item) => <div key={item} className="rounded-3xl border border-white/10 bg-white/[0.06] p-6"><FaBrain className="mb-4 text-2xl text-cyan-300" /><h3 className="font-extrabold">{t(item)}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{t('home.nexosaiBlock.cardText')}</p></div>)}</div>
-        </div>
-      </section>
-
-      <section id="portfolio" className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">{t('home.portfolioBlock.eyebrow')}</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">{t('home.portfolioBlock.title')}</h2><p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{t('home.portfolioBlock.text')}</p>
-          <div className="mt-12 grid gap-7 md:grid-cols-2 xl:grid-cols-3">{portfolio.map(([name, segment, link]) => <article key={name} className="rounded-3xl bg-slate-50 p-6 shadow-lg ring-1 ring-slate-200"><div className="mb-5 flex h-36 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-slate-950 text-center text-white"><div><FaBuilding className="mx-auto mb-3 text-3xl text-cyan-300" /><p className="text-xl font-extrabold">{name}</p><p className="mt-1 text-sm text-blue-100">{t(segment)}</p></div></div><p className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 inline-block">Site profissional</p><p className="mt-3 text-sm leading-7 text-slate-600">Presenca digital para comunicar valor, gerar confianca e facilitar contato comercial.</p><a href={link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 font-bold text-blue-700">Ver projeto <FaExternalLinkAlt /></a></article>)}</div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-24"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Metodo</p><h2 className="mt-3 text-3xl font-extrabold text-slate-950 sm:text-4xl">Da ideia a solucao funcionando.</h2></div><div className="mt-14 grid gap-5 lg:grid-cols-5">{steps.map((step, i)=><div key={step} className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-slate-200"><span className="text-sm font-extrabold text-blue-600">0{i+1}</span><h3 className="mt-3 text-lg font-extrabold text-slate-950">{t(step)}</h3><p className="mt-3 text-sm leading-7 text-slate-600">Etapa estruturada para reduzir risco, validar valor e entregar com clareza.</p></div>)}</div></div></section>
-
-      <section className="bg-white py-20"><div className="mx-auto max-w-7xl px-6 lg:px-8"><div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl md:p-12"><div className="grid gap-10 lg:grid-cols-2 lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">Segmentos</p><h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Tecnologia para negocios reais.</h2></div><div className="flex flex-wrap gap-3">{segments.map((segment)=><span key={segment} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold">{t(segment)}</span>)}</div></div></div></div></section>
-
-      <section className="bg-slate-50 py-24"><div className="mx-auto max-w-4xl px-6 text-center lg:px-8"><FaLayerGroup className="mx-auto mb-5 text-4xl text-blue-700" /><h2 className="text-3xl font-extrabold text-slate-950 sm:text-4xl">Tem uma ideia, processo manual ou negocio que precisa de tecnologia?</h2><p className="mt-5 text-lg leading-8 text-slate-600">A HelpUS pode transformar isso em site, sistema, automacao ou solucao com IA.</p><div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Link to="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-7 py-3 font-bold text-white">Agendar conversa <FaArrowRight /></Link><a href="https://wa.me/5583998721848" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-7 py-3 font-bold text-white"><FaWhatsapp /> Chamar no WhatsApp</a></div></div></section>
-    </main>
+    </div>
   );
-}
+};
+
+export default Home;
