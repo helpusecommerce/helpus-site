@@ -11,4 +11,5 @@ export const partnerDomains = {
   katiaxavier:  `https://katiaxavier.${BASE_DOMAIN}`,
   marciotopbarber: `https://marciotopbarber.${BASE_DOMAIN}`,
   studionaldohair: `https://studionaldohair.${BASE_DOMAIN}`,
+  aidoctor:        `https://aidoctor.${BASE_DOMAIN}`,
 };
